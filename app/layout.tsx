@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import ThemeProvider from "@hububb/design-system/theme-provider";
+import { TooltipProvider } from "@hububb/design-system/tooltip";
 import "./globals.css";
 
 // The design system's type system is built on Inter. Self-host it so the DS
@@ -31,7 +32,9 @@ export default function RootLayout({
       className={`${inter.variable} h-full`}
     >
       <body className="min-h-full bg-background text-foreground antialiased">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <TooltipProvider>{children}</TooltipProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
