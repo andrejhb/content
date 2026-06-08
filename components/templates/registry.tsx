@@ -3,6 +3,7 @@ import { StatementTemplate } from "./statement";
 import { ProblemToCalmTemplate } from "./problem-to-calm";
 import { ProofCardTemplate } from "./proof-card";
 import { ImageCardTemplate } from "./image-card";
+import { FeatureCardTemplate } from "./feature-card";
 import { ShowcaseTemplate } from "./showcase";
 
 type TemplateComponent = (props: {
@@ -34,6 +35,11 @@ export const TEMPLATES: Record<
     label: "Image card",
     blurb: "Eyebrow + headline over a large supplied image.",
     Component: ImageCardTemplate,
+  },
+  "feature-card": {
+    label: "Feature card",
+    blurb: "Phone mockup floating on a neutral surface panel.",
+    Component: FeatureCardTemplate,
   },
   showcase: {
     label: "Showcase",

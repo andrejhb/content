@@ -22,7 +22,7 @@ Read `.agents/product-marketing.md` — positioning, audience, voice, proof, and
 Apply the **ad-creative** skill to sharpen the angle and the **copywriting** skill to write copy, both in the Hububb voice. Keep it tight: sentence case, no exclamation marks, no em-dashes, no banned words, no "all-in-one". The only proof claim allowed is **"tested on hundreds of real London properties"** — no host counts, ratings, revenue, or testimonials. Live features are present tense (AI guest messaging is live); anything unbuilt is "coming soon". No competitor names.
 
 ### 3. Choose templates + formats
-Five templates exist. Pick every one that genuinely fits the angle (or those the user asked for):
+Six templates exist. Pick every one that genuinely fits the angle (or those the user asked for):
 
 Type-only (no image):
 - **statement** — one strong line, pure type on a dark background. Slots: `eyebrow`, `headline`, `subhead`.
@@ -31,6 +31,7 @@ Type-only (no image):
 
 Image-driven (need a supplied image):
 - **image-card** — eyebrow + headline up top, a large rounded image below (lifestyle photo or product screen). Slots: `eyebrow`, `headline`, `subhead`, `image`, `variant`.
+- **feature-card** — same text treatment as image-card, but the image area is a neutral surface panel (soft mono gradient) with a phone mockup floating inside it (device shadow). Product-led feature ads where the screenshot is the focal point. Slots: `eyebrow`, `headline`, `subhead`, `image`, `variant`.
 - **showcase** — headline, three floating icon badges, and a product screenshot. Slots: `headline`, `image`, `variant`, `copy.badges` (Phosphor icon names, e.g. `["Broom","Airplane","House"]`).
 
 Formats (always all four unless told otherwise): `1x1`, `4x5`, `9x16`, `16x9`.

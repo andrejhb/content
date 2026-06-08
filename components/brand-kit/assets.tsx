@@ -4,9 +4,11 @@ import { ImageSquare } from "@phosphor-icons/react/dist/ssr";
 import { Card, CardLabel, Mono } from "@/components/site/kit";
 
 const GROUPS = [
-  { key: "logos", label: "Logos", hint: "SVG / PNG logo lockups and the symbol" },
+  { key: "logos", label: "Logos", hint: "Hububb symbol + wordmark" },
+  { key: "mockups", label: "Phone mockups", hint: "Phone-in-scene marketing shots" },
+  { key: "screens", label: "Product screens", hint: "Real app screenshots" },
+  { key: "channels", label: "Channels & tools", hint: "Channel, PMS, and messaging logos" },
   { key: "photos", label: "Photos", hint: "Lifestyle photography for image cards" },
-  { key: "screens", label: "Product screens", hint: "Real app screenshots for showcase creatives" },
   { key: "graphics", label: "Graphics", hint: "Background textures, patterns, shapes" },
 ];
 
@@ -14,7 +16,7 @@ const IMG = /\.(svg|png|jpe?g|webp|avif|gif)$/i;
 
 async function listImages(dir: string): Promise<string[]> {
   try {
-    const entries = await readdir(path.join(process.cwd(), "brand", dir));
+    const entries = await readdir(path.join(process.cwd(), "assets", dir));
     return entries.filter((f) => IMG.test(f)).sort();
   } catch {
     return [];
@@ -22,8 +24,7 @@ async function listImages(dir: string): Promise<string[]> {
 }
 
 function Tile({ group, file }: { group: string; file: string }) {
-  const src = `/brand-asset/${group}/${file}`;
-  const isLogo = group === "logos";
+  const src = `/asset/${group}/${file}`;
   return (
     <figure className="flex flex-col gap-2">
       <div className="flex h-24 items-center justify-center overflow-hidden rounded-lg border border-border bg-surface p-4">
@@ -32,9 +33,11 @@ function Tile({ group, file }: { group: string; file: string }) {
           src={src}
           alt={file}
           className={
-            isLogo
+            group === "logos"
               ? "site-logo max-h-full max-w-full object-contain"
-              : "h-full w-full object-cover"
+              : group === "photos"
+                ? "h-full w-full object-cover"
+                : "max-h-full max-w-full object-contain"
           }
         />
       </div>

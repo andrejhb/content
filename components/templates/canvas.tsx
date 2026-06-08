@@ -40,8 +40,8 @@ export function BrandMark({
 }) {
   const src =
     variant === "symbol"
-      ? "/brand-asset/logos/hububb-symbol.svg"
-      : "/brand-asset/logos/hububb-wordmark.svg";
+      ? "/asset/logos/hububb-symbol.svg"
+      : "/asset/logos/hububb-wordmark.svg";
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img

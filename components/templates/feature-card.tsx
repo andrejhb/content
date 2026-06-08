@@ -1,0 +1,122 @@
+import type { Brief } from "@/lib/creatives";
+import { CreativeCanvas } from "./canvas";
+
+// Feature card — image-card's text treatment, but the image area is a neutral
+// SURFACE PANEL (soft mono gradient) with a phone mockup floating inside it.
+// Product-led feature ads: the screenshot is the focal point, the surface and
+// device shadow do the polish. Light or dark. The image is a supplied mockup or
+// product screenshot.
+export function FeatureCardTemplate({
+  brief,
+  w,
+  h,
+}: {
+  brief: Brief;
+  w: number;
+  h: number;
+}) {
+  const c = brief.copy;
+  const dark = brief.variant === "dark";
+  const landscape = w > h;
+  const pad = Math.round(Math.min(w, h) * 0.07);
+  const eye = Math.round(w * 0.022);
+  const head = Math.round(Math.min(w, h * 1.05) * (landscape ? 0.058 : 0.066));
+  const panelPad = Math.round(Math.min(w, h) * 0.06);
+  // 1x1 and 4x5: the phone goes large and bleeds off the bottom of the panel
+  // (like the website feature cards). 9x16 and 16x9 keep the contained phone.
+  const aspect = w / h;
+  const clip = aspect >= 0.7 && aspect <= 1.3;
+  const clipTop = Math.round(Math.min(w, h) * 0.07);
+  // 1x1 panel is the shortest, so the phone clips hardest there — make it a bit
+  // narrower (shorter) on the square so more of the screen shows. 4x5 keeps more.
+  const clipWidth = aspect >= 0.95 ? "52%" : "66%";
+
+  const bg = dark ? "bg-mono-20 text-mono-1" : "bg-mono-1 text-mono-21";
+  const eyeColor = dark ? "text-mono-5" : "text-mono-11";
+  const frame = dark ? "border-mono-18" : "border-mono-4";
+  const surface = dark
+    ? "radial-gradient(125% 120% at 50% 0%, var(--color-mono-19) 0%, var(--color-mono-21) 100%)"
+    : "radial-gradient(125% 120% at 50% 0%, var(--color-mono-2) 0%, var(--color-mono-4) 100%)";
+  // drop-shadow follows the device's alpha shape (not a rectangle), so framed
+  // phones and rounded screenshots both float cleanly on the surface.
+  const deviceShadow = dark
+    ? "drop-shadow(0 20px 32px rgba(0,0,0,0.55))"
+    : "drop-shadow(0 18px 30px rgba(0,0,0,0.16))";
+
+  const text = (
+    <div className="flex flex-col" style={{ gap: Math.round(head * 0.18) }}>
+      {c.eyebrow ? (
+        <span
+          className={`font-mono ${eyeColor}`}
+          style={{ fontSize: eye, letterSpacing: "0.01em" }}
+        >
+          {c.eyebrow}
+        </span>
+      ) : null}
+      <h1
+        className="font-semibold tracking-tight text-balance"
+        style={{ fontSize: head, lineHeight: 1.05 }}
+      >
+        {c.headline}
+      </h1>
+      {c.subhead ? (
+        <p
+          className={dark ? "text-mono-4" : "text-mono-11"}
+          style={{
+            fontSize: Math.round(w * 0.026),
+            lineHeight: 1.35,
+            maxWidth: landscape ? "100%" : w * 0.82,
+          }}
+        >
+          {c.subhead}
+        </p>
+      ) : null}
+    </div>
+  );
+
+  const panel = (
+    <div
+      className={`flex min-h-0 flex-1 justify-center overflow-hidden rounded-3xl border ${frame} ${clip ? "items-start" : "items-center"}`}
+      style={{ background: surface, padding: clip ? 0 : panelPad }}
+    >
+      {brief.image ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={brief.image}
+          alt={c.headline ?? ""}
+          className={clip ? "" : "max-h-full max-w-full rounded-2xl object-contain"}
+          style={
+            clip
+              ? { width: clipWidth, marginTop: clipTop, filter: deviceShadow }
+              : { filter: deviceShadow }
+          }
+        />
+      ) : (
+        <span className="font-mono text-mono-11" style={{ fontSize: eye }}>
+          supply a screenshot
+        </span>
+      )}
+    </div>
+  );
+
+  return (
+    <CreativeCanvas w={w} h={h} className={bg}>
+      <div
+        className={`absolute inset-0 flex ${landscape ? "flex-row items-stretch" : "flex-col"}`}
+        style={{ padding: pad, gap: pad }}
+      >
+        {landscape ? (
+          <>
+            <div className="flex w-[42%] shrink-0 flex-col justify-center">{text}</div>
+            {panel}
+          </>
+        ) : (
+          <>
+            {text}
+            {panel}
+          </>
+        )}
+      </div>
+    </CreativeCanvas>
+  );
+}

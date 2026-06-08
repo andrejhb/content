@@ -25,8 +25,8 @@ export function ProofCardTemplate({
         style={{ padding: pad }}
       >
         <span
-          className="font-mono text-mono-11 uppercase"
-          style={{ fontSize: eye, letterSpacing: "0.16em" }}
+          className="font-mono text-mono-11"
+          style={{ fontSize: eye, letterSpacing: "0.01em" }}
         >
           {c.eyebrow ?? "Proof"}
         </span>

@@ -26,18 +26,16 @@ export function ImageCardTemplate({
 
   const text = (
     <div className="flex flex-col" style={{ gap: Math.round(head * 0.18) }}>
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex items-center" style={{ gap: Math.round(mark * 0.5) }}>
+        {brief.brandMark ? <BrandMark height={mark} invert={dark} /> : null}
         {c.eyebrow ? (
           <span
-            className={`font-mono uppercase ${eyeColor}`}
-            style={{ fontSize: eye, letterSpacing: "0.06em" }}
+            className={`font-mono ${eyeColor}`}
+            style={{ fontSize: eye, letterSpacing: "0.01em" }}
           >
             {c.eyebrow}
           </span>
-        ) : (
-          <span />
-        )}
-        {brief.brandMark ? <BrandMark height={mark} invert={dark} /> : null}
+        ) : null}
       </div>
       <h1
         className="font-semibold tracking-tight text-balance"
@@ -78,7 +76,7 @@ export function ImageCardTemplate({
   return (
     <CreativeCanvas w={w} h={h} className={bg}>
       <div
-        className={`absolute inset-0 flex ${landscape ? "flex-row items-center" : "flex-col"}`}
+        className={`absolute inset-0 flex ${landscape ? "flex-row items-stretch" : "flex-col"}`}
         style={{ padding: pad, gap: pad }}
       >
         {landscape ? (

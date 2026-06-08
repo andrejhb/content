@@ -3,7 +3,7 @@ import path from "node:path";
 
 // Serves files from the repo's brand/ folder (which lives outside /public) so
 // the brand hub can display logos, graphics, and photos by relative path.
-const ROOT = path.join(process.cwd(), "brand");
+const ROOT = path.join(process.cwd(), "assets");
 
 const TYPES: Record<string, string> = {
   ".svg": "image/svg+xml",

@@ -7,6 +7,7 @@ export type TemplateKey =
   | "problem-to-calm"
   | "proof-card"
   | "image-card"
+  | "feature-card"
   | "showcase";
 
 export type CreativeCopy = {
@@ -33,7 +34,7 @@ export type Brief = {
   template: TemplateKey;
   formats: FormatKey[];
   brandMark: boolean;
-  image?: string | null; // a served path, e.g. /brand-asset/screens/messaging.png
+  image?: string | null; // a served path, e.g. /asset/screens/messaging.png
   variant?: "light" | "dark";
   copy: CreativeCopy;
   qa?: QaResult;

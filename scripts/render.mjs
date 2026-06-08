@@ -13,7 +13,7 @@ import path from "node:path";
 
 const ROOT = path.join(process.cwd(), "creatives");
 const BASE = process.env.RENDER_BASE_URL || "http://localhost:3000";
-const READY_URL = `${BASE}/brand-asset/logos/hububb-symbol.svg`;
+const READY_URL = `${BASE}/asset/logos/hububb-symbol.svg`;
 
 const FORMATS = {
   "1x1": { w: 1080, h: 1080 },

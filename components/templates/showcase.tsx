@@ -47,7 +47,9 @@ export function ShowcaseTemplate({
   const badgeIcon = Math.round(badge * 0.42);
   const mark = Math.round(w * 0.032);
 
-  const bg = dark ? "bg-mono-20 text-mono-1" : "bg-mono-1 text-mono-21";
+  const bg = dark ? "bg-mono-20 text-mono-1" : "text-mono-21";
+  const lightGradient =
+    "radial-gradient(115% 90% at 50% 6%, var(--color-mono-1) 0%, var(--color-mono-2) 55%, var(--color-mono-4) 100%)";
   const badgeBg = dark ? "bg-mono-1 text-mono-21" : "bg-mono-21 text-mono-1";
   const frame = dark ? "border-mono-18" : "border-mono-4";
 
@@ -69,7 +71,12 @@ export function ShowcaseTemplate({
   );
 
   return (
-    <CreativeCanvas w={w} h={h} className={bg}>
+    <CreativeCanvas
+      w={w}
+      h={h}
+      className={bg}
+      style={dark ? undefined : { background: lightGradient }}
+    >
       <div className="absolute inset-0 flex flex-col" style={{ padding: pad, gap: pad }}>
         <h1
           className="font-semibold tracking-tight text-balance"

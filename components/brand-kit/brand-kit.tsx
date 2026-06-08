@@ -34,7 +34,7 @@ const NAV = [
   { id: "foundations", label: "Foundations" },
   { id: "components", label: "Components" },
   { id: "icons", label: "Icons" },
-  { id: "assets", label: "Logos, graphics, photos" },
+  { id: "assets", label: "Assets" },
 ];
 
 export async function BrandKit() {
@@ -140,9 +140,9 @@ export async function BrandKit() {
 
           <Section
             id="assets"
-            eyebrow="Placeholders until assets land"
-            title="Logos, graphics, photos"
-            description="Drop files into brand/ and they appear here."
+            eyebrow="Logos · mockups · screens · channels · photos"
+            title="Assets"
+            description="Everything lives in one assets/ folder. Drop files in and they appear here, ready to use in creatives."
           >
             <Assets />
           </Section>

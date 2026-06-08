@@ -30,8 +30,8 @@ export function ProblemToCalmTemplate({
           style={{ padding: pad }}
         >
           <span
-            className="font-mono text-mono-11 uppercase"
-            style={{ fontSize: label, letterSpacing: "0.14em" }}
+            className="font-mono text-mono-11"
+            style={{ fontSize: label, letterSpacing: "0.01em" }}
           >
             {c.problemLabel ?? "The second job"}
           </span>
@@ -55,8 +55,8 @@ export function ProblemToCalmTemplate({
           style={{ padding: pad }}
         >
           <span
-            className="font-mono text-mono-5 uppercase"
-            style={{ fontSize: label, letterSpacing: "0.14em" }}
+            className="font-mono text-mono-5"
+            style={{ fontSize: label, letterSpacing: "0.01em" }}
           >
             {c.calmLabel ?? "The calm layer"}
           </span>

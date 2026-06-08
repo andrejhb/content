@@ -17,7 +17,6 @@ export function StatementTemplate({
   const eye = Math.round(w * 0.0225);
   const sub = Math.round(w * 0.028);
   const mark = Math.round(w * 0.034);
-  const symbol = Math.round(w * 0.05);
 
   return (
     <CreativeCanvas w={w} h={h} className="bg-mono-20 text-mono-1">
@@ -28,17 +27,14 @@ export function StatementTemplate({
         <div className="flex items-start justify-between">
           {c.eyebrow ? (
             <span
-              className="font-mono text-mono-5 uppercase"
-              style={{ fontSize: eye, letterSpacing: "0.14em" }}
+              className="font-mono text-mono-5"
+              style={{ fontSize: eye, letterSpacing: "0.01em" }}
             >
               {c.eyebrow}
             </span>
           ) : (
             <span />
           )}
-          {brief.brandMark ? (
-            <BrandMark variant="symbol" height={symbol} invert />
-          ) : null}
         </div>
 
         <h1
