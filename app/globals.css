@@ -1,0 +1,25 @@
+/*
+ * App stylesheet.
+ *
+ * Every design token, the Tailwind v4 layer, and the light/dark semantic vars
+ * come from @hububb/design-system/styles.css. We never redefine a colour, font,
+ * radius, or shadow here — brand updates flow in by bumping the dependency.
+ */
+@import "@hububb/design-system/styles.css";
+
+/*
+ * Tailwind v4 skips node_modules during automatic source detection, so register
+ * the design-system source explicitly. This makes Tailwind generate the utility
+ * classes the DS primitives reference (bg-card, text-t1, shadow-elevation-2, …).
+ */
+@source "../node_modules/@hububb/design-system";
+
+/*
+ * The DS declares --font-sans / --font-mono as 'Inter'. We self-host Inter via
+ * next/font and point the token at that asset — same design value, no network
+ * dependency, and deterministic for Playwright PNG renders.
+ */
+:root {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-inter), ui-monospace, monospace;
+}
