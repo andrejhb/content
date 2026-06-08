@@ -22,12 +22,20 @@ Read `.agents/product-marketing.md` — positioning, audience, voice, proof, and
 Apply the **ad-creative** skill to sharpen the angle and the **copywriting** skill to write copy, both in the Hububb voice. Keep it tight: sentence case, no exclamation marks, no em-dashes, no banned words, no "all-in-one". The only proof claim allowed is **"tested on hundreds of real London properties"** — no host counts, ratings, revenue, or testimonials. Live features are present tense (AI guest messaging is live); anything unbuilt is "coming soon". No competitor names.
 
 ### 3. Choose templates + formats
-Three templates exist. Pick every one that genuinely fits the angle (or those the user asked for):
+Five templates exist. Pick every one that genuinely fits the angle (or those the user asked for):
+
+Type-only (no image):
 - **statement** — one strong line, pure type on a dark background. Slots: `eyebrow`, `headline`, `subhead`.
 - **problem-to-calm** — the second job (chaos) vs. the calm layer, split. Slots: `problemLabel`, `problems` (3–4 short items), `calmLabel`, `calm` (the payoff line), optional `subhead`.
 - **proof-card** — built around the London proof point. Slots: `eyebrow`, `headline` (usually the proof claim), `subhead`.
 
+Image-driven (need a supplied image):
+- **image-card** — eyebrow + headline up top, a large rounded image below (lifestyle photo or product screen). Slots: `eyebrow`, `headline`, `subhead`, `image`, `variant`.
+- **showcase** — headline, three floating icon badges, and a product screenshot. Slots: `headline`, `image`, `variant`, `copy.badges` (Phosphor icon names, e.g. `["Broom","Airplane","House"]`).
+
 Formats (always all four unless told otherwise): `1x1`, `4x5`, `9x16`, `16x9`.
+
+**Imagery.** Real photos and product screenshots only — never AI-generated or faked UI. The user supplies images; put them in `brand/photos/` (lifestyle) or `brand/screens/` (product) and reference them as a served path in `image`, e.g. `"/brand-asset/screens/messaging.png"`. Set `variant` to `"light"` or `"dark"` to match the image. The house style: big sentence-case headline up top, real imagery as the focal point, restrained (Linear/Stripe register), light + dark variants. (Swipefile best practices: one dominant message, benefit-led headline, customer-first, a single clear visual focal point.)
 
 ### 4. Write a creative record per template
 Each template = its own creative folder `creatives/<id>/brief.json`. Use id `YYYY-MM-DD-<slug>-<template>`. Schema:

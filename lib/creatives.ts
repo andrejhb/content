@@ -2,7 +2,12 @@ import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import type { FormatKey } from "@/lib/formats";
 
-export type TemplateKey = "statement" | "problem-to-calm" | "proof-card";
+export type TemplateKey =
+  | "statement"
+  | "problem-to-calm"
+  | "proof-card"
+  | "image-card"
+  | "showcase";
 
 export type CreativeCopy = {
   eyebrow?: string;
@@ -13,6 +18,8 @@ export type CreativeCopy = {
   problems?: string[];
   calmLabel?: string;
   calm?: string;
+  // showcase — Phosphor icon names for the floating badges (e.g. ["Broom","Airplane","House"])
+  badges?: string[];
 };
 
 export type QaCheck = { rule: string; ok: boolean; detail?: string };
@@ -26,7 +33,8 @@ export type Brief = {
   template: TemplateKey;
   formats: FormatKey[];
   brandMark: boolean;
-  image?: string | null;
+  image?: string | null; // a served path, e.g. /brand-asset/screens/messaging.png
+  variant?: "light" | "dark";
   copy: CreativeCopy;
   qa?: QaResult;
 };

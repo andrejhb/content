@@ -2,6 +2,8 @@ import type { Brief, TemplateKey } from "@/lib/creatives";
 import { StatementTemplate } from "./statement";
 import { ProblemToCalmTemplate } from "./problem-to-calm";
 import { ProofCardTemplate } from "./proof-card";
+import { ImageCardTemplate } from "./image-card";
+import { ShowcaseTemplate } from "./showcase";
 
 type TemplateComponent = (props: {
   brief: Brief;
@@ -27,6 +29,16 @@ export const TEMPLATES: Record<
     label: "Proof card",
     blurb: "Built around the London proof point.",
     Component: ProofCardTemplate,
+  },
+  "image-card": {
+    label: "Image card",
+    blurb: "Eyebrow + headline over a large supplied image.",
+    Component: ImageCardTemplate,
+  },
+  showcase: {
+    label: "Showcase",
+    blurb: "Headline, icon badges, and a product screenshot.",
+    Component: ShowcaseTemplate,
   },
 };
 

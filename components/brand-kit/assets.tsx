@@ -5,8 +5,9 @@ import { Card, CardLabel, Mono } from "@/components/site/kit";
 
 const GROUPS = [
   { key: "logos", label: "Logos", hint: "SVG / PNG logo lockups and the symbol" },
+  { key: "photos", label: "Photos", hint: "Lifestyle photography for image cards" },
+  { key: "screens", label: "Product screens", hint: "Real app screenshots for showcase creatives" },
   { key: "graphics", label: "Graphics", hint: "Background textures, patterns, shapes" },
-  { key: "photos", label: "Photos", hint: "Lifestyle and product photography" },
 ];
 
 const IMG = /\.(svg|png|jpe?g|webp|avif|gif)$/i;
