@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   // transpile it rather than expect prebuilt JS.
   transpilePackages: ["@hububb/design-system"],
 
+  // Hide the dev-mode indicator so it never lands in a rendered creative.
+  devIndicators: false,
+
   // Dev-preview gating. Mirrors hububb-presentations/_headers so this surface
   // stays out of search while it's a preview, before it goes live.
   async headers() {
