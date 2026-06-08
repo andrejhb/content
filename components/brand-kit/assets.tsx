@@ -20,6 +20,28 @@ async function listImages(dir: string): Promise<string[]> {
   }
 }
 
+function Tile({ group, file }: { group: string; file: string }) {
+  const src = `/brand-asset/${group}/${file}`;
+  const isLogo = group === "logos";
+  return (
+    <figure className="flex flex-col gap-2">
+      <div className="flex h-24 items-center justify-center overflow-hidden rounded-lg border border-border bg-surface p-4">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={src}
+          alt={file}
+          className={
+            isLogo
+              ? "site-logo max-h-full max-w-full object-contain"
+              : "h-full w-full object-cover"
+          }
+        />
+      </div>
+      <Mono className="truncate">{file}</Mono>
+    </figure>
+  );
+}
+
 export async function Assets() {
   const groups = await Promise.all(
     GROUPS.map(async (g) => ({ ...g, files: await listImages(g.key) })),
@@ -35,13 +57,11 @@ export async function Assets() {
           </div>
 
           {g.files.length > 0 ? (
-            <ul className="mt-4 flex flex-col gap-1.5">
+            <div className="mt-4 grid grid-cols-2 gap-3">
               {g.files.map((f) => (
-                <li key={f} className="truncate text-caption text-t2">
-                  {f}
-                </li>
+                <Tile key={f} group={g.key} file={f} />
               ))}
-            </ul>
+            </div>
           ) : (
             <div className="mt-4 flex flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-border bg-surface px-4 py-8 text-center">
               <ImageSquare className="size-6 text-dim" />
