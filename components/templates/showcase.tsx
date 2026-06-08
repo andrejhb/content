@@ -27,8 +27,9 @@ const ICON_MAP: Record<string, ComponentType<{ className?: string }>> = {
   Broadcast,
 };
 
-// Showcase — headline, floating icon badges, and a product screenshot.
-// The hero brand layout (Linear/Stripe register). Light or dark.
+// Showcase — headline + a product screenshot (the hero), with OPTIONAL accent
+// icon badges. Badges only render when copy.badges is set AND there's a mockup;
+// the screenshot always leads. Light or dark.
 export function ShowcaseTemplate({
   brief,
   w,
@@ -42,7 +43,7 @@ export function ShowcaseTemplate({
   const dark = brief.variant !== "light"; // default dark
   const pad = Math.round(Math.min(w, h) * 0.075);
   const head = Math.round(Math.min(w, h * 1.05) * 0.066);
-  const badge = Math.round(Math.min(w, h) * 0.13);
+  const badge = Math.round(Math.min(w, h) * 0.115);
   const badgeIcon = Math.round(badge * 0.42);
   const mark = Math.round(w * 0.032);
 
@@ -50,8 +51,22 @@ export function ShowcaseTemplate({
   const badgeBg = dark ? "bg-mono-1 text-mono-21" : "bg-mono-21 text-mono-1";
   const frame = dark ? "border-mono-18" : "border-mono-4";
 
-  const badgeNames =
-    c.badges && c.badges.length ? c.badges : ["Broom", "Airplane", "House"];
+  const hasImage = Boolean(brief.image);
+  const badgeNames = c.badges && c.badges.length ? c.badges.slice(0, 3) : [];
+  const showBadges = hasImage && badgeNames.length > 0;
+
+  const mockup = hasImage ? (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={brief.image as string}
+      alt={c.headline ?? ""}
+      className={`max-h-full max-w-full rounded-3xl border object-contain shadow-elevation-5 ${frame}`}
+    />
+  ) : (
+    <div className={`flex h-2/3 w-1/2 items-center justify-center rounded-3xl border ${frame}`}>
+      <span className="font-mono text-mono-11">supply a screenshot</span>
+    </div>
+  );
 
   return (
     <CreativeCanvas w={w} h={h} className={bg}>
@@ -64,42 +79,34 @@ export function ShowcaseTemplate({
         </h1>
 
         <div className="flex min-h-0 flex-1" style={{ gap: pad }}>
-          {/* Floating icon badges */}
-          <div className="flex shrink-0 flex-col justify-center" style={{ gap: Math.round(badge * 0.35) }}>
-            {badgeNames.slice(0, 3).map((name, i) => {
-              const Icon = ICON_MAP[name] ?? House;
-              return (
-                <div
-                  key={`${name}-${i}`}
-                  className={`flex items-center justify-center rounded-full shadow-elevation-4 ${badgeBg}`}
-                  style={{
-                    width: badge,
-                    height: badge,
-                    marginLeft: i === 1 ? Math.round(badge * 0.55) : 0,
-                  }}
-                >
-                  <span style={{ fontSize: badgeIcon, lineHeight: 0 }}>
-                    <Icon />
-                  </span>
-                </div>
-              );
-            })}
-          </div>
+          {showBadges ? (
+            <div
+              className="flex shrink-0 flex-col justify-center"
+              style={{ gap: Math.round(badge * 0.35) }}
+            >
+              {badgeNames.map((name, i) => {
+                const Icon = ICON_MAP[name] ?? House;
+                return (
+                  <div
+                    key={`${name}-${i}`}
+                    className={`flex items-center justify-center rounded-full shadow-elevation-4 ${badgeBg}`}
+                    style={{
+                      width: badge,
+                      height: badge,
+                      marginLeft: i === 1 ? Math.round(badge * 0.5) : 0,
+                    }}
+                  >
+                    <span style={{ fontSize: badgeIcon, lineHeight: 0 }}>
+                      <Icon />
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          ) : null}
 
-          {/* Product screenshot — fit to the region, real aspect preserved */}
           <div className="flex min-h-0 flex-1 items-center justify-center">
-            {brief.image ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={brief.image}
-                alt={c.headline ?? ""}
-                className={`max-h-full max-w-full rounded-3xl border object-contain shadow-elevation-5 ${frame}`}
-              />
-            ) : (
-              <div className={`flex h-2/3 w-1/2 items-center justify-center rounded-3xl border ${frame}`}>
-                <span className="font-mono text-mono-11">supply an image</span>
-              </div>
-            )}
+            {mockup}
           </div>
         </div>
 
