@@ -1,4 +1,4 @@
-import { getBrandDoc, getSections } from "@/lib/brand";
+import { getSections } from "@/lib/brand";
 import { Section } from "@/components/site/section";
 import { SectionBlocks } from "@/components/brand-kit/section-blocks";
 import { Colours } from "@/components/brand-kit/colours";
@@ -38,12 +38,6 @@ const NAV = [
 ];
 
 export async function BrandKit() {
-  const doc = await getBrandDoc();
-  const overview = doc.byTitle["Product Overview"]?.body ?? "";
-  const headline = overview.match(/Headline:\s*(.+)/)?.[1]?.trim();
-  const positioning = overview.match(/Positioning:\s*(.+)/)?.[1]?.trim();
-  const oneLiner = overview.match(/\*\*One-liner:\*\*\s*(.+)/)?.[1]?.trim();
-
   const [coreSections, voiceSections] = await Promise.all([
     getSections(CORE_TITLES),
     getSections(VOICE_TITLES),
@@ -51,30 +45,16 @@ export async function BrandKit() {
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12">
-      {/* Hero — derived from product-marketing.md, nothing typed by hand */}
-      <div className="border-b border-border pb-10">
+      <header>
         <p className="font-mono text-caption tracking-wide text-dim uppercase">
-          Hububb Host · brand hub
+          Brand kit
         </p>
-        {headline ? (
-          <h1 className="mt-3 max-w-3xl text-display-2 leading-display-2 font-semibold text-t1">
-            {headline}
-          </h1>
-        ) : null}
-        {positioning ? (
-          <p className="mt-4 max-w-2xl text-body-lg leading-body-lg text-t3">
-            {positioning}
-          </p>
-        ) : null}
-        <div className="mt-5 flex flex-wrap items-center gap-2.5 font-mono text-caption text-muted">
-          {oneLiner ? (
-            <span className="rounded-full border border-border px-2.5 py-1 text-t2">
-              {oneLiner}
-            </span>
-          ) : null}
-          {doc.updated ? <span>updated {doc.updated}</span> : null}
-        </div>
-      </div>
+        <h2 className="mt-1 text-heading-3 leading-heading-3 text-t1">Brand hub</h2>
+        <p className="mt-2 max-w-2xl text-body text-t3">
+          Positioning, voice, and the living design system — from
+          product-marketing.md and @hububb/design-system. Share it with the team.
+        </p>
+      </header>
 
       <div className="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-[190px_1fr]">
         <aside className="hidden lg:block">
