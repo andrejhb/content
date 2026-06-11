@@ -7,13 +7,20 @@
 // starts one and shuts it down afterwards.
 
 import { chromium } from "playwright";
+import sharp from "sharp";
 import { spawn } from "node:child_process";
-import { readFile, mkdir } from "node:fs/promises";
+import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 
 const ROOT = path.join(process.cwd(), "creatives");
 const BASE = process.env.RENDER_BASE_URL || "http://localhost:3000";
 const READY_URL = `${BASE}/asset/logos/hububb-symbol.svg`;
+
+// Supersample: render at SCALE× device pixels for crisp text/edges, then
+// downscale back to the exact format size with a high-quality Lanczos filter.
+// RENDER_SCALE controls the factor; RENDER_DOWNSCALE=0 keeps the larger master.
+const SCALE = Math.max(1, Math.min(4, Number(process.env.RENDER_SCALE) || 3));
+const DOWNSCALE = process.env.RENDER_DOWNSCALE !== "0";
 
 const FORMATS = {
   "1x1": { w: 1080, h: 1080 },
@@ -43,17 +50,31 @@ async function waitUntilUp(timeoutMs) {
 async function ensureServer() {
   if (await isUp()) return { spawned: false, proc: null };
   console.log("• no dev server detected — starting one…");
+  // detached so the child gets its own process group — lets us kill the whole
+  // tree (npm + next-server) on cleanup instead of orphaning the server.
   const proc = spawn("npm", ["run", "dev"], {
     cwd: process.cwd(),
     stdio: "ignore",
     env: process.env,
+    detached: true,
   });
   const ok = await waitUntilUp(90_000);
   if (!ok) {
-    proc.kill("SIGTERM");
+    stopServer(proc);
     throw new Error("dev server did not come up within 90s");
   }
   return { spawned: true, proc };
+}
+
+function stopServer(proc) {
+  if (!proc) return;
+  try {
+    process.kill(-proc.pid, "SIGTERM"); // kill the whole process group
+  } catch {
+    try {
+      proc.kill("SIGTERM");
+    } catch {}
+  }
 }
 
 async function renderCreative(browser, id) {
@@ -73,7 +94,7 @@ async function renderCreative(browser, id) {
       console.warn(`  ! unknown format ${key} — skipping`);
       continue;
     }
-    const page = await browser.newPage({ viewport: { width: f.w, height: f.h }, deviceScaleFactor: 1 });
+    const page = await browser.newPage({ viewport: { width: f.w, height: f.h }, deviceScaleFactor: SCALE });
     try {
       await page.goto(`${BASE}/render/${id}/${key}`, {
         waitUntil: "networkidle",
@@ -89,8 +110,18 @@ async function renderCreative(browser, id) {
         )
         .catch(() => {});
       const out = path.join(outDir, `${key}.png`);
-      await el.screenshot({ path: out });
-      console.log(`  ✓ ${key}  (${f.w}×${f.h})  → creatives/${id}/${key}.png`);
+      const shot = await el.screenshot({ type: "png" });
+      if (DOWNSCALE && SCALE > 1) {
+        // Downscale the supersampled capture to the exact format size.
+        await sharp(shot)
+          .resize(f.w, f.h, { kernel: "lanczos3" })
+          .png({ compressionLevel: 9 })
+          .toFile(out);
+      } else {
+        await writeFile(out, shot);
+      }
+      const dims = DOWNSCALE ? `${f.w}×${f.h}` : `${f.w * SCALE}×${f.h * SCALE}`;
+      console.log(`  ✓ ${key}  (${dims}${SCALE > 1 ? `, ${SCALE}x supersampled` : ""})  → creatives/${id}/${key}.png`);
     } finally {
       await page.close();
     }
@@ -113,7 +144,7 @@ async function main() {
     }
   } finally {
     await browser.close();
-    if (server.spawned && server.proc) server.proc.kill("SIGTERM");
+    if (server.spawned) stopServer(server.proc);
   }
   console.log("\nDone.");
 }
