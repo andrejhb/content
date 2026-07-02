@@ -11,8 +11,11 @@ import path from "node:path";
 const ROOT = path.join(process.cwd(), "creatives");
 const PRODUCTS = path.join(process.cwd(), "products");
 
+// "all-in-one" was banned under the old "opinionated simplicity" positioning.
+// The brand now embraces "all in one app" (everything under one roof), so it is
+// intentionally not on this list.
 const BANNED = [
-  "all-in-one", "all in one", "seamless", "powerful", "revolutionary",
+  "seamless", "powerful", "revolutionary",
   "innovative", "empower", "unlock", "leverage", "supercharge", "robust",
   "scalable", "holistic", "elevate", "transform", "solution", "best-in-class",
   "world-class", "cutting-edge", "effortless", "effortlessly",

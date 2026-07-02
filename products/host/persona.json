@@ -7,7 +7,7 @@
       "key": "audience",
       "title": "Audience",
       "kind": "text",
-      "content": "Short-term rental hosts, from the 1-property side-hustler to the roughly 10-property pro-am. Mostly owner-operators, often run as a couple or a small partnership. London at launch, the only market where the full service stack (cleaning, providers, turnovers) can be delivered today. The host is the decision-maker: an owner-operator purchase, no committee, no procurement. Primary use case: run rentals like a pro, earn more with less day-to-day effort."
+      "content": "Owner-operator short-term rental hosts, from the 1-property side-hustler to the roughly 20-unit operator. London first, then the UK, then phased global; London is the focus for now. The host is the decision-maker: an owner-operator purchase, no committee, no procurement. Primary use case: automate the running of the property end to end while staying in control. The promise is autonomous hosting, not another tool to drive."
     },
     {
       "key": "jtbd",
@@ -69,10 +69,10 @@
           "Run it like a pro with less day-to-day effort. The calm layer: oversight and reassurance, not another dashboard to check"
         ],
         [
-          "The scaling pro-am (3 to 10 properties, hosting is serious income)",
+          "The scaling operator (3 to 20 units, hosting is serious income)",
           "Growth, margin, reliability at scale, control while delegating",
-          "Operations do not scale with manual effort. Single points of failure, no systemic oversight, profitability felt but not seen",
-          "Systemic reliability and financial clarity. Services plus software hold quality without the host present. Keep control and margin while scaling"
+          "Manual ops do not scale. Single points of failure, tools that do not talk to each other, profitability felt but not seen",
+          "Everything under one roof, automated by the AI host, cleanly reported. Keep control and margin while scaling"
         ]
       ]
     }

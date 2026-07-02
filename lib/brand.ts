@@ -28,12 +28,10 @@ function slugify(input: string): string {
     .replace(/(^-|-$)/g, "");
 }
 
-const cached = new Map<string, BrandDoc>();
-
+// No caching: this is a local content tool whose docs are edited constantly,
+// and the file is tiny. Reading fresh each call keeps the brand page in sync
+// with the file on disk. (Creative generation reads the md directly anyway.)
 export async function getBrandDoc(product: string): Promise<BrandDoc | null> {
-  const hit = cached.get(product);
-  if (hit) return hit;
-
   const dir = productDir(product);
   if (!dir) return null;
 
@@ -60,9 +58,7 @@ export async function getBrandDoc(product: string): Promise<BrandDoc | null> {
   }
 
   const byTitle = Object.fromEntries(sections.map((s) => [s.title, s]));
-  const doc = { heading, updated, scope, sections, byTitle };
-  cached.set(product, doc);
-  return doc;
+  return { heading, updated, scope, sections, byTitle };
 }
 
 /** Pull a set of sections by title, preserving the requested order, skipping any that are missing. */
