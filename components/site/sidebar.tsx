@@ -8,7 +8,6 @@ import {
   CaretDoubleRight,
   FolderSimple,
   ImagesSquare,
-  PaintBrushBroad,
   UserFocus,
 } from "@phosphor-icons/react";
 import type { Product } from "@/lib/products";
@@ -17,11 +16,12 @@ import type { Product } from "@/lib/products";
 // in the top nav. Collapsible to an icons-only rail on desktop; the
 // preference persists per browser.
 
+// Per-product spaces only. "Brand" (the design system + brand hub) is global,
+// so it lives in the top-nav Design menu, not here.
 const SPACES = [
   { key: "creatives", label: "Creatives", Icon: ImagesSquare },
   { key: "assets", label: "Assets", Icon: FolderSimple },
   { key: "persona", label: "Persona", Icon: UserFocus },
-  { key: "brand", label: "Brand", Icon: PaintBrushBroad },
 ];
 
 // Tiny external store around localStorage: hydration-safe (server snapshot is
