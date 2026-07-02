@@ -7,10 +7,12 @@ export const dynamic = "force-dynamic";
 
 export default async function CreativesPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ q?: string }>;
 }) {
-  const { slug } = await params;
+  const [{ slug }, { q }] = await Promise.all([params, searchParams]);
   const product = await getProduct(slug);
   if (!product) notFound();
 
@@ -24,17 +26,20 @@ export default async function CreativesPage({
           The hallway
         </h1>
         <p className="mt-2 max-w-2xl text-body text-t3">
-          Every {product.name} creative, newest first. Click into one to review
-          its formats and download.
+          {q
+            ? `Creatives matching “${q}”.`
+            : `Every ${product.name} creative, newest first. Click into one to review its formats and download.`}
         </p>
       </header>
 
-      <div className="mt-6">
-        <StarterPrompts product={slug} />
-      </div>
+      {!q ? (
+        <div className="mt-6">
+          <StarterPrompts product={slug} />
+        </div>
+      ) : null}
 
       <div className="mt-6">
-        <Hallway product={slug} />
+        <Hallway product={slug} query={q} />
       </div>
     </div>
   );

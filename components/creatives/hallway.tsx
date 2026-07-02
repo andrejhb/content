@@ -4,16 +4,48 @@ import { TEMPLATES } from "@/components/templates/registry";
 import { QaBadge } from "@/components/creatives/qa-badge";
 import { Mono } from "@/components/site/kit";
 
-export async function Hallway({ product }: { product?: string }) {
-  const creatives = await listCreatives(product);
+export async function Hallway({
+  product,
+  query,
+}: {
+  product?: string;
+  query?: string;
+}) {
+  let creatives = await listCreatives(product);
+
+  if (query) {
+    const q = query.toLowerCase();
+    creatives = creatives.filter((b) =>
+      [
+        b.id,
+        b.angle,
+        b.template,
+        b.copy.headline,
+        b.copy.subhead,
+        b.copy.eyebrow,
+        b.copy.calm,
+        ...(b.copy.problems ?? []),
+      ]
+        .filter(Boolean)
+        .some((s) => String(s).toLowerCase().includes(q)),
+    );
+  }
 
   if (creatives.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-border bg-card px-6 py-12 text-center">
-        <p className="text-body text-t2">No creatives yet.</p>
+        <p className="text-body text-t2">
+          {query ? "Nothing matches that search." : "No creatives yet."}
+        </p>
         <p className="max-w-md text-caption text-t3">
-          Run <span className="font-mono text-t2">hububb-creative</span> with an
-          angle and they will appear here, newest first.
+          {query ? (
+            "Try a different word, or clear the search."
+          ) : (
+            <>
+              Run <span className="font-mono text-t2">hububb-creative</span> with
+              an angle and they will appear here, newest first.
+            </>
+          )}
         </p>
       </div>
     );

@@ -32,9 +32,14 @@ export default function RootLayout({
       className={`${inter.variable} h-full`}
     >
       <body className="min-h-full bg-background text-foreground antialiased">
-        {/* Light is the engine's palette; forcedTheme pins it regardless of the
-            OS setting (the DS provider hardcodes defaultTheme="system"). */}
-        <ThemeProvider attribute="class" forcedTheme="light" disableTransitionOnChange>
+        {/* light / dark / system, switched from the top nav. Creative renders
+            are unaffected: the canvas uses the fixed mono scale. */}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <TooltipProvider>{children}</TooltipProvider>
         </ThemeProvider>
       </body>
