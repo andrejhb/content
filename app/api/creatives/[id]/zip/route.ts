@@ -4,7 +4,8 @@ import JSZip from "jszip";
 
 const ROOT = path.join(process.cwd(), "creatives");
 
-// Bundles every PNG for a creative into a zip for the download-all button.
+// Bundles every rendered file (PNG/MP4) for a creative into a zip for the
+// download-all button.
 export async function GET(
   _req: Request,
   { params }: { params: Promise<{ id: string }> },
@@ -17,12 +18,14 @@ export async function GET(
   const dir = path.join(ROOT, id);
   let files: string[];
   try {
-    files = (await readdir(dir)).filter((f) => f.endsWith(".png")).sort();
+    files = (await readdir(dir))
+      .filter((f) => /\.(png|mp4)$/.test(f))
+      .sort();
   } catch {
     return new Response("Not found", { status: 404 });
   }
   if (files.length === 0) {
-    return new Response("No PNGs yet", { status: 404 });
+    return new Response("Nothing rendered yet", { status: 404 });
   }
 
   const zip = new JSZip();

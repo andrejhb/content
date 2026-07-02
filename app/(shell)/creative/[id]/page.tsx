@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, DownloadSimple } from "@phosphor-icons/react/dist/ssr";
-import { getCreative, renderedFormats } from "@/lib/creatives";
-import { FORMATS } from "@/lib/formats";
+import { getCreative, renderedMedia } from "@/lib/creatives";
+import { FORMATS, VIDEO_FORMATS } from "@/lib/formats";
 import { TEMPLATES } from "@/components/templates/registry";
 import { QaBadge } from "@/components/creatives/qa-badge";
 import { Card, CardLabel, Mono } from "@/components/site/kit";
@@ -25,7 +25,9 @@ export default async function CreativeDetail({
   const brief = await getCreative(id);
   if (!brief) notFound();
 
-  const rendered = await renderedFormats(id);
+  const rendered = await renderedMedia(id);
+  const isVideo = brief.kind === "video";
+  const formats = isVideo ? VIDEO_FORMATS : FORMATS;
   const tpl = TEMPLATES[brief.template];
   const c = brief.copy;
 
@@ -51,8 +53,13 @@ export default async function CreativeDetail({
       <header className="mt-5 border-b border-border pb-6">
         <div className="flex flex-wrap items-center gap-2">
           <Mono className="text-t3">{tpl?.label ?? brief.template}</Mono>
+          {isVideo ? (
+            <Mono className="rounded-full border border-border px-2 py-0.5 text-t3">
+              video · {brief.video?.track}
+            </Mono>
+          ) : null}
           <QaBadge qa={brief.qa} />
-          <Mono className="text-dim">{rendered.length}/4 rendered</Mono>
+          <Mono className="text-dim">{rendered.length}/{brief.formats.length} rendered</Mono>
           {rendered.length > 0 ? (
             <a
               className={`ml-auto ${BTN_PRIMARY}`}
@@ -99,8 +106,8 @@ export default async function CreativeDetail({
       <section className="mt-8">
         <CardLabel>Formats</CardLabel>
         <div className="mt-4 grid grid-cols-1 gap-5 sm:grid-cols-2">
-          {FORMATS.map((f) => {
-            const has = rendered.includes(f.key);
+          {formats.map((f) => {
+            const media = rendered.find((r) => r.format === f.key);
             return (
               <div
                 key={f.key}
@@ -111,20 +118,29 @@ export default async function CreativeDetail({
                     <span className="text-body font-semibold text-t1">{f.label}</span>
                     <Mono>{f.w}×{f.h}</Mono>
                   </div>
-                  {has ? (
+                  {media ? (
                     <a
                       className={BTN_SECONDARY}
-                      href={`/creative-asset/${id}/${f.key}.png`}
-                      download={`${id}-${f.key}.png`}
+                      href={`/creative-asset/${id}/${f.key}.${media.ext}`}
+                      download={`${id}-${f.key}.${media.ext}`}
                     >
-                      <DownloadSimple className="size-3.5" /> PNG
+                      <DownloadSimple className="size-3.5" /> {media.ext.toUpperCase()}
                     </a>
                   ) : (
                     <Mono className="text-dim">pending</Mono>
                   )}
                 </div>
                 <div className="flex items-center justify-center bg-surface p-4">
-                  {has ? (
+                  {media?.ext === "mp4" ? (
+                    <video
+                      src={`/creative-asset/${id}/${f.key}.mp4`}
+                      className="max-h-[420px] w-auto max-w-full rounded-md border border-border"
+                      controls
+                      muted
+                      loop
+                      playsInline
+                    />
+                  ) : media ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                       src={`/creative-asset/${id}/${f.key}.png`}

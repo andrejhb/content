@@ -26,12 +26,25 @@ export type CreativeCopy = {
 export type QaCheck = { rule: string; ok: boolean; detail?: string };
 export type QaResult = { passed: boolean; checks: QaCheck[]; checkedAt?: string };
 
+export type VideoSpec = {
+  track: "remotion" | "higgsfield";
+  composition?: string; // remotion composition id
+  durationSec?: number;
+  fps?: number;
+  model?: string; // higgsfield model actually used
+  prompt?: string; // higgsfield generation prompt
+  audio?: boolean;
+  sourceCreativeId?: string; // still creative this motion piece derives from
+};
+
 export type Brief = {
   id: string;
   createdAt: string;
   product: string; // product slug, e.g. "host" — folder under products/
   angle: string;
   brief: string;
+  kind?: "image" | "video"; // absent = image (pre-video briefs)
+  video?: VideoSpec;
   template: TemplateKey;
   formats: FormatKey[];
   brandMark: boolean;
@@ -77,15 +90,27 @@ export async function getCreative(id: string): Promise<Brief | null> {
   return readBriefFromDir(id);
 }
 
-/** Which formats have a rendered PNG on disk, in canonical order. */
-export async function renderedFormats(id: string): Promise<FormatKey[]> {
+export type RenderedMedia = { format: FormatKey; ext: "png" | "mp4" };
+
+/**
+ * Which formats have a rendered file on disk, in canonical order. Video
+ * creatives get an mp4 per format (plus a png poster used for thumbnails);
+ * the mp4 wins as the format's medium when both exist.
+ */
+export async function renderedMedia(id: string): Promise<RenderedMedia[]> {
   const order: FormatKey[] = ["1x1", "4x5", "9x16", "16x9"];
   try {
     const files = await readdir(path.join(ROOT, id));
-    const have = new Set(
-      files.filter((f) => f.endsWith(".png")).map((f) => f.replace(/\.png$/, "")),
-    );
-    return order.filter((k) => have.has(k));
+    const have = new Map<string, "png" | "mp4">();
+    for (const f of files) {
+      const m = f.match(/^(.+)\.(png|mp4)$/);
+      if (!m) continue;
+      const [, key, ext] = m;
+      if (ext === "mp4" || !have.has(key)) have.set(key, ext as "png" | "mp4");
+    }
+    return order
+      .filter((k) => have.has(k))
+      .map((k) => ({ format: k, ext: have.get(k)! }));
   } catch {
     return [];
   }

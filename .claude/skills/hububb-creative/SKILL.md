@@ -74,10 +74,33 @@ Run `node scripts/render.mjs <id> [<id> …]`. It uses a running dev server if o
 ### 7. Report
 Tell the user what you made and link each creative's detail page: `http://localhost:3000/creative/<id>` (adjust the port to the running dev server). They review in the app and pick. Approved creatives can later be promoted from the `creatives/` workboard into `creatives-live/`.
 
+## Video creatives (only on explicit request)
+
+**Hard gate: never produce video by default.** Video happens only when the user explicitly asks for motion/video ("make a video", "animate this", "motion version", a Higgsfield request). An ordinary angle always produces static PNGs, nothing else.
+
+When the user does ask for video:
+
+1. **Ask which track** (unless they named one):
+   - **Remotion** — programmatic motion graphics from the app's own brand system. Best for animated type, feature showcases, brand stings.
+   - **Higgsfield** — generative AI video via the Higgsfield MCP. Best for cinematic/lifestyle motion no template can produce.
+
+2. **Remotion track**: write the brief as usual plus
+   `"kind": "video"` and `"video": { "track": "remotion", "composition": "<id>", "durationSec": …, "fps": 30 }`.
+   Compositions live in `remotion/compositions/` (currently `animated-statement`, `animated-feature-card`, `logo-sting` — check `remotion/root.tsx` for the live list). QA the copy (`node scripts/qa.mjs <id>`), then `node scripts/render-video.mjs <id>` → `creatives/<id>/<format>.mp4` + a poster PNG per format. Defaults (fps, duration) come from `config/video.json` → `remotion`.
+
+3. **Higgsfield track — ask BEFORE generating.** Confirm with the user, in one round of questions:
+   - **Audio?** (some models generate native sound/SFX — include it or render silent)
+   - **Aspect(s)** (9:16, 1x1, 16:9 — don't assume all)
+   - **Duration** and any **reference still** (an existing creative's PNG can seed image-to-video)
+   - Model: use `config/video.json` → `higgsfield.defaultModel` unless the user explicitly asks for top tier (`topTierModel`). **Never silently pick the cheapest model.** If the config still says CONFIRM-LIVE, first list the live model catalog via the Higgsfield MCP and write real model ids into the config.
+   Then generate via the Higgsfield MCP tools, download the result to `creatives/<id>/<format>.mp4`, and record `"video": { "track": "higgsfield", "model": "<model actually used>", "prompt": "<generation prompt>", "audio": <bool> }` in the brief. QA still gates any copy that appears on screen.
+
+4. Video creatives appear in the app like any other: detail page plays the mp4s, the zip bundles them, the hallway shows a poster thumb with a video badge.
+
 ## Guardrails (hard)
 - Voice: sentence case, no `!`, no em/en dashes, no banned words, no "all-in-one".
 - Truth: only the product's `allowedProofClaims`, verbatim. No fabricated traction.
 - Coming soon: unbuilt features labelled, never implied as shipped. Never market a sibling product's capabilities.
 - Styling: tokens/components from `@hububb/design-system` only — the templates already enforce this.
 - Never invent product UI; real screenshots only.
-- Video (motion creatives) is a separate, explicitly-requested flow — never produce video by default. (Added in the video phase.)
+- Video only on an explicit motion/video request — never by default. Higgsfield always asks about audio and options first, and never silently picks the cheapest model.
