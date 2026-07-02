@@ -1,9 +1,10 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { productDir } from "@/lib/products";
 
-// The single source of truth for positioning, voice, audience, proof, and
-// guardrails. The brand hub is derived from this file — nothing is typed by hand.
-const SOURCE = path.join(process.cwd(), ".agents", "product-marketing.md");
+// Per-product source of truth for positioning, voice, audience, proof, and
+// guardrails: products/<slug>/product-marketing.md. The brand hub is derived
+// from this file — nothing is typed by hand.
 
 export type BrandSection = {
   title: string;
@@ -27,12 +28,21 @@ function slugify(input: string): string {
     .replace(/(^-|-$)/g, "");
 }
 
-let cached: BrandDoc | null = null;
+const cached = new Map<string, BrandDoc>();
 
-export async function getBrandDoc(): Promise<BrandDoc> {
-  if (cached) return cached;
+export async function getBrandDoc(product: string): Promise<BrandDoc | null> {
+  const hit = cached.get(product);
+  if (hit) return hit;
 
-  const raw = await readFile(SOURCE, "utf8");
+  const dir = productDir(product);
+  if (!dir) return null;
+
+  let raw: string;
+  try {
+    raw = await readFile(path.join(dir, "product-marketing.md"), "utf8");
+  } catch {
+    return null;
+  }
 
   const heading = raw.match(/^#\s+(.+)$/m)?.[1]?.trim() ?? "Brand";
   const updated = raw.match(/\*Last updated:\s*([^*]+)\*/)?.[1]?.trim();
@@ -50,12 +60,17 @@ export async function getBrandDoc(): Promise<BrandDoc> {
   }
 
   const byTitle = Object.fromEntries(sections.map((s) => [s.title, s]));
-  cached = { heading, updated, scope, sections, byTitle };
-  return cached;
+  const doc = { heading, updated, scope, sections, byTitle };
+  cached.set(product, doc);
+  return doc;
 }
 
 /** Pull a set of sections by title, preserving the requested order, skipping any that are missing. */
-export async function getSections(titles: string[]): Promise<BrandSection[]> {
-  const { byTitle } = await getBrandDoc();
-  return titles.map((t) => byTitle[t]).filter(Boolean);
+export async function getSections(
+  product: string,
+  titles: string[],
+): Promise<BrandSection[]> {
+  const doc = await getBrandDoc(product);
+  if (!doc) return [];
+  return titles.map((t) => doc.byTitle[t]).filter(Boolean);
 }

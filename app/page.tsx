@@ -2,6 +2,7 @@ import { CockpitHeader } from "@/components/site/cockpit-header";
 import { BrandKit } from "@/components/brand-kit/brand-kit";
 import { Hallway } from "@/components/creatives/hallway";
 import { SkillsList } from "@/components/skills/skills-list";
+import { listProducts } from "@/lib/products";
 
 export const dynamic = "force-dynamic";
 
@@ -32,7 +33,9 @@ function Zone({
   );
 }
 
-export default function CockpitPage() {
+export default async function CockpitPage() {
+  const products = await listProducts();
+  const product = products[0]?.slug ?? "host";
   return (
     <div className="min-h-dvh">
       <CockpitHeader />
@@ -55,7 +58,7 @@ export default function CockpitPage() {
       </Zone>
 
       <section className="border-t border-border">
-        <BrandKit />
+        <BrandKit product={product} />
       </section>
     </div>
   );

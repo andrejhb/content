@@ -29,12 +29,13 @@ export type QaResult = { passed: boolean; checks: QaCheck[]; checkedAt?: string 
 export type Brief = {
   id: string;
   createdAt: string;
+  product: string; // product slug, e.g. "host" — folder under products/
   angle: string;
   brief: string;
   template: TemplateKey;
   formats: FormatKey[];
   brandMark: boolean;
-  image?: string | null; // a served path, e.g. /asset/screens/messaging.png
+  image?: string | null; // a served path, e.g. /asset/host/screens/messaging.png
   variant?: "light" | "dark";
   copy: CreativeCopy;
   qa?: QaResult;
@@ -45,14 +46,16 @@ const ROOT = path.join(process.cwd(), "creatives");
 async function readBriefFromDir(dir: string): Promise<Brief | null> {
   try {
     const raw = await readFile(path.join(ROOT, dir, "brief.json"), "utf8");
-    return JSON.parse(raw) as Brief;
+    const brief = JSON.parse(raw) as Brief;
+    brief.product ||= "host"; // pre-multi-product briefs carry no product field
+    return brief;
   } catch {
     return null;
   }
 }
 
-/** All creatives in the workboard, newest first. */
-export async function listCreatives(): Promise<Brief[]> {
+/** All creatives in the workboard, newest first; optionally one product's. */
+export async function listCreatives(product?: string): Promise<Brief[]> {
   let entries: string[];
   try {
     const dirents = await readdir(ROOT, { withFileTypes: true });
@@ -61,7 +64,7 @@ export async function listCreatives(): Promise<Brief[]> {
     return [];
   }
   const briefs = (await Promise.all(entries.map(readBriefFromDir))).filter(
-    (b): b is Brief => b !== null,
+    (b): b is Brief => b !== null && (!product || b.product === product),
   );
   return briefs.sort((a, b) =>
     (b.createdAt ?? "").localeCompare(a.createdAt ?? ""),

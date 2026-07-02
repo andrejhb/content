@@ -5,7 +5,7 @@ export function CockpitHeader() {
       <div className="mx-auto flex max-w-6xl items-center gap-3 px-6 py-3">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/asset/logos/hububb-symbol.svg"
+          src="/asset/shared/logos/hububb-symbol.svg"
           alt="Hububb"
           className="site-logo size-7"
         />

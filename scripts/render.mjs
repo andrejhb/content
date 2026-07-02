@@ -10,11 +10,12 @@ import { chromium } from "playwright";
 import sharp from "sharp";
 import { spawn } from "node:child_process";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
+import net from "node:net";
 import path from "node:path";
 
 const ROOT = path.join(process.cwd(), "creatives");
-const BASE = process.env.RENDER_BASE_URL || "http://localhost:3000";
-const READY_URL = `${BASE}/asset/logos/hububb-symbol.svg`;
+let BASE = process.env.RENDER_BASE_URL || "http://localhost:3000";
+const readyUrl = () => `${BASE}/asset/shared/logos/hububb-symbol.svg`;
 
 // Supersample: render at SCALE× device pixels for crisp text/edges, then
 // downscale back to the exact format size with a high-quality Lanczos filter.
@@ -31,11 +32,28 @@ const FORMATS = {
 
 async function isUp() {
   try {
-    const r = await fetch(READY_URL, { method: "GET" });
+    // The ready probe must be OUR app: if another project squats the port, this
+    // path 404s there and we start our own server instead of rendering into it.
+    const r = await fetch(readyUrl(), { method: "GET" });
     return r.ok;
   } catch {
     return false;
   }
+}
+
+function portIsFree(p) {
+  return new Promise((resolve) => {
+    const srv = net.createServer();
+    srv.once("error", () => resolve(false));
+    srv.listen(p, () => srv.close(() => resolve(true)));
+  });
+}
+
+async function freePort(start = 3100) {
+  for (let p = start; p < start + 20; p++) {
+    if (await portIsFree(p)) return p;
+  }
+  throw new Error("no free port between 3100 and 3119");
 }
 
 async function waitUntilUp(timeoutMs) {
@@ -49,10 +67,24 @@ async function waitUntilUp(timeoutMs) {
 
 async function ensureServer() {
   if (await isUp()) return { spawned: false, proc: null };
-  console.log("• no dev server detected — starting one…");
+  // Spawn on an explicit free port: relying on the default 3000 breaks when
+  // another app owns it (Next would silently move to 3001 while we poll 3000).
+  let port;
+  if (process.env.RENDER_BASE_URL) {
+    port = Number(new URL(BASE).port) || 3000;
+    if (!(await portIsFree(port))) {
+      throw new Error(
+        `nothing serving the app at ${BASE}, and its port ${port} is taken by another process`,
+      );
+    }
+  } else {
+    port = await freePort();
+    BASE = `http://localhost:${port}`;
+  }
+  console.log(`• no dev server detected — starting one on :${port}…`);
   // detached so the child gets its own process group — lets us kill the whole
   // tree (npm + next-server) on cleanup instead of orphaning the server.
-  const proc = spawn("npm", ["run", "dev"], {
+  const proc = spawn("npm", ["run", "dev", "--", "--port", String(port)], {
     cwd: process.cwd(),
     stdio: "ignore",
     env: process.env,

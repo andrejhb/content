@@ -1,0 +1,6 @@
+{
+  "competitors": ["guesty", "hostfully", "lodgify", "hospitable"],
+  "unbuiltFeatures": ["hububb stay", "nomad pass", "corporate bookings"],
+  "allowedAcronyms": ["VRBO", "WCAG"],
+  "allowedProofClaims": ["tested on hundreds of real London properties"]
+}
