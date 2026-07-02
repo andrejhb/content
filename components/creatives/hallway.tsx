@@ -4,8 +4,8 @@ import { TEMPLATES } from "@/components/templates/registry";
 import { QaBadge } from "@/components/creatives/qa-badge";
 import { Mono } from "@/components/site/kit";
 
-export async function Hallway() {
-  const creatives = await listCreatives();
+export async function Hallway({ product }: { product?: string }) {
+  const creatives = await listCreatives(product);
 
   if (creatives.length === 0) {
     return (

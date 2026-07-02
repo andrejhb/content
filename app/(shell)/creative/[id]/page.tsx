@@ -42,7 +42,7 @@ export default async function CreativeDetail({
   return (
     <div className="mx-auto max-w-6xl px-6 py-10">
       <Link
-        href="/"
+        href={`/p/${brief.product}/creatives`}
         className="inline-flex items-center gap-1.5 text-caption text-t3 transition-colors hover:text-t1"
       >
         <ArrowLeft className="size-4" /> Back to the hallway
