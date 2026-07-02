@@ -1,7 +1,7 @@
 {
   "version": 1,
   "product": "host",
-  "updatedAt": "2026-07-02T00:00:00.000Z",
+  "updatedAt": "2026-07-02T15:35:50.486Z",
   "sections": [
     {
       "key": "audience",
@@ -55,7 +55,12 @@
       "key": "archetypes",
       "title": "Archetypes",
       "kind": "table",
-      "columns": ["Persona", "Cares about", "Challenge", "Value we promise"],
+      "columns": [
+        "Persona",
+        "Cares about",
+        "Challenge",
+        "Value we promise"
+      ],
       "rows": [
         [
           "The side-hustler (1 to 2 properties, full-time job and/or family)",
