@@ -1,7 +1,7 @@
 import type { Brief } from "@/lib/creatives";
 import { CreativeCanvas, BrandMark } from "./canvas";
 
-// Statement — one strong line, pure type on a dark token background.
+// Statement — one strong line, pure type on a light token background.
 export function StatementTemplate({
   brief,
   w,
@@ -19,7 +19,7 @@ export function StatementTemplate({
   const mark = Math.round(w * 0.034);
 
   return (
-    <CreativeCanvas w={w} h={h} className="bg-mono-20 text-mono-1">
+    <CreativeCanvas w={w} h={h} className="bg-mono-1 text-mono-21">
       <div
         className="absolute inset-0 flex flex-col justify-between"
         style={{ padding: pad }}
@@ -27,7 +27,7 @@ export function StatementTemplate({
         <div className="flex items-start justify-between">
           {c.eyebrow ? (
             <span
-              className="font-mono text-mono-5"
+              className="font-mono text-mono-11"
               style={{ fontSize: eye, letterSpacing: "0.01em" }}
             >
               {c.eyebrow}
@@ -47,7 +47,7 @@ export function StatementTemplate({
         <div className="flex items-end justify-between gap-8">
           {c.subhead ? (
             <p
-              className="text-mono-4"
+              className="text-mono-11"
               style={{ fontSize: sub, lineHeight: 1.32, maxWidth: w * 0.66 }}
             >
               {c.subhead}
@@ -55,7 +55,7 @@ export function StatementTemplate({
           ) : (
             <span />
           )}
-          {brief.brandMark ? <BrandMark height={mark} invert /> : null}
+          {brief.brandMark ? <BrandMark height={mark} /> : null}
         </div>
       </div>
     </CreativeCanvas>

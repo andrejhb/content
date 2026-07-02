@@ -2,6 +2,7 @@ import type { Brief } from "@/lib/creatives";
 import { CreativeCanvas, BrandMark } from "./canvas";
 
 // Problem to calm — the second job (chaos) versus the calm layer, split.
+// Light palette throughout: a soft grey problem side easing into a white calm side.
 export function ProblemToCalmTemplate({
   brief,
   w,
@@ -26,7 +27,7 @@ export function ProblemToCalmTemplate({
       <div className={`absolute inset-0 flex ${portrait ? "flex-col" : "flex-row"}`}>
         {/* Problem — the second job */}
         <div
-          className="flex flex-[46] flex-col justify-center gap-5 bg-mono-2 text-mono-17"
+          className="flex flex-[46] flex-col justify-center gap-5 bg-mono-3 text-mono-17"
           style={{ padding: pad }}
         >
           <span
@@ -51,11 +52,11 @@ export function ProblemToCalmTemplate({
 
         {/* Calm — the calm layer */}
         <div
-          className="flex flex-[54] flex-col justify-between bg-mono-20 text-mono-1"
+          className="flex flex-[54] flex-col justify-between bg-mono-1 text-mono-21"
           style={{ padding: pad }}
         >
           <span
-            className="font-mono text-mono-5"
+            className="font-mono text-mono-11"
             style={{ fontSize: label, letterSpacing: "0.01em" }}
           >
             {c.calmLabel ?? "The calm layer"}
@@ -69,7 +70,7 @@ export function ProblemToCalmTemplate({
           <div className="flex items-end justify-between gap-6">
             {c.subhead ? (
               <p
-                className="text-mono-4"
+                className="text-mono-11"
                 style={{ fontSize: Math.round(w * 0.024), lineHeight: 1.3, maxWidth: portrait ? "100%" : w * 0.32 }}
               >
                 {c.subhead}
@@ -77,7 +78,7 @@ export function ProblemToCalmTemplate({
             ) : (
               <span />
             )}
-            {brief.brandMark ? <BrandMark height={mark} invert /> : null}
+            {brief.brandMark ? <BrandMark height={mark} /> : null}
           </div>
         </div>
       </div>
