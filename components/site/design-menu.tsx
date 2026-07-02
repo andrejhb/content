@@ -4,13 +4,22 @@ import { useState } from "react";
 import Link from "next/link";
 import { CaretDown, PaintBrushBroad } from "@phosphor-icons/react";
 
-// Mega menu for the global design elements: everything on the brand page,
-// grouped, one click away from anywhere. Pure links — the brand page stays
-// the single home of the design system.
+// Mega menu for brand + design. Two scopes, kept visually divided:
+//  - "product": the brand hub sections, specific to the active product
+//    (positioning/voice/assets all come from that product's context)
+//  - "global": the design system, shared across every product
+// Pure links — the brand page stays the single home of both.
 
-const GROUPS: { label: string; items: { id: string; label: string; blurb: string }[] }[] = [
+type Group = {
+  label: string;
+  scope: "product" | "global";
+  items: { id: string; label: string; blurb: string }[];
+};
+
+const GROUPS: Group[] = [
   {
     label: "Brand",
+    scope: "product",
     items: [
       { id: "brand-core", label: "Brand core", blurb: "Positioning, audience, differentiation" },
       { id: "brand-voice", label: "Voice & guidelines", blurb: "How we sound, words to avoid" },
@@ -19,6 +28,7 @@ const GROUPS: { label: string; items: { id: string; label: string; blurb: string
   },
   {
     label: "Design system",
+    scope: "global",
     items: [
       { id: "colours", label: "Colours", blurb: "Mono scale + semantic tokens" },
       { id: "type", label: "Typography", blurb: "The Inter ramp" },
@@ -34,7 +44,13 @@ const GROUPS: { label: string; items: { id: string; label: string; blurb: string
 // generated.
 const SWATCH = [1, 3, 5, 8, 11, 14, 17, 21];
 
-export function DesignMenu({ productSlug }: { productSlug: string }) {
+export function DesignMenu({
+  productSlug,
+  productName,
+}: {
+  productSlug: string;
+  productName: string;
+}) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -59,7 +75,12 @@ export function DesignMenu({ productSlug }: { productSlug: string }) {
               {GROUPS.map((g) => (
                 <div key={g.label}>
                   <p className="font-mono text-caption tracking-wide text-dim uppercase">
-                    {g.label}
+                    {g.scope === "product" ? `${g.label} · ${productName}` : g.label}
+                  </p>
+                  <p className="mt-0.5 text-caption text-dim">
+                    {g.scope === "product"
+                      ? "Specific to this product"
+                      : "Shared across all products"}
                   </p>
                   <div className="mt-2 flex flex-col">
                     {g.items.map((item) => (

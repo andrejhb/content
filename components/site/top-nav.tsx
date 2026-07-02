@@ -19,6 +19,8 @@ export function TopNav({ products }: { products: Product[] }) {
   const m = pathname.match(/^\/p\/([^/]+)(?:\/([^/]+))?/);
   const activeSlug = m?.[1] ?? products[0]?.slug ?? "host";
   const activeSpace = m?.[2] ?? "creatives";
+  const activeName =
+    products.find((p) => p.slug === activeSlug)?.name ?? "This product";
 
   const search = (e: React.FormEvent) => {
     e.preventDefault();
@@ -78,7 +80,7 @@ export function TopNav({ products }: { products: Product[] }) {
         </form>
 
         <div className="flex shrink-0 items-center gap-2 md:ml-0 ml-auto">
-          <DesignMenu productSlug={activeSlug} />
+          <DesignMenu productSlug={activeSlug} productName={activeName} />
           <ThemeToggle />
         </div>
       </div>
