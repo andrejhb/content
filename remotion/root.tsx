@@ -5,6 +5,7 @@ import { VIDEO_FORMAT_MAP } from "../lib/formats";
 import { AnimatedStatement } from "./compositions/animated-statement";
 import { AnimatedFeatureCard } from "./compositions/animated-feature-card";
 import { LogoSting } from "./compositions/logo-sting";
+import { HostieAd } from "./compositions/hostie-ad";
 
 // Compositions are registered once; width/height/duration resolve per render
 // from inputProps (format key + durationSec) via calculateMetadata.
@@ -85,6 +86,16 @@ export function RemotionRoot() {
         width={1080}
         height={1080}
         defaultProps={{ ...defaultProps, durationSec: 4 }}
+        calculateMetadata={metadata}
+      />
+      <Composition
+        id="hostie-ad"
+        component={HostieAd}
+        durationInFrames={10 * FPS}
+        fps={FPS}
+        width={1080}
+        height={1080}
+        defaultProps={{ ...defaultProps, durationSec: 10 }}
         calculateMetadata={metadata}
       />
     </>

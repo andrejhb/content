@@ -134,11 +134,13 @@ export default async function CreativeDetail({
                   {media?.ext === "mp4" ? (
                     <video
                       src={`/creative-asset/${id}/${f.key}.mp4`}
+                      poster={`/creative-asset/${id}/${f.key}.png`}
                       className="max-h-[420px] w-auto max-w-full rounded-md border border-border"
                       controls
                       muted
                       loop
                       playsInline
+                      preload="metadata"
                     />
                   ) : media ? (
                     // eslint-disable-next-line @next/next/no-img-element

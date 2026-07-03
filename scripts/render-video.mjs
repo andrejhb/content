@@ -35,9 +35,17 @@ async function renderVideoCreative({ id, serveUrl, base, defaults }) {
     return false;
   }
 
-  const formats = Array.isArray(brief.formats) && brief.formats.length
+  const briefFormats = Array.isArray(brief.formats) && brief.formats.length
     ? brief.formats
     : ["1x1", "4x5", "9x16", "16x9"];
+  // RENDER_FORMATS=1x1,9x16 restricts which formats get rendered this run.
+  const only = (process.env.RENDER_FORMATS || "")
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const formats = only.length
+    ? briefFormats.filter((f) => only.includes(f))
+    : briefFormats;
 
   for (const format of formats) {
     const inputProps = {
@@ -64,16 +72,21 @@ async function renderVideoCreative({ id, serveUrl, base, defaults }) {
     });
 
     // Poster: a settled frame near the end, used as the hallway thumbnail.
-    const poster = path.join(ROOT, id, `${format}.png`);
-    await renderStill({
-      composition,
-      serveUrl,
-      output: poster,
-      frame: Math.max(0, Math.floor(composition.durationInFrames * 0.85)),
-      inputProps,
-    });
+    // RENDER_NO_POSTER=1 keeps an existing static PNG (e.g. a prior image render)
+    // as the poster instead of overwriting it with a video frame.
+    const noPoster = process.env.RENDER_NO_POSTER === "1";
+    if (!noPoster) {
+      const poster = path.join(ROOT, id, `${format}.png`);
+      await renderStill({
+        composition,
+        serveUrl,
+        output: poster,
+        frame: Math.max(0, Math.floor(composition.durationInFrames * 0.85)),
+        inputProps,
+      });
+    }
 
-    console.log(`  ✓ ${format}  (${composition.width}×${composition.height}, ${inputProps.durationSec}s)  → creatives/${id}/${format}.mp4 (+poster)`);
+    console.log(`  ✓ ${format}  (${composition.width}×${composition.height}, ${inputProps.durationSec}s)  → creatives/${id}/${format}.mp4${noPoster ? "" : " (+poster)"}`);
   }
   return true;
 }
