@@ -1,0 +1,76 @@
+{
+  "id": "2026-06-17-cleaning-showcase",
+  "createdAt": "2026-06-17T00:00:00.000Z",
+  "angle": "A booking comes in, the turnover schedules itself, a vetted cleaner is assigned, the host does nothing. Cleaning and turnovers are handled end to end.",
+  "brief": "Feature-card, light. Phone screen of the cleaning schedule (cleaning.png) with an auto-assigned turnover tied to a reservation. Icon-badge concept dropped per direction.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "animated-feature-card",
+    "durationSec": 6,
+    "fps": 30
+  },
+  "template": "feature-card",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/screens/cleaning.png",
+  "variant": "light",
+  "copy": {
+    "eyebrow": "Cleaning",
+    "headline": "The cleaner is booked before you wake up",
+    "subhead": "turnovers schedule themselves and a vetted cleaner is assigned, hands off."
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-02T21:04:52.412Z"
+  },
+  "product": "host",
+  "persona": "side-hustler"
+}

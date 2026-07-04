@@ -1,0 +1,51 @@
+{
+  "version": 2,
+  "id": "remote-worker",
+  "product": "stay",
+  "updatedAt": "2026-07-03T12:00:00.000Z",
+  "profile": {
+    "name": "Tom Fletcher",
+    "headline": "The Remote Worker · books longer stays to live and work",
+    "location": "Nomadic · currently Lisbon",
+    "bio": "Tom is 51, a freelance product consultant who works from wherever he books. He takes places for two to six weeks at a time and needs them to double as an office: real wifi, a desk, somewhere to take calls. He reads the listing for signals that it fits a working life, not a weekend. Draft persona, sharpen with persona-refine.",
+    "avatar": "/asset/stay/personas/remote-worker.png",
+    "cover": null,
+    "archetype": "remote-worker",
+    "facts": [
+      { "label": "Age", "value": "51" },
+      { "label": "Trip type", "value": "Long stays, 2-6 weeks" },
+      { "label": "Work", "value": "Freelance consultant" },
+      { "label": "Cares about", "value": "Wifi, a desk, quiet for calls" },
+      { "label": "Frustration", "value": "Listings that hide the essentials" },
+      { "label": "Wants", "value": "A stay that works as an office" }
+    ]
+  },
+  "sections": [
+    {
+      "key": "jtbd",
+      "title": "Jobs to be done",
+      "kind": "list",
+      "content": [
+        "Find a longer stay he can actually work from, wifi, desk, quiet, without guessing.",
+        "Settle in fast and treat the place as home base for a few weeks.",
+        "Extend or adjust the stay without a painful rebooking dance."
+      ]
+    },
+    {
+      "key": "pains",
+      "title": "Pains",
+      "kind": "list",
+      "content": [
+        "Listings bury the essentials, he can't tell if the wifi holds a video call until he's there.",
+        "Weekend-optimised places don't fit a working week: no desk, thin walls, no long-stay rate.",
+        "Rebooking or extending is clunky when a project runs long."
+      ]
+    },
+    {
+      "key": "lifestyle",
+      "title": "Lifestyle",
+      "kind": "text",
+      "content": "Tom's home and office are wherever he last booked. A stay is a few weeks of his real life, so the boring things, bandwidth, a chair that doesn't wreck his back, a quiet corner, matter more than the view."
+    }
+  ]
+}

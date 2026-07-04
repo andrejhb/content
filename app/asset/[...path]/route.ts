@@ -15,6 +15,10 @@ const TYPES: Record<string, string> = {
   ".webp": "image/webp",
   ".avif": "image/avif",
   ".gif": "image/gif",
+  // Video backgrounds (e.g. a Higgsfield clip) used by spotlight creatives.
+  ".mp4": "video/mp4",
+  ".webm": "video/webm",
+  ".mov": "video/quicktime",
 };
 
 export async function GET(

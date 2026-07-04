@@ -1,7 +1,7 @@
 import type { Brief } from "@/lib/creatives";
 import { CreativeCanvas, BrandMark } from "./canvas";
 
-// Image card — eyebrow + headline up top, a large rounded image below.
+// Image card: eyebrow + headline up top, a large rounded image below.
 // Light or dark. The image is supplied (a real photo or product screenshot).
 export function ImageCardTemplate({
   brief,
@@ -22,31 +22,54 @@ export function ImageCardTemplate({
 
   const bg = dark ? "bg-mono-20 text-mono-1" : "bg-mono-1 text-mono-21";
   const eyeColor = dark ? "text-mono-5" : "text-mono-11";
+  const accentBg = dark ? "bg-mono-5" : "bg-mono-11";
   const frame = dark ? "border-mono-18" : "border-mono-4";
+  // Lift the image off the page, matching the feature-card panel's depth.
+  const imageShadow = dark
+    ? "0 24px 48px rgba(0,0,0,0.5)"
+    : "0 20px 40px rgba(38,38,38,0.10)";
+  const hasKicker = brief.brandMark || Boolean(c.eyebrow);
 
   const text = (
-    <div className="flex flex-col" style={{ gap: Math.round(head * 0.18) }}>
-      <div className="flex items-center" style={{ gap: Math.round(mark * 0.5) }}>
-        {brief.brandMark ? <BrandMark height={mark} invert={dark} /> : null}
-        {c.eyebrow ? (
-          <span
-            className={`font-mono ${eyeColor}`}
-            style={{ fontSize: eye, letterSpacing: "0.01em" }}
-          >
-            {c.eyebrow}
-          </span>
-        ) : null}
-      </div>
+    <div className="flex flex-col">
+      {hasKicker ? (
+        <div className="flex items-center" style={{ gap: Math.round(mark * 0.5) }}>
+          {brief.brandMark ? (
+            <BrandMark height={mark} invert={dark} />
+          ) : (
+            <span
+              className={`${accentBg} rounded-full`}
+              style={{
+                width: Math.round(eye * 1.5),
+                height: Math.max(2, Math.round(h * 0.0026)),
+              }}
+            />
+          )}
+          {c.eyebrow ? (
+            <span
+              className={`font-mono ${eyeColor}`}
+              style={{ fontSize: eye, letterSpacing: "0.01em" }}
+            >
+              {c.eyebrow}
+            </span>
+          ) : null}
+        </div>
+      ) : null}
       <h1
         className="font-semibold tracking-tight text-balance"
-        style={{ fontSize: head, lineHeight: 1.05 }}
+        style={{ fontSize: head, lineHeight: 1.05, marginTop: hasKicker ? Math.round(head * 0.24) : 0 }}
       >
         {c.headline}
       </h1>
       {c.subhead ? (
         <p
           className={dark ? "text-mono-4" : "text-mono-11"}
-          style={{ fontSize: Math.round(w * 0.026), lineHeight: 1.35, maxWidth: landscape ? "100%" : w * 0.8 }}
+          style={{
+            fontSize: Math.round(w * 0.026),
+            lineHeight: 1.35,
+            marginTop: Math.round(head * 0.3),
+            maxWidth: landscape ? "100%" : w * 0.8,
+          }}
         >
           {c.subhead}
         </p>
@@ -55,7 +78,10 @@ export function ImageCardTemplate({
   );
 
   const image = (
-    <div className={`relative min-h-0 flex-1 overflow-hidden rounded-3xl border ${frame}`}>
+    <div
+      className={`relative min-h-0 flex-1 overflow-hidden rounded-3xl border ${frame}`}
+      style={{ boxShadow: imageShadow }}
+    >
       {brief.image ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img

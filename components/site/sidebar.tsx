@@ -4,17 +4,17 @@ import { useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  CaretDoubleLeft,
-  CaretDoubleRight,
   FolderSimple,
   ImagesSquare,
+  SidebarSimple,
   UserFocus,
 } from "@phosphor-icons/react";
 import type { Product } from "@/lib/products";
 
 // Side rail: the spaces inside the selected product. Product switching lives
-// in the top nav. Collapsible to an icons-only rail on desktop; the
-// preference persists per browser.
+// in the top nav. Collapsible to an icons-only rail on desktop; the toggle sits
+// at the top and the preference persists per browser. When collapsed, each
+// icon shows a hover tooltip.
 
 // Per-product spaces only. "Brand" (the design system + brand hub) is global,
 // so it lives in the top-nav Design menu, not here.
@@ -46,6 +46,18 @@ function toggleCollapsed() {
   listeners.forEach((cb) => cb());
 }
 
+// Hover tooltip shown to the right of a collapsed rail item (desktop only).
+function Tooltip({ label }: { label: string }) {
+  return (
+    <span
+      role="tooltip"
+      className="pointer-events-none absolute top-1/2 left-full z-50 ml-2 hidden -translate-y-1/2 rounded-md bg-foreground px-2.5 py-1.5 text-caption font-medium whitespace-nowrap text-background opacity-0 shadow-elevation-1 transition-opacity duration-100 group-hover:opacity-100 lg:block"
+    >
+      {label}
+    </span>
+  );
+}
+
 export function Sidebar({ products }: { products: Product[] }) {
   const pathname = usePathname();
   const collapsed = useSyncExternalStore(subscribe, getSnapshot, () => false);
@@ -61,6 +73,19 @@ export function Sidebar({ products }: { products: Product[] }) {
       }`}
     >
       <div className="flex h-full flex-row items-center gap-1 px-3 py-3 lg:flex-col lg:items-stretch">
+        {/* Collapse/expand toggle — top of the rail (desktop only). */}
+        <button
+          type="button"
+          onClick={toggleCollapsed}
+          aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+          className={`group relative hidden items-center rounded-md px-2.5 py-2 text-dim transition-colors hover:bg-subtle hover:text-t1 lg:mb-1 lg:flex ${
+            collapsed ? "lg:justify-center lg:px-0" : ""
+          }`}
+        >
+          <SidebarSimple className="size-4.5 shrink-0" />
+          <Tooltip label={collapsed ? "Expand sidebar" : "Collapse sidebar"} />
+        </button>
+
         <nav className="flex min-w-0 flex-1 flex-row gap-1 lg:flex-none lg:flex-col">
           {SPACES.map(({ key, label, Icon }) => {
             const active = key === activeSpace;
@@ -68,8 +93,8 @@ export function Sidebar({ products }: { products: Product[] }) {
               <Link
                 key={key}
                 href={`/p/${activeSlug}/${key}`}
-                title={label}
-                className={`flex items-center gap-2.5 rounded-md px-2.5 py-2 text-body transition-colors ${
+                aria-label={label}
+                className={`group relative flex items-center gap-2.5 rounded-md px-2.5 py-2 text-body transition-colors ${
                   collapsed ? "lg:justify-center lg:px-0" : ""
                 } ${
                   active
@@ -84,29 +109,11 @@ export function Sidebar({ products }: { products: Product[] }) {
                 <span className={`hidden sm:block ${collapsed ? "lg:hidden" : ""}`}>
                   {label}
                 </span>
+                {collapsed ? <Tooltip label={label} /> : null}
               </Link>
             );
           })}
         </nav>
-
-        <button
-          type="button"
-          onClick={toggleCollapsed}
-          title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-          aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-          className={`hidden items-center gap-2.5 rounded-md px-2.5 py-2 text-caption text-dim transition-colors hover:bg-subtle hover:text-t1 lg:mt-auto lg:flex ${
-            collapsed ? "lg:justify-center lg:px-0" : ""
-          }`}
-        >
-          {collapsed ? (
-            <CaretDoubleRight className="size-4.5 shrink-0" />
-          ) : (
-            <>
-              <CaretDoubleLeft className="size-4.5 shrink-0" />
-              <span className={collapsed ? "lg:hidden" : ""}>Collapse</span>
-            </>
-          )}
-        </button>
       </div>
     </aside>
   );

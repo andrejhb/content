@@ -56,9 +56,15 @@ const escapeRe = (s) => s.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
 
 function collectCopy(brief) {
   const c = brief.copy ?? {};
+  // Order matters: fields[1] is treated as the headline by the sentence-case
+  // check, so keep eyebrow/headline/subhead first and append the rest.
   const fields = [
-    c.eyebrow, c.headline, c.subhead, c.problemLabel, c.calmLabel, c.calm,
-    ...(Array.isArray(c.problems) ? c.problems : []),
+    c.eyebrow,
+    c.headline,
+    c.subhead,
+    c.headlineTail,
+    c.cta,
+    ...(Array.isArray(c.rotating) ? c.rotating : []),
   ].filter((s) => typeof s === "string" && s.length);
   return fields;
 }

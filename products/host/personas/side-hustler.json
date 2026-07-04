@@ -1,0 +1,74 @@
+{
+  "version": 2,
+  "id": "side-hustler",
+  "product": "host",
+  "updatedAt": "2026-07-03T12:30:00.000Z",
+  "profile": {
+    "name": "Marcus Reed",
+    "headline": "The Side-Hustler · 2 flats in East London",
+    "location": "Hackney, London",
+    "bio": "Marcus is 41, an operations manager at a logistics firm, and lets two flats on the side, the 1-bed in Hackney he used to live in, plus a studio in Bethnal Green he bought in 2021. Hosting was meant to be passive income; it quietly became a second job on top of a real one. He handles messages between meetings, drives over on weekends when a cleaner cancels, and lies awake before a check-in wondering if the keys were left out. He wants to keep the income without the grind, and above all not to screw it up in front of guests.",
+    "avatar": "/asset/host/personas/marcus.png",
+    "cover": null,
+    "archetype": "side-hustler",
+    "facts": [
+      { "label": "Age", "value": "41" },
+      { "label": "Location", "value": "Hackney, London" },
+      { "label": "Occupation", "value": "Operations manager, full-time" },
+      { "label": "Portfolio", "value": "2 flats in East London" },
+      { "label": "Hosting since", "value": "2021" },
+      { "label": "Wants", "value": "The income without the grind" }
+    ]
+  },
+  "sections": [
+    {
+      "key": "jtbd",
+      "title": "Jobs to be done",
+      "kind": "list",
+      "content": [
+        "Run both flats reliably and professionally without it eating his evenings or his focus at work.",
+        "Cover the operation when something slips, a cleaner cancels, a guest messages at midnight, a boiler dies, without dropping everything to drive over.",
+        "Give guests a consistent, professional experience so the reviews stay high without him being always-on.",
+        "Trade the constant did-I-forget-something hum for reliable oversight and reassurance."
+      ]
+    },
+    {
+      "key": "pains",
+      "title": "Pains",
+      "kind": "list",
+      "content": [
+        "Time: check-in days and weekends disappear; he's permanently on call between meetings.",
+        "Mental load: both flats live in his head all day as a low background anxiety.",
+        "Money: cleaning and turnover costs creep, and he has no clear view of what each flat actually nets.",
+        "Risk: a missed clean, a lockout, or a no-show can tank a review while he's stuck at the office."
+      ]
+    },
+    {
+      "key": "lifestyle",
+      "title": "Lifestyle",
+      "kind": "text",
+      "content": "The passive income that became a full-time job he never applied for. Marcus holds down a real career and a family alongside hosting, and is always half-on. He fears losing control and feels quietly chained to the side-hustle he started to buy himself freedom. What he wants isn't more features, it's to feel in control without being involved in every turnover."
+    },
+    {
+      "key": "positioning",
+      "title": "Value we promise",
+      "kind": "text",
+      "content": "Run both flats like a pro with a fraction of the day-to-day effort. A calm layer of oversight and reassurance, the AI host handles the running, Marcus keeps the control, not another dashboard to check."
+    }
+  ],
+  "prompts": [
+    {
+      "title": "Reclaim the evenings",
+      "body": "Run hububb-creative for host.\n\nAngle: The side hustle that quietly took over the evenings. Hububb runs the flats so the host gets the nights back.\nDescription: Leans on always-on message handling and automated turnovers. Should leave a feeling of relief, the phone stops owning the evening.\n\nSpeak to: Marcus Reed, the side-hustler with 2 flats and a full-time job.\nTemplates: statement, proof-card\nFormats: all four\nImagery: none\n\nRender when QA passes and give me the review links."
+    },
+    {
+      "title": "Never miss a clean",
+      "body": "Run hububb-creative for host.\n\nAngle: A missed clean should not cost a review while you are stuck at the office. Cleaning dispatches itself the moment a guest checks out.\nDescription: Leans on automated cleaning dispatched at checkout. The feeling: the turnover is handled without him driving over.\n\nSpeak to: Marcus Reed, the side-hustler who cannot leave work to cover a cancellation.\nTemplates: feature-card, statement\nFormats: all four\nImagery: none\n\nRender when QA passes and give me the review links."
+    },
+    {
+      "title": "Answered at midnight",
+      "body": "Run hububb-creative for host.\n\nAngle: Guests message at every hour. The host should not have to be the one awake for it. Hostie answers in his voice, day and night.\nDescription: Leans on the AI guest messaging agent. The feeling: the mental load lifts, he is no longer the on-call operator.\n\nSpeak to: Marcus Reed, the side-hustler carrying both flats in his head all day.\nTemplates: image-card, statement\nFormats: all four\nImagery: none\n\nRender when QA passes and give me the review links."
+    }
+  ],
+  "promptsUpdatedAt": "2026-07-03T12:30:00.000Z"
+}

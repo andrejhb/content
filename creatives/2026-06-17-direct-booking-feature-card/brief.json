@@ -1,0 +1,76 @@
+{
+  "id": "2026-06-17-direct-booking-feature-card",
+  "createdAt": "2026-06-17T00:00:00.000Z",
+  "angle": "Send a guest straight to you instead of through a platform that takes a cut. A direct booking site connected to the same synced calendar.",
+  "brief": "Feature-card, light. Guest-facing phone mockup (app-download-phones.png) standing in for your own direct booking surface on the same synced calendar.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "animated-feature-card",
+    "durationSec": 6,
+    "fps": 30
+  },
+  "template": "feature-card",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/mockups/app-download-phones.png",
+  "variant": "light",
+  "copy": {
+    "eyebrow": "Direct booking",
+    "headline": "Your own booking site, no cut taken",
+    "subhead": "direct stays run on the same synced calendar as everything else."
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-02T21:04:52.413Z"
+  },
+  "product": "host",
+  "persona": "scaling-operator"
+}

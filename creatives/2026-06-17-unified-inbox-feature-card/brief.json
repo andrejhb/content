@@ -1,0 +1,76 @@
+{
+  "id": "2026-06-17-unified-inbox-feature-card",
+  "createdAt": "2026-06-17T00:00:00.000Z",
+  "angle": "Airbnb in one place, Booking in another, a direct guest somewhere else. The unified inbox pulls every conversation into one place so nothing slips.",
+  "brief": "Feature-card, light. Screenshot is the focal point on the neutral surface panel. imagePlaceholder: the unified inbox screen showing threads from multiple channels with platform indicators visible. Product screen into assets/screens/, light variant.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "animated-feature-card",
+    "durationSec": 6,
+    "fps": 30
+  },
+  "template": "feature-card",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/mockups/phone-inbox.png",
+  "variant": "light",
+  "copy": {
+    "eyebrow": "Unified inbox",
+    "headline": "Every guest, every channel, one inbox",
+    "subhead": "no more logging into five platforms to answer one question."
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-02T21:04:52.416Z"
+  },
+  "product": "host",
+  "persona": "scaling-operator"
+}

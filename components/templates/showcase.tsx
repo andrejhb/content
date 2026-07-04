@@ -27,7 +27,7 @@ const ICON_MAP: Record<string, ComponentType<{ className?: string }>> = {
   Broadcast,
 };
 
-// Showcase — headline + a product screenshot (the hero), with OPTIONAL accent
+// Showcase: headline + a product screenshot (the hero), with OPTIONAL accent
 // icon badges. Badges only render when copy.badges is set AND there's a mockup;
 // the screenshot always leads. Light or dark.
 export function ShowcaseTemplate({

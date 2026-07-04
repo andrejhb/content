@@ -2,9 +2,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, DownloadSimple } from "@phosphor-icons/react/dist/ssr";
 import { getCreative, renderedMedia } from "@/lib/creatives";
+import { listPersonas } from "@/lib/personas";
 import { FORMATS, VIDEO_FORMATS } from "@/lib/formats";
 import { TEMPLATES } from "@/components/templates/registry";
 import { QaBadge } from "@/components/creatives/qa-badge";
+import { PersonaTag } from "@/components/persona/tag";
 import { Card, CardLabel, Mono } from "@/components/site/kit";
 
 export const dynamic = "force-dynamic";
@@ -30,15 +32,19 @@ export default async function CreativeDetail({
   const formats = isVideo ? VIDEO_FORMATS : FORMATS;
   const tpl = TEMPLATES[brief.template];
   const c = brief.copy;
+  const persona = brief.persona
+    ? (await listPersonas(brief.product)).find((p) => p.id === brief.persona)
+    : undefined;
 
   const copyRows: [string, string | undefined][] = [
     ["Eyebrow", c.eyebrow],
     ["Headline", c.headline],
+    ["Headline tail", c.headlineTail],
     ["Subhead", c.subhead],
-    ["Problem label", c.problemLabel],
-    ["Problems", c.problems?.join(" · ")],
-    ["Calm label", c.calmLabel],
-    ["Calm line", c.calm],
+    ["CTA", c.cta],
+    ...(c.rotating ?? []).map(
+      (m, i) => [`Message ${i + 1}`, m] as [string, string | undefined],
+    ),
   ];
 
   return (
@@ -59,6 +65,14 @@ export default async function CreativeDetail({
             </Mono>
           ) : null}
           <QaBadge qa={brief.qa} />
+          {persona ? (
+            <PersonaTag
+              name={persona.name}
+              avatar={persona.avatar}
+              title={persona.headline}
+              href={`/p/${brief.product}/persona?persona=${persona.id}`}
+            />
+          ) : null}
           <Mono className="text-dim">{rendered.length}/{brief.formats.length} rendered</Mono>
           {rendered.length > 0 ? (
             <a
@@ -71,7 +85,7 @@ export default async function CreativeDetail({
           ) : null}
         </div>
         <h1 className="mt-3 max-w-3xl text-heading-2 leading-heading-2 text-t1">
-          {c.headline ?? c.calm ?? brief.angle}
+          {c.headline ?? brief.angle}
         </h1>
       </header>
 

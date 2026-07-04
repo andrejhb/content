@@ -40,8 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Creatives workboard — WIP generated creatives + their PNGs, and zip exports.
-# Not backed up. Approved creatives get promoted into creatives-live/ (committed).
-# Mirrors hububb-presentations: decks/ (workboard) → decks-live/ (promoted).
-/creatives/*
-!/creatives/.gitkeep
+# Creatives are all live: everything under creatives/ is tracked and committed,
+# no promotion step (per user, 2026-07). Zip exports are still ignored below.
+#
+# DISABLED (reinstatable) — the old workboard rule. Uncomment these two lines to
+# turn creatives/ back into a git-ignored WIP board promoted into creatives-live/:
+# /creatives/*
+# !/creatives/.gitkeep
+/creatives/*/*.zip

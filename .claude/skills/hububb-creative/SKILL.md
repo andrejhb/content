@@ -20,7 +20,7 @@ You are the creative engine for **Hububb products**. Given an angle, produce a s
 ### 1. Load the product
 Read the selected product's folder:
 - `products/<slug>/product-marketing.md` — positioning, audience, voice, proof, guardrails. The source of truth.
-- `products/<slug>/persona.json` — audience, jobs-to-be-done, pains, lifestyle, archetypes. Weight the angle and copy against these sections: speak to a real archetype's job or pain, not to a generic reader.
+- `products/<slug>/personas/*.json` — one file per persona, each a real human with a `profile` (name, headline, bio, facts) and `sections` (jobs-to-be-done, pains, lifestyle, …). A product may have several; pick the persona the angle targets (or the closest one) and weight the copy against their job or pain — speak to that specific person, not a generic reader. (Legacy products may still carry a single `products/<slug>/persona.json`; read it the same way.)
 - `products/<slug>/qa.json` — competitor names to avoid, unbuilt features that need "coming soon", allowed proof claims.
 
 The brand voice is plain, operational, restrained (Linear/Stripe/Vercel register) — parent-brand-wide.
@@ -33,13 +33,13 @@ Six templates exist. Pick every one that genuinely fits the angle (or those the 
 
 Type-only (no image):
 - **statement** — one strong line, pure type on a light background. Slots: `eyebrow`, `headline`, `subhead`.
-- **problem-to-calm** — the second job (chaos) vs. the calm layer, split. Slots: `problemLabel`, `problems` (3–4 short items), `calmLabel`, `calm` (the payoff line), optional `subhead`.
 - **proof-card** — built around an allowed proof claim. Slots: `eyebrow`, `headline` (usually the proof claim), `subhead`.
 
 Image-driven (need a supplied image):
 - **image-card** — eyebrow + headline up top, a large rounded image below (lifestyle photo or product screen). Slots: `eyebrow`, `headline`, `subhead`, `image`, `variant`.
 - **feature-card** — same text treatment as image-card, but the image area is a neutral surface panel (soft mono gradient) with a phone mockup floating inside it (device shadow). Product-led feature ads where the screenshot is the focal point. Slots: `eyebrow`, `headline`, `subhead`, `image`, `variant`.
 - **showcase** — headline, three floating icon badges, and a product screenshot. Slots: `headline`, `image`, `variant`, `copy.badges` (Phosphor icon names, e.g. `["Broom","Airplane","House"]`).
+- **spotlight** — the Hosts-page CTA hero: a full-bleed background (a photo, or a light moving clip when `image` is an mp4) under a dark left scrim, a two-tone headline, subhead, and an optional CTA pill. Slots: `eyebrow`, `headline` (white lead), `copy.headlineTail` (muted tail), `subhead`, `copy.cta` (pill label; omit for the no-CTA variant), `image`. Best as a Remotion video (`video.composition: "animated-spotlight"`) so the text staggers in over a slow background zoom.
 
 Formats (always all four unless told otherwise): `1x1`, `4x5`, `9x16`, `16x9`.
 
@@ -53,9 +53,10 @@ Each template = its own creative folder `creatives/<id>/brief.json`. Use id `YYY
   "id": "2026-07-02-passive-income-statement",
   "createdAt": "<ISO timestamp>",
   "product": "<product slug, e.g. host>",
+  "persona": "<persona id from products/<slug>/personas/, e.g. side-hustler>",
   "angle": "<the user's angle>",
   "brief": "<one-paragraph creative brief: the idea, the read, the visual>",
-  "template": "statement | problem-to-calm | proof-card | image-card | feature-card | showcase",
+  "template": "statement | proof-card | image-card | feature-card | showcase",
   "formats": ["1x1", "4x5", "9x16", "16x9"],
   "brandMark": true,
   "image": null,
@@ -63,7 +64,7 @@ Each template = its own creative folder `creatives/<id>/brief.json`. Use id `YYY
 }
 ```
 
-`product` is required — QA and the app resolve the product's rules and spaces through it. Keep headlines short enough to read big (the templates size type to the canvas). For `problem-to-calm`, put the chaos items in `copy.problems` and the payoff in `copy.calm`.
+`product` is required — QA and the app resolve the product's rules and spaces through it. `persona` is the id of the persona this creative speaks to (one of the files under `products/<slug>/personas/`, chosen in step 1 as the archetype whose job or pain the angle targets). The app displays it as a "speaking to" tag on the creative. Omit it only if the angle genuinely spans every persona. Keep headlines short enough to read big (the templates size type to the canvas).
 
 ### 5. QA gate (must pass before render)
 Run `node scripts/qa.mjs <id> [<id> …]`. It checks every copy field against the global voice rules plus the product's `qa.json` and writes the result into each brief.json. If anything fails, fix the copy and re-run until it passes. Do not render copy that fails QA.

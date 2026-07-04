@@ -1,6 +1,6 @@
 ---
 name: product-onboard
-description: Onboard a new Hububb product into the marketing engine by interviewing the user and writing its product folder. Use when the user says "onboard a product", "add a product", "set up Stay/Work", or supplies marketing notes for a product that has no products/<slug>/ folder yet. Creates product-marketing.md, persona.json, and qa.json; the product then appears in the app with zero code changes.
+description: Onboard a new Hububb product into the marketing engine by interviewing the user and writing its product folder. Use when the user says "onboard a product", "add a product", "set up Stay/Work", or supplies marketing notes for a product that has no products/<slug>/ folder yet. Creates product-marketing.md, one or more personas/<id>.json, and qa.json; the product then appears in the app with zero code changes.
 metadata:
   version: 1.0.0
 ---
@@ -12,9 +12,10 @@ You onboard one product into the marketing engine. A product is a folder:
 ```
 products/<slug>/
   product-marketing.md   # positioning, audience, voice deltas, proof, guardrails
-  persona.json           # fluid sectioned persona doc (see schema below)
+  personas/<id>.json     # one file per persona (profile + fluid sections; schema below)
   qa.json                # per-product QA config consumed by scripts/qa.mjs
   assets/                # source imagery, one subfolder per group (optional at first)
+    personas/            # optional real avatar photos, served at /asset/<slug>/personas/<file>
 ```
 
 The folder appearing with a `product-marketing.md` is all it takes to register —
@@ -72,23 +73,38 @@ product reads the same way:
 - `products/<slug>/product-marketing.md` — H1 `# Product Marketing Context`,
   `*Last updated: <date>*` and `*Scope: Hububb <Name> only. …*` lines, then the
   `##` sections above. Follow the Host file's register.
-- `products/<slug>/persona.json` — schema:
+- `products/<slug>/personas/<id>.json` — one file per persona. Each archetype
+  from the interview becomes its own file (a real human), not a row in a shared
+  table. Schema:
   ```json
   {
-    "version": 1,
+    "version": 2,
+    "id": "<persona-slug>",
     "product": "<slug>",
     "updatedAt": "<ISO timestamp>",
+    "profile": {
+      "name": "<a real name>",
+      "headline": "The <archetype> · <segment>",
+      "location": "<market>",
+      "bio": "<a few sentences in their own register>",
+      "avatar": null,
+      "cover": null,
+      "archetype": "<archetype-slug>",
+      "facts": [ { "label": "Segment", "value": "…" }, { "label": "Primary job", "value": "…" } ]
+    },
     "sections": [
-      { "key": "audience",  "title": "Audience",        "kind": "text",  "content": "…" },
-      { "key": "jtbd",      "title": "Jobs to be done", "kind": "list",  "content": ["…"] },
-      { "key": "pains",     "title": "Pains",           "kind": "list",  "content": ["…"] },
-      { "key": "lifestyle", "title": "Lifestyle",       "kind": "text",  "content": "…" },
-      { "key": "archetypes","title": "Archetypes",      "kind": "table", "columns": ["…"], "rows": [["…"]] }
+      { "key": "jtbd",        "title": "Jobs to be done", "kind": "list", "content": ["…"] },
+      { "key": "pains",       "title": "Pains",           "kind": "list", "content": ["…"] },
+      { "key": "lifestyle",   "title": "Lifestyle",       "kind": "text", "content": "…" },
+      { "key": "positioning", "title": "Value we promise","kind": "text", "content": "…" }
     ]
   }
   ```
-  Seed the core sections (audience, jtbd, pains, lifestyle, archetypes) from
-  the interview; add more sections freely — the schema is fluid.
+  Write one persona per distinct archetype (id = a slug of the name). Fill the
+  `profile` (name, headline, bio, facts) and seed the core sections (jtbd,
+  pains, lifestyle, positioning); add more sections freely — the schema is
+  fluid. The `avatar` is a served `/asset/<slug>/personas/<file>` path once a
+  photo is dropped in, or `null` for a monogram.
 - `products/<slug>/qa.json`:
   ```json
   {
@@ -102,7 +118,13 @@ product reads the same way:
   scripts/qa.mjs. `allowedProofClaims` is advisory context for copywriting.
 
 ### 4. Verify and report
-Run `node -e "..."` is unnecessary — just confirm the three files parse (JSON)
-and tell the user the product is live: it appears in the app's product tabs
-immediately. Point them at the Persona screen to refine, and remind them the
-`hububb-creative` skill now accepts this product.
+Run `node -e "..."` is unnecessary — just confirm the files parse (JSON: the
+qa.json and every personas/<id>.json) and tell the user the product is live: it
+appears in the app's product tabs immediately. Point them at the Persona screen
+to refine (each persona is switchable there), and remind them the
+`hububb-creative` skill now accepts this product. Once the personas are solid,
+suggest running the `persona-prompts` skill to draft each persona's starter
+prompts (ready-to-run creative angles that show up on the Persona screen).
+
+Optional: drop a `products/<slug>/assets/brand/<slug>-icon.png` app icon and the
+product tab + content-engine logo pick it up automatically.
