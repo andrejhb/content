@@ -1,7 +1,7 @@
 import type { Brief } from "@/lib/creatives";
 import { CreativeCanvas, BrandMark } from "./canvas";
 
-// Proof card — built around "tested on hundreds of real London properties".
+// Proof card: built around "tested on hundreds of real London properties".
 export function ProofCardTemplate({
   brief,
   w,

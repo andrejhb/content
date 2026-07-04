@@ -1,0 +1,76 @@
+{
+  "id": "2026-06-17-ai-messaging-feature-card",
+  "createdAt": "2026-06-17T00:00:00.000Z",
+  "angle": "Guests get fast, accurate replies day and night, in the host's voice, and cannot tell the host was asleep. AI guest messaging handles the routine and hands over what needs a human.",
+  "brief": "Feature-card, light. AI guest messaging is live, so present tense. Phone mockup of the guest chat (phone-messaging-v2.png) showing a thread answered instantly. Strong for 9x16 and 1x1.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "animated-feature-card",
+    "durationSec": 6,
+    "fps": 30
+  },
+  "template": "feature-card",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/mockups/phone-messaging-v2.png",
+  "variant": "light",
+  "copy": {
+    "eyebrow": "AI guest messaging",
+    "headline": "Answers in seconds, in your voice",
+    "subhead": "it handles the routine questions and hands you the ones that need a human."
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-02T21:04:52.398Z"
+  },
+  "product": "host",
+  "persona": "side-hustler"
+}

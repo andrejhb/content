@@ -1,0 +1,78 @@
+{
+  "id": "2026-07-04-premium-guests-spotlight",
+  "createdAt": "2026-07-04T09:00:00.000Z",
+  "product": "host",
+  "persona": "scaling-operator",
+  "angle": "List with Hububb Host to reach premium guests booking longer mid-term stays.",
+  "brief": "Spotlight CTA hero in the Hosts-page style. Full-bleed premium-home photo under a dark left scrim, a two-tone headline, subhead, and the Connect your Airbnb CTA. Text staggers up over a slow background zoom. With-CTA variant.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "animated-spotlight",
+    "durationSec": 7,
+    "fps": 30
+  },
+  "template": "spotlight",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": false,
+  "image": "/asset/host/photos/living-room.jpg",
+  "variant": "dark",
+  "copy": {
+    "eyebrow": "Hububb Stay",
+    "headline": "Premium guests, booking by the month",
+    "headlineTail": "already on Hububb.",
+    "subhead": "List with Hububb Host and reach vetted guests booking longer mid-term stays, fully managed.",
+    "cta": "Connect your Airbnb"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-04T07:57:22.886Z"
+  }
+}

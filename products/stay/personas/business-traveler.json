@@ -1,0 +1,51 @@
+{
+  "version": 2,
+  "id": "business-traveler",
+  "product": "stay",
+  "updatedAt": "2026-07-03T12:00:00.000Z",
+  "profile": {
+    "name": "Elena Duarte",
+    "headline": "The Business Traveller · books stays for work trips",
+    "location": "Travels UK & EU · based in Madrid",
+    "bio": "Elena is 44, a regional sales director who is on the road two weeks a month. She books a place to stay the way she books a flight: fast, on her phone, between meetings. What she wants from a stay is zero friction, a clear listing, a check-in that just works when she lands late, and everything she needs in one place so she is not chasing a host for the wifi at 11pm. Draft persona, sharpen with persona-refine.",
+    "avatar": "/asset/stay/personas/business-traveler.png",
+    "cover": null,
+    "archetype": "business-traveller",
+    "facts": [
+      { "label": "Age", "value": "44" },
+      { "label": "Trip type", "value": "Work, 2 weeks/month" },
+      { "label": "Books on", "value": "Phone, between meetings" },
+      { "label": "Cares about", "value": "Reliability, fast check-in" },
+      { "label": "Frustration", "value": "Chasing hosts for details" },
+      { "label": "Wants", "value": "Zero-friction stays" }
+    ]
+  },
+  "sections": [
+    {
+      "key": "jtbd",
+      "title": "Jobs to be done",
+      "kind": "list",
+      "content": [
+        "Book a reliable place to stay quickly, without reading twenty reviews to feel safe.",
+        "Arrive late and get in without a phone call or a scavenger hunt for the key.",
+        "Have everything the stay needs, access, wifi, directions, in one place, not scattered across messages."
+      ]
+    },
+    {
+      "key": "pains",
+      "title": "Pains",
+      "kind": "list",
+      "content": [
+        "Uncertainty: photos and reality don't always match, and a bad stay derails a work trip.",
+        "Access hassle: unclear check-in and chasing the host for codes when she lands late.",
+        "Fragmented info: the address is in one message, the wifi in another, the checkout time nowhere."
+      ]
+    },
+    {
+      "key": "lifestyle",
+      "title": "Lifestyle",
+      "kind": "text",
+      "content": "Elena lives out of a cabin bag and treats a stay as infrastructure for the trip, not a holiday. She has no patience for friction, the stay should recede into the background so she can do the work she came to do."
+    }
+  ]
+}

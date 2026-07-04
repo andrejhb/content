@@ -12,7 +12,19 @@ const RESERVED = new Set(["shared"]);
 export type Product = {
   slug: string;
   name: string;
+  /** Served path to the product's app icon, when products/<slug>/assets/brand/<slug>-icon.png exists. */
+  icon?: string;
 };
+
+/** The served app-icon path when the file exists, else undefined. */
+async function productIcon(slug: string): Promise<string | undefined> {
+  try {
+    await access(path.join(ROOT, slug, "assets", "brand", `${slug}-icon.png`));
+    return `/asset/${slug}/brand/${slug}-icon.png`;
+  } catch {
+    return undefined;
+  }
+}
 
 export function isValidSlug(slug: string): boolean {
   return /^[a-z0-9][a-z0-9-]*$/.test(slug) && !RESERVED.has(slug);
@@ -38,7 +50,11 @@ export async function listProducts(): Promise<Product[]> {
     if (!d.isDirectory() || !isValidSlug(d.name)) continue;
     try {
       await access(path.join(ROOT, d.name, "product-marketing.md"));
-      products.push({ slug: d.name, name: titleCase(d.name) });
+      products.push({
+        slug: d.name,
+        name: titleCase(d.name),
+        icon: await productIcon(d.name),
+      });
     } catch {
       // no product-marketing.md — not a product yet
     }
@@ -50,7 +66,7 @@ export async function getProduct(slug: string): Promise<Product | null> {
   if (!isValidSlug(slug)) return null;
   try {
     await access(path.join(ROOT, slug, "product-marketing.md"));
-    return { slug, name: titleCase(slug) };
+    return { slug, name: titleCase(slug), icon: await productIcon(slug) };
   } catch {
     return null;
   }

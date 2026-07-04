@@ -1,0 +1,74 @@
+{
+  "version": 2,
+  "id": "scaling-operator",
+  "product": "host",
+  "updatedAt": "2026-07-03T12:30:00.000Z",
+  "profile": {
+    "name": "Claire Bennett",
+    "headline": "The Scaling Operator · 6 units across North London",
+    "location": "Islington, London",
+    "bio": "Claire is 52 and runs short-lets full-time after leaving a marketing director role in 2019. She manages six units across Islington, Camden and Shoreditch, with two regular cleaners and a handyman on call. Hosting is serious income now, but the operation only scales as far as she does. Turnovers, pricing, guest messages, invoices and a patchwork of tools all still route through her. She can feel the profitability but can't see it cleanly, and she's wary of losing grip on quality as she delegates. She wants to grow margin and reliability without hiring a manager or working more hours.",
+    "avatar": "/asset/host/personas/claire.png",
+    "cover": null,
+    "archetype": "scaling-operator",
+    "facts": [
+      { "label": "Age", "value": "52" },
+      { "label": "Location", "value": "Islington, London" },
+      { "label": "Occupation", "value": "Full-time short-let operator" },
+      { "label": "Portfolio", "value": "6 units across North London" },
+      { "label": "Hosting since", "value": "2016" },
+      { "label": "Wants", "value": "More margin without more hours" }
+    ]
+  },
+  "sections": [
+    {
+      "key": "jtbd",
+      "title": "Jobs to be done",
+      "kind": "list",
+      "content": [
+        "Run the operation reliably across six units so income grows without adding headcount or hours.",
+        "Keep turnovers, maintenance and guest issues from falling through the cracks at portfolio scale.",
+        "See profitability clearly, costs against revenue per unit, and stop the silent leaks.",
+        "Delegate the doing without handing over the judgement: automate ops while keeping control of quality."
+      ]
+    },
+    {
+      "key": "pains",
+      "title": "Pains",
+      "kind": "list",
+      "content": [
+        "Growth: the business only runs as long as she runs it, she is the bottleneck.",
+        "Money: revenue left on the table and margin she can feel but not see across six units.",
+        "Fragility: single points of failure and a stack of tools that don't talk to each other.",
+        "Risk: at six units the surprises compound, a bad clean or a no-show now hits reviews and cash flow."
+      ]
+    },
+    {
+      "key": "lifestyle",
+      "title": "Lifestyle",
+      "kind": "text",
+      "content": "Claire treats hosting as the business it became, but the operation doesn't scale with manual effort. She's stretched across units, chasing reliability, on WhatsApp with cleaners at 7am and reconciling spreadsheets at 11pm. She fears losing control of quality as she delegates and wants to feel in command without being involved in everything, more margin and reliability, not more people."
+    },
+    {
+      "key": "positioning",
+      "title": "Value we promise",
+      "kind": "text",
+      "content": "Everything under one roof, automated by the AI host and cleanly reported. Claire keeps control and margin while the operation scales past what she can personally hold in her head."
+    }
+  ],
+  "prompts": [
+    {
+      "title": "One roof, six units",
+      "body": "Run hububb-creative for host.\n\nAngle: Six units, one operation. Everything under one roof so the portfolio does not run only as long as she does.\nDescription: Leans on the unified inbox, multi-calendar, and multi-channel distribution. The feeling: the bottleneck is gone, the business scales past her own hours.\n\nSpeak to: Claire Bennett, the scaling operator running 6 units across North London.\nTemplates: feature-card, statement\nFormats: all four\nImagery: none\n\nRender when QA passes and give me the review links."
+    },
+    {
+      "title": "See the margin",
+      "body": "Run hububb-creative for host.\n\nAngle: Profitability you can feel but not see, across six units. Hububb reports it cleanly so the margin stops hiding in spreadsheets.\nDescription: Leans on the performance dashboard and dynamic pricing. The feeling: clarity, the silent leaks become visible.\n\nSpeak to: Claire Bennett, the scaling operator reconciling spreadsheets at 11pm.\nTemplates: proof-card, problem-to-calm\nFormats: all four\nImagery: none\n\nRender when QA passes and give me the review links."
+    },
+    {
+      "title": "Delegate without losing grip",
+      "body": "Run hububb-creative for host.\n\nAngle: Automate the doing without handing over the judgement. Keep control of quality while the AI host runs the operation.\nDescription: Leans on autonomous operation with full control over what the agents know and how they speak. The feeling: she scales without the quality slipping.\n\nSpeak to: Claire Bennett, the scaling operator wary of losing grip as she delegates.\nTemplates: statement, feature-card\nFormats: all four\nImagery: none\n\nRender when QA passes and give me the review links."
+    }
+  ],
+  "promptsUpdatedAt": "2026-07-03T12:30:00.000Z"
+}

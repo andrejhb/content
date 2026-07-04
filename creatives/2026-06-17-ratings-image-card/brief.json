@@ -1,0 +1,69 @@
+{
+  "id": "2026-06-17-ratings-image-card",
+  "createdAt": "2026-06-17T00:00:00.000Z",
+  "angle": "A slow reply or a confusing check-in quietly costs a star. Hububb keeps every stay consistent so the experience holds up whether the host is watching or not.",
+  "brief": "Image-card, light variant. A calm, welcoming light-filled space (studio.jpg) standing in for a consistent guest experience. Text up top, image below.",
+  "template": "image-card",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/photos/studio.jpg",
+  "variant": "light",
+  "copy": {
+    "eyebrow": "Guest experience",
+    "headline": "One slow reply can cost you a star",
+    "subhead": "fast responses, clean handovers, clear access. consistent whether you are watching or not."
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-02T21:04:52.415Z"
+  },
+  "product": "host",
+  "persona": "side-hustler"
+}

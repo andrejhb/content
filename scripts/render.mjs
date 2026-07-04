@@ -32,6 +32,13 @@ async function renderCreative(browser, id) {
   const brief = JSON.parse(
     await readFile(path.join(ROOT, id, "brief.json"), "utf8"),
   );
+  // Video creatives own their PNG poster (a Remotion frame written by
+  // render-video.mjs). Skip them here so a bulk still-render never overwrites a
+  // good poster with an empty template still.
+  if (brief.kind === "video") {
+    console.warn(`  ! ${id} is a video creative — render with scripts/render-video.mjs (skipping)`);
+    return;
+  }
   const formats = Array.isArray(brief.formats) && brief.formats.length
     ? brief.formats
     : Object.keys(FORMATS);

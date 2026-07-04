@@ -4,23 +4,23 @@ import type { FormatKey } from "@/lib/formats";
 
 export type TemplateKey =
   | "statement"
-  | "problem-to-calm"
   | "proof-card"
   | "image-card"
   | "feature-card"
-  | "showcase";
+  | "showcase"
+  | "spotlight";
 
 export type CreativeCopy = {
   eyebrow?: string;
   headline?: string;
   subhead?: string;
-  // problem-to-calm
-  problemLabel?: string;
-  problems?: string[];
-  calmLabel?: string;
-  calm?: string;
-  // showcase — Phosphor icon names for the floating badges (e.g. ["Broom","Airplane","House"])
+  // showcase: Phosphor icon names for the floating badges (e.g. ["Broom","Airplane","House"])
   badges?: string[];
+  // spotlight: the muted second half of a two-tone headline, and an optional CTA pill label
+  headlineTail?: string;
+  cta?: string;
+  // spotlight (animated): rotate through these messages one at a time instead of a static headline
+  rotating?: string[];
 };
 
 export type QaCheck = { rule: string; ok: boolean; detail?: string };
@@ -41,6 +41,7 @@ export type Brief = {
   id: string;
   createdAt: string;
   product: string; // product slug, e.g. "host" — folder under products/
+  persona?: string; // persona id this creative speaks to, e.g. "side-hustler"
   angle: string;
   brief: string;
   kind?: "image" | "video"; // absent = image (pre-video briefs)

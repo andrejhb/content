@@ -1,0 +1,52 @@
+{
+  "version": 2,
+  "id": "maintenance-pro",
+  "product": "work",
+  "updatedAt": "2026-07-03T12:00:00.000Z",
+  "profile": {
+    "name": "Andre Willis",
+    "headline": "The Maintenance Pro · handyman for short-let fixes",
+    "location": "North & East London",
+    "bio": "Andre is 54, a self-employed handyman who takes on repairs and maintenance for short-let properties, a broken lock, a dead boiler, a leak before the next guest arrives. He wants a steady stream of clearly-scoped jobs, the right details up front so he brings the right parts, and to get paid without the awkward follow-up. Draft persona, sharpen with persona-refine.",
+    "avatar": "/asset/work/personas/maintenance-pro.png",
+    "cover": null,
+    "archetype": "maintenance-pro",
+    "facts": [
+      { "label": "Age", "value": "54" },
+      { "label": "Work", "value": "Self-employed handyman" },
+      { "label": "Area", "value": "North & East London" },
+      { "label": "Cares about", "value": "Clear scope, right parts" },
+      { "label": "Frustration", "value": "Wasted call-outs, half a brief" },
+      { "label": "Wants", "value": "Steady, well-scoped jobs" }
+    ]
+  },
+  "sections": [
+    {
+      "key": "jtbd",
+      "title": "Jobs to be done",
+      "kind": "list",
+      "content": [
+        "Get a steady stream of repair jobs without hustling for every one.",
+        "Know the fault, the access, and the property before he sets off, so he brings the right parts once.",
+        "Fix it before the next guest arrives and get paid without chasing."
+      ]
+    },
+    {
+      "key": "pains",
+      "title": "Pains",
+      "kind": "list",
+      "content": [
+        "Wasted call-outs: driving across town for a job that needed a part he didn't know about.",
+        "Half a brief: 'something's broken' with no photo, no access, no urgency.",
+        "Time pressure: a fault that has to be sorted before check-in, found out too late.",
+        "Payment follow-up after the work is already done."
+      ]
+    },
+    {
+      "key": "lifestyle",
+      "title": "Lifestyle",
+      "kind": "text",
+      "content": "Andre works out of his van and trusts his hands more than any app. He'll happily take dispatched work if it respects his time: clear scope, the details up front, and payment that just lands. What loses him is a wasted journey."
+    }
+  ]
+}

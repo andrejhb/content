@@ -1,0 +1,75 @@
+{
+  "id": "2026-07-03-hostie-autonomous-host-dark",
+  "createdAt": "2026-07-02T23:15:53Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "Hostie is the autonomous AI host that runs the whole property while you watch.",
+  "brief": "Rebuild the shipped Hostie hero as an animated Remotion ad. Copy side: channels badge, oversized headline, two-tone subhead, and the Connect your Airbnb CTA. Phone side: Hostie in a clean panel, avatar orb, Hostie AI verified, the De Beauvoir listing pill, a grey reply bubble, and a proactive check-in card with a live green pulse. Restrained Linear/Stripe motion; the read is control without being involved.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "hostie-ad",
+    "durationSec": 10,
+    "fps": 30
+  },
+  "template": "feature-card",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": false,
+  "image": null,
+  "variant": "dark",
+  "copy": {
+    "headline": "Your autonomous AI host",
+    "subhead": "The general AI host that runs your property end to end. Bookings, guests, cleaning, and pricing, all handled while you watch."
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-02T23:16:22.646Z"
+  }
+}
