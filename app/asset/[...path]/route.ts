@@ -1,9 +1,11 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { isValidSlug } from "@/lib/products";
 
-// Serves files from the repo's brand/ folder (which lives outside /public) so
-// the brand hub can display logos, graphics, and photos by relative path.
-const ROOT = path.join(process.cwd(), "assets");
+// Serves source assets (which live outside /public) by served path:
+//   /asset/shared/<group>/<file>  → assets/shared/<group>/<file>   (parent brand)
+//   /asset/<slug>/<group>/<file>  → products/<slug>/assets/<group>/<file>
+const SHARED_ROOT = path.join(process.cwd(), "assets", "shared");
 
 const TYPES: Record<string, string> = {
   ".svg": "image/svg+xml",
@@ -13,6 +15,10 @@ const TYPES: Record<string, string> = {
   ".webp": "image/webp",
   ".avif": "image/avif",
   ".gif": "image/gif",
+  // Video backgrounds (e.g. a Higgsfield clip) used by spotlight creatives.
+  ".mp4": "video/mp4",
+  ".webm": "video/webm",
+  ".mov": "video/quicktime",
 };
 
 export async function GET(
@@ -20,10 +26,21 @@ export async function GET(
   { params }: { params: Promise<{ path: string[] }> },
 ) {
   const { path: parts } = await params;
-  const abs = path.join(ROOT, ...parts);
+  const [scope, ...rest] = parts;
+  if (!scope || rest.length === 0) return new Response("Not found", { status: 404 });
 
-  // Block path traversal outside brand/.
-  if (abs !== ROOT && !abs.startsWith(ROOT + path.sep)) {
+  let root: string;
+  if (scope === "shared") {
+    root = SHARED_ROOT;
+  } else if (isValidSlug(scope)) {
+    root = path.join(process.cwd(), "products", scope, "assets");
+  } else {
+    return new Response("Not found", { status: 404 });
+  }
+
+  // Block path traversal outside the resolved root.
+  const abs = path.join(root, ...rest);
+  if (abs !== root && !abs.startsWith(root + path.sep)) {
     return new Response("Not found", { status: 404 });
   }
 

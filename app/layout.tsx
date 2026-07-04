@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import ThemeProvider from "@hububb/design-system/theme-provider";
+import { ThemeProvider } from "next-themes";
 import { TooltipProvider } from "@hububb/design-system/tooltip";
 import "./globals.css";
 
@@ -13,9 +13,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Hububb content engine",
+  title: "Hububb marketing engine",
   description:
-    "Brand hub and on-brand creative engine for Hububb Host — powered by @hububb/design-system.",
+    "Multi-product marketing engine for Hububb — brand hub, personas, and on-brand creative generation powered by @hububb/design-system.",
   // Preview surface: keep it out of search until it goes live.
   robots: { index: false, follow: false },
 };
@@ -32,7 +32,14 @@ export default function RootLayout({
       className={`${inter.variable} h-full`}
     >
       <body className="min-h-full bg-background text-foreground antialiased">
-        <ThemeProvider>
+        {/* light / dark / system, switched from the top nav. Creative renders
+            are unaffected: the canvas uses the fixed mono scale. */}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <TooltipProvider>{children}</TooltipProvider>
         </ThemeProvider>
       </body>

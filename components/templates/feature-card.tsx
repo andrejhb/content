@@ -1,7 +1,7 @@
 import type { Brief } from "@/lib/creatives";
 import { CreativeCanvas } from "./canvas";
 
-// Feature card — image-card's text treatment, but the image area is a neutral
+// Feature card: image-card's text treatment, but the image area is a neutral
 // SURFACE PANEL (soft mono gradient) with a phone mockup floating inside it.
 // Product-led feature ads: the screenshot is the focal point, the surface and
 // device shadow do the polish. Light or dark. The image is a supplied mockup or
@@ -26,13 +26,15 @@ export function FeatureCardTemplate({
   // (like the website feature cards). 9x16 and 16x9 keep the contained phone.
   const aspect = w / h;
   const clip = aspect >= 0.7 && aspect <= 1.3;
-  const clipTop = Math.round(Math.min(w, h) * 0.07);
-  // 1x1 panel is the shortest, so the phone clips hardest there — make it a bit
-  // narrower (shorter) on the square so more of the screen shows. 4x5 keeps more.
-  const clipWidth = aspect >= 0.95 ? "52%" : "66%";
+  const clipTop = Math.round(Math.min(w, h) * 0.06);
+  // 1x1 panel is the shortest, so the phone clips hardest there: the square
+  // shows a touch less of the screen than the taller 4x5. Both run large so the
+  // device is the hero.
+  const clipWidth = aspect >= 0.95 ? "58%" : "70%";
 
   const bg = dark ? "bg-mono-20 text-mono-1" : "bg-mono-1 text-mono-21";
   const eyeColor = dark ? "text-mono-5" : "text-mono-11";
+  const accentBg = dark ? "bg-mono-5" : "bg-mono-11";
   const frame = dark ? "border-mono-18" : "border-mono-4";
   const surface = dark
     ? "radial-gradient(125% 120% at 50% 0%, var(--color-mono-19) 0%, var(--color-mono-21) 100%)"
@@ -42,20 +44,35 @@ export function FeatureCardTemplate({
   const deviceShadow = dark
     ? "drop-shadow(0 20px 32px rgba(0,0,0,0.55))"
     : "drop-shadow(0 18px 30px rgba(0,0,0,0.16))";
+  // Lift the panel off the page with a soft shadow, and catch a thread of light
+  // along its top edge: the small touches that read as crafted, not flat.
+  const panelShadow = dark
+    ? "0 1px 2px rgba(0,0,0,0.5), 0 24px 48px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.05)"
+    : "0 1px 2px rgba(38,38,38,0.05), 0 22px 44px rgba(38,38,38,0.09), inset 0 1px 0 rgba(255,255,255,0.85)";
 
   const text = (
-    <div className="flex flex-col" style={{ gap: Math.round(head * 0.18) }}>
+    <div className="flex flex-col">
       {c.eyebrow ? (
-        <span
-          className={`font-mono ${eyeColor}`}
-          style={{ fontSize: eye, letterSpacing: "0.01em" }}
-        >
-          {c.eyebrow}
-        </span>
+        <div className="flex items-center" style={{ gap: Math.round(eye * 0.6) }}>
+          <span
+            className={`${accentBg} rounded-full`}
+            style={{ width: Math.round(eye * 1.5), height: Math.max(2, Math.round(h * 0.0026)) }}
+          />
+          <span
+            className={`font-mono ${eyeColor}`}
+            style={{ fontSize: eye, letterSpacing: "0.01em" }}
+          >
+            {c.eyebrow}
+          </span>
+        </div>
       ) : null}
       <h1
         className="font-semibold tracking-tight text-balance"
-        style={{ fontSize: head, lineHeight: 1.05 }}
+        style={{
+          fontSize: head,
+          lineHeight: 1.05,
+          marginTop: c.eyebrow ? Math.round(head * 0.24) : 0,
+        }}
       >
         {c.headline}
       </h1>
@@ -65,6 +82,7 @@ export function FeatureCardTemplate({
           style={{
             fontSize: Math.round(w * 0.026),
             lineHeight: 1.35,
+            marginTop: Math.round(head * 0.3),
             maxWidth: landscape ? "100%" : w * 0.82,
           }}
         >
@@ -77,7 +95,7 @@ export function FeatureCardTemplate({
   const panel = (
     <div
       className={`flex min-h-0 flex-1 justify-center overflow-hidden rounded-3xl border ${frame} ${clip ? "items-start" : "items-center"}`}
-      style={{ background: surface, padding: clip ? 0 : panelPad }}
+      style={{ background: surface, padding: clip ? 0 : panelPad, boxShadow: panelShadow }}
     >
       {brief.image ? (
         // eslint-disable-next-line @next/next/no-img-element

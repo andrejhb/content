@@ -1,0 +1,78 @@
+{
+  "id": "2026-07-04-spotlight-rotating-test",
+  "createdAt": "2026-07-04T10:00:00.000Z",
+  "product": "host",
+  "persona": "scaling-operator",
+  "angle": "Premium mid-term guests are already on Hububb.",
+  "brief": "Spotlight motion test. Living-room background with a slow camera push-in (swap in a Higgsfield moving clip once authorized), no eyebrow, no subhead, no CTA. Three headline messages rotate one at a time, scrolling up. Same spotlight style.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "animated-spotlight",
+    "durationSec": 9,
+    "fps": 30
+  },
+  "template": "spotlight",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": false,
+  "image": "/asset/host/videos/living-room-motion.mp4",
+  "variant": "dark",
+  "copy": {
+    "rotating": [
+      "Premium guests, booking by the month.",
+      "Vetted and verified, already on Hububb.",
+      "Join Hububb"
+    ]
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-04T08:37:12.289Z"
+  }
+}

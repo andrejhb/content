@@ -1,0 +1,68 @@
+{
+  "id": "2026-06-17-time-statement",
+  "createdAt": "2026-06-17T00:00:00.000Z",
+  "angle": "Hosting was supposed to be the side thing, then it took over the evenings. Hububb takes the repetitive operational work off the host's plate.",
+  "brief": "Type-only, dark. Quiet and empathetic. The read: the passive income became a second job, and that can be handed back. Restrained, no melodrama.",
+  "template": "statement",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": true,
+  "image": null,
+  "copy": {
+    "eyebrow": "Your time",
+    "headline": "Hosting was meant to be the side thing",
+    "subhead": "hand over the day-to-day and the rental runs without running you."
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-02T21:04:52.416Z"
+  },
+  "product": "host",
+  "persona": "side-hustler"
+}

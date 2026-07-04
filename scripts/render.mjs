@@ -8,13 +8,12 @@
 
 import { chromium } from "playwright";
 import sharp from "sharp";
-import { spawn } from "node:child_process";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
+import { ensureServer, stopServer } from "./server-util.mjs";
 
 const ROOT = path.join(process.cwd(), "creatives");
-const BASE = process.env.RENDER_BASE_URL || "http://localhost:3000";
-const READY_URL = `${BASE}/asset/logos/hububb-symbol.svg`;
+let BASE = process.env.RENDER_BASE_URL || "http://localhost:3000";
 
 // Supersample: render at SCALE× device pixels for crisp text/edges, then
 // downscale back to the exact format size with a high-quality Lanczos filter.
@@ -29,58 +28,17 @@ const FORMATS = {
   "16x9": { w: 1200, h: 675 },
 };
 
-async function isUp() {
-  try {
-    const r = await fetch(READY_URL, { method: "GET" });
-    return r.ok;
-  } catch {
-    return false;
-  }
-}
-
-async function waitUntilUp(timeoutMs) {
-  const start = Date.now();
-  while (Date.now() - start < timeoutMs) {
-    if (await isUp()) return true;
-    await new Promise((r) => setTimeout(r, 1000));
-  }
-  return false;
-}
-
-async function ensureServer() {
-  if (await isUp()) return { spawned: false, proc: null };
-  console.log("• no dev server detected — starting one…");
-  // detached so the child gets its own process group — lets us kill the whole
-  // tree (npm + next-server) on cleanup instead of orphaning the server.
-  const proc = spawn("npm", ["run", "dev"], {
-    cwd: process.cwd(),
-    stdio: "ignore",
-    env: process.env,
-    detached: true,
-  });
-  const ok = await waitUntilUp(90_000);
-  if (!ok) {
-    stopServer(proc);
-    throw new Error("dev server did not come up within 90s");
-  }
-  return { spawned: true, proc };
-}
-
-function stopServer(proc) {
-  if (!proc) return;
-  try {
-    process.kill(-proc.pid, "SIGTERM"); // kill the whole process group
-  } catch {
-    try {
-      proc.kill("SIGTERM");
-    } catch {}
-  }
-}
-
 async function renderCreative(browser, id) {
   const brief = JSON.parse(
     await readFile(path.join(ROOT, id, "brief.json"), "utf8"),
   );
+  // Video creatives own their PNG poster (a Remotion frame written by
+  // render-video.mjs). Skip them here so a bulk still-render never overwrites a
+  // good poster with an empty template still.
+  if (brief.kind === "video") {
+    console.warn(`  ! ${id} is a video creative — render with scripts/render-video.mjs (skipping)`);
+    return;
+  }
   const formats = Array.isArray(brief.formats) && brief.formats.length
     ? brief.formats
     : Object.keys(FORMATS);
@@ -135,7 +93,8 @@ async function main() {
     process.exit(2);
   }
 
-  const server = await ensureServer();
+  const server = await ensureServer(process.env.RENDER_BASE_URL);
+  BASE = server.base;
   const browser = await chromium.launch();
   try {
     for (const id of ids) {

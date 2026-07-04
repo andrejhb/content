@@ -1,0 +1,76 @@
+{
+  "id": "2026-07-03-answered-asleep-video",
+  "createdAt": "2026-07-02T22:23:32Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "A host's phone lights up at 2 AM with a guest question, and it's already been answered. The stress of always-on availability, dissolved.",
+  "brief": "A dark bedroom in the small hours. A phone glows on the nightstand, a guest message arriving and resolving on its own while the host stays asleep. Warm light creeps toward dawn and the room settles into calm. The read: autonomous hosting means you are off the hook without lifting a finger. Hostie answers guests the moment they message, so always-on stops being your problem. Cinematic, intimate, product-in-world; the copy rides as caption or overlay, never burned into the generated frame.",
+  "kind": "video",
+  "video": {
+    "track": "higgsfield",
+    "model": "seedance_2_0",
+    "durationSec": 5,
+    "fps": 30,
+    "audio": false,
+    "prompt": "Cinematic, intimate low-light interior. A smartphone resting face-up on a wooden nightstand in a dark bedroom, screen softly glowing. A notification gently appears on the screen and resolves on its own, the glow easing. Warm ambient light slowly creeps in from a window as night turns toward dawn; the room settles into calm. A person sleeps peacefully, out of focus in the background. Shallow depth of field, slow push-in on the phone, muted nighttime palette warming to soft amber. Photorealistic, filmic grain, gentle handheld feel. No text, no captions, no on-screen graphics, no UI text."
+  },
+  "template": "statement",
+  "formats": [
+    "9x16",
+    "1x1"
+  ],
+  "brandMark": true,
+  "image": null,
+  "variant": "dark",
+  "copy": {
+    "eyebrow": "Autonomous AI host",
+    "headline": "Answered before you woke up.",
+    "subhead": "Hostie replies to guests the moment they message, so being a host stops meaning being on call."
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-02T22:34:53.257Z"
+  }
+}

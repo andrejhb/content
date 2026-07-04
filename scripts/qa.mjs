@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-// QA gate for a creative brief. Enforces the hard voice + truth rules from
-// .agents/product-marketing.md. Usage: node scripts/qa.mjs <id> [<id> ...]
+// QA gate for a creative brief. Enforces the parent-brand voice rules (global
+// constants below) plus per-product truth rules from products/<slug>/qa.json.
+// Usage: node scripts/qa.mjs <id> [<id> ...]
 // Reads creatives/<id>/brief.json, runs checks on the COPY fields, writes the
 // result back into brief.json, and exits non-zero if any creative fails.
 
@@ -8,9 +9,13 @@ import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const ROOT = path.join(process.cwd(), "creatives");
+const PRODUCTS = path.join(process.cwd(), "products");
 
+// "all-in-one" was banned under the old "opinionated simplicity" positioning.
+// The brand now embraces "all in one app" (everything under one roof), so it is
+// intentionally not on this list.
 const BANNED = [
-  "all-in-one", "all in one", "seamless", "powerful", "revolutionary",
+  "seamless", "powerful", "revolutionary",
   "innovative", "empower", "unlock", "leverage", "supercharge", "robust",
   "scalable", "holistic", "elevate", "transform", "solution", "best-in-class",
   "world-class", "cutting-edge", "effortless", "effortlessly",
@@ -23,20 +28,48 @@ const CLICHES = [
 
 const OPENERS = ["hey there", "did you know", "looking to", "are you tired of"];
 
-const COMPETITORS = ["guesty", "hostfully", "lodgify", "hospitable"];
+// Per-product rules (competitor names, unbuilt features, allowed acronyms)
+// come from products/<slug>/qa.json, resolved via the brief's product field.
+const qaConfigs = new Map();
 
-const ACRONYMS = new Set(["VRBO", "WCAG"]);
+async function qaConfig(product) {
+  const slug = product || "host";
+  if (qaConfigs.has(slug)) return qaConfigs.get(slug);
+  let cfg;
+  try {
+    cfg = JSON.parse(
+      await readFile(path.join(PRODUCTS, slug, "qa.json"), "utf8"),
+    );
+  } catch {
+    cfg = {};
+  }
+  const resolved = {
+    competitors: cfg.competitors ?? [],
+    unbuiltFeatures: cfg.unbuiltFeatures ?? [],
+    acronyms: new Set(cfg.allowedAcronyms ?? []),
+  };
+  qaConfigs.set(slug, resolved);
+  return resolved;
+}
+
+const escapeRe = (s) => s.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
 
 function collectCopy(brief) {
   const c = brief.copy ?? {};
+  // Order matters: fields[1] is treated as the headline by the sentence-case
+  // check, so keep eyebrow/headline/subhead first and append the rest.
   const fields = [
-    c.eyebrow, c.headline, c.subhead, c.problemLabel, c.calmLabel, c.calm,
-    ...(Array.isArray(c.problems) ? c.problems : []),
+    c.eyebrow,
+    c.headline,
+    c.subhead,
+    c.headlineTail,
+    c.cta,
+    ...(Array.isArray(c.rotating) ? c.rotating : []),
   ].filter((s) => typeof s === "string" && s.length);
   return fields;
 }
 
-function check(fields) {
+function check(fields, cfg) {
   const text = fields.join("  ");
   const lower = text.toLowerCase();
   const checks = [];
@@ -58,12 +91,12 @@ function check(fields) {
   const openerHits = OPENERS.filter((p) => lower.startsWith(p) || fields.some((f) => f.toLowerCase().startsWith(p)));
   add("no-throat-clearing", openerHits.length === 0, openerHits.join(", ") || undefined);
 
-  const compHits = COMPETITORS.filter((c) => new RegExp(`\\b${c}\\b`, "i").test(lower));
+  const compHits = cfg.competitors.filter((c) => new RegExp(`\\b${escapeRe(c)}\\b`, "i").test(lower));
   add("no-competitor-names", compHits.length === 0, compHits.join(", ") || undefined);
 
   // Sentence case: flag ALL-CAPS words (len>=4, not an allowed acronym), and
   // flag a headline where every long word is capitalised (clear Title Case).
-  const allCaps = [...text.matchAll(/\b[A-Z]{4,}\b/g)].map((m) => m[0]).filter((w) => !ACRONYMS.has(w));
+  const allCaps = [...text.matchAll(/\b[A-Z]{4,}\b/g)].map((m) => m[0]).filter((w) => !cfg.acronyms.has(w));
   add("no-shouting", allCaps.length === 0, allCaps.join(", ") || undefined);
 
   const headline = fields[1] ?? "";
@@ -84,7 +117,9 @@ function check(fields) {
   add("no-fabricated-traction", truthFlags.length === 0, truthFlags.join(", ") || undefined);
 
   // Coming soon: unbuilt products/features must be labelled.
-  const unbuilt = /\b(hububb stay|nomad pass|corporate bookings)\b/i.test(text);
+  const unbuilt =
+    cfg.unbuiltFeatures.length > 0 &&
+    new RegExp(`\\b(${cfg.unbuiltFeatures.map(escapeRe).join("|")})\\b`, "i").test(text);
   const labelled = /coming soon/i.test(lower);
   add("coming-soon-labelled", !unbuilt || labelled, unbuilt && !labelled ? "mentions unbuilt feature without 'coming soon'" : undefined);
 
@@ -94,7 +129,8 @@ function check(fields) {
 async function run(id) {
   const briefPath = path.join(ROOT, id, "brief.json");
   const brief = JSON.parse(await readFile(briefPath, "utf8"));
-  const checks = check(collectCopy(brief));
+  const cfg = await qaConfig(brief.product);
+  const checks = check(collectCopy(brief), cfg);
   const passed = checks.every((c) => c.ok);
   brief.qa = { passed, checks, checkedAt: new Date().toISOString() };
   await writeFile(briefPath, JSON.stringify(brief, null, 2) + "\n");

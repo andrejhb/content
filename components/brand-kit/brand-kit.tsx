@@ -37,10 +37,10 @@ const NAV = [
   { id: "assets", label: "Assets" },
 ];
 
-export async function BrandKit() {
+export async function BrandKit({ product }: { product: string }) {
   const [coreSections, voiceSections] = await Promise.all([
-    getSections(CORE_TITLES),
-    getSections(VOICE_TITLES),
+    getSections(product, CORE_TITLES),
+    getSections(product, VOICE_TITLES),
   ]);
 
   return (
@@ -142,9 +142,9 @@ export async function BrandKit() {
             id="assets"
             eyebrow="Logos · mockups · screens · channels · photos"
             title="Assets"
-            description="Everything lives in one assets/ folder. Drop files in and they appear here, ready to use in creatives."
+            description="Product assets live in the product's folder; parent-brand marks are shared. Drop files in and they appear here, ready to use in creatives."
           >
-            <Assets />
+            <Assets product={product} />
           </Section>
         </div>
       </div>

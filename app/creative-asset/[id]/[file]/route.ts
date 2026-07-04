@@ -1,9 +1,14 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
-// Serves rendered PNGs from creatives/<id>/<file> (the workboard lives outside
-// /public). Used by the detail screen's <img> and download links.
+// Serves rendered PNGs and MP4s from creatives/<id>/<file> (the workboard
+// lives outside /public). Used by the detail screen's media and download links.
 const ROOT = path.join(process.cwd(), "creatives");
+
+const TYPES: Record<string, string> = {
+  ".png": "image/png",
+  ".mp4": "video/mp4",
+};
 
 export async function GET(
   _req: Request,
@@ -18,7 +23,8 @@ export async function GET(
   ) {
     return new Response("Not found", { status: 404 });
   }
-  if (path.extname(file).toLowerCase() !== ".png") {
+  const type = TYPES[path.extname(file).toLowerCase()];
+  if (!type) {
     return new Response("Unsupported media type", { status: 415 });
   }
 
@@ -30,7 +36,7 @@ export async function GET(
   try {
     const data = await readFile(abs);
     return new Response(new Uint8Array(data), {
-      headers: { "Content-Type": "image/png", "Cache-Control": "no-cache" },
+      headers: { "Content-Type": type, "Cache-Control": "no-cache" },
     });
   } catch {
     return new Response("Not found", { status: 404 });

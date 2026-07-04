@@ -1,10 +1,10 @@
 import type { Brief, TemplateKey } from "@/lib/creatives";
 import { StatementTemplate } from "./statement";
-import { ProblemToCalmTemplate } from "./problem-to-calm";
 import { ProofCardTemplate } from "./proof-card";
 import { ImageCardTemplate } from "./image-card";
 import { FeatureCardTemplate } from "./feature-card";
 import { ShowcaseTemplate } from "./showcase";
+import { SpotlightTemplate } from "./spotlight";
 
 type TemplateComponent = (props: {
   brief: Brief;
@@ -20,11 +20,6 @@ export const TEMPLATES: Record<
     label: "Statement",
     blurb: "One strong line, pure type on a token background.",
     Component: StatementTemplate,
-  },
-  "problem-to-calm": {
-    label: "Problem to calm",
-    blurb: "The second job versus the calm layer, split.",
-    Component: ProblemToCalmTemplate,
   },
   "proof-card": {
     label: "Proof card",
@@ -45,6 +40,11 @@ export const TEMPLATES: Record<
     label: "Showcase",
     blurb: "Headline, icon badges, and a product screenshot.",
     Component: ShowcaseTemplate,
+  },
+  spotlight: {
+    label: "Spotlight",
+    blurb: "Full-bleed image or video, two-tone headline, optional CTA.",
+    Component: SpotlightTemplate,
   },
 };
 

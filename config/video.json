@@ -1,0 +1,12 @@
+{
+  "higgsfield": {
+    "_comment": "Model ids confirmed against the live Higgsfield MCP catalog (models_explore, 3 Jul 2026). default = affordable-but-good (never the cheapest): full Seedance 2.0, reference-driven, good for product/marketing; the cheaper rungs below it are seedance_2_0_mini, veo3_1_lite, kling3_0_turbo. topTier = Google Veo 3.1, top-tier cinematic; use only on explicit request.",
+    "defaultModel": "seedance_2_0",
+    "topTierModel": "veo3_1"
+  },
+  "remotion": {
+    "fps": 30,
+    "defaultDurationSec": 8,
+    "stingDurationSec": 4
+  }
+}

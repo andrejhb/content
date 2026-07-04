@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "product": "host",
+  "updatedAt": "2026-07-02T15:35:50.486Z",
+  "sections": [
+    {
+      "key": "audience",
+      "title": "Audience",
+      "kind": "text",
+      "content": "Owner-operator short-term rental hosts, from the 1-property side-hustler to the roughly 20-unit operator. London first, then the UK, then phased global; London is the focus for now. The host is the decision-maker: an owner-operator purchase, no committee, no procurement. Primary use case: automate the running of the property end to end while staying in control. The promise is autonomous hosting, not another tool to drive."
+    },
+    {
+      "key": "jtbd",
+      "title": "Jobs to be done",
+      "kind": "list",
+      "content": [
+        "The hire: run their short-term rental reliably and professionally, without constant stress or micromanagement, so they can earn stable income while keeping control and peace of mind.",
+        "Run the operation day to day without things falling through the cracks: cleaning, turnovers, maintenance, last-minute issues.",
+        "Deliver a consistent, professional guest experience without being always-on.",
+        "Know and protect profitability: see costs against revenue, stop the silent leaks.",
+        "Carry less in their head: trade constant low-level stress for reliable oversight and reassurance. The cognitive job, often ignored, often the deciding one."
+      ]
+    },
+    {
+      "key": "anti-jobs",
+      "title": "Anti-jobs (actively avoided)",
+      "kind": "list",
+      "content": [
+        "Becoming a full-time manager.",
+        "Depending on unreliable people.",
+        "Juggling 10 different tools.",
+        "Constant guest interruptions.",
+        "Feeling dumb or unprofessional."
+      ]
+    },
+    {
+      "key": "pains",
+      "title": "Pains",
+      "kind": "list",
+      "content": [
+        "Time: evenings and weekends, and the feeling of being permanently on call.",
+        "Money: costs that creep silently, revenue left on the table, no clear view of where the money leaks.",
+        "Growth: the business cannot scale, because the operation only runs as long as the host runs it.",
+        "Mental load: the rental lives in their head all day, a low background hum of did-I-forget-something.",
+        "Risk: missed cleanings, no-shows, missing keys, bad reviews, the surprises that cost money or reputation."
+      ]
+    },
+    {
+      "key": "lifestyle",
+      "title": "Lifestyle",
+      "kind": "text",
+      "content": "The passive income that became a full-time job they never applied for. The side-hustler holds a real job and/or family alongside hosting and is always on, carrying constant low-level stress. The scaling pro-am treats hosting as serious income but their operations do not scale with manual effort. Both fear losing control and feel chained to the business they built to set them free. What they want is not more features: it is to feel in control without being involved in everything. Cross-cutting: the remote or delegated host, where absence raises the stakes on every job."
+    },
+    {
+      "key": "archetypes",
+      "title": "Archetypes",
+      "kind": "table",
+      "columns": [
+        "Persona",
+        "Cares about",
+        "Challenge",
+        "Value we promise"
+      ],
+      "rows": [
+        [
+          "The side-hustler (1 to 2 properties, full-time job and/or family)",
+          "Keeping the income without the grind, peace of mind, not screwing up",
+          "Hosting quietly became a second job on top of a real one. Always on, constant low-level stress",
+          "Run it like a pro with less day-to-day effort. The calm layer: oversight and reassurance, not another dashboard to check"
+        ],
+        [
+          "The scaling operator (3 to 20 units, hosting is serious income)",
+          "Growth, margin, reliability at scale, control while delegating",
+          "Manual ops do not scale. Single points of failure, tools that do not talk to each other, profitability felt but not seen",
+          "Everything under one roof, automated by the AI host, cleanly reported. Keep control and margin while scaling"
+        ]
+      ]
+    }
+  ]
+}

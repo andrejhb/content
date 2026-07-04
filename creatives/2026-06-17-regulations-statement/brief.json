@@ -1,0 +1,68 @@
+{
+  "id": "2026-06-17-regulations-statement",
+  "createdAt": "2026-06-17T00:00:00.000Z",
+  "angle": "Short-let caps and changing rules add another thing to track. Hububb keeps the operation organised so the host stays on top of it without the spreadsheet.",
+  "brief": "Type-only, dark. The read: the rules are one more thing to carry, and the operating layer should carry it. Note: deliberately does NOT promise mid-term or longer stays (that is Hububb Stay, out of scope). Frames Host as the system that keeps you organised against caps, not as a booking workaround.",
+  "template": "statement",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": true,
+  "image": null,
+  "copy": {
+    "eyebrow": "Short-let rules",
+    "headline": "The rules change. Your operation should not scramble",
+    "subhead": "keep bookings, access and turnovers organised in one place, caps and all."
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-02T21:04:52.416Z"
+  },
+  "product": "host",
+  "persona": "scaling-operator"
+}

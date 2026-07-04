@@ -1,0 +1,52 @@
+{
+  "version": 2,
+  "id": "cleaning-partner",
+  "product": "work",
+  "updatedAt": "2026-07-03T12:00:00.000Z",
+  "profile": {
+    "name": "Nadia Okoye",
+    "headline": "The Cleaning Partner · runs a small turnover crew",
+    "location": "South London",
+    "bio": "Nadia is 39 and runs a two-person cleaning operation that does short-let turnovers across South London. She lives by the calendar: a same-day checkout and check-in leaves a tight window, and a late or vague job briefing throws the whole day. She wants steady, well-described jobs close together and to get paid without chasing. Draft persona, sharpen with persona-refine.",
+    "avatar": "/asset/work/personas/cleaning-partner.png",
+    "cover": null,
+    "archetype": "cleaning-partner",
+    "facts": [
+      { "label": "Age", "value": "39" },
+      { "label": "Work", "value": "Runs a 2-person cleaning crew" },
+      { "label": "Area", "value": "South London" },
+      { "label": "Cares about", "value": "Steady jobs, tight routing" },
+      { "label": "Frustration", "value": "Vague briefs, chasing payment" },
+      { "label": "Wants", "value": "Predictable, well-described work" }
+    ]
+  },
+  "sections": [
+    {
+      "key": "jtbd",
+      "title": "Jobs to be done",
+      "kind": "list",
+      "content": [
+        "Fill the week with steady turnover jobs that are close enough together to actually make the day work.",
+        "Turn up knowing the access, the checklist, and the standard expected, no guesswork.",
+        "Get paid on time without sending reminders."
+      ]
+    },
+    {
+      "key": "pains",
+      "title": "Pains",
+      "kind": "list",
+      "content": [
+        "Feast or famine: idle gaps one week, impossible clashes the next.",
+        "Vague briefs: arriving without the code, the scope, or what 'done' means here.",
+        "Tight windows: a same-day checkout-to-check-in with no margin for a surprise.",
+        "Chasing payment across messages after the job is done."
+      ]
+    },
+    {
+      "key": "lifestyle",
+      "title": "Lifestyle",
+      "kind": "text",
+      "content": "Nadia's day is a route, not a desk. Her income is the number of good jobs she can string together without dead miles between them, so clarity and scheduling are worth more to her than any single high-paying gig."
+    }
+  ]
+}

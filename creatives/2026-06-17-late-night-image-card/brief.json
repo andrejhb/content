@@ -1,0 +1,69 @@
+{
+  "id": "2026-06-17-late-night-image-card",
+  "createdAt": "2026-06-17T00:00:00.000Z",
+  "angle": "Guests message at every hour. The host should not have to be the one awake for it. AI guest messaging answers routine questions around the clock, in the host's voice.",
+  "brief": "Image-card, dark variant. A dim, moody evening interior (living-room.jpg) so the dark card suits the late-hour mood. Quiet, relatable, slightly tense. Text up top, image below.",
+  "template": "image-card",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/photos/living-room.jpg",
+  "variant": "dark",
+  "copy": {
+    "eyebrow": "Guest messaging",
+    "headline": "It is 1am and a guest needs the wifi password",
+    "subhead": "AI guest messaging answers the routine questions around the clock, in your voice."
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-02T21:04:52.414Z"
+  },
+  "product": "host",
+  "persona": "side-hustler"
+}

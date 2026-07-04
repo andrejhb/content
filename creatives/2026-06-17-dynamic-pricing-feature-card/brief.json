@@ -1,0 +1,76 @@
+{
+  "id": "2026-06-17-dynamic-pricing-feature-card",
+  "createdAt": "2026-06-17T00:00:00.000Z",
+  "angle": "Pricing by gut feeling leaves money on the table or leaves the unit empty. Dynamic pricing adjusts rates to demand automatically.",
+  "brief": "Feature-card, light. Phone mockup of the fully-priced rates calendar (phone-calendar-v2.png), nightly rates set across the month, standing in for demand-led pricing.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "animated-feature-card",
+    "durationSec": 6,
+    "fps": 30
+  },
+  "template": "feature-card",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/mockups/phone-calendar-v2.png",
+  "variant": "light",
+  "copy": {
+    "eyebrow": "Dynamic pricing",
+    "headline": "Stop guessing what tonight is worth",
+    "subhead": "rates adjust to demand on their own, so you are priced right without watching the market."
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-02T21:04:52.414Z"
+  },
+  "product": "host",
+  "persona": "scaling-operator"
+}

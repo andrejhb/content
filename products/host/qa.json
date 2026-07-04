@@ -1,0 +1,10 @@
+{
+  "competitors": ["guesty", "hostfully", "lodgify", "hospitable"],
+  "unbuiltFeatures": [],
+  "allowedAcronyms": ["VRBO", "WCAG"],
+  "allowedProofClaims": [
+    "tested on hundreds of real London properties",
+    "processed millions in revenue (only when talking about dynamic pricing)",
+    "running hundreds of cleans monthly (only when talking about cleaning)"
+  ]
+}

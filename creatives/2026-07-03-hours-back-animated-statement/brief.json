@@ -1,0 +1,76 @@
+{
+  "id": "2026-07-03-hours-back-animated-statement",
+  "createdAt": "2026-07-02T22:43:27Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "The average host loses hours a week to repetitive busywork. Hububb hands those hours back.",
+  "brief": "The time-management pain answered by autonomous hosting. The repetitive tasks that quietly fill a host's evenings collapse into one calm system that runs itself, under one roof. Animated statement on a light background: eyebrow settles, the headline rises in, the subhead and wordmark close. Restrained motion, the read is relief and quiet confidence, control without being involved.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "animated-statement",
+    "durationSec": 8,
+    "fps": 30
+  },
+  "template": "statement",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": true,
+  "image": null,
+  "variant": "light",
+  "copy": {
+    "eyebrow": "your time back",
+    "headline": "The busywork runs itself now.",
+    "subhead": "The repetitive tasks that used to fill your evenings, messages, cleaning, pricing and access, now handled under one roof by your AI host."
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-02T22:43:41.575Z"
+  }
+}
