@@ -25,6 +25,39 @@ See `products/work/personas/`, two seeded starter personas (a cleaning partner a
 - Unclear briefs: turning up without knowing the access, the scope, or the standard expected.
 - Chasing payment and juggling scheduling across scattered messages.
 
+## Competitive Landscape *(provisional)*
+*The real competitor is the fragmented status quo, not a rival app. Names are internal only and never appear in generated copy (use category descriptors like "the usual way of finding work," "the old way").*
+
+| Job | What providers reach for today | Why it falls short | Why Hububb wins |
+|-----|--------------------------------|--------------------|-----------------|
+| Finding work | Word of mouth, scattered messages, juggling several clients | Feast-or-famine, idle gaps, unpredictable | Jobs dispatched to them in one app |
+| Knowing what to do | Turning up and figuring out access, scope, and standard on the spot | Unclear briefs, wasted trips, disputes | Every job comes with the access, scope, and standard up front |
+| Getting paid | Chasing invoices across clients | Slow, awkward, easy to lose track | Reliable pay through the app |
+
+## Differentiation *(provisional)*
+Hububb Work is one app for the whole job, from getting dispatched to knowing exactly what's needed to getting paid, not a scatter of clients, messages, and invoices. The provider spends their hours doing the work, not chasing it.
+
+## Objections *(provisional)*
+| Objection | Response |
+|-----------|----------|
+| Will there be enough work | Jobs are dispatched to you through the Hububb network, not left to word of mouth. |
+| Will I know what I'm walking into | Every job comes with the access, scope, and standard up front. |
+| Will I get paid on time | Payment runs through the app, no chasing invoices. |
+
+## Switching Dynamics *(provisional)*
+**Push:** Feast-or-famine work, unclear briefs, wasted trips, chasing payment.
+**Pull:** Jobs dispatched to them, clear briefs, reliable pay, all in one app.
+**Habit:** Word of mouth, my own client list, my own messages and invoices.
+**Anxiety:** Depending on a platform for work and pay. To be addressed once positioning is confirmed.
+
+## Customer Language *(provisional)*
+*Draft, drawn from the audience. Confirm with the founder before treating as owned language.*
+**Verbatim pain:** "feast or famine," "turned up not knowing," "chasing the money," "idle days."
+**Aspiration:** "steady work," "know what the job is," "get paid on time," "all in one app."
+**Owned terms (provisional):** dispatched, the job, in one app. To be confirmed against product naming.
+**Words to use:** dispatched, job, access, scope, paid, in one app.
+**Words to avoid:** the global banned list (seamless, powerful, effortless, supercharge, and the rest).
+
 ## Brand Voice
 Inherits the parent Hububb voice in full: plain, operational, restrained, specific. Sentence case, no exclamation marks, no em/en dashes, no banned words. Talk with the provider, not at them.
 
