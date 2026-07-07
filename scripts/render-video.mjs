@@ -47,47 +47,52 @@ async function renderVideoCreative({ id, serveUrl, base, defaults }) {
     ? briefFormats.filter((f) => only.includes(f))
     : briefFormats;
 
-  for (const format of formats) {
-    const inputProps = {
-      brief,
-      format,
-      baseUrl: base,
-      durationSec: brief.video.durationSec ?? defaults.defaultDurationSec,
-      fps: brief.video.fps ?? defaults.fps,
-    };
+  // A carousel: render each slide (its own composition + copy + media) to
+  // s<n>-<format>.mp4. Otherwise render the single composition to <format>.mp4.
+  const slides = Array.isArray(brief.slides) && brief.slides.length ? brief.slides : null;
 
-    const composition = await selectComposition({
-      serveUrl,
-      id: brief.video.composition,
-      inputProps,
-    });
-
-    const out = path.join(ROOT, id, `${format}.mp4`);
-    await renderMedia({
-      composition,
-      serveUrl,
-      codec: "h264",
-      outputLocation: out,
-      inputProps,
-    });
-
-    // Poster: a settled frame near the end, used as the hallway thumbnail.
-    // RENDER_NO_POSTER=1 keeps an existing static PNG (e.g. a prior image render)
-    // as the poster instead of overwriting it with a video frame.
-    const noPoster = process.env.RENDER_NO_POSTER === "1";
-    if (!noPoster) {
-      const poster = path.join(ROOT, id, `${format}.png`);
-      await renderStill({
-        composition,
-        serveUrl,
-        output: poster,
-        frame: Math.max(0, Math.floor(composition.durationInFrames * 0.85)),
-        inputProps,
-      });
+  async function renderOne({ composition: compId, briefProps, prefix, durationSec }) {
+    for (const format of formats) {
+      const inputProps = {
+        brief: briefProps,
+        format,
+        baseUrl: base,
+        durationSec: durationSec ?? brief.video.durationSec ?? defaults.defaultDurationSec,
+        fps: brief.video.fps ?? defaults.fps,
+      };
+      const composition = await selectComposition({ serveUrl, id: compId, inputProps });
+      const out = path.join(ROOT, id, `${prefix}${format}.mp4`);
+      await renderMedia({ composition, serveUrl, codec: "h264", outputLocation: out, inputProps });
+      const noPoster = process.env.RENDER_NO_POSTER === "1";
+      if (!noPoster) {
+        await renderStill({
+          composition,
+          serveUrl,
+          output: path.join(ROOT, id, `${prefix}${format}.png`),
+          frame: Math.max(0, Math.floor(composition.durationInFrames * 0.85)),
+          inputProps,
+        });
+      }
+      console.log(`  ✓ ${prefix}${format}  (${composition.width}×${composition.height}, ${inputProps.durationSec}s)  → creatives/${id}/${prefix}${format}.mp4${noPoster ? "" : " (+poster)"}`);
     }
-
-    console.log(`  ✓ ${format}  (${composition.width}×${composition.height}, ${inputProps.durationSec}s)  → creatives/${id}/${format}.mp4${noPoster ? "" : " (+poster)"}`);
   }
+
+  if (slides) {
+    for (let i = 0; i < slides.length; i++) {
+      const s = slides[i];
+      const briefProps = {
+        ...brief,
+        copy: s.copy ?? brief.copy,
+        image: s.image ?? brief.image ?? null,
+        variant: s.variant ?? brief.variant,
+      };
+      console.log(`  slide ${i + 1}: ${s.label}`);
+      await renderOne({ composition: s.composition, briefProps, prefix: `s${i + 1}-`, durationSec: s.durationSec });
+    }
+    return true;
+  }
+
+  await renderOne({ composition: brief.video.composition, briefProps: brief, prefix: "" });
   return true;
 }
 

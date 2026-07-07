@@ -2,7 +2,7 @@
   "version": 2,
   "id": "side-hustler",
   "product": "host",
-  "updatedAt": "2026-07-03T12:30:00.000Z",
+  "updatedAt": "2026-07-04T10:43:50.830Z",
   "profile": {
     "name": "Marcus Reed",
     "headline": "The Side-Hustler · 2 flats in East London",
@@ -12,12 +12,30 @@
     "cover": null,
     "archetype": "side-hustler",
     "facts": [
-      { "label": "Age", "value": "41" },
-      { "label": "Location", "value": "Hackney, London" },
-      { "label": "Occupation", "value": "Operations manager, full-time" },
-      { "label": "Portfolio", "value": "2 flats in East London" },
-      { "label": "Hosting since", "value": "2021" },
-      { "label": "Wants", "value": "The income without the grind" }
+      {
+        "label": "Age",
+        "value": "41"
+      },
+      {
+        "label": "Location",
+        "value": "Hackney, London"
+      },
+      {
+        "label": "Occupation",
+        "value": "Operations manager, full-time"
+      },
+      {
+        "label": "Portfolio",
+        "value": "2 flats in East London"
+      },
+      {
+        "label": "Hosting since",
+        "value": "2021"
+      },
+      {
+        "label": "Wants",
+        "value": "The income without the grind"
+      }
     ]
   },
   "sections": [
@@ -54,6 +72,16 @@
       "title": "Value we promise",
       "kind": "text",
       "content": "Run both flats like a pro with a fraction of the day-to-day effort. A calm layer of oversight and reassurance, the AI host handles the running, Marcus keeps the control, not another dashboard to check."
+    },
+    {
+      "key": "tools-they-use",
+      "title": "Tools they use",
+      "kind": "list",
+      "content": [
+        "Whatsapp",
+        "Google sheets",
+        "ChatGPT"
+      ]
     }
   ],
   "prompts": [

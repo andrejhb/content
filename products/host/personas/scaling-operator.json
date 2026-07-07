@@ -2,7 +2,7 @@
   "version": 2,
   "id": "scaling-operator",
   "product": "host",
-  "updatedAt": "2026-07-03T12:30:00.000Z",
+  "updatedAt": "2026-07-04T11:36:00.385Z",
   "profile": {
     "name": "Claire Bennett",
     "headline": "The Scaling Operator · 6 units across North London",
@@ -12,12 +12,30 @@
     "cover": null,
     "archetype": "scaling-operator",
     "facts": [
-      { "label": "Age", "value": "52" },
-      { "label": "Location", "value": "Islington, London" },
-      { "label": "Occupation", "value": "Full-time short-let operator" },
-      { "label": "Portfolio", "value": "6 units across North London" },
-      { "label": "Hosting since", "value": "2016" },
-      { "label": "Wants", "value": "More margin without more hours" }
+      {
+        "label": "Age",
+        "value": "52"
+      },
+      {
+        "label": "Location",
+        "value": "Islington, London"
+      },
+      {
+        "label": "Occupation",
+        "value": "Full-time short-let operator"
+      },
+      {
+        "label": "Portfolio",
+        "value": "6 units across North London"
+      },
+      {
+        "label": "Hosting since",
+        "value": "2016"
+      },
+      {
+        "label": "Wants",
+        "value": "More margin without more hours"
+      }
     ]
   },
   "sections": [

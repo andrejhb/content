@@ -1,0 +1,77 @@
+{
+  "id": "2026-07-06-hello-were-hububb-launch-hello-light",
+  "createdAt": "2026-07-06T12:30:00Z",
+  "product": "general",
+  "persona": "category-watcher",
+  "angle": "Post 1 of the @wearehububb launch, light variant: a bold, minimal motion greeting with apartment photography drifting in behind the line.",
+  "brief": "Light variant of the launch greeting. Near-white canvas, three real apartment interiors drift in as tilted cards framing the edges, then a two-tier 'Hi there, / we're Hububb.' settles with hierarchy: a lighter intro over a larger semibold line. Logo top-right, larger. One warm accent dot in the eyebrow. Clean, premium, editorial.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "launch-hello",
+    "durationSec": 7,
+    "fps": 30
+  },
+  "template": "launch-hello",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": true,
+  "image": null,
+  "variant": "light",
+  "copy": {
+    "eyebrow": "Everything around stays",
+    "headline": "Hi there",
+    "headlineTail": "We are Hububb",
+    "handle": "@wearehububb"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-06T17:21:32.694Z"
+  }
+}

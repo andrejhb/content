@@ -1,0 +1,77 @@
+{
+  "id": "2026-07-07-ease-spotlight",
+  "createdAt": "2026-07-07T12:30:00Z",
+  "product": "general",
+  "persona": "category-watcher",
+  "angle": "Post 2 of the @wearehububb launch, the more visual variant: a full-bleed managed-stay interior with the tension-to-promise line overlaid. Staying should feel like ease; right now it asks too much, so we're building the layer beneath it all.",
+  "brief": "The visual take on the tension beat, in the Hospitable register: a cinematic, sunlit managed interior fills the frame under a soft dark scrim, the logo sits top-left and the copy reads bottom-left. A slow zoom keeps it alive. White type over image. The read: staying should feel like ease, and we're the layer that makes it so.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "launch-spotlight",
+    "durationSec": 6,
+    "fps": 30
+  },
+  "template": "spotlight",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": true,
+  "image": null,
+  "variant": "dark",
+  "copy": {
+    "headline": "Behind every",
+    "headlineTail": "great stay.",
+    "subhead": "We're the invisible layer beneath it all.",
+    "handle": "@wearehububb"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-06T22:59:28.713Z"
+  }
+}

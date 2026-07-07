@@ -1,0 +1,57 @@
+{
+  "version": 2,
+  "id": "future-builder",
+  "product": "general",
+  "updatedAt": "2026-07-06T12:00:00.000Z",
+  "profile": {
+    "name": "Priya Raman",
+    "headline": "The future builder · weighing whether to join",
+    "location": "London · open to the right mission",
+    "bio": "Priya is a senior engineer who has shipped at good companies and is picky about the next one. She is not moved by perks or hype. She wants a problem big enough to matter, a team that sees it clearly, and evidence they can actually build, software and operations both. She reads a company's public voice like a signal of how it thinks. Show her a real category, honest proof, and taste, and she is interested. She is who the company story has to recruit. Draft persona, sharpen with persona-refine.",
+    "avatar": null,
+    "cover": null,
+    "archetype": "future-builder",
+    "facts": [
+      { "label": "Role", "value": "Senior engineer / operator" },
+      { "label": "Deciding", "value": "Where to spend the next years" },
+      { "label": "Not moved by", "value": "Perks or hype" },
+      { "label": "Wants", "value": "A problem that matters, a team that sees it" },
+      { "label": "Reads", "value": "Public voice as a signal of thinking" },
+      { "label": "Convinced by", "value": "Real category, honest proof, taste" }
+    ]
+  },
+  "sections": [
+    {
+      "key": "jtbd",
+      "title": "Jobs to be done",
+      "kind": "list",
+      "content": [
+        "Judge whether the mission is big and real enough to give years to.",
+        "Read whether the team thinks clearly and builds with taste, from how they talk in public.",
+        "Decide whether joining now is the rare early bet worth taking."
+      ]
+    },
+    {
+      "key": "pains",
+      "title": "Pains",
+      "kind": "list",
+      "content": [
+        "Hype without substance: mission statements with nothing built underneath.",
+        "Narrow problems: another tool for one slice of a market, not a category to shape.",
+        "No evidence of execution: vision with no proof the team can ship or operate."
+      ]
+    },
+    {
+      "key": "lifestyle",
+      "title": "What earns her interest",
+      "kind": "text",
+      "content": "Priya leans in when the ambition is matched by clarity and evidence. A whole-problem thesis, a physical-first proof point, and a public voice with restraint and taste all tell her this is a team worth building with."
+    },
+    {
+      "key": "positioning",
+      "title": "Value we promise",
+      "kind": "text",
+      "content": "A category to build, not a feature to ship. Hububb is building the invisible layer beneath the flexible stays economy, for all three sides at once, and it started with the hardest, most physical part. This is the beginning."
+    }
+  ]
+}
