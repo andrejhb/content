@@ -1,0 +1,57 @@
+{
+  "version": 2,
+  "id": "potential-partner",
+  "product": "general",
+  "updatedAt": "2026-07-06T12:00:00.000Z",
+  "profile": {
+    "name": "Marco Belli",
+    "headline": "The potential partner · an adjacent tool or service weighing collaboration",
+    "location": "Operates across the UK and EU",
+    "bio": "Marco runs an adjacent business in the stays economy, a tool, a service, or a platform whose product sits next to Hububb's. He is deciding whether Hububb is a company worth integrating with or building alongside: is it real, is it going somewhere, and does it play well with others. He wants to see a clear picture of what Hububb is and where it fits, so he can tell whether their roads run together. He is who the company story has to make want to collaborate. Draft persona, sharpen with persona-refine.",
+    "avatar": null,
+    "cover": null,
+    "archetype": "potential-partner",
+    "facts": [
+      { "label": "Role", "value": "Adjacent tool / service / platform" },
+      { "label": "Deciding", "value": "Whether to integrate or partner" },
+      { "label": "Wants to know", "value": "Is it real, is it going somewhere" },
+      { "label": "Cares about", "value": "Where Hububb fits vs overlaps" },
+      { "label": "Values", "value": "Clarity and a company that plays well" },
+      { "label": "Wary of", "value": "Platforms that swallow partners" }
+    ]
+  },
+  "sections": [
+    {
+      "key": "jtbd",
+      "title": "Jobs to be done",
+      "kind": "list",
+      "content": [
+        "Understand quickly what Hububb is and where it fits in the stays economy.",
+        "Judge whether a partnership would be complementary or competitive.",
+        "Decide whether building alongside Hububb is worth the bet."
+      ]
+    },
+    {
+      "key": "pains",
+      "title": "Pains",
+      "kind": "list",
+      "content": [
+        "Unclear scope: not knowing where a company stops, so partnership risk is hard to size.",
+        "Land-grab platforms: partners that quietly become competitors.",
+        "Vaporware: collaborating with something that never actually ships or scales."
+      ]
+    },
+    {
+      "key": "lifestyle",
+      "title": "What earns his trust",
+      "kind": "text",
+      "content": "Marco engages when a company is legible: a clear picture of what it is, where it fits, and proof it is real and moving. A team that frames its world honestly is a team he can plan a shared road with."
+    },
+    {
+      "key": "positioning",
+      "title": "Value we promise",
+      "kind": "text",
+      "content": "A clear, real, and growing company at the centre of the flexible stays economy. Hububb is building the invisible layer beneath it, tying host, guest, and worker into one system, with room for the right partners to build alongside."
+    }
+  ]
+}

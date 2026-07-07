@@ -5,6 +5,8 @@ import { ImageCardTemplate } from "./image-card";
 import { FeatureCardTemplate } from "./feature-card";
 import { ShowcaseTemplate } from "./showcase";
 import { SpotlightTemplate } from "./spotlight";
+import { LaunchHelloTemplate } from "./launch-hello";
+import { LaunchIndexTemplate } from "./launch-index";
 
 type TemplateComponent = (props: {
   brief: Brief;
@@ -45,6 +47,16 @@ export const TEMPLATES: Record<
     label: "Spotlight",
     blurb: "Full-bleed image or video, two-tone headline, optional CTA.",
     Component: SpotlightTemplate,
+  },
+  "launch-hello": {
+    label: "Launch hello",
+    blurb: "Dark editorial greeting for the brand account. Big light-weight type on near-black.",
+    Component: LaunchHelloTemplate,
+  },
+  "launch-index": {
+    label: "Launch index",
+    blurb: "Dark explainer: flag headline, thesis, and a three-part Host/Stay/Work index.",
+    Component: LaunchIndexTemplate,
   },
 };
 

@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, DownloadSimple } from "@phosphor-icons/react/dist/ssr";
-import { getCreative, renderedMedia } from "@/lib/creatives";
+import { getCreative, renderedMedia, renderedSlideMedia } from "@/lib/creatives";
 import { listPersonas } from "@/lib/personas";
 import { FORMATS, VIDEO_FORMATS } from "@/lib/formats";
 import { TEMPLATES } from "@/components/templates/registry";
 import { QaBadge } from "@/components/creatives/qa-badge";
+import { SlideTabs } from "@/components/creatives/slide-tabs";
 import { PersonaTag } from "@/components/persona/tag";
 import { Card, CardLabel, Mono } from "@/components/site/kit";
 
@@ -28,6 +29,19 @@ export default async function CreativeDetail({
   if (!brief) notFound();
 
   const rendered = await renderedMedia(id);
+  const isCarousel = Array.isArray(brief.slides) && brief.slides.length > 0;
+  const slideMedia = isCarousel ? await renderedSlideMedia(id) : [];
+  const slideViews = isCarousel
+    ? brief.slides!.map((s, i) => ({
+        index: i + 1,
+        label: s.label,
+        media: slideMedia.find((sm) => sm.slide === i + 1)?.media ?? [],
+      }))
+    : [];
+  const renderedCount = isCarousel
+    ? slideViews.filter((s) => s.media.length > 0).length
+    : rendered.length;
+  const totalCount = isCarousel ? brief.slides!.length : brief.formats.length;
   const isVideo = brief.kind === "video";
   const formats = isVideo ? VIDEO_FORMATS : FORMATS;
   const tpl = TEMPLATES[brief.template];
@@ -73,8 +87,10 @@ export default async function CreativeDetail({
               href={`/p/${brief.product}/persona?persona=${persona.id}`}
             />
           ) : null}
-          <Mono className="text-dim">{rendered.length}/{brief.formats.length} rendered</Mono>
-          {rendered.length > 0 ? (
+          <Mono className="text-dim">
+            {renderedCount}/{totalCount} {isCarousel ? "slides" : "rendered"}
+          </Mono>
+          {!isCarousel && rendered.length > 0 ? (
             <a
               className={`ml-auto ${BTN_PRIMARY}`}
               href={`/api/creatives/${id}/zip`}
@@ -118,7 +134,12 @@ export default async function CreativeDetail({
 
       {/* Formats */}
       <section className="mt-8">
-        <CardLabel>Formats</CardLabel>
+        <CardLabel>{isCarousel ? "Slides" : "Formats"}</CardLabel>
+        {isCarousel ? (
+          <div className="mt-4">
+            <SlideTabs id={id} slides={slideViews} />
+          </div>
+        ) : (
         <div className="mt-4 grid grid-cols-1 gap-5 sm:grid-cols-2">
           {formats.map((f) => {
             const media = rendered.find((r) => r.format === f.key);
@@ -173,6 +194,7 @@ export default async function CreativeDetail({
             );
           })}
         </div>
+        )}
       </section>
     </div>
   );

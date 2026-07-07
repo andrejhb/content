@@ -7,6 +7,10 @@ import { AnimatedFeatureCard } from "./compositions/animated-feature-card";
 import { LogoSting } from "./compositions/logo-sting";
 import { HostieAd } from "./compositions/hostie-ad";
 import { AnimatedSpotlight } from "./compositions/animated-spotlight";
+import { LaunchHelloMotion } from "./compositions/launch-hello";
+import { LaunchStatement } from "./compositions/launch-statement";
+import { LaunchSpotlight } from "./compositions/launch-spotlight";
+import { LaunchProducts } from "./compositions/launch-products";
 
 // Compositions are registered once; width/height/duration resolve per render
 // from inputProps (format key + durationSec) via calculateMetadata.
@@ -107,6 +111,46 @@ export function RemotionRoot() {
         width={1080}
         height={1080}
         defaultProps={{ ...defaultProps, durationSec: 7 }}
+        calculateMetadata={metadata}
+      />
+      <Composition
+        id="launch-hello"
+        component={LaunchHelloMotion}
+        durationInFrames={8 * FPS}
+        fps={FPS}
+        width={1080}
+        height={1080}
+        defaultProps={defaultProps}
+        calculateMetadata={metadata}
+      />
+      <Composition
+        id="launch-statement"
+        component={LaunchStatement}
+        durationInFrames={6 * FPS}
+        fps={FPS}
+        width={1080}
+        height={1080}
+        defaultProps={defaultProps}
+        calculateMetadata={metadata}
+      />
+      <Composition
+        id="launch-spotlight"
+        component={LaunchSpotlight}
+        durationInFrames={6 * FPS}
+        fps={FPS}
+        width={1080}
+        height={1080}
+        defaultProps={defaultProps}
+        calculateMetadata={metadata}
+      />
+      <Composition
+        id="launch-products"
+        component={LaunchProducts}
+        durationInFrames={7 * FPS}
+        fps={FPS}
+        width={1080}
+        height={1080}
+        defaultProps={defaultProps}
         calculateMetadata={metadata}
       />
     </>

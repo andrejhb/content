@@ -1,0 +1,77 @@
+{
+  "id": "2026-07-06-hello-were-hububb-launch-hello",
+  "createdAt": "2026-07-06T12:00:00Z",
+  "product": "general",
+  "persona": "category-watcher",
+  "angle": "Post 1 of the @wearehububb launch: a bold, minimal motion greeting with apartment photography drifting in behind the line.",
+  "brief": "The first post on the company account, as motion. Near-black canvas with soft depth. Real apartment interiors (from the Hububb webapp) float in as tilted cards, then a bold, minimal 'Hi there, we're Hububb.' settles on top under a soft dark scrim so it stays legible. One warm accent dot in the eyebrow. Less type, more presence. The read: a confident, premium hello from a company building around beautiful stays.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "launch-hello",
+    "durationSec": 7,
+    "fps": 30
+  },
+  "template": "launch-hello",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": true,
+  "image": null,
+  "variant": "dark",
+  "copy": {
+    "eyebrow": "Everything around stays",
+    "headline": "Hi there",
+    "headlineTail": "We are Hububb",
+    "handle": "@wearehububb"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-06T17:21:32.666Z"
+  }
+}

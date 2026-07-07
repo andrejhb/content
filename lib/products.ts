@@ -9,6 +9,11 @@ const ROOT = path.join(process.cwd(), "products");
 // "shared" is reserved: /asset/shared/* serves parent-brand files from assets/shared/.
 const RESERVED = new Set(["shared"]);
 
+// The parent-brand / company hub. It is a product folder like any other, but it
+// represents Hububb the company (the @wearehububb vision account), not one of the
+// three products, so it is ordered last in the product tabs.
+const PARENT_SLUG = "general";
+
 export type Product = {
   slug: string;
   name: string;
@@ -59,7 +64,13 @@ export async function listProducts(): Promise<Product[]> {
       // no product-marketing.md — not a product yet
     }
   }
-  return products.sort((a, b) => a.slug.localeCompare(b.slug));
+  // The parent-brand hub ("general") is the company/vision account, not one of
+  // the three products, so it sorts last: tabs read Host, Stay, Work, General.
+  return products.sort((a, b) => {
+    if (a.slug === PARENT_SLUG) return 1;
+    if (b.slug === PARENT_SLUG) return -1;
+    return a.slug.localeCompare(b.slug);
+  });
 }
 
 export async function getProduct(slug: string): Promise<Product | null> {

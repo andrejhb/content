@@ -8,7 +8,9 @@ export type TemplateKey =
   | "image-card"
   | "feature-card"
   | "showcase"
-  | "spotlight";
+  | "spotlight"
+  | "launch-hello"
+  | "launch-index";
 
 export type CreativeCopy = {
   eyebrow?: string;
@@ -21,10 +23,26 @@ export type CreativeCopy = {
   cta?: string;
   // spotlight (animated): rotate through these messages one at a time instead of a static headline
   rotating?: string[];
+  // launch-index: the three-part index rows (e.g. Host / Stay / Work with a one-line each)
+  items?: { label: string; text: string }[];
+  // launch-*: small handle/footer marker (e.g. "@wearehububb")
+  handle?: string;
 };
 
 export type QaCheck = { rule: string; ok: boolean; detail?: string };
 export type QaResult = { passed: boolean; checks: QaCheck[]; checkedAt?: string };
+
+// A carousel slide. When a brief carries `slides`, it renders as a multi-slide
+// carousel: each slide is its own Remotion composition + copy + optional media,
+// rendered per format to s<n>-<format>.mp4 (1-indexed).
+export type Slide = {
+  label: string;
+  composition: string;
+  durationSec?: number;
+  image?: string | null;
+  variant?: "light" | "dark";
+  copy?: CreativeCopy;
+};
 
 export type VideoSpec = {
   track: "remotion" | "higgsfield";
@@ -52,6 +70,7 @@ export type Brief = {
   image?: string | null; // a served path, e.g. /asset/host/screens/messaging.png
   variant?: "light" | "dark";
   copy: CreativeCopy;
+  slides?: Slide[]; // when present, this creative is a carousel
   qa?: QaResult;
 };
 
@@ -115,4 +134,39 @@ export async function renderedMedia(id: string): Promise<RenderedMedia[]> {
   } catch {
     return [];
   }
+}
+
+/**
+ * Rendered media per carousel slide. Files are named s<n>-<format>.<ext>
+ * (1-indexed slide). Returns, for each slide index, the formats present.
+ */
+export async function renderedSlideMedia(
+  id: string,
+): Promise<{ slide: number; media: RenderedMedia[] }[]> {
+  const order: FormatKey[] = ["1x1", "4x5", "9x16", "16x9"];
+  let files: string[];
+  try {
+    files = await readdir(path.join(ROOT, id));
+  } catch {
+    return [];
+  }
+  const bySlide = new Map<number, Map<string, "png" | "mp4">>();
+  for (const f of files) {
+    const m = f.match(/^s(\d+)-(1x1|4x5|9x16|16x9)\.(png|mp4)$/);
+    if (!m) continue;
+    const slide = Number(m[1]);
+    const key = m[2];
+    const ext = m[3] as "png" | "mp4";
+    if (!bySlide.has(slide)) bySlide.set(slide, new Map());
+    const have = bySlide.get(slide)!;
+    if (ext === "mp4" || !have.has(key)) have.set(key, ext);
+  }
+  return [...bySlide.keys()]
+    .sort((a, b) => a - b)
+    .map((slide) => ({
+      slide,
+      media: order
+        .filter((k) => bySlide.get(slide)!.has(k))
+        .map((k) => ({ format: k, ext: bySlide.get(slide)!.get(k)! })),
+    }));
 }
