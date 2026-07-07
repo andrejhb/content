@@ -40,11 +40,20 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Creatives are all live: everything under creatives/ is tracked and committed,
-# no promotion step (per user, 2026-07). Zip exports are still ignored below.
+# Creatives: brief.json (the source recipe) is tracked; the rendered outputs
+# (mp4, png posters, zips) are local build artifacts regenerated on demand by
+# scripts/render.mjs and scripts/render-video.mjs, so they are git-ignored to
+# keep the repo light. Delete a render and re-run the script to rebuild it.
+/creatives/**/*.mp4
+/creatives/**/*.png
+/creatives/**/*.jpg
+/creatives/**/*.jpeg
+/creatives/**/*.webp
+/creatives/**/*.gif
+/creatives/*/*.zip
 #
-# DISABLED (reinstatable) — the old workboard rule. Uncomment these two lines to
-# turn creatives/ back into a git-ignored WIP board promoted into creatives-live/:
+# DISABLED (reinstatable): the old workboard rule promoted approved creatives
+# into creatives-live/. Uncomment to turn creatives/ fully into a git-ignored
+# WIP board instead:
 # /creatives/*
 # !/creatives/.gitkeep
-/creatives/*/*.zip
