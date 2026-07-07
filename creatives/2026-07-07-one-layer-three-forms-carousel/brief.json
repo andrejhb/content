@@ -8,7 +8,7 @@
   "kind": "video",
   "video": {
     "track": "remotion",
-    "composition": "launch-statement",
+    "composition": "launch-cover",
     "durationSec": 5,
     "fps": 30
   },
@@ -22,50 +22,48 @@
   "image": null,
   "variant": "dark",
   "copy": {
-    "headline": "One layer,",
-    "headlineTail": "three forms.",
-    "subhead": "The invisible layer beneath every stay."
+    "headline": "The invisible layer",
+    "headlineTail": "behind every stay"
   },
   "slides": [
     {
-      "label": "One layer, three forms.",
-      "composition": "launch-statement",
+      "label": "The invisible layer",
+      "composition": "launch-cover",
       "durationSec": 4,
       "variant": "dark",
       "copy": {
-        "headline": "One layer,",
-        "headlineTail": "three forms.",
-        "subhead": "The invisible layer beneath every stay."
+        "headline": "The invisible layer",
+        "headlineTail": "behind every stay"
       }
     },
     {
       "label": "Host",
-      "composition": "launch-spotlight",
+      "composition": "launch-form",
       "durationSec": 5,
       "image": "/asset/general/clips/drone.mp4",
       "copy": {
         "headline": "Host",
-        "subhead": "Automates the whole of hosting."
+        "headlineTail": "Automates the whole of hosting"
       }
     },
     {
       "label": "Stay",
-      "composition": "launch-spotlight",
+      "composition": "launch-form",
       "durationSec": 5,
       "image": "/asset/general/clips/door.mp4",
       "copy": {
         "headline": "Stay",
-        "subhead": "Managed, mid-term stays you just live in."
+        "headlineTail": "Managed, ready-to-live properties"
       }
     },
     {
       "label": "Work",
-      "composition": "launch-spotlight",
+      "composition": "launch-form",
       "durationSec": 5,
       "image": "/asset/general/clips/cleaner.mp4",
       "copy": {
         "headline": "Work",
-        "subhead": "Reliable work for the people who keep it running."
+        "headlineTail": "Recurring work that lets you earn and grow"
       }
     }
   ],
@@ -113,6 +111,6 @@
         "ok": true
       }
     ],
-    "checkedAt": "2026-07-06T23:26:15.433Z"
+    "checkedAt": "2026-07-07T13:11:28.528Z"
   }
 }
