@@ -16,14 +16,17 @@ products/<slug>/          # host, stay, work, … ("shared" is reserved)
   qa.json                 # per-product QA config for scripts/qa.mjs
   assets/<group>/         # source imagery (mockups, screens, photos, …)
 assets/shared/            # parent-brand assets (logos), served as /asset/shared/…
-creatives/<id>/           # all creatives, live: brief.json + rendered outputs (tracked, no promotion step)
+creatives/<id>/           # brief.json (tracked) + rendered outputs (git-ignored, rebuilt by scripts/render*.mjs)
 ```
 
-**Creatives are all live.** Everything under `creatives/` is tracked and shown by
-the app; there is no push-to-live promotion step. (Disabled, reinstatable: the old
-workboard rule promoted approved creatives into `creatives-live/` and git-ignored
-`creatives/`. To bring it back, restore the `.gitignore` lines noted there and this
-promotion convention.)
+**Creatives: briefs tracked, renders local.** Each `creatives/<id>/brief.json` (the
+source recipe) is tracked and shown by the app; the rendered `.mp4`/`.png` outputs
+are git-ignored local build artifacts, regenerated on demand by `scripts/render.mjs`
+and `scripts/render-video.mjs`, so the repo stays light. On a fresh clone the app
+lists every creative from its brief and shows "not rendered" until you re-run the
+render script. (Reinstatable: the old workboard rule promoted approved creatives
+into `creatives-live/` and git-ignored all of `creatives/`; `.gitignore` still
+carries the commented lines to bring it back.)
 
 Served asset paths: `/asset/<slug>/<group>/<file>` and `/asset/shared/…`.
 Briefs are flat under `creatives/` with a required `product` field — do not
