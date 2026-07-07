@@ -11,6 +11,8 @@ import { LaunchHelloMotion } from "./compositions/launch-hello";
 import { LaunchStatement } from "./compositions/launch-statement";
 import { LaunchSpotlight } from "./compositions/launch-spotlight";
 import { LaunchProducts } from "./compositions/launch-products";
+import { LaunchForm } from "./compositions/launch-form";
+import { LaunchCover } from "./compositions/launch-cover";
 
 // Compositions are registered once; width/height/duration resolve per render
 // from inputProps (format key + durationSec) via calculateMetadata.
@@ -151,6 +153,26 @@ export function RemotionRoot() {
         width={1080}
         height={1080}
         defaultProps={defaultProps}
+        calculateMetadata={metadata}
+      />
+      <Composition
+        id="launch-form"
+        component={LaunchForm}
+        durationInFrames={5 * FPS}
+        fps={FPS}
+        width={1080}
+        height={1080}
+        defaultProps={{ ...defaultProps, durationSec: 5 }}
+        calculateMetadata={metadata}
+      />
+      <Composition
+        id="launch-cover"
+        component={LaunchCover}
+        durationInFrames={4 * FPS}
+        fps={FPS}
+        width={1080}
+        height={1080}
+        defaultProps={{ ...defaultProps, durationSec: 4 }}
         calculateMetadata={metadata}
       />
     </>
