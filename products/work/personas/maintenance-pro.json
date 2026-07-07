@@ -2,7 +2,7 @@
   "version": 2,
   "id": "maintenance-pro",
   "product": "work",
-  "updatedAt": "2026-07-03T12:00:00.000Z",
+  "updatedAt": "2026-07-04T10:39:41.716Z",
   "profile": {
     "name": "Andre Willis",
     "headline": "The Maintenance Pro · handyman for short-let fixes",
@@ -12,12 +12,30 @@
     "cover": null,
     "archetype": "maintenance-pro",
     "facts": [
-      { "label": "Age", "value": "54" },
-      { "label": "Work", "value": "Self-employed handyman" },
-      { "label": "Area", "value": "North & East London" },
-      { "label": "Cares about", "value": "Clear scope, right parts" },
-      { "label": "Frustration", "value": "Wasted call-outs, half a brief" },
-      { "label": "Wants", "value": "Steady, well-scoped jobs" }
+      {
+        "label": "Age",
+        "value": "54"
+      },
+      {
+        "label": "Work",
+        "value": "Self-employed handyman"
+      },
+      {
+        "label": "Area",
+        "value": "North & East London"
+      },
+      {
+        "label": "Cares about",
+        "value": "Clear scope, right parts"
+      },
+      {
+        "label": "Frustration",
+        "value": "Wasted call-outs, half a brief"
+      },
+      {
+        "label": "Wants",
+        "value": "Steady, well-scoped jobs"
+      }
     ]
   },
   "sections": [
@@ -47,6 +65,14 @@
       "title": "Lifestyle",
       "kind": "text",
       "content": "Andre works out of his van and trusts his hands more than any app. He'll happily take dispatched work if it respects his time: clear scope, the details up front, and payment that just lands. What loses him is a wasted journey."
+    },
+    {
+      "key": "objections",
+      "title": "Objections",
+      "kind": "list",
+      "content": [
+        "Test"
+      ]
     }
   ]
 }
