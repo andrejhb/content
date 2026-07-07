@@ -1,0 +1,118 @@
+{
+  "id": "2026-07-07-one-layer-three-forms-carousel",
+  "createdAt": "2026-07-07T14:00:00Z",
+  "product": "general",
+  "persona": "category-watcher",
+  "angle": "Post 3 of the @wearehububb launch, as a carousel: the invisible layer resolves into three forms. A cover, then a full-bleed slide for each product, Host, Stay, and Work.",
+  "brief": "The resolution, as a swipeable carousel. Slide 1 is the monochrome cover 'One layer, three forms.' Then one full-bleed cinematic slide per product: Host over the home, Stay over the arriving guest, Work over the turned-over room, each with the product name and a one-line descriptor over a soft scrim. Premium, professional, one product per swipe.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "launch-statement",
+    "durationSec": 5,
+    "fps": 30
+  },
+  "template": "spotlight",
+  "formats": [
+    "4x5",
+    "1x1",
+    "9x16"
+  ],
+  "brandMark": true,
+  "image": null,
+  "variant": "dark",
+  "copy": {
+    "headline": "One layer,",
+    "headlineTail": "three forms.",
+    "subhead": "The invisible layer beneath every stay."
+  },
+  "slides": [
+    {
+      "label": "One layer, three forms.",
+      "composition": "launch-statement",
+      "durationSec": 4,
+      "variant": "dark",
+      "copy": {
+        "headline": "One layer,",
+        "headlineTail": "three forms.",
+        "subhead": "The invisible layer beneath every stay."
+      }
+    },
+    {
+      "label": "Host",
+      "composition": "launch-spotlight",
+      "durationSec": 5,
+      "image": "/asset/general/clips/drone.mp4",
+      "copy": {
+        "headline": "Host",
+        "subhead": "Automates the whole of hosting."
+      }
+    },
+    {
+      "label": "Stay",
+      "composition": "launch-spotlight",
+      "durationSec": 5,
+      "image": "/asset/general/clips/door.mp4",
+      "copy": {
+        "headline": "Stay",
+        "subhead": "Managed, mid-term stays you just live in."
+      }
+    },
+    {
+      "label": "Work",
+      "composition": "launch-spotlight",
+      "durationSec": 5,
+      "image": "/asset/general/clips/cleaner.mp4",
+      "copy": {
+        "headline": "Work",
+        "subhead": "Reliable work for the people who keep it running."
+      }
+    }
+  ],
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-06T23:26:15.433Z"
+  }
+}

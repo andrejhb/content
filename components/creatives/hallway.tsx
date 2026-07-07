@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { listCreatives, renderedMedia } from "@/lib/creatives";
+import { listCreatives, renderedMedia, renderedSlideMedia } from "@/lib/creatives";
 import { listPersonas, type PersonaSummary } from "@/lib/personas";
 import { TEMPLATES } from "@/components/templates/registry";
 import { QaBadge } from "@/components/creatives/qa-badge";
@@ -52,7 +52,39 @@ export async function Hallway({
   }
 
   const withRenders = await Promise.all(
-    creatives.map(async (b) => ({ brief: b, media: await renderedMedia(b.id) })),
+    creatives.map(async (b) => {
+      // A carousel renders per slide (s1-<fmt>.png …), not per top-level format,
+      // so its thumbnail and count come from slide media, not renderedMedia.
+      const isCarousel = Array.isArray(b.slides) && b.slides.length > 0;
+      if (isCarousel) {
+        const slideMedia = await renderedSlideMedia(b.id);
+        const s1 = slideMedia.find((s) => s.slide === 1);
+        const thumbFmt =
+          s1?.media.find((m) => m.format === "1x1")?.format ??
+          s1?.media[0]?.format ??
+          null;
+        const rendered = slideMedia.filter((s) => s.media.length > 0).length;
+        return {
+          brief: b,
+          isCarousel: true,
+          thumbSlide: s1?.slide ?? 1,
+          thumbFmt,
+          rendered,
+          total: b.slides!.length,
+        };
+      }
+      const media = await renderedMedia(b.id);
+      const thumbFmt =
+        media.find((m) => m.format === "1x1")?.format ?? media[0]?.format ?? null;
+      return {
+        brief: b,
+        isCarousel: false,
+        thumbSlide: null as number | null,
+        thumbFmt,
+        rendered: media.length,
+        total: b.formats.length,
+      };
+    }),
   );
 
   // Resolve persona summaries for every product present, keyed by product:id.
@@ -75,11 +107,14 @@ export async function Hallway({
     else groups.push({ key, rows: [row] });
   }
 
-  const card = ({ brief, media }: Row) => {
+  const card = ({ brief, isCarousel, thumbSlide, thumbFmt, rendered, total }: Row) => {
     // Thumbnail is always a PNG: the actual render for images, the poster
-    // frame for videos.
-    const thumb =
-      media.find((m) => m.format === "1x1")?.format ?? media[0]?.format;
+    // frame for videos, slide 1's poster (s1-<fmt>.png) for a carousel.
+    const thumbSrc = thumbFmt
+      ? isCarousel
+        ? `/creative-asset/${brief.id}/s${thumbSlide}-${thumbFmt}.png`
+        : `/creative-asset/${brief.id}/${thumbFmt}.png`
+      : null;
     const isVideo = brief.kind === "video";
     const tpl = TEMPLATES[brief.template];
     const persona = brief.persona
@@ -92,10 +127,10 @@ export async function Hallway({
         className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-elevation-1 transition-colors hover:border-t3"
       >
         <div className="flex aspect-square items-center justify-center overflow-hidden border-b border-border bg-surface">
-          {thumb ? (
+          {thumbSrc ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              src={`/creative-asset/${brief.id}/${thumb}.png`}
+              src={thumbSrc}
               alt={brief.copy.headline ?? brief.id}
               className="h-full w-full object-cover"
             />
@@ -112,6 +147,11 @@ export async function Hallway({
                   video
                 </Mono>
               ) : null}
+              {isCarousel ? (
+                <Mono className="rounded-full border border-border px-1.5 text-t3">
+                  carousel
+                </Mono>
+              ) : null}
             </div>
             <QaBadge qa={brief.qa} />
           </div>
@@ -125,7 +165,7 @@ export async function Hallway({
               <span />
             )}
             <p className="shrink-0 font-mono text-caption text-dim">
-              {media.length}/{brief.formats.length} formats
+              {rendered}/{total} {isCarousel ? "slides" : "formats"}
             </p>
           </div>
         </div>

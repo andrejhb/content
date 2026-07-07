@@ -1,0 +1,57 @@
+{
+  "version": 2,
+  "id": "category-watcher",
+  "product": "general",
+  "updatedAt": "2026-07-06T12:00:00.000Z",
+  "profile": {
+    "name": "Daniel Osei",
+    "headline": "The category watcher · investor, analyst, or press judging the thesis",
+    "location": "London · watching the flexible stays economy form",
+    "bio": "Daniel follows the flexible stays economy for a living, as an investor, an analyst, or a journalist. He has seen a dozen dashboards promise to fix hosting and watched them fix one corner while the rest stayed broken. What earns his attention, and his capital or his column inches, is a team that sees the whole problem: all three sides, the software and the hands, and the discipline to start where it is hardest. He is not a buyer. He is who the company story has to convince. Draft persona, sharpen with persona-refine.",
+    "avatar": null,
+    "cover": null,
+    "archetype": "category-watcher",
+    "facts": [
+      { "label": "Role", "value": "Investor / analyst / press" },
+      { "label": "Watches", "value": "The flexible stays economy" },
+      { "label": "Seen it before", "value": "Dashboards that fix one corner" },
+      { "label": "Convinced by", "value": "Whole-problem thinking" },
+      { "label": "Respects", "value": "Physical-first, London-first" },
+      { "label": "Wants to know", "value": "Is this the category, this the team" }
+    ]
+  },
+  "sections": [
+    {
+      "key": "jtbd",
+      "title": "Jobs to be done",
+      "kind": "list",
+      "content": [
+        "Judge quickly whether a team sees the whole problem or just one slice of it.",
+        "Separate a real category from another dashboard with a new coat of paint.",
+        "Decide whether this is the company building the layer beneath the whole economy, worth backing or covering."
+      ]
+    },
+    {
+      "key": "pains",
+      "title": "Pains",
+      "kind": "list",
+      "content": [
+        "Pattern fatigue: too many tools that automate one side and ignore the other two.",
+        "Software theatre: slick apps that never touch the physical reality of a stay.",
+        "Vague vision: big claims with no proof and no discipline about where to start."
+      ]
+    },
+    {
+      "key": "lifestyle",
+      "title": "What earns his belief",
+      "kind": "text",
+      "content": "Daniel believes when ambition is matched by discipline: build for all three sides, start with the hands and not just the software, and prove it where it is hardest before claiming the world. Show him the whole system and the London proof, and he leans in."
+    },
+    {
+      "key": "positioning",
+      "title": "Value we promise",
+      "kind": "text",
+      "content": "The invisible layer beneath the flexible stays economy, built for host, guest, and worker as one moving system. Started in London, started with the hands. This is the beginning of the creative, innovative solutions we are bringing to the space."
+    }
+  ]
+}
