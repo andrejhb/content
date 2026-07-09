@@ -1,0 +1,599 @@
+[
+  {
+    "id": "2026-07-09-answered-by-ai-hostie-reply",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "feature-card",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Your guests are answered while you sleep",
+    "angle": "A short video where a guest's late-night worry is answered on its own by Hostie, the reply writing itself out and clearly badged as AI, leaving a warm feeling of reassurance.",
+    "qaPassed": true,
+    "createdAt": "2026-07-09T11:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-09-guests-always-answered-messages-video",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "feature-card",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Your guests are always answered",
+    "angle": "A short video showing guest messages being answered on their own, in the host's voice, so the whole exchange resolves itself and leaves a warm feeling of reassurance.",
+    "qaPassed": true,
+    "createdAt": "2026-07-09T09:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-07-answered-at-midnight-feature-card",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "feature-card",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "The inbox that answers itself",
+    "angle": "Guests message at every hour. The host should not have to be the one awake for it. Hostie answers in his voice, day and night.",
+    "qaPassed": true,
+    "createdAt": "2026-07-07T15:13:45.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-07-answered-at-midnight-messages-video",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "feature-card",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Guests never wait for you to wake up",
+    "angle": "Guests message at every hour. The host should not have to be the one awake for it. Hostie answers in his voice, day and night.",
+    "qaPassed": true,
+    "createdAt": "2026-07-07T15:13:45.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-07-answered-at-midnight-statement",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "statement",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Both flats stop living in your head",
+    "angle": "Guests message at every hour. The host should not have to be the one awake for it. Hostie answers in his voice, day and night.",
+    "qaPassed": true,
+    "createdAt": "2026-07-07T15:13:45.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-07-one-layer-three-forms-carousel",
+    "product": "general",
+    "persona": "category-watcher",
+    "template": "spotlight",
+    "kind": "video",
+    "formats": [
+      "4x5",
+      "1x1",
+      "9x16"
+    ],
+    "headline": "The invisible layer",
+    "angle": "Post 3 of the @wearehububb launch, as a carousel: the invisible layer resolves into three forms. A cover, then a full-bleed slide for each product, Host, Stay, and Work.",
+    "qaPassed": true,
+    "createdAt": "2026-07-07T14:00:00Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-07-ease-spotlight",
+    "product": "general",
+    "persona": "category-watcher",
+    "template": "spotlight",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Behind every",
+    "angle": "Post 2 of the @wearehububb launch, the more visual variant: a full-bleed managed-stay interior with the tension-to-promise line overlaid. Staying should feel like ease; right now it asks too much, so we're building the layer beneath it all.",
+    "qaPassed": true,
+    "createdAt": "2026-07-07T12:30:00Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-07-effort-everywhere-statement-light",
+    "product": "general",
+    "persona": "category-watcher",
+    "template": "statement",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Effort is everywhere.",
+    "angle": "Post 2 of the @wearehububb launch, light variant: the tension. Staying somewhere asks for far too much today, effort is everywhere and ease is nowhere, so we're building the layer that changes that.",
+    "qaPassed": true,
+    "createdAt": "2026-07-07T12:05:00Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-07-effort-everywhere-statement",
+    "product": "general",
+    "persona": "category-watcher",
+    "template": "statement",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Effort is everywhere.",
+    "angle": "Post 2 of the @wearehububb launch: the tension. Staying somewhere asks for far too much today, effort is everywhere and ease is nowhere, so we're building the layer that changes that.",
+    "qaPassed": true,
+    "createdAt": "2026-07-07T12:00:00Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-06-hello-were-hububb-launch-hello-light",
+    "product": "general",
+    "persona": "category-watcher",
+    "template": "launch-hello",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Hi there",
+    "angle": "Post 1 of the @wearehububb launch, light variant: a bold, minimal motion greeting with apartment photography drifting in behind the line.",
+    "qaPassed": true,
+    "createdAt": "2026-07-06T12:30:00Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-06-hello-were-hububb-launch-hello",
+    "product": "general",
+    "persona": "category-watcher",
+    "template": "launch-hello",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Hi there",
+    "angle": "Post 1 of the @wearehububb launch: a bold, minimal motion greeting with apartment photography drifting in behind the line.",
+    "qaPassed": true,
+    "createdAt": "2026-07-06T12:00:00Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-04-spotlight-rotating-test",
+    "product": "host",
+    "persona": "scaling-operator",
+    "template": "spotlight",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "",
+    "angle": "Premium mid-term guests are already on Hububb.",
+    "qaPassed": true,
+    "createdAt": "2026-07-04T10:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-04-premium-guests-spotlight",
+    "product": "host",
+    "persona": "scaling-operator",
+    "template": "spotlight",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Premium guests, booking by the month",
+    "angle": "List with Hububb Host to reach premium guests booking longer mid-term stays.",
+    "qaPassed": true,
+    "createdAt": "2026-07-04T09:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-04-premium-guests-spotlight-no-cta",
+    "product": "host",
+    "persona": "scaling-operator",
+    "template": "spotlight",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Premium guests, booking by the month",
+    "angle": "Premium guests are already booking longer mid-term stays on Hububb.",
+    "qaPassed": true,
+    "createdAt": "2026-07-04T09:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-03-hostie-autonomous-host-dark",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "feature-card",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Your autonomous AI host",
+    "angle": "Hostie is the autonomous AI host that runs the whole property while you watch.",
+    "qaPassed": true,
+    "createdAt": "2026-07-02T23:15:53Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-03-hostie-autonomous-host-light",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "feature-card",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Your autonomous AI host",
+    "angle": "Hostie is the autonomous AI host that runs the whole property while you watch.",
+    "qaPassed": true,
+    "createdAt": "2026-07-02T23:15:53Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-03-hours-back-animated-statement",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "statement",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "The busywork runs itself now.",
+    "angle": "The average host loses hours a week to repetitive busywork. Hububb hands those hours back.",
+    "qaPassed": true,
+    "createdAt": "2026-07-02T22:43:27Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-03-answered-asleep-video",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "statement",
+    "kind": "video",
+    "formats": [
+      "9x16",
+      "1x1"
+    ],
+    "headline": "Answered before you woke up.",
+    "angle": "A host's phone lights up at 2 AM with a guest question, and it's already been answered. The stress of always-on availability, dissolved.",
+    "qaPassed": true,
+    "createdAt": "2026-07-02T22:23:32Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-06-17-ai-messaging-feature-card",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "feature-card",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Answers in seconds, in your voice",
+    "angle": "Guests get fast, accurate replies day and night, in the host's voice, and cannot tell the host was asleep. AI guest messaging handles the routine and hands over what needs a human.",
+    "qaPassed": true,
+    "createdAt": "2026-06-17T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-06-17-channel-sync-feature-card",
+    "product": "host",
+    "persona": "scaling-operator",
+    "template": "feature-card",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Double bookings end here",
+    "angle": "When calendars do not talk to each other, a double booking is only a matter of time. Channel sync keeps availability right everywhere at once.",
+    "qaPassed": true,
+    "createdAt": "2026-06-17T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-06-17-cleaning-showcase",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "feature-card",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "The cleaner is booked before you wake up",
+    "angle": "A booking comes in, the turnover schedules itself, a vetted cleaner is assigned, the host does nothing. Cleaning and turnovers are handled end to end.",
+    "qaPassed": true,
+    "createdAt": "2026-06-17T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-06-17-direct-booking-feature-card",
+    "product": "host",
+    "persona": "scaling-operator",
+    "template": "feature-card",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Your own booking site, no cut taken",
+    "angle": "Send a guest straight to you instead of through a platform that takes a cut. A direct booking site connected to the same synced calendar.",
+    "qaPassed": true,
+    "createdAt": "2026-06-17T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-06-17-dynamic-pricing-feature-card",
+    "product": "host",
+    "persona": "scaling-operator",
+    "template": "feature-card",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Stop guessing what tonight is worth",
+    "angle": "Pricing by gut feeling leaves money on the table or leaves the unit empty. Dynamic pricing adjusts rates to demand automatically.",
+    "qaPassed": true,
+    "createdAt": "2026-06-17T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-06-17-guest-portal-feature-card",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "feature-card",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Everything a guest needs, before they ask",
+    "angle": "Access codes, wifi, check-in steps and local tips in one place the guest can open any time. Fewer questions for the host, a smoother arrival for the guest.",
+    "qaPassed": true,
+    "createdAt": "2026-06-17T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-06-17-late-night-image-card",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "image-card",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "It is 1am and a guest needs the wifi password",
+    "angle": "Guests message at every hour. The host should not have to be the one awake for it. AI guest messaging answers routine questions around the clock, in the host's voice.",
+    "qaPassed": true,
+    "createdAt": "2026-06-17T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-06-17-occupancy-statement",
+    "product": "host",
+    "persona": "scaling-operator",
+    "template": "statement",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "An empty night never comes back",
+    "angle": "An empty night is lost income you never get back. Hububb keeps the calendar working so units do not sit idle.",
+    "qaPassed": true,
+    "createdAt": "2026-06-17T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-06-17-ratings-image-card",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "image-card",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "One slow reply can cost you a star",
+    "angle": "A slow reply or a confusing check-in quietly costs a star. Hububb keeps every stay consistent so the experience holds up whether the host is watching or not.",
+    "qaPassed": true,
+    "createdAt": "2026-06-17T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-06-17-regulations-statement",
+    "product": "host",
+    "persona": "scaling-operator",
+    "template": "statement",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "The rules change. Your operation should not scramble",
+    "angle": "Short-let caps and changing rules add another thing to track. Hububb keeps the operation organised so the host stays on top of it without the spreadsheet.",
+    "qaPassed": true,
+    "createdAt": "2026-06-17T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-06-17-time-statement",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "statement",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Hosting was meant to be the side thing",
+    "angle": "Hosting was supposed to be the side thing, then it took over the evenings. Hububb takes the repetitive operational work off the host's plate.",
+    "qaPassed": true,
+    "createdAt": "2026-06-17T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-06-17-unified-inbox-feature-card",
+    "product": "host",
+    "persona": "scaling-operator",
+    "template": "feature-card",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Every guest, every channel, one inbox",
+    "angle": "Airbnb in one place, Booking in another, a direct guest somewhere else. The unified inbox pulls every conversation into one place so nothing slips.",
+    "qaPassed": true,
+    "createdAt": "2026-06-17T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  }
+]

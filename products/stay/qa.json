@@ -2,5 +2,14 @@
   "competitors": [],
   "unbuiltFeatures": [],
   "allowedAcronyms": ["UK", "EU"],
-  "allowedProofClaims": []
+  "allowedProofClaims": [],
+  "siblingCapabilities": [
+    "autonomous ai host",
+    "hostie",
+    "automate your hosting",
+    "dynamic pricing",
+    "unified inbox",
+    "find work",
+    "accept the job"
+  ]
 }

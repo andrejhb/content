@@ -1,0 +1,82 @@
+{
+  "id": "2026-07-07-answered-at-midnight-feature-card",
+  "createdAt": "2026-07-07T15:13:45.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "Guests message at every hour. The host should not have to be the one awake for it. Hostie answers in his voice, day and night.",
+  "brief": "Feature-card, light. Product-led counterpart to the statement. Phone mockup of the full Messages inbox (phone-inbox.png), threads across Airbnb, Booking and more, all confirmed, so the read is breadth: every guest, every channel, handled. AI guest messaging is live, so present tense. Uses the inbox mockup rather than the single-thread v2 chat so it stays visually distinct from the existing ai-messaging feature-card video.",
+  "template": "feature-card",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/mockups/phone-inbox.png",
+  "variant": "light",
+  "copy": {
+    "eyebrow": "Meet Hostie",
+    "headline": "The inbox that answers itself",
+    "subhead": "Hostie replies to every guest across your channels, day and night, in a voice you set and control."
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 5w/29c, subhead 18w/98c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-08T16:25:03.309Z"
+  }
+}

@@ -33,7 +33,7 @@ export async function Hallway({
 
   if (creatives.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-border bg-card px-6 py-12 text-center">
+      <div className="flex flex-col items-center justify-center gap-2 rounded-2xl bg-surface px-6 py-12 text-center">
         <p className="text-body text-t2">
           {query ? "Nothing matches that search." : "No creatives yet."}
         </p>
@@ -124,9 +124,9 @@ export async function Hallway({
       <Link
         key={brief.id}
         href={`/creative/${brief.id}`}
-        className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-elevation-1 transition-colors hover:border-t3"
+        className="group flex flex-col overflow-hidden rounded-2xl bg-surface transition-colors hover:bg-subtle"
       >
-        <div className="flex aspect-square items-center justify-center overflow-hidden border-b border-border bg-surface">
+        <div className="flex aspect-square items-center justify-center overflow-hidden bg-subtle">
           {thumbSrc ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -141,14 +141,17 @@ export async function Hallway({
         <div className="flex flex-1 flex-col gap-2 p-4">
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-2">
+              <Mono className="rounded-full bg-subtle px-1.5 capitalize text-t3">
+                {brief.product}
+              </Mono>
               <Mono className="text-t3">{tpl?.label ?? brief.template}</Mono>
               {isVideo ? (
-                <Mono className="rounded-full border border-border px-1.5 text-t3">
+                <Mono className="rounded-full bg-subtle px-1.5 text-t3">
                   video
                 </Mono>
               ) : null}
               {isCarousel ? (
-                <Mono className="rounded-full border border-border px-1.5 text-t3">
+                <Mono className="rounded-full bg-subtle px-1.5 text-t3">
                   carousel
                 </Mono>
               ) : null}
@@ -174,7 +177,7 @@ export async function Hallway({
   };
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 motion-safe:animate-in motion-safe:fade-in motion-safe:duration-500">
       {groups.map((g) => (
         <section key={g.key} className="flex flex-col gap-4">
           <div className="flex items-center gap-3">
@@ -182,7 +185,7 @@ export async function Hallway({
               {formatDate(g.key)}
             </h2>
             <span className="font-mono text-caption text-dim">{g.rows.length}</span>
-            <div className="h-px flex-1 bg-border" />
+            <div className="h-px flex-1 bg-subtle" />
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {g.rows.map(card)}

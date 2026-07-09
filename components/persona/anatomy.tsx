@@ -35,7 +35,7 @@ const SECTION_SUGGESTIONS: {
 ];
 
 export const BTN =
-  "inline-flex h-8 cursor-pointer items-center gap-1.5 rounded-sm border border-border bg-card px-3 font-mono text-caption text-t2 transition-colors hover:bg-subtle-hover disabled:cursor-not-allowed disabled:opacity-50";
+  "inline-flex h-8 cursor-pointer items-center gap-1.5 rounded-xl bg-subtle px-3 font-mono text-caption text-t2 transition-colors hover:bg-subtle-hover disabled:cursor-not-allowed disabled:opacity-50";
 
 export function slugifyKey(title: string): string {
   return title
@@ -65,7 +65,7 @@ export function SectionBody({ section }: { section: PersonaSection }) {
       <div className="overflow-x-auto">
         <table className="w-full text-left text-caption">
           <thead>
-            <tr className="border-b border-border">
+            <tr className="border-b border-subtle">
               {section.columns.map((col) => (
                 <th key={col} className="py-2 pr-4 font-medium text-t3">
                   {col}
@@ -73,9 +73,9 @@ export function SectionBody({ section }: { section: PersonaSection }) {
               ))}
             </tr>
           </thead>
-          <tbody>
+          <tbody className="divide-y divide-subtle">
             {section.rows.map((row, i) => (
-              <tr key={i} className="border-b border-border align-top last:border-0">
+              <tr key={i} className="align-top">
                 {row.map((cell, j) => (
                   <td key={j} className="py-2 pr-4 text-t2">
                     {cell}
@@ -89,7 +89,7 @@ export function SectionBody({ section }: { section: PersonaSection }) {
     );
   }
   return (
-    <pre className="overflow-x-auto rounded-lg bg-surface p-3 font-mono text-caption text-t2">
+    <pre className="overflow-x-auto rounded-2xl bg-subtle p-3 font-mono text-caption text-t2">
       {JSON.stringify(section.content ?? section, null, 2)}
     </pre>
   );
@@ -134,12 +134,12 @@ export function SectionEditor({
       {section.kind === "table" && section.columns ? (
         <div className="flex flex-col gap-3">
           {rows.map((row, i) => (
-            <div key={i} className="flex flex-col gap-1.5 rounded-lg border border-border p-3">
+            <div key={i} className="flex flex-col gap-1.5 rounded-2xl bg-card p-3">
               {section.columns!.map((col, j) => (
                 <label key={j} className="flex flex-col gap-1">
                   <span className="font-mono text-caption text-dim">{col}</span>
                   <textarea
-                    className="min-h-[2.25rem] w-full resize-y rounded-sm border border-border bg-surface p-2 text-caption text-t1"
+                    className="min-h-[2.25rem] w-full resize-y rounded-xl bg-subtle p-2 text-caption text-t1 outline-none transition-colors focus:bg-subtle-hover"
                     value={row[j] ?? ""}
                     onChange={(e) => {
                       const next = rows.map((r) => [...r]);
@@ -168,7 +168,7 @@ export function SectionEditor({
         </div>
       ) : (
         <textarea
-          className="min-h-36 w-full resize-y rounded-lg border border-border bg-surface p-3 text-body leading-body text-t1"
+          className="min-h-36 w-full resize-y rounded-2xl bg-subtle p-3 text-body leading-body text-t1 outline-none transition-colors focus:bg-subtle-hover"
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder={section.kind === "list" ? "One item per line" : undefined}
@@ -248,7 +248,7 @@ export function SectionsEditor({
   return (
     <div className="flex flex-col gap-4">
       {missingCore.length > 0 ? (
-        <div className="flex items-start gap-3 rounded-xl border border-dashed border-border bg-card px-5 py-4">
+        <div className="flex items-start gap-3 rounded-2xl bg-surface px-5 py-4">
           <Sparkle className="mt-0.5 size-4 shrink-0 text-dim" />
           <div className="text-caption text-t3">
             <p className="text-t2">Gaps: {missingCore.join(", ")}.</p>
@@ -261,7 +261,7 @@ export function SectionsEditor({
       ) : null}
 
       {error ? (
-        <p className="rounded-lg border border-border bg-card px-4 py-2 text-caption text-t2">
+        <p className="rounded-2xl bg-surface px-4 py-2 text-caption text-t2">
           {error}
         </p>
       ) : null}
@@ -270,7 +270,7 @@ export function SectionsEditor({
         {sections.map((s) => (
           <div
             key={s.key}
-            className={`rounded-xl border border-border bg-card p-5 shadow-elevation-1 ${
+            className={`rounded-2xl bg-surface p-5 ${
               s.kind === "table" ? "lg:col-span-2" : ""
             }`}
           >
@@ -309,15 +309,15 @@ export function SectionsEditor({
             <Plus className="size-3.5" /> add section
           </button>
         ) : customMode ? (
-          <div className="flex flex-wrap items-center gap-2 rounded-xl border border-border bg-card p-4">
+          <div className="flex flex-wrap items-center gap-2 rounded-2xl bg-surface p-4">
             <input
-              className="h-8 rounded-sm border border-border bg-surface px-2.5 text-caption text-t1"
+              className="h-8 rounded-xl bg-subtle px-2.5 text-caption text-t1 outline-none transition-colors focus:bg-subtle-hover"
               placeholder="Section title"
               value={newTitle}
               onChange={(e) => setNewTitle(e.target.value)}
             />
             <select
-              className="h-8 rounded-sm border border-border bg-surface px-2 text-caption text-t1"
+              className="h-8 rounded-xl bg-subtle px-2 text-caption text-t1 outline-none transition-colors focus:bg-subtle-hover"
               value={newKind}
               onChange={(e) => setNewKind(e.target.value as "text" | "list")}
             >
@@ -336,7 +336,7 @@ export function SectionsEditor({
             </button>
           </div>
         ) : (
-          <div className="rounded-xl border border-border bg-card p-4">
+          <div className="rounded-2xl bg-surface p-4">
             <div className="flex items-center justify-between gap-3">
               <p className="text-caption text-t3">
                 Add a section — pick one, or write your own.
@@ -354,12 +354,12 @@ export function SectionsEditor({
                 <button
                   key={s.title}
                   type="button"
-                  className="flex cursor-pointer flex-col items-start gap-0.5 rounded-lg border border-border bg-surface px-3 py-2.5 text-left transition-colors hover:bg-subtle-hover"
+                  className="flex cursor-pointer flex-col items-start gap-0.5 rounded-2xl bg-card px-3 py-2.5 text-left transition-colors hover:bg-subtle"
                   onClick={() => addSection(s.title, s.kind)}
                 >
                   <span className="flex items-center gap-1.5">
                     <span className="text-body text-t1">{s.title}</span>
-                    <span className="rounded-full border border-border px-1.5 font-mono text-caption text-dim">
+                    <span className="rounded-full bg-subtle px-1.5 font-mono text-caption text-dim">
                       {s.kind}
                     </span>
                   </span>
@@ -368,7 +368,7 @@ export function SectionsEditor({
               ))}
               <button
                 type="button"
-                className="flex cursor-pointer items-center gap-1.5 rounded-lg border border-dashed border-border px-3 py-2.5 text-left text-body text-t2 transition-colors hover:bg-subtle-hover"
+                className="flex cursor-pointer items-center gap-1.5 rounded-2xl bg-subtle px-3 py-2.5 text-left text-body text-t2 transition-colors hover:bg-subtle-hover"
                 onClick={() => setCustomMode(true)}
               >
                 <Plus className="size-3.5 text-dim" /> Custom section

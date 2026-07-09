@@ -1,4 +1,3 @@
-import { ImageSquare } from "@phosphor-icons/react/dist/ssr";
 import { Card, CardLabel, Mono } from "@/components/site/kit";
 import { listProductAssets, listSharedAssets } from "@/lib/assets";
 
@@ -24,21 +23,32 @@ function labelFor(key: string): { label: string; hint: string } {
 
 function Tile({ scope, group, file }: { scope: string; group: string; file: string }) {
   const src = `/asset/${scope}/${group}/${file}`;
+  const isVideo = /\.(mp4|webm|mov)$/i.test(file);
   return (
     <figure className="flex flex-col gap-2">
-      <div className="flex h-24 items-center justify-center overflow-hidden rounded-lg border border-border bg-surface p-4">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={src}
-          alt={file}
-          className={
-            group === "logos"
-              ? "site-logo max-h-full max-w-full object-contain"
-              : group === "photos"
-                ? "h-full w-full object-cover"
-                : "max-h-full max-w-full object-contain"
-          }
-        />
+      <div className="flex h-24 items-center justify-center overflow-hidden rounded-2xl bg-subtle p-4">
+        {isVideo ? (
+          <video
+            src={src}
+            muted
+            loop
+            playsInline
+            className="h-full w-full rounded-lg object-cover"
+          />
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={src}
+            alt={file}
+            className={
+              group === "logos"
+                ? "site-logo max-h-full max-w-full object-contain"
+                : group === "photos"
+                  ? "h-full w-full object-cover"
+                  : "max-h-full max-w-full object-contain"
+            }
+          />
+        )}
       </div>
       <Mono className="truncate">{file}</Mono>
     </figure>
@@ -51,10 +61,12 @@ export async function Assets({ product }: { product: string }) {
     listSharedAssets(),
   ]);
 
+  // Only present groups that have an asset behind them. Empty groups are hidden
+  // rather than shown as blank frames or placeholders.
   const groups = [
     ...productGroups.map((g) => ({ ...g, scope: product })),
     ...sharedGroups.map((g) => ({ ...g, scope: "shared" })),
-  ];
+  ].filter((g) => g.files.length > 0);
 
   return (
     <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
@@ -67,26 +79,14 @@ export async function Assets({ product }: { product: string }) {
                 {meta.label}
                 {g.scope === "shared" ? " · shared" : ""}
               </CardLabel>
-              <Mono>{g.files.length || "0"}</Mono>
+              <Mono>{g.files.length}</Mono>
             </div>
 
-            {g.files.length > 0 ? (
-              <div className="mt-4 grid grid-cols-2 gap-3">
-                {g.files.map((f) => (
-                  <Tile key={f} scope={g.scope} group={g.key} file={f} />
-                ))}
-              </div>
-            ) : (
-              <div className="mt-4 flex flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-border bg-surface px-4 py-8 text-center">
-                <ImageSquare className="size-6 text-dim" />
-                <p className="text-caption text-t3">{meta.hint}</p>
-                <Mono>
-                  {g.scope === "shared"
-                    ? `assets/shared/${g.key}/`
-                    : `products/${product}/assets/${g.key}/`}
-                </Mono>
-              </div>
-            )}
+            <div className="mt-4 grid grid-cols-2 gap-3">
+              {g.files.map((f) => (
+                <Tile key={f} scope={g.scope} group={g.key} file={f} />
+              ))}
+            </div>
           </Card>
         );
       })}

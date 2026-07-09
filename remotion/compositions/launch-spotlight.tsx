@@ -1,7 +1,6 @@
 import {
   AbsoluteFill,
   Img,
-  OffthreadVideo,
   interpolate,
   spring,
   useCurrentFrame,
@@ -9,6 +8,7 @@ import {
 } from "remotion";
 import type { VideoInputProps } from "../root";
 import { interVars } from "./font";
+import { LoopedVideo } from "./looped-video";
 
 // Full-bleed cinematic spotlight for @wearehububb (the more visual variant).
 // A generated interior clip fills the frame; the logo sits top-left and the copy
@@ -56,10 +56,8 @@ export function LaunchSpotlight({ brief, baseUrl }: VideoInputProps) {
   return (
     <AbsoluteFill className="bg-mono-20 text-mono-1 font-sans" style={interVars}>
       <AbsoluteFill style={{ overflow: "hidden" }}>
-        <OffthreadVideo
+        <LoopedVideo
           src={`${baseUrl}${brief.image ?? (landscape ? BG_WIDE : BG_PORTRAIT)}`}
-          muted
-          loop
           playbackRate={0.8}
           style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${zoom})` }}
         />

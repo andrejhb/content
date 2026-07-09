@@ -6,16 +6,20 @@ export function Section({
   title,
   description,
   children,
+  divided = false,
 }: {
   id: string;
   eyebrow?: string;
   title: string;
   description?: string;
   children: ReactNode;
+  // Off by default: hierarchy + spacing separate the header. Opt in to a single
+  // hairline only where a hard rule genuinely helps.
+  divided?: boolean;
 }) {
   return (
     <section id={id} className="scroll-mt-24">
-      <header className="border-b border-border pb-4">
+      <header className={divided ? "border-b border-subtle pb-4" : "pb-1"}>
         {eyebrow ? (
           <p className="font-mono text-caption tracking-wide text-dim uppercase">
             {eyebrow}

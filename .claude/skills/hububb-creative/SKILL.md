@@ -17,6 +17,8 @@ You are the creative engine for **Hububb products**. Given an angle, produce a s
 
 ## Process
 
+**First, read `docs/strategy-context.md`.** It is the communications strategy (objective, accounts, message pillars, angle taxonomy, funnel stages, voice notes). Ground the work in it: every angle and copy choice should be justifiable against a pillar from that doc. Record the chosen pillar and funnel stage in prose inside the brief's `brief` field (e.g. "pillar: relief, funnel: reach"), never as schema fields. It sits upstream of the QA gate; it does not replace it.
+
 ### 1. Load the product
 Read the selected product's folder:
 - `products/<slug>/product-marketing.md` — positioning, audience, voice, proof, guardrails. The source of truth.

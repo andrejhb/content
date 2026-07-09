@@ -35,11 +35,11 @@ function pxRange(min: number, max: number): string {
 
 export function Typography() {
   return (
-    <div className="flex flex-col gap-px overflow-hidden rounded-xl border border-border bg-border">
+    <div className="flex flex-col overflow-hidden rounded-2xl bg-surface divide-y divide-subtle">
       {typeRoles.map((role) => (
         <div
           key={role.name}
-          className="grid grid-cols-1 gap-3 bg-card px-5 py-5 sm:grid-cols-[180px_1fr] sm:items-center"
+          className="grid grid-cols-1 gap-3 px-5 py-5 sm:grid-cols-[180px_1fr] sm:items-center"
         >
           <div className="flex flex-col gap-1">
             <Mono className="text-t2">text-{role.name}</Mono>

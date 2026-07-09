@@ -3,10 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { CaretDown, MagnifyingGlass } from "@phosphor-icons/react";
+import { CaretDown, MagnifyingGlass, Plus } from "@phosphor-icons/react";
 import type { Product } from "@/lib/products";
 import { DesignMenu } from "@/components/site/design-menu";
 import { ThemeToggle } from "@/components/site/theme-toggle";
+import { SoundToggle } from "@/components/site/sound-toggle";
 
 // Top rail: brand, product tabs, creatives search, the design mega menu, and
 // the theme mode. Product switching lives here; the side nav owns the spaces
@@ -34,7 +35,7 @@ export function TopNav({ products }: { products: Product[] }) {
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur-md">
+    <header className="sticky top-0 z-40 bg-surface/90 backdrop-blur-md">
       <div className="flex items-center gap-4 px-5 py-2.5">
         {/* Inline product tabs on sm+; a dropdown on mobile. */}
         <nav className="hidden items-center gap-1 sm:flex">
@@ -44,7 +45,7 @@ export function TopNav({ products }: { products: Product[] }) {
               <Link
                 key={p.slug}
                 href={`/p/${p.slug}/${activeSpace}`}
-                className={`inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-body transition-colors ${
+                className={`inline-flex items-center gap-1.5 rounded-xl px-2.5 py-1.5 text-body transition-colors ${
                   active
                     ? "bg-subtle font-medium text-t1"
                     : "text-t3 hover:bg-subtle hover:text-t1"
@@ -66,7 +67,7 @@ export function TopNav({ products }: { products: Product[] }) {
             onClick={() => setMenuOpen((o) => !o)}
             aria-haspopup="menu"
             aria-expanded={menuOpen}
-            className="inline-flex cursor-pointer items-center gap-1.5 rounded-md bg-subtle px-2.5 py-1.5 text-body font-medium text-t1"
+            className="inline-flex cursor-pointer items-center gap-1.5 rounded-xl bg-subtle px-2.5 py-1.5 text-body font-medium text-t1"
           >
             {activeProduct?.icon ? (
               // eslint-disable-next-line @next/next/no-img-element
@@ -86,13 +87,13 @@ export function TopNav({ products }: { products: Product[] }) {
                 className="fixed inset-0 z-40 cursor-default"
                 onClick={() => setMenuOpen(false)}
               />
-              <div className="absolute top-full left-0 z-50 mt-1 min-w-40 rounded-lg border border-border bg-card p-1 shadow-elevation-1">
+              <div className="absolute top-full left-0 z-50 mt-1 min-w-40 rounded-2xl bg-card p-1 shadow-elevation-1">
                 {products.map((p) => (
                   <Link
                     key={p.slug}
                     href={`/p/${p.slug}/${activeSpace}`}
                     onClick={() => setMenuOpen(false)}
-                    className={`flex items-center gap-2 rounded-md px-2.5 py-1.5 text-body transition-colors ${
+                    className={`flex items-center gap-2 rounded-xl px-2.5 py-1.5 text-body transition-colors ${
                       p.slug === activeSlug
                         ? "bg-subtle font-medium text-t1"
                         : "text-t3 hover:bg-subtle hover:text-t1"
@@ -111,7 +112,7 @@ export function TopNav({ products }: { products: Product[] }) {
         </div>
 
         <form onSubmit={search} className="ml-auto hidden min-w-0 md:block">
-          <label className="flex h-8 w-56 items-center gap-2 rounded-md border border-border bg-card px-2.5 transition-colors focus-within:border-t3">
+          <label className="flex h-8 w-56 items-center gap-2 rounded-xl bg-subtle px-2.5 transition-colors focus-within:bg-subtle-hover">
             <MagnifyingGlass className="size-4 shrink-0 text-dim" />
             <input
               value={query}
@@ -123,7 +124,15 @@ export function TopNav({ products }: { products: Product[] }) {
         </form>
 
         <div className="flex shrink-0 items-center gap-2 md:ml-0 ml-auto">
+          <Link
+            href={`/create?product=${activeSlug}`}
+            className="inline-flex h-8 items-center gap-1.5 rounded-xl bg-foreground px-3 text-caption font-medium text-background transition-colors hover:bg-action-hover"
+          >
+            <Plus className="size-3.5" weight="bold" />
+            Create
+          </Link>
           <DesignMenu productSlug={activeSlug} productName={activeName} />
+          <SoundToggle />
           <ThemeToggle />
         </div>
       </div>

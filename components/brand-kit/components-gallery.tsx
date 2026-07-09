@@ -28,7 +28,7 @@ import {
 
 function Demo({ label, children }: { label: string; children: ReactNode }) {
   return (
-    <div className="rounded-xl border border-border bg-card p-5 shadow-elevation-1">
+    <div className="rounded-2xl bg-surface p-5">
       <p className="mb-4 text-caption font-medium tracking-wide text-t3 uppercase">
         {label}
       </p>

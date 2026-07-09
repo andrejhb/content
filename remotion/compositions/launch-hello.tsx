@@ -1,7 +1,6 @@
 import {
   AbsoluteFill,
   Img,
-  OffthreadVideo,
   interpolate,
   spring,
   useCurrentFrame,
@@ -9,6 +8,7 @@ import {
 } from "remotion";
 import type { VideoInputProps } from "../root";
 import { interVars } from "./font";
+import { LoopedVideo } from "./looped-video";
 
 // Motion launch greeting for @wearehububb. "Hi there" lands, holds ~1s, then
 // "We are Hububb" arrives vibrant. After the headline, three rounded frames fade
@@ -30,7 +30,7 @@ function CardMedia({ src, baseUrl }: { src: string; baseUrl: string }) {
   const url = `${baseUrl}${src}`;
   const common = { width: "100%", height: "100%", objectFit: "cover" as const };
   if (src.endsWith(".mp4")) {
-    return <OffthreadVideo src={url} muted loop playbackRate={CLIP_RATE} style={common} />;
+    return <LoopedVideo src={url} playbackRate={CLIP_RATE} style={common} />;
   }
   return <Img src={url} style={common} />;
 }

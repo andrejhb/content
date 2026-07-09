@@ -1,9 +1,9 @@
 # Motion creative (Higgsfield)
 
-Run hububb-creative for {product} — I want generative video via Higgsfield. This is an explicit motion request.
+Run hububb-creative for {product}. I want generative video via Higgsfield. This is an explicit motion request.
 
-Angle: <one or two sentences — the single idea this video should land>
-Description: <the scene or feeling: cinematic, lifestyle, product-in-world — what no template can produce>
+Angle: <one or two sentences, the single idea this video should land>
+Description: <the scene or feeling: cinematic, lifestyle, product-in-world, what no template can produce>
 
 Before generating, ask me about:
 - audio (native sound or silent)

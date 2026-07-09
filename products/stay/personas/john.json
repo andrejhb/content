@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "id": "john",
+  "product": "stay",
+  "updatedAt": "2026-07-08T22:42:58.933Z",
+  "profile": {
+    "name": "John",
+    "headline": "The interesting guy",
+    "avatar": "/asset/shared/avatars/avatar-3.png",
+    "cover": null,
+    "facts": []
+  },
+  "sections": [
+    {
+      "key": "jtbd",
+      "title": "Jobs to be done",
+      "kind": "list",
+      "content": []
+    },
+    {
+      "key": "pains",
+      "title": "Pains",
+      "kind": "list",
+      "content": []
+    },
+    {
+      "key": "lifestyle",
+      "title": "Lifestyle",
+      "kind": "text",
+      "content": ""
+    }
+  ]
+}

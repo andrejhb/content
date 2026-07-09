@@ -1,7 +1,6 @@
 import {
   AbsoluteFill,
   Img,
-  OffthreadVideo,
   interpolate,
   spring,
   useCurrentFrame,
@@ -9,6 +8,7 @@ import {
 } from "remotion";
 import type { VideoInputProps } from "../root";
 import { interVars } from "./font";
+import { LoopedVideo } from "./looped-video";
 
 // Post 3 of the @wearehububb launch: the resolution. Same frame system as the
 // hello, but each frame is now labelled with one of the three products, so the
@@ -34,7 +34,7 @@ function CardInner({ src, baseUrl, i, cardW }: { src: string; baseUrl: string; i
   const p = Math.round(cardW * 0.075);
   return (
     <>
-      <OffthreadVideo src={url} muted loop playbackRate={CLIP_RATE} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+      <LoopedVideo src={url} playbackRate={CLIP_RATE} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.74) 0%, rgba(0,0,0,0.12) 34%, rgba(0,0,0,0) 60%)" }} />
       <div style={{ position: "absolute", left: p, bottom: p, color: "#ffffff" }}>
         <div style={{ fontSize: nameSize, fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1 }}>{PRODUCTS[i].name}</div>

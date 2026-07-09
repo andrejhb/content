@@ -26,11 +26,14 @@ export function FeatureCardTemplate({
   // (like the website feature cards). 9x16 and 16x9 keep the contained phone.
   const aspect = w / h;
   const clip = aspect >= 0.7 && aspect <= 1.3;
-  const clipTop = Math.round(Math.min(w, h) * 0.06);
-  // 1x1 panel is the shortest, so the phone clips hardest there: the square
-  // shows a touch less of the screen than the taller 4x5. Both run large so the
-  // device is the hero.
-  const clipWidth = aspect >= 0.95 ? "58%" : "70%";
+  const clipTop = Math.round(Math.min(w, h) * 0.03);
+  // Height-driven, not width-driven: mockups share one intrinsic aspect ratio
+  // (roughly 0.487, an iPhone photo), but sizing by a fixed width% against that
+  // meant a couple of pixels of extra height overflowed the panel's
+  // overflow-hidden and clipped the device down to a sliver. Sizing by height
+  // keeps the same generous, consistent fraction of the device visible
+  // regardless of the source image's exact resolution.
+  const clipHeight = "94%";
 
   const bg = dark ? "bg-mono-20 text-mono-1" : "bg-mono-1 text-mono-21";
   const eyeColor = dark ? "text-mono-5" : "text-mono-11";
@@ -105,7 +108,7 @@ export function FeatureCardTemplate({
           className={clip ? "" : "max-h-full max-w-full rounded-2xl object-contain"}
           style={
             clip
-              ? { width: clipWidth, marginTop: clipTop, filter: deviceShadow }
+              ? { height: clipHeight, width: "auto", marginTop: clipTop, filter: deviceShadow }
               : { filter: deviceShadow }
           }
         />

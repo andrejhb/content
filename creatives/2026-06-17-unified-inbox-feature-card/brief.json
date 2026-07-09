@@ -67,9 +67,22 @@
       {
         "rule": "coming-soon-labelled",
         "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 6w/37c, subhead 10w/59c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
       }
     ],
-    "checkedAt": "2026-07-02T21:04:52.416Z"
+    "checkedAt": "2026-07-08T16:25:03.304Z"
   },
   "product": "host",
   "persona": "scaling-operator"

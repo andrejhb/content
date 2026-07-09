@@ -6,5 +6,14 @@
     "tested on hundreds of real London properties",
     "processed millions in revenue (only when talking about dynamic pricing)",
     "running hundreds of cleans monthly (only when talking about cleaning)"
+  ],
+  "siblingCapabilities": [
+    "book your stay",
+    "stay a month",
+    "move in and just live",
+    "find work",
+    "accept the job",
+    "get paid to",
+    "pick the work"
   ]
 }

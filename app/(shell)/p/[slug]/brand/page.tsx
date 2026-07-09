@@ -18,7 +18,7 @@ export default async function BrandPage({
     <div>
       <BrandKit product={slug} />
 
-      <section className="border-t border-border">
+      <section>
         <div className="mx-auto max-w-6xl px-6 py-12">
           <p className="font-mono text-caption tracking-wide text-dim uppercase">
             Skills

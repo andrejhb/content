@@ -6,7 +6,7 @@ import { Card, CardLabel, Mono } from "@/components/site/kit";
 
 function ScaleStrip({ scale }: { scale: { step: number; hex: string }[] }) {
   return (
-    <div className="flex h-10 overflow-hidden rounded-md border border-border">
+    <div className="flex h-10 overflow-hidden rounded-xl">
       {scale.map((s) => (
         <div key={s.step} className="flex-1" style={{ backgroundColor: s.hex }} title={`${s.step} · ${s.hex}`} />
       ))}
@@ -27,7 +27,7 @@ function SwatchRow({ name, hex }: { name: string; hex: string }) {
   return (
     <div className="flex items-center gap-2.5">
       <span
-        className="size-5 shrink-0 rounded-md border border-border"
+        className="size-5 shrink-0 rounded-xl"
         style={{ backgroundColor: hex }}
       />
       <span className="truncate text-caption text-t2">{name}</span>

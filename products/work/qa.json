@@ -2,5 +2,13 @@
   "competitors": [],
   "unbuiltFeatures": [],
   "allowedAcronyms": [],
-  "allowedProofClaims": []
+  "allowedProofClaims": [],
+  "siblingCapabilities": [
+    "autonomous ai host",
+    "hostie",
+    "automate your hosting",
+    "dynamic pricing",
+    "book your stay",
+    "stay a month"
+  ]
 }

@@ -66,11 +66,11 @@ const ICONS: { name: string; Icon: ComponentType<{ className?: string }> }[] = [
 
 export function Icons() {
   return (
-    <div className="grid grid-cols-3 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-4 lg:grid-cols-6">
+    <div className="grid grid-cols-3 overflow-hidden rounded-2xl bg-surface sm:grid-cols-4 lg:grid-cols-6">
       {ICONS.map(({ name, Icon }) => (
         <div
           key={name}
-          className="flex flex-col items-center gap-2 bg-card px-3 py-5 text-center"
+          className="flex flex-col items-center gap-2 px-3 py-5 text-center"
         >
           <Icon className="size-6 text-t1" />
           <Mono className="truncate text-dim">{name}</Mono>

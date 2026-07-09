@@ -1,0 +1,81 @@
+{
+  "id": "2026-07-07-answered-at-midnight-statement",
+  "createdAt": "2026-07-07T15:13:45.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "Guests message at every hour. The host should not have to be the one awake for it. Hostie answers in his voice, day and night.",
+  "brief": "Statement, type-only on light. The emotional hook, not the feature. Answers Marcus's core pain: both flats live in his head all day as a low background anxiety. The read: hand the messaging to Hostie and the flats stop occupying your head. Restrained, quiet, no melodrama. Deliberately distinct from the existing 'Answered before you woke up' statement, which stays on the asleep-and-answered image; this one names the mental load.",
+  "template": "statement",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": true,
+  "image": null,
+  "copy": {
+    "eyebrow": "Guest messaging",
+    "headline": "Both flats stop living in your head",
+    "subhead": "Hostie answers your guests day and night, in your voice, so you are no longer the one on call."
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 7w/35c, subhead 19w/94c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-08T16:25:03.310Z"
+  }
+}

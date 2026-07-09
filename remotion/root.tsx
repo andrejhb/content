@@ -6,6 +6,7 @@ import { AnimatedStatement } from "./compositions/animated-statement";
 import { AnimatedFeatureCard } from "./compositions/animated-feature-card";
 import { LogoSting } from "./compositions/logo-sting";
 import { HostieAd } from "./compositions/hostie-ad";
+import { PhoneMockupUi } from "./compositions/phone-mockup-ui";
 import { AnimatedSpotlight } from "./compositions/animated-spotlight";
 import { LaunchHelloMotion } from "./compositions/launch-hello";
 import { LaunchStatement } from "./compositions/launch-statement";
@@ -103,6 +104,16 @@ export function RemotionRoot() {
         width={1080}
         height={1080}
         defaultProps={{ ...defaultProps, durationSec: 10 }}
+        calculateMetadata={metadata}
+      />
+      <Composition
+        id="phone-mockup-ui"
+        component={PhoneMockupUi}
+        durationInFrames={8 * FPS}
+        fps={FPS}
+        width={1080}
+        height={1080}
+        defaultProps={defaultProps}
         calculateMetadata={metadata}
       />
       <Composition

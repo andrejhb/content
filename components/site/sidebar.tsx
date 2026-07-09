@@ -1,120 +1,163 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  FolderSimple,
   ImagesSquare,
-  SidebarSimple,
+  FolderSimple,
   UserFocus,
+  Palette,
+  SidebarSimple,
+  List,
+  X,
 } from "@phosphor-icons/react";
-import type { Product } from "@/lib/products";
+import { ThemeToggle } from "@/components/site/theme-toggle";
+import { SoundToggle } from "@/components/site/sound-toggle";
 
-// Side rail: the spaces inside the selected product. Product switching lives
-// in the top nav. Collapsible to an icons-only rail on desktop; the toggle sits
-// at the top and the preference persists per browser. When collapsed, each
-// icon shows a hover tooltip.
-
-// Per-product spaces only. "Brand" (the design system + brand hub) is global,
-// so it lives in the top-nav Design menu, not here.
-const SPACES = [
-  { key: "creatives", label: "Creatives", Icon: ImagesSquare },
-  { key: "assets", label: "Assets", Icon: FolderSimple },
-  { key: "persona", label: "Persona", Icon: UserFocus },
+// Quiet left rail on desktop, a burger menu on mobile. Product is a tag/filter
+// inside each space, not a nav dimension. Create lives on the home hero.
+const NAV = [
+  { href: "/creatives", label: "Creatives", Icon: ImagesSquare, re: /^\/(creatives|creative\/)/ },
+  { href: "/assets", label: "Assets", Icon: FolderSimple, re: /^\/assets/ },
+  { href: "/personas", label: "Personas", Icon: UserFocus, re: /^\/(personas|p\/[^/]+\/persona)/ },
+  { href: "/p/general/brand", label: "Design", Icon: Palette, re: /\/brand/ },
 ];
 
-// Tiny external store around localStorage: hydration-safe (server snapshot is
-// "expanded"), no setState-in-effect, and every subscribed sidebar re-renders
-// on toggle.
 const STORAGE_KEY = "sidebar-collapsed";
 const listeners = new Set<() => void>();
-
 function subscribe(cb: () => void) {
   listeners.add(cb);
   return () => {
     listeners.delete(cb);
   };
 }
-
 function getSnapshot() {
   return localStorage.getItem(STORAGE_KEY) === "1";
 }
-
 function toggleCollapsed() {
   localStorage.setItem(STORAGE_KEY, getSnapshot() ? "0" : "1");
   listeners.forEach((cb) => cb());
 }
 
-// Hover tooltip shown to the right of a collapsed rail item (desktop only).
-function Tooltip({ label }: { label: string }) {
-  return (
-    <span
-      role="tooltip"
-      className="pointer-events-none absolute top-1/2 left-full z-50 ml-2 hidden -translate-y-1/2 rounded-md bg-foreground px-2.5 py-1.5 text-caption font-medium whitespace-nowrap text-background opacity-0 shadow-elevation-1 transition-opacity duration-100 group-hover:opacity-100 lg:block"
-    >
-      {label}
-    </span>
-  );
-}
+const WORDMARK = "/asset/shared/logos/hububb-wordmark.svg";
+const SYMBOL = "/asset/shared/logos/hububb-symbol.svg";
 
-export function Sidebar({ products }: { products: Product[] }) {
+export function Sidebar() {
   const pathname = usePathname();
   const collapsed = useSyncExternalStore(subscribe, getSnapshot, () => false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const m = pathname.match(/^\/p\/([^/]+)(?:\/([^/]+))?/);
-  const activeSlug = m?.[1] ?? products[0]?.slug ?? "host";
-  const activeSpace = m?.[2];
+  function NavLink({
+    item,
+    iconOnly = false,
+    onClick,
+  }: {
+    item: (typeof NAV)[number];
+    iconOnly?: boolean;
+    onClick?: () => void;
+  }) {
+    const { href, label, Icon, re } = item;
+    const active = re.test(pathname);
+    return (
+      <Link
+        href={href}
+        aria-label={label}
+        onClick={onClick}
+        className={`group flex items-center gap-2.5 rounded-xl px-2.5 py-2 text-body transition-colors ${
+          iconOnly ? "justify-center px-0" : ""
+        } ${
+          active
+            ? "bg-subtle font-medium text-t1"
+            : "text-t3 hover:bg-subtle hover:text-t1"
+        }`}
+      >
+        <Icon className="size-4.5 shrink-0" weight={active ? "fill" : "regular"} />
+        {iconOnly ? null : <span>{label}</span>}
+      </Link>
+    );
+  }
 
   return (
-    <aside
-      className={`w-full shrink-0 border-b border-border transition-[width] duration-200 lg:sticky lg:top-[57px] lg:h-[calc(100dvh-57px)] lg:border-r lg:border-b-0 ${
-        collapsed ? "lg:w-14" : "lg:w-48"
-      }`}
-    >
-      <div className="flex h-full flex-row items-center gap-1 px-3 py-3 lg:flex-col lg:items-stretch">
-        {/* Collapse/expand toggle — top of the rail (desktop only). */}
-        <button
-          type="button"
-          onClick={toggleCollapsed}
-          aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-          className={`group relative hidden items-center rounded-md px-2.5 py-2 text-dim transition-colors hover:bg-subtle hover:text-t1 lg:mb-1 lg:flex ${
-            collapsed ? "lg:justify-center lg:px-0" : ""
-          }`}
-        >
-          <SidebarSimple className="size-4.5 shrink-0" />
-          <Tooltip label={collapsed ? "Expand sidebar" : "Collapse sidebar"} />
-        </button>
-
-        <nav className="flex min-w-0 flex-1 flex-row gap-1 lg:flex-none lg:flex-col">
-          {SPACES.map(({ key, label, Icon }) => {
-            const active = key === activeSpace;
-            return (
-              <Link
-                key={key}
-                href={`/p/${activeSlug}/${key}`}
-                aria-label={label}
-                className={`group relative flex items-center gap-2.5 rounded-md px-2.5 py-2 text-body transition-colors ${
-                  collapsed ? "lg:justify-center lg:px-0" : ""
-                } ${
-                  active
-                    ? "bg-subtle font-medium text-t1"
-                    : "text-t3 hover:bg-subtle hover:text-t1"
-                }`}
-              >
-                <Icon
-                  className={`size-4.5 shrink-0 ${active ? "" : "text-dim"}`}
-                  weight={active ? "fill" : "regular"}
-                />
-                <span className={`hidden sm:block ${collapsed ? "lg:hidden" : ""}`}>
-                  {label}
-                </span>
-                {collapsed ? <Tooltip label={label} /> : null}
-              </Link>
-            );
-          })}
-        </nav>
+    <>
+      {/* Mobile: a slim bar with a burger that opens a menu. */}
+      <div className="sticky top-0 z-40 bg-surface lg:hidden">
+        <div className="flex items-center justify-between px-4 py-2.5">
+          <Link href="/" aria-label="Home">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={WORDMARK} alt="Hububb" className="site-logo h-5 w-auto" />
+          </Link>
+          <button
+            type="button"
+            onClick={() => setMobileOpen((o) => !o)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            className="inline-flex size-9 items-center justify-center rounded-xl text-t2 transition-colors hover:bg-subtle"
+          >
+            {mobileOpen ? <X className="size-5" /> : <List className="size-5" />}
+          </button>
+        </div>
+        {mobileOpen ? (
+          <div className="absolute inset-x-0 top-full flex flex-col gap-1 bg-surface p-3 shadow-elevation-2">
+            {NAV.map((item) => (
+              <NavLink
+                key={item.href}
+                item={item}
+                onClick={() => setMobileOpen(false)}
+              />
+            ))}
+            <div className="mt-2 flex items-center gap-1 px-1">
+              <SoundToggle />
+              <ThemeToggle />
+            </div>
+          </div>
+        ) : null}
       </div>
-    </aside>
+
+      {/* Desktop: the vertical rail. */}
+      <aside
+        className={`hidden shrink-0 bg-surface transition-[width] duration-200 lg:sticky lg:top-0 lg:flex lg:h-dvh lg:flex-col ${
+          collapsed ? "lg:w-16" : "lg:w-56"
+        }`}
+      >
+        <div className="flex h-full flex-col gap-2 p-3">
+          <div
+            className={`flex items-center ${collapsed ? "flex-col gap-2" : "justify-between"}`}
+          >
+            <Link
+              href="/"
+              aria-label="Home"
+              className="flex items-center rounded-xl px-2.5 py-2"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={collapsed ? SYMBOL : WORDMARK}
+                alt="Hububb"
+                className={collapsed ? "site-logo size-9" : "site-logo h-6 w-auto"}
+              />
+            </Link>
+            <button
+              type="button"
+              onClick={toggleCollapsed}
+              aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+              className="inline-flex size-8 items-center justify-center rounded-xl text-dim transition-colors hover:bg-subtle hover:text-t1"
+            >
+              <SidebarSimple className="size-4.5" />
+            </button>
+          </div>
+
+          <nav className="flex flex-1 flex-col gap-1">
+            {NAV.map((item) => (
+              <NavLink key={item.href} item={item} iconOnly={collapsed} />
+            ))}
+          </nav>
+
+          <div className={`flex items-center gap-1 ${collapsed ? "flex-col" : ""}`}>
+            <SoundToggle />
+            <ThemeToggle />
+          </div>
+        </div>
+      </aside>
+    </>
   );
 }

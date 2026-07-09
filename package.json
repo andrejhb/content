@@ -9,6 +9,8 @@
     "lint": "eslint",
     "render": "node scripts/render.mjs",
     "render:video": "node scripts/render-video.mjs",
+    "memory": "node scripts/creative-memory.mjs",
+    "memory:report": "node scripts/creative-memory-report.mjs",
     "remotion:studio": "remotion studio"
   },
   "dependencies": {
@@ -20,6 +22,7 @@
     "@remotion/renderer": "4.0.484",
     "@remotion/tailwind-v4": "4.0.484",
     "jszip": "^3.10.1",
+    "motion": "^12.42.2",
     "next": "16.2.7",
     "next-themes": "^0.4.6",
     "react": "19.2.4",

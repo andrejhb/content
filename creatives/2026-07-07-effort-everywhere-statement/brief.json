@@ -70,8 +70,21 @@
       {
         "rule": "coming-soon-labelled",
         "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 3w/21c, subhead 8w/46c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
       }
     ],
-    "checkedAt": "2026-07-06T22:43:29.303Z"
+    "checkedAt": "2026-07-08T16:25:03.311Z"
   }
 }

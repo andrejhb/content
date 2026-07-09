@@ -7,6 +7,7 @@
 
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { validateBrief } from "../lib/creative-schema.ts";
 
 const ROOT = path.join(process.cwd(), "creatives");
 const PRODUCTS = path.join(process.cwd(), "products");
@@ -47,6 +48,8 @@ async function qaConfig(product) {
     competitors: cfg.competitors ?? [],
     unbuiltFeatures: cfg.unbuiltFeatures ?? [],
     acronyms: new Set(cfg.allowedAcronyms ?? []),
+    siblingCapabilities: cfg.siblingCapabilities ?? [],
+    allowedProofClaims: cfg.allowedProofClaims ?? [],
   };
   qaConfigs.set(slug, resolved);
   return resolved;
@@ -69,7 +72,7 @@ function collectCopy(brief) {
   return fields;
 }
 
-function check(fields, cfg) {
+function check(fields, cfg, copy) {
   const text = fields.join("  ");
   const lower = text.toLowerCase();
   const checks = [];
@@ -123,14 +126,61 @@ function check(fields, cfg) {
   const labelled = /coming soon/i.test(lower);
   add("coming-soon-labelled", !unbuilt || labelled, unbuilt && !labelled ? "mentions unbuilt feature without 'coming soon'" : undefined);
 
+  // Sibling-capability leakage: phrases that belong to another product (best-effort
+  // keyword match, seeded per product in products/<slug>/qa.json siblingCapabilities).
+  const siblingHits = cfg.siblingCapabilities.filter((p) => lower.includes(p.toLowerCase()));
+  add("no-sibling-leakage", siblingHits.length === 0, siblingHits.join(", ") || undefined);
+
+  // Headline length: advisory word/char counts are always reported; the only hard
+  // failure is a headline past 12 words.
+  const wordCount = (s) => (s.trim() ? s.trim().split(/\s+/).length : 0);
+  const hl = typeof copy.headline === "string" ? copy.headline : "";
+  const sh = typeof copy.subhead === "string" ? copy.subhead : "";
+  const hlWords = wordCount(hl);
+  add("headline-length", hlWords <= 12, `headline ${hlWords}w/${hl.length}c, subhead ${wordCount(sh)}w/${sh.length}c`);
+
+  // Proof positivity: if proof-shaped copy appears, it must match one of the
+  // product's allowedProofClaims (verbatim or a close token match). This is the
+  // positive counterpart to no-fabricated-traction, which rejects the rest.
+  const proofShaped =
+    /\b\d[\d,]*\+?\s*(hosts|customers|users|guests|reviews|ratings?|stars?|properties|homes)\b/i.test(text) ||
+    /\b(hundreds|thousands|millions)\s+of\s+\w+/i.test(text) ||
+    /\btested on\b|\btrusted by\b|\brated\b/i.test(text) ||
+    /[£$€]\s?\d/.test(text);
+  let proofOk = true;
+  let proofDetail;
+  if (proofShaped) {
+    const norm = (s) => s.toLowerCase().replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim();
+    const nText = norm(text);
+    const onList = cfg.allowedProofClaims.some((claim) => {
+      const nClaim = norm(claim);
+      if (!nClaim) return false;
+      if (nText.includes(nClaim) || nClaim.includes(nText)) return true;
+      const claimWords = nClaim.split(" ").filter((w) => w.length > 2);
+      const hits = claimWords.filter((w) => nText.includes(w)).length;
+      return claimWords.length > 0 && hits / claimWords.length >= 0.7;
+    });
+    proofOk = onList;
+    if (!onList) proofDetail = "proof-shaped copy not on allowedProofClaims";
+  }
+  add("proof-on-allowlist", proofOk, proofDetail);
+
   return checks;
 }
 
 async function run(id) {
   const briefPath = path.join(ROOT, id, "brief.json");
   const brief = JSON.parse(await readFile(briefPath, "utf8"));
+
+  const valid = validateBrief(brief);
+  if (!valid.ok) {
+    console.log(`\n[FAIL] ${id}`);
+    for (const e of valid.errors) console.log(`  FAIL schema: ${e}`);
+    return false;
+  }
+
   const cfg = await qaConfig(brief.product);
-  const checks = check(collectCopy(brief), cfg);
+  const checks = check(collectCopy(brief), cfg, brief.copy ?? {});
   const passed = checks.every((c) => c.ok);
   brief.qa = { passed, checks, checkedAt: new Date().toISOString() };
   await writeFile(briefPath, JSON.stringify(brief, null, 2) + "\n");

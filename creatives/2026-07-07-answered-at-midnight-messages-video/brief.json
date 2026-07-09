@@ -1,0 +1,89 @@
+{
+  "id": "2026-07-07-answered-at-midnight-messages-video",
+  "createdAt": "2026-07-07T15:13:45.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "Guests message at every hour. The host should not have to be the one awake for it. Hostie answers in his voice, day and night.",
+  "brief": "Remotion video, light. The messages UI animates: at 2:14 AM a guest asks how to get in, Hostie types and replies in the host's voice, the guest thanks them, Hostie signs off. The real Host chat is reproduced (guest and host bubbles, timestamps, typing dots, the Booking and WhatsApp composer) and driven with frame math. The read: the exchange resolves itself while the host sleeps. Headline and subhead carry the message; the in-chat copy is reproduced UI, not marketing copy.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "phone-mockup-ui",
+    "durationSec": 8,
+    "fps": 30
+  },
+  "template": "feature-card",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": true,
+  "image": null,
+  "variant": "light",
+  "copy": {
+    "eyebrow": "Meet Hostie",
+    "headline": "Guests never wait for you to wake up",
+    "subhead": "Guests message at every hour. Hostie answers in your voice, day and night."
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 8w/36c, subhead 13w/74c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-08T16:25:03.310Z"
+  }
+}

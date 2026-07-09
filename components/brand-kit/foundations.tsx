@@ -45,7 +45,7 @@ export function Foundations() {
           {radii.map(([name, value]) => (
             <div key={name} className="flex flex-col items-center gap-2">
               <div
-                className={`size-14 border border-border bg-surface ${RADIUS_CLASS[name] ?? "rounded-none"}`}
+                className={`size-14 bg-subtle ${RADIUS_CLASS[name] ?? "rounded-none"}`}
               />
               <div className="text-center">
                 <Mono className="text-t2">{name}</Mono>
@@ -62,7 +62,7 @@ export function Foundations() {
         <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3">
           {ELEVATION_CLASS.map((cls, i) => (
             <div key={cls} className="flex flex-col items-center gap-2">
-              <div className={`size-14 rounded-lg border border-subtle bg-card ${cls}`} />
+              <div className={`size-14 rounded-2xl bg-card ${cls}`} />
               <Mono className="text-t2">elevation-{i + 1}</Mono>
             </div>
           ))}

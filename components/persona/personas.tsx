@@ -30,7 +30,7 @@ import { BTN, SectionsEditor } from "@/components/persona/anatomy";
 // /api/products/<slug>/persona/<id>; local state updates from the response.
 
 const INPUT =
-  "h-8 w-full rounded-sm border border-border bg-surface px-2.5 text-caption text-t1";
+  "h-8 w-full rounded-xl bg-subtle px-2.5 text-caption text-t1 outline-none transition-colors focus:bg-subtle-hover";
 
 function FactsEditor({
   facts,
@@ -116,7 +116,7 @@ function ProfileHeader({
   };
 
   return (
-    <div className="overflow-hidden rounded-xl border border-border bg-card shadow-elevation-1">
+    <div className="overflow-hidden rounded-2xl bg-surface">
       <div
         className={`h-24 w-full bg-cover bg-center ${
           p.cover ? "" : "bg-subtle bg-gradient-to-br from-subtle to-card"
@@ -163,7 +163,7 @@ function ProfileHeader({
               <p className="mt-3 max-w-2xl text-body leading-body text-t2">{p.bio}</p>
             ) : null}
             {p.facts && p.facts.length > 0 ? (
-              <dl className="mt-5 max-w-xl divide-y divide-border rounded-lg border border-border">
+              <dl className="mt-5 max-w-xl divide-y divide-subtle rounded-2xl">
                 {p.facts.map((f, i) => (
                   <div key={i} className="flex gap-4 px-4 py-2.5">
                     <dt className="w-28 shrink-0 text-caption tracking-wide text-dim uppercase">
@@ -215,7 +215,7 @@ function ProfileHeader({
             <label className="flex flex-col gap-1">
               <span className="font-mono text-caption text-dim">Bio</span>
               <textarea
-                className="min-h-24 w-full resize-y rounded-lg border border-border bg-surface p-3 text-body leading-body text-t1"
+                className="min-h-24 w-full resize-y rounded-2xl bg-subtle p-3 text-body leading-body text-t1 outline-none transition-colors focus:bg-subtle-hover"
                 value={draft.bio ?? ""}
                 onChange={(e) => setDraft({ ...draft, bio: e.target.value })}
               />
@@ -274,7 +274,7 @@ function PersonaPrompts({
       </div>
 
       {stale ? (
-        <p className="inline-flex items-center gap-2 rounded-lg border border-dashed border-border bg-card px-4 py-2 text-caption text-t3">
+        <p className="inline-flex items-center gap-2 rounded-2xl bg-surface px-4 py-2 text-caption text-t3">
           <Warning className="size-3.5 shrink-0 text-dim" />
           Persona edited since these were generated — rerun the{" "}
           <span className="font-mono text-t2">persona-prompts</span> skill to refresh.
@@ -282,7 +282,7 @@ function PersonaPrompts({
       ) : null}
 
       {prompts.length === 0 ? (
-        <div className="flex flex-col items-start gap-2 rounded-xl border border-dashed border-border bg-card px-5 py-6">
+        <div className="flex flex-col items-start gap-2 rounded-2xl bg-surface px-5 py-6">
           <p className="inline-flex items-center gap-2 text-body text-t2">
             <Sparkle className="size-4 text-dim" /> No starter prompts yet.
           </p>
@@ -300,13 +300,13 @@ function PersonaPrompts({
           {prompts.map((p, i) => (
             <div
               key={i}
-              className="rounded-xl border border-border bg-card p-5 shadow-elevation-1"
+              className="rounded-2xl bg-surface p-5"
             >
               <div className="flex items-center justify-between gap-3">
                 <p className="text-body font-medium text-t1">{p.title}</p>
                 <CopyButton text={p.body} />
               </div>
-              <pre className="mt-3 overflow-x-auto rounded-lg border border-border bg-surface p-4 font-mono text-caption leading-relaxed whitespace-pre-wrap text-t2">
+              <pre className="mt-3 overflow-x-auto rounded-2xl bg-subtle p-4 font-mono text-caption leading-relaxed whitespace-pre-wrap text-t2">
                 {p.body}
               </pre>
             </div>
@@ -422,7 +422,7 @@ export function Personas({
 
   if (!active) {
     return (
-      <div className="flex flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-border bg-card px-6 py-12 text-center">
+      <div className="flex flex-col items-center justify-center gap-3 rounded-2xl bg-surface px-6 py-12 text-center">
         <p className="text-body text-t2">No personas yet.</p>
         <p className="max-w-md text-caption text-t3">
           Add one below, or run the persona-refine skill to draft one from the
@@ -447,10 +447,10 @@ export function Personas({
               key={d.id}
               type="button"
               onClick={() => select(d.id)}
-              className={`inline-flex cursor-pointer items-center gap-2 rounded-full border px-3 py-1.5 text-caption transition-colors ${
+              className={`inline-flex cursor-pointer items-center gap-2 rounded-full px-3 py-1.5 text-caption transition-colors ${
                 on
-                  ? "border-border bg-subtle text-t1"
-                  : "border-transparent text-t3 hover:bg-subtle-hover"
+                  ? "bg-subtle text-t1"
+                  : "text-t3 hover:bg-subtle-hover"
               }`}
             >
               <PersonaAvatar name={name} src={d.profile?.avatar} size={20} />
@@ -469,7 +469,7 @@ export function Personas({
       </div>
 
       {error ? (
-        <p className="rounded-lg border border-border bg-card px-4 py-2 text-caption text-t2">
+        <p className="rounded-2xl bg-surface px-4 py-2 text-caption text-t2">
           {error}
         </p>
       ) : null}

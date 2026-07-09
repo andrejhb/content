@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getProduct } from "@/lib/products";
 import { getPersonas } from "@/lib/personas";
 import { Personas } from "@/components/persona/personas";
+import { PersonaCreatives } from "@/components/persona/persona-creatives";
 
 export const dynamic = "force-dynamic";
 
@@ -29,13 +30,14 @@ export default async function PersonaPage({
           Personas
         </h1>
         <p className="mt-2 max-w-2xl text-body text-t3">
-          The real humans this product speaks to — the benchmark generation draws
-          on. Switch between them, edit the profile and sections inline, and add
-          as many as you need.
+          The real humans this product speaks to, the ones the benchmark
+          generation draws on. Switch between them, edit the profile and sections
+          inline, and add as many as you need.
         </p>
       </header>
 
       <Personas slug={slug} personas={personas} initialId={activeId} />
+      <PersonaCreatives slug={slug} fallbackId={activeId ?? personas[0]?.id} />
     </div>
   );
 }

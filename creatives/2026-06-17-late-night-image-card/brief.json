@@ -60,9 +60,22 @@
       {
         "rule": "coming-soon-labelled",
         "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 10w/45c, subhead 13w/81c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
       }
     ],
-    "checkedAt": "2026-07-02T21:04:52.414Z"
+    "checkedAt": "2026-07-08T16:25:03.301Z"
   },
   "product": "host",
   "persona": "side-hustler"

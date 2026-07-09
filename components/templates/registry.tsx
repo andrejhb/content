@@ -1,4 +1,5 @@
 import type { Brief, TemplateKey } from "@/lib/creatives";
+import { TEMPLATE_META } from "@/lib/templates";
 import { StatementTemplate } from "./statement";
 import { ProofCardTemplate } from "./proof-card";
 import { ImageCardTemplate } from "./image-card";
@@ -14,51 +15,26 @@ type TemplateComponent = (props: {
   h: number;
 }) => React.ReactElement;
 
-export const TEMPLATES: Record<
-  TemplateKey,
-  { label: string; blurb: string; Component: TemplateComponent }
-> = {
-  statement: {
-    label: "Statement",
-    blurb: "One strong line, pure type on a token background.",
-    Component: StatementTemplate,
-  },
-  "proof-card": {
-    label: "Proof card",
-    blurb: "Built around the London proof point.",
-    Component: ProofCardTemplate,
-  },
-  "image-card": {
-    label: "Image card",
-    blurb: "Eyebrow + headline over a large supplied image.",
-    Component: ImageCardTemplate,
-  },
-  "feature-card": {
-    label: "Feature card",
-    blurb: "Phone mockup floating on a neutral surface panel.",
-    Component: FeatureCardTemplate,
-  },
-  showcase: {
-    label: "Showcase",
-    blurb: "Headline, icon badges, and a product screenshot.",
-    Component: ShowcaseTemplate,
-  },
-  spotlight: {
-    label: "Spotlight",
-    blurb: "Full-bleed image or video, two-tone headline, optional CTA.",
-    Component: SpotlightTemplate,
-  },
-  "launch-hello": {
-    label: "Launch hello",
-    blurb: "Dark editorial greeting for the brand account. Big light-weight type on near-black.",
-    Component: LaunchHelloTemplate,
-  },
-  "launch-index": {
-    label: "Launch index",
-    blurb: "Dark explainer: flag headline, thesis, and a three-part Host/Stay/Work index.",
-    Component: LaunchIndexTemplate,
-  },
+// The render components, keyed by template. Labels/blurbs come from the shared
+// catalogue (lib/templates.ts) so the wizard, the prompt, and this render map all
+// read the same names.
+const COMPONENTS: Record<TemplateKey, TemplateComponent> = {
+  statement: StatementTemplate,
+  "proof-card": ProofCardTemplate,
+  "image-card": ImageCardTemplate,
+  "feature-card": FeatureCardTemplate,
+  showcase: ShowcaseTemplate,
+  spotlight: SpotlightTemplate,
+  "launch-hello": LaunchHelloTemplate,
+  "launch-index": LaunchIndexTemplate,
 };
+
+export const TEMPLATES = Object.fromEntries(
+  (Object.keys(COMPONENTS) as TemplateKey[]).map((k) => [
+    k,
+    { ...TEMPLATE_META[k], Component: COMPONENTS[k] },
+  ]),
+) as Record<TemplateKey, { label: string; blurb: string; Component: TemplateComponent }>;
 
 export function CreativeRender({
   brief,

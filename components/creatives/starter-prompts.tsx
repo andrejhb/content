@@ -9,12 +9,12 @@ export async function StarterPrompts({ product }: { product: string }) {
   if (prompts.length === 0) return null;
 
   return (
-    <details className="rounded-xl border border-border bg-card shadow-elevation-1">
+    <details className="rounded-2xl bg-surface">
       <summary className="flex cursor-pointer list-none items-center justify-between px-5 py-4 [&::-webkit-details-marker]:hidden">
         <CardLabel>Starter prompts</CardLabel>
         <Mono>{prompts.length}</Mono>
       </summary>
-      <div className="flex flex-col gap-5 border-t border-border p-5">
+      <div className="flex flex-col gap-5 p-5">
         {prompts.map((p) => {
           const text = fillPrompt(p.body, product);
           return (
@@ -23,7 +23,7 @@ export async function StarterPrompts({ product }: { product: string }) {
                 <p className="text-body font-medium text-t1">{p.title}</p>
                 <CopyButton text={text} />
               </div>
-              <pre className="overflow-x-auto rounded-lg border border-border bg-surface p-4 font-mono text-caption leading-relaxed whitespace-pre-wrap text-t2">
+              <pre className="overflow-x-auto rounded-2xl bg-subtle p-4 font-mono text-caption leading-relaxed whitespace-pre-wrap text-t2">
                 {text}
               </pre>
             </div>

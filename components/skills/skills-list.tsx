@@ -6,7 +6,7 @@ export async function SkillsList() {
 
   if (skills.length === 0) {
     return (
-      <div className="rounded-xl border border-dashed border-border bg-card px-6 py-10 text-center">
+      <div className="rounded-2xl bg-surface px-6 py-10 text-center">
         <p className="text-caption text-muted">
           No skills found. Install them with{" "}
           <span className="font-mono">npx skills add coreyhaines31/marketingskills</span>.
@@ -16,13 +16,13 @@ export async function SkillsList() {
   }
 
   return (
-    <div className="flex flex-col gap-px overflow-hidden rounded-xl border border-border bg-border">
+    <div className="flex flex-col overflow-hidden rounded-2xl bg-surface divide-y divide-subtle">
       {skills.map((s) => (
-        <div key={s.name} className="flex flex-col gap-1 bg-card px-5 py-4">
+        <div key={s.name} className="flex flex-col gap-1 px-5 py-4">
           <div className="flex items-center gap-2">
             <span className="text-body font-semibold text-t1">{s.name}</span>
             {s.custom ? (
-              <span className="rounded-full border border-border px-2 py-0.5 font-mono text-caption text-t3">
+              <span className="rounded-full bg-subtle px-2 py-0.5 font-mono text-caption text-t3">
                 custom
               </span>
             ) : null}

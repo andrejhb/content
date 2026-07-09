@@ -66,7 +66,7 @@ export async function BrandKit({ product }: { product: string }) {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="rounded-md px-2 py-1.5 text-caption text-t3 transition-colors hover:bg-subtle hover:text-t1"
+                className="rounded-xl px-2 py-1.5 text-caption text-t3 transition-colors hover:bg-subtle hover:text-t1"
               >
                 {item.label}
               </a>

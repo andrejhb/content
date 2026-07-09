@@ -11,7 +11,7 @@ export type SlideView = {
 };
 
 const BTN_SECONDARY =
-  "inline-flex h-8 items-center gap-1.5 rounded-sm border border-border bg-card px-3 text-caption font-medium text-foreground transition-colors hover:bg-subtle-hover";
+  "inline-flex h-8 items-center gap-1.5 rounded-xl bg-subtle px-3 text-caption font-medium text-foreground transition-colors hover:bg-subtle-hover";
 
 export function SlideTabs({ id, slides }: { id: string; slides: SlideView[] }) {
   const [active, setActive] = useState(slides[0]?.index ?? 1);
@@ -28,10 +28,10 @@ export function SlideTabs({ id, slides }: { id: string; slides: SlideView[] }) {
               key={s.index}
               type="button"
               onClick={() => setActive(s.index)}
-              className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-caption transition-colors ${
+              className={`inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-caption transition-colors ${
                 on
-                  ? "border-foreground bg-foreground text-background"
-                  : "border-border bg-card text-t2 hover:bg-subtle-hover"
+                  ? "bg-foreground text-background"
+                  : "bg-subtle text-t2 hover:bg-subtle-hover"
               }`}
             >
               <span className="font-mono">Slide {s.index}</span>
@@ -48,9 +48,9 @@ export function SlideTabs({ id, slides }: { id: string; slides: SlideView[] }) {
           return (
             <div
               key={m.format}
-              className="flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-elevation-1"
+              className="flex flex-col overflow-hidden rounded-2xl bg-surface"
             >
-              <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
+              <div className="flex items-center justify-between px-4 py-2.5">
                 <div className="flex items-baseline gap-2">
                   <span className="text-body font-semibold text-t1">{f?.label ?? m.format}</span>
                   <span className="font-mono text-caption text-dim">
@@ -61,12 +61,12 @@ export function SlideTabs({ id, slides }: { id: string; slides: SlideView[] }) {
                   <DownloadSimple className="size-3.5" /> {m.ext.toUpperCase()}
                 </a>
               </div>
-              <div className="flex items-center justify-center bg-surface p-4">
+              <div className="flex items-center justify-center bg-subtle p-4">
                 {m.ext === "mp4" ? (
                   <video
                     src={`${base}.mp4`}
                     poster={`${base}.png`}
-                    className="max-h-[460px] w-auto max-w-full rounded-md border border-border"
+                    className="max-h-[460px] w-auto max-w-full rounded-xl"
                     controls
                     muted
                     loop
@@ -78,7 +78,7 @@ export function SlideTabs({ id, slides }: { id: string; slides: SlideView[] }) {
                   <img
                     src={`${base}.png`}
                     alt={`Slide ${slide.index} ${m.format}`}
-                    className="max-h-[460px] w-auto max-w-full rounded-md border border-border"
+                    className="max-h-[460px] w-auto max-w-full rounded-xl"
                   />
                 )}
               </div>

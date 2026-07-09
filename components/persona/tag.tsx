@@ -19,7 +19,7 @@ export function PersonaTag({
   className?: string;
 }) {
   const cls =
-    "inline-flex items-center gap-1.5 rounded-full border border-border bg-subtle py-0.5 pr-2.5 pl-0.5 text-caption text-t2";
+    "inline-flex items-center gap-1.5 rounded-full bg-subtle py-0.5 pr-2.5 pl-0.5 text-caption text-t2";
   const inner = (
     <>
       <PersonaAvatar name={name} src={avatar} size={18} />

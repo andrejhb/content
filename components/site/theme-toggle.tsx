@@ -35,7 +35,7 @@ export function ThemeToggle() {
       title={mounted ? `Theme: ${mode} — click to switch` : "Theme"}
       aria-label="Switch theme"
       onClick={() => setTheme(MODES[(MODES.indexOf(mode) + 1) % MODES.length])}
-      className="inline-flex size-8 items-center justify-center rounded-md border border-border bg-card text-t2 transition-colors hover:bg-subtle-hover hover:text-t1"
+      className="inline-flex size-8 items-center justify-center rounded-xl bg-subtle text-t2 transition-colors hover:bg-subtle-hover hover:text-t1"
     >
       {mounted ? <Icon className="size-4" /> : <span className="size-4" />}
     </button>

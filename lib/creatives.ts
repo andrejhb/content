@@ -1,6 +1,7 @@
-import { readdir, readFile } from "node:fs/promises";
+import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import type { FormatKey } from "@/lib/formats";
+import { COMPOSITION_LABELS } from "@/lib/templates";
 
 export type TemplateKey =
   | "statement"
@@ -55,6 +56,20 @@ export type VideoSpec = {
   sourceCreativeId?: string; // still creative this motion piece derives from
 };
 
+// A single guest exchange for the phone-mockup-ui template's chat screen
+// (reproduced UI, not QA-gated copy). Omit brief.conversations to fall back to
+// the composition's built-in defaults.
+export type MessageConversation = {
+  guest: string;
+  photo: string; // served path, e.g. /asset/general/guests/guest-1.png
+  listing: string;
+  listingThumb: string; // served path
+  channel: string; // channel icon filename under /asset/<product>/channels/
+  time: string;
+  question: string;
+  answer: string;
+};
+
 export type Brief = {
   id: string;
   createdAt: string;
@@ -71,8 +86,26 @@ export type Brief = {
   variant?: "light" | "dark";
   copy: CreativeCopy;
   slides?: Slide[]; // when present, this creative is a carousel
+  // phone-mockup-ui template: which app UI plays on the screen ("chat" default),
+  // an end-card CTA, guest rotation, and the chat exchanges.
+  screen?: string;
+  cta?: { line?: string; button?: string };
+  rotate?: boolean;
+  conversations?: MessageConversation[];
   qa?: QaResult;
 };
+
+/**
+ * The template a creative is built on, for display/tagging: the Remotion
+ * composition for a video creative, otherwise the static template key.
+ * `staticLabel` (from the templates registry) is used for image creatives.
+ */
+export function templateLabel(brief: Brief, staticLabel?: string): string {
+  if (brief.kind === "video" && brief.video?.composition) {
+    return COMPOSITION_LABELS[brief.video.composition] ?? brief.video.composition;
+  }
+  return staticLabel ?? brief.template;
+}
 
 const ROOT = path.join(process.cwd(), "creatives");
 
@@ -101,6 +134,49 @@ export async function listCreatives(product?: string): Promise<Brief[]> {
   );
   return briefs.sort((a, b) =>
     (b.createdAt ?? "").localeCompare(a.createdAt ?? ""),
+  );
+}
+
+export type CreativeMeta = {
+  id: string;
+  product: string;
+  persona: string | null;
+  createdAt: string;
+  updatedAtMs: number; // brief.json mtime, to pick the newest among new ids
+  headline: string;
+  thumb: string | null; // served 1x1 poster path when rendered, else null
+};
+
+/**
+ * Creative summaries plus each brief.json mtime, for the Create wizard's
+ * poll-for-new-creative watcher. IDs are diffed against a baseline (createdAt is
+ * date-only, so a timestamp scheme would be wrong); mtime only breaks ties.
+ */
+export async function listCreativesWithMeta(
+  product?: string,
+): Promise<CreativeMeta[]> {
+  const briefs = await listCreatives(product);
+  return Promise.all(
+    briefs.map(async (b) => {
+      let updatedAtMs = 0;
+      try {
+        updatedAtMs = (await stat(path.join(ROOT, b.id, "brief.json"))).mtimeMs;
+      } catch {
+        /* ignore */
+      }
+      const media = await renderedMedia(b.id);
+      const fmt =
+        media.find((m) => m.format === "1x1")?.format ?? media[0]?.format ?? null;
+      return {
+        id: b.id,
+        product: b.product,
+        persona: b.persona ?? null,
+        createdAt: b.createdAt,
+        updatedAtMs,
+        headline: b.copy.headline ?? b.angle,
+        thumb: fmt ? `/creative-asset/${b.id}/${fmt}.png` : null,
+      };
+    }),
   );
 }
 

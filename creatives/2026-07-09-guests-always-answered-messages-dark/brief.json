@@ -1,0 +1,94 @@
+{
+  "id": "2026-07-09-guests-always-answered-messages-dark",
+  "createdAt": "2026-07-09T13:00:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "A short video showing guest messages being answered on their own, in the host's voice, so the whole exchange resolves itself and leaves a warm feeling of reassurance. Dark scene, light phone.",
+  "brief": "Remotion motion piece on the animated-messages composition, dark variant: the scene background and the headline / CTA go dark while the phone and its chat stay light, so the light device glows on a dark ground. Two guests flip, each asks a question, Hostie replies, then the headline becomes Join Hububb. The in-chat copy is reproduced UI, not marketing copy. pillar: runs-itself, funnel: reach.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "phone-mockup-ui",
+    "durationSec": 11,
+    "fps": 30
+  },
+  "rotate": true,
+  "template": "feature-card",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": true,
+  "image": null,
+  "variant": "dark",
+  "copy": {
+    "eyebrow": "Answered for you",
+    "headline": "Guest messages answered by AI",
+    "subhead": "Hostie replies in your voice, day and night, so no one is left waiting and you are never on call."
+  },
+  "cta": {
+    "line": "All your messages answered for you",
+    "button": "Join Hububb"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 5w/29c, subhead 20w/97c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-09T12:23:58.711Z"
+  }
+}
