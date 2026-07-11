@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "id": "general-audience",
+  "product": "general",
+  "updatedAt": "2026-07-10T11:39:31.176Z",
+  "profile": {
+    "name": "General Audience",
+    "headline": "Speaking to multiple personas",
+    "avatar": null,
+    "cover": null,
+    "facts": []
+  },
+  "sections": [
+    {
+      "key": "jtbd",
+      "title": "Jobs to be done",
+      "kind": "list",
+      "content": []
+    },
+    {
+      "key": "pains",
+      "title": "Pains",
+      "kind": "list",
+      "content": []
+    },
+    {
+      "key": "lifestyle",
+      "title": "Lifestyle",
+      "kind": "text",
+      "content": ""
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "id": "2026-07-10-connected-fragmented-spotlight",
+  "createdAt": "2026-07-10T12:00:00Z",
+  "product": "general",
+  "persona": "general-audience",
+  "angle": "Hububb Main - Post 2: hospitality is connected in theory, fragmented in reality. Hosts juggle too many tools, guests expect high standards, cleaners and maintenance are coordinated by hand, and operations live across chats, calendars, and spreadsheets. Hububb is building the connected layer beneath it all.",
+  "brief": "The fragmented-market story as a swipeable carousel for @wearehububb (angle: once-upon-a-time / three-sides). pillar: thesis, the ecosystem for flexible stays, everything around the stay. funnel: reach, hook-first, works cold with no context assumed. Seven full-bleed slides, one per beat: the promise, the fragmentation, the three sides each carrying their own effort, the tangle of tools, and the resolution closing on a moving scene of a stay running smoothly. Motion carries a slow zoom on each still. Light and dark alternate so the fragmented middle reads heavier and the resolution lifts: white type over a dark scrim on the dark slides, dark ink over a light wash on the light ones, Hububb wordmark top-left throughout.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "launch-form",
+    "durationSec": 5,
+    "fps": 30
+  },
+  "template": "spotlight",
+  "formats": [
+    "4x5",
+    "1x1"
+  ],
+  "brandMark": true,
+  "image": null,
+  "variant": "dark",
+  "copy": {
+    "headline": "Hospitality is connected in theory",
+    "subhead": "Fragmented in reality",
+    "handle": "@wearehububb"
+  },
+  "slides": [
+    {
+      "label": "Connected in theory",
+      "composition": "launch-form",
+      "durationSec": 5,
+      "variant": "light",
+      "image": "/asset/general/photos/chatgpt-image-jun-25-2026-01-08-24-pm-3.png",
+      "copy": {
+        "headline": "Hospitality is connected",
+        "headlineTail": "in theory"
+      }
+    },
+    {
+      "label": "Fragmented in reality",
+      "composition": "launch-form",
+      "durationSec": 5,
+      "variant": "dark",
+      "image": "/asset/general/photos/chatgpt-image-jun-25-2026-01-08-26-pm-8.png",
+      "copy": {
+        "headline": "Fragmented",
+        "headlineTail": "in reality"
+      }
+    },
+    {
+      "label": "Hosts manage too many tools",
+      "composition": "launch-form",
+      "durationSec": 5,
+      "variant": "dark",
+      "image": "/asset/general/photos/microsoft-copilot-txzv4hqjrpe-unsplash-1.jpg",
+      "copy": {
+        "headline": "Hosts manage",
+        "headlineTail": "too many tools"
+      }
+    },
+    {
+      "label": "Guests expect high standards",
+      "composition": "launch-form",
+      "durationSec": 5,
+      "variant": "light",
+      "image": "/asset/general/photos/guest-arrival-backpack.png",
+      "copy": {
+        "headline": "Guests expect",
+        "headlineTail": "high standards"
+      }
+    },
+    {
+      "label": "Cleaners and maintenance need clarity",
+      "composition": "launch-form",
+      "durationSec": 5,
+      "variant": "light",
+      "image": "/asset/general/photos/chatgpt-image-jul-10-2026-12-23-07-pm.png",
+      "copy": {
+        "headline": "Cleaners and maintenance",
+        "headlineTail": "need clarity"
+      }
+    },
+    {
+      "label": "Ops across chats, calendars, spreadsheets",
+      "composition": "launch-form",
+      "durationSec": 5,
+      "variant": "dark",
+      "image": "/asset/general/photos/microsoft-copilot-hkkre01teo4-unsplash.jpg",
+      "copy": {
+        "headline": "Ops still live across",
+        "headlineTail": "chats, calendars, and spreadsheets"
+      }
+    },
+    {
+      "label": "The connected layer",
+      "composition": "launch-form",
+      "durationSec": 6,
+      "variant": "light",
+      "image": "/asset/general/clips/connected-layer-places.mp4",
+      "copy": {
+        "headline": "Hububb is building",
+        "headlineTail": "the connected layer"
+      }
+    }
+  ],
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 5w/34c, subhead 3w/21c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-10T13:14:38.168Z"
+  },
+  "social": {
+    "firstLine": "Hospitality is connected in theory, and fragmented in reality.",
+    "caption": "Hospitality is connected in theory, and fragmented in reality.\n\nA host stitches together five apps to run a single stay. A guest waits on a reply that lives in someone's other inbox. The people who clean and fix and turn over the rooms find their work through a scramble of messages. Everyone is holding a piece, and no one is holding the whole.\n\nThe tools exist. The calendars, the chats, the spreadsheets. They just do not talk to each other, so the work of connecting them falls on people, every single day.\n\nWe are building the layer beneath all of it. One system that ties the host, the guest, and the worker into something that finally moves together. We started in London, with real people on real properties, because a connected industry is built, not declared.\n\nThis is the gap Hububb is built to close.",
+    "hashtags": [
+      "#proptech",
+      "#flexiblestays",
+      "#hospitalitytech",
+      "#hububb"
+    ]
+  }
+}

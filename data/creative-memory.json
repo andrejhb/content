@@ -1,6 +1,24 @@
 [
   {
-    "id": "2026-07-09-answered-by-ai-hostie-reply",
+    "id": "2026-07-10-connected-fragmented-spotlight",
+    "product": "general",
+    "persona": "general-audience",
+    "template": "spotlight",
+    "kind": "video",
+    "formats": [
+      "4x5",
+      "1x1"
+    ],
+    "headline": "Hospitality is connected in theory",
+    "angle": "Hububb Main - Post 2: hospitality is connected in theory, fragmented in reality. Hosts juggle too many tools, guests expect high standards, cleaners and maintenance are coordinated by hand, and operations live across chats, calendars, and spreadsheets. Hububb is building the connected layer beneath it all.",
+    "qaPassed": true,
+    "createdAt": "2026-07-10T12:00:00Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-09-guests-always-answered-messages-dark",
     "product": "host",
     "persona": "side-hustler",
     "template": "feature-card",
@@ -11,10 +29,10 @@
       "9x16",
       "16x9"
     ],
-    "headline": "Your guests are answered while you sleep",
-    "angle": "A short video where a guest's late-night worry is answered on its own by Hostie, the reply writing itself out and clearly badged as AI, leaving a warm feeling of reassurance.",
+    "headline": "Guest messages answered by AI",
+    "angle": "A short video showing guest messages being answered on their own, in the host's voice, so the whole exchange resolves itself and leaves a warm feeling of reassurance. Dark scene, light phone.",
     "qaPassed": true,
-    "createdAt": "2026-07-09T11:00:00.000Z",
+    "createdAt": "2026-07-09T13:00:00.000Z",
     "published": false,
     "performance": null,
     "learning": ""
@@ -31,7 +49,7 @@
       "9x16",
       "16x9"
     ],
-    "headline": "Your guests are always answered",
+    "headline": "Guest messages answered by AI",
     "angle": "A short video showing guest messages being answered on their own, in the host's voice, so the whole exchange resolves itself and leaves a warm feeling of reassurance.",
     "qaPassed": true,
     "createdAt": "2026-07-09T09:00:00.000Z",

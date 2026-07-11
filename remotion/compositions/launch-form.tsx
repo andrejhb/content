@@ -26,22 +26,26 @@ export function LaunchForm({ brief, baseUrl }: VideoInputProps) {
   const m = Math.min(w, h);
   const landscape = w > h;
   const tall = h >= w * 1.5;
+  const dark = brief.variant !== "light";
 
   const pad = Math.round(m * 0.078);
   // Name and tagline read at one size (like the greeting). Sized so a longer
   // tagline wraps to two lines without crowding.
-  const headPx = Math.round(Math.min(w, h * 1.05) * (landscape ? 0.066 : 0.078));
+  const headPx = Math.round(Math.min(w, h * 1.05) * (landscape ? 0.072 : 0.083));
   const mark = Math.round(m * (landscape ? 0.058 : 0.072));
   const textMaxW = landscape ? 0.62 * w : 0.84 * w;
 
   const zoom = interpolate(frame, [0, durationInFrames], [1, 1.06]);
 
-  // Left scrim keeps the left-aligned type readable wherever the clip is bright;
-  // a soft top scrim protects the logo.
-  const leftScrim =
-    "linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.5) 28%, rgba(0,0,0,0.16) 52%, rgba(0,0,0,0) 72%)";
-  const topScrim =
-    "linear-gradient(to bottom, rgba(0,0,0,0.42) 0%, rgba(0,0,0,0.12) 14%, rgba(0,0,0,0) 30%)";
+  // Left scrim keeps the left-aligned type readable wherever the background is
+  // busy; a soft top scrim protects the logo. The light variant uses a white wash
+  // so dark ink reads over a bright photo.
+  const leftScrim = dark
+    ? "linear-gradient(to right, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.84) 38%, rgba(0,0,0,0.46) 64%, rgba(0,0,0,0) 88%)"
+    : "linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.92) 38%, rgba(255,255,255,0.52) 64%, rgba(255,255,255,0) 88%)";
+  const topScrim = dark
+    ? "linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.34) 18%, rgba(0,0,0,0) 40%)"
+    : "linear-gradient(to bottom, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.42) 18%, rgba(255,255,255,0) 40%)";
 
   const enterAt = (delay: number, rise = m * 0.03) => {
     const s = spring({ frame: frame - delay, fps, config: { damping: 200 } });
@@ -61,17 +65,28 @@ export function LaunchForm({ brief, baseUrl }: VideoInputProps) {
   const lineStyle = {
     fontSize: headPx,
     letterSpacing: "-0.03em",
-    color: "#ffffff",
+    color: dark ? "#ffffff" : "#141414",
   } as const;
 
   return (
-    <AbsoluteFill className="bg-mono-20 text-mono-1 font-sans" style={interVars}>
+    <AbsoluteFill className={`${dark ? "bg-mono-20 text-mono-1" : "bg-mono-1 text-mono-21"} font-sans`} style={interVars}>
       <AbsoluteFill style={{ overflow: "hidden" }}>
-        <LoopedVideo
-          src={`${baseUrl}${brief.image ?? (landscape ? BG_WIDE : BG_PORTRAIT)}`}
-          playbackRate={0.8}
-          style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${zoom})` }}
-        />
+        {(() => {
+          const src = `${baseUrl}${brief.image ?? (landscape ? BG_WIDE : BG_PORTRAIT)}`;
+          const mediaStyle = {
+            width: "100%",
+            height: "100%",
+            objectFit: "cover" as const,
+            transform: `scale(${zoom})`,
+          };
+          // A supplied still (png/jpg/webp) renders as an image under the same slow
+          // zoom; a clip plays looped. Mirrors launch-hello's CardMedia fallback.
+          return /\.(mp4|webm|mov)$/i.test(src) ? (
+            <LoopedVideo src={src} playbackRate={0.8} style={mediaStyle} />
+          ) : (
+            <Img src={src} style={mediaStyle} />
+          );
+        })()}
       </AbsoluteFill>
 
       <AbsoluteFill style={{ background: leftScrim }} />
@@ -82,7 +97,7 @@ export function LaunchForm({ brief, baseUrl }: VideoInputProps) {
           <Img
             src={`${baseUrl}/asset/shared/logos/hububb-wordmark.svg`}
             alt="Hububb"
-            style={{ height: mark, width: "auto", filter: "brightness(0) invert(1)" }}
+            style={{ height: mark, width: "auto", filter: dark ? "brightness(0) invert(1)" : undefined }}
           />
         </div>
       ) : null}
