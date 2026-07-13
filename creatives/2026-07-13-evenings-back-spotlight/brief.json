@@ -1,0 +1,89 @@
+{
+  "id": "2026-07-13-evenings-back-spotlight",
+  "createdAt": "2026-07-13T00:00:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "Passive income quietly turned into a second shift. Hububb gives the side-hustle host their evenings back without losing a booking.",
+  "brief": "Marketer static batch, concept 1 of 8 (HUB_JUL_MAR_SECONDJOB), POV relatable, full-bleed take. Pillar: relief, funnel: convert, angle: second-job / day-reclaimed. Audience: side-hustle host, 2-3 flats plus a full-time job, London. Spotlight: the evening off-the-clock photo full bleed under the scrim, two-tone headline, CTA pill, proof chip as footer. Paid-ad candidate.",
+  "template": "spotlight",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/photos/evening-host.jpg",
+  "variant": "dark",
+  "copy": {
+    "headline": "Get your evenings back",
+    "headlineTail": "without losing a booking",
+    "subhead": "Messages answered, cleaning booked, pricing tuned while you are off the clock.",
+    "cta": "Connect your Airbnb",
+    "ctaIcon": "/asset/host/channels/airbnb-belo.svg",
+    "proof": "Handles 90%+ of the day-to-day."
+  },
+  "social": {
+    "primaryText": "Two flats. A full-time job. And a phone that never stops. It was supposed to be passive income, not a second shift.\n\nHububb is the autonomous AI host that runs your property end to end. Guest messages answered automatically in your voice, cleaners dispatched the moment a guest checks out, nightly pricing adjusted to demand, while you keep the control, the reviews and your Superhost status.\n\nConnect your Airbnb in one click and it is set up in under fifteen minutes. Run one listing in parallel first, and move more over only when it is earning. £35 a month per unit, everything included.",
+    "cta": "Connect your Airbnb",
+    "conceptCode": "HUB_JUL_MAR_SECONDJOB"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 4w/22c, subhead 12w/78c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-13T14:32:39.237Z"
+  }
+}

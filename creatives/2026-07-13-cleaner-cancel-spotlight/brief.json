@@ -1,0 +1,88 @@
+{
+  "id": "2026-07-13-cleaner-cancel-spotlight",
+  "createdAt": "2026-07-13T00:00:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "A cleaner cancels mid-workday and the next guest checks in at three. Hububb dispatches the next vetted local cleaner and runs the whole turnover.",
+  "brief": "Marketer static batch, concept 2 of 8 (HUB_JUL_MAR_CLEANERCXL), problem to fix, lifestyle take. Pillar: runs-itself, funnel: convert. Audience: side-hustle host stuck at a desk job, London. Spotlight: the real vetted-cleaner photo full bleed under the scrim, two-tone headline carrying the pain, CTA pill and proof chip. Paid-ad candidate.",
+  "template": "spotlight",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/photos/cleaner-mopping.jpg",
+  "variant": "dark",
+  "copy": {
+    "headline": "Your cleaner bailed at 9.",
+    "headlineTail": "Guests arrive at 3.",
+    "subhead": "Hububb dispatches the next vetted local cleaner and the flat is ready before they arrive.",
+    "cta": "Automate hosting",
+    "proof": "A built-in network of vetted local cleaners."
+  },
+  "social": {
+    "primaryText": "Your cleaner cancels. You are at your desk, back-to-back in meetings, and the next guest checks in at three.\n\nHububb has it handled: a built-in network of vetted local cleaners, dispatched the moment your last guest checks out. No 9 a.m. group chat about who has the keys. No drive across town.\n\nStart with one listing and move more over when it's earning.",
+    "cta": "Automate hosting",
+    "conceptCode": "HUB_JUL_MAR_CLEANERCXL"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 5w/25c, subhead 15w/89c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-13T08:14:53.375Z"
+  }
+}

@@ -29,6 +29,36 @@ export function CreativeCanvas({
   );
 }
 
+// Small quiet pill for an allowlisted proof claim (copy.proof). Sized by the
+// caller so it tracks each template's own type scale.
+export function ProofChip({
+  text,
+  fontSize,
+  invert = false,
+}: {
+  text: string;
+  fontSize: number;
+  invert?: boolean;
+}) {
+  return (
+    <span
+      className={`inline-flex w-fit items-center rounded-full border font-mono ${
+        invert ? "border-mono-16 text-mono-5" : "border-mono-5 text-mono-11"
+      }`}
+      style={{
+        fontSize,
+        letterSpacing: "0.01em",
+        paddingLeft: Math.round(fontSize * 1.1),
+        paddingRight: Math.round(fontSize * 1.1),
+        paddingTop: Math.round(fontSize * 0.5),
+        paddingBottom: Math.round(fontSize * 0.5),
+      }}
+    >
+      {text}
+    </span>
+  );
+}
+
 export function BrandMark({
   height,
   invert = false,

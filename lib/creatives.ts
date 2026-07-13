@@ -10,6 +10,7 @@ export type TemplateKey =
   | "feature-card"
   | "showcase"
   | "spotlight"
+  | "compare"
   | "launch-hello"
   | "launch-index";
 
@@ -17,15 +18,30 @@ export type CreativeCopy = {
   eyebrow?: string;
   headline?: string;
   subhead?: string;
+  // small proof chip (e.g. an allowlisted claim from products/<slug>/qa.json);
+  // rendered as a quiet pill by the static templates
+  proof?: string;
   // showcase: Phosphor icon names for the floating badges (e.g. ["Broom","Airplane","House"])
   badges?: string[];
   // spotlight: the muted second half of a two-tone headline, and an optional CTA pill label
   headlineTail?: string;
   cta?: string;
+  // spotlight: optional small icon inside the CTA pill (served path, e.g. the
+  // Airbnb app icon for "Connect your Airbnb")
+  ctaIcon?: string;
   // spotlight (animated): rotate through these messages one at a time instead of a static headline
   rotating?: string[];
   // launch-index: the three-part index rows (e.g. Host / Stay / Work with a one-line each)
   items?: { label: string; text: string }[];
+  // compare: the two-column checklist (left muted with crosses, right on the
+  // brand ink panel with checks), plus an optional footer strip line
+  compare?: {
+    leftTitle?: string;
+    rightTitle?: string;
+    left: string[];
+    right: string[];
+    footer?: string;
+  };
   // launch-*: small handle/footer marker (e.g. "@wearehububb")
   handle?: string;
 };
@@ -83,6 +99,9 @@ export type Brief = {
   formats: FormatKey[];
   brandMark: boolean;
   image?: string | null; // a served path, e.g. /asset/host/screens/messaging.png
+  // feature-card: optional lifestyle photo filling the surface panel behind the
+  // floating phone (dimmed under an overlay so the device stays the focal point)
+  panelImage?: string | null;
   variant?: "light" | "dark";
   copy: CreativeCopy;
   slides?: Slide[]; // when present, this creative is a carousel

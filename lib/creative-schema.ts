@@ -16,6 +16,7 @@ export type CreativeTemplate =
   | "feature-card"
   | "showcase"
   | "spotlight"
+  | "compare"
   | "launch-hello"
   | "launch-index";
 
@@ -25,12 +26,21 @@ export type BriefCopy = {
   eyebrow?: string;
   headline?: string;
   subhead?: string;
+  proof?: string;
   badges?: string[];
   headlineTail?: string;
   cta?: string;
+  ctaIcon?: string;
   rotating?: string[];
   items?: { label: string; text: string }[];
   handle?: string;
+  compare?: {
+    leftTitle?: string;
+    rightTitle?: string;
+    left: string[];
+    right: string[];
+    footer?: string;
+  };
 };
 
 export type BriefVideo = {
@@ -67,6 +77,7 @@ export type CreativeBrief = {
   formats: CreativeFormat[];
   brandMark: boolean;
   image?: string | null;
+  panelImage?: string | null;
   variant?: "light" | "dark";
   copy: BriefCopy;
   slides?: BriefSlide[];
@@ -82,6 +93,7 @@ const TEMPLATES: readonly CreativeTemplate[] = [
   "feature-card",
   "showcase",
   "spotlight",
+  "compare",
   "launch-hello",
   "launch-index",
 ];
@@ -148,6 +160,8 @@ export function validateBrief(input: unknown): ValidationResult {
     errors.push('variant must be "light" or "dark" when present');
   if ("image" in b && b.image !== null && typeof b.image !== "string")
     errors.push("image must be a string or null when present");
+  if ("panelImage" in b && b.panelImage !== null && typeof b.panelImage !== "string")
+    errors.push("panelImage must be a string or null when present");
 
   // Optional video block.
   if ("video" in b && b.video !== undefined) {

@@ -1,0 +1,89 @@
+{
+  "id": "2026-07-13-wake-up-replies-spotlight",
+  "createdAt": "2026-07-13T00:00:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "You have typed the wifi code and the lockbox reply a hundred times. Hububb answers every overnight guest message automatically, in your voice, while you sleep.",
+  "brief": "Marketer static batch, concept 3 of 8 (HUB_JUL_MAR_SLEEP), calm morning register. Pillar: relief, funnel: convert, angle: midnight-message. Audience: side-hustle host, London. Spotlight: real morning photo, host on the mat with coffee glancing at her phone, replies already handled overnight. Two-tone headline, CTA pill with the belo, trust proof chip. Product truth per Andrej: the AI answers automatically, not draft-and-review. Paid-ad candidate.",
+  "template": "spotlight",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/photos/microsoft-copilot-g94pwbjh-yo-unsplash.jpg",
+  "variant": "dark",
+  "copy": {
+    "headline": "Wake up to replies already answered",
+    "headlineTail": "in your voice.",
+    "subhead": "Every overnight guest message answered automatically, straight from your house rules.",
+    "cta": "Connect your Airbnb",
+    "ctaIcon": "/asset/host/channels/airbnb-belo.svg",
+    "proof": "Tested on hundreds of real London properties."
+  },
+  "social": {
+    "primaryText": "You host on the side, so you have typed the same replies a hundred times. The wifi code, the lockbox, the late checkout.\n\nHububb pulls every guest message, from every channel, into one thread and answers it automatically, in your own voice, straight from your house rules. Overnight questions are handled before you wake up, and you can step in whenever you want.\n\nConnect a single listing first, run it next to how you host today, and move more over only when it is earning.",
+    "cta": "Connect your Airbnb",
+    "conceptCode": "HUB_JUL_MAR_SLEEP"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 6w/35c, subhead 11w/85c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-13T08:33:52.728Z"
+  }
+}

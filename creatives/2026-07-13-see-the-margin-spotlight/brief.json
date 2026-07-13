@@ -1,0 +1,89 @@
+{
+  "id": "2026-07-13-see-the-margin-spotlight",
+  "createdAt": "2026-07-13T00:00:00.000Z",
+  "product": "host",
+  "persona": "scaling-operator",
+  "angle": "At six flats the money moves faster than you can track it. One dashboard shows revenue, occupancy and channel mix per listing, so the margin you can feel is finally on screen.",
+  "brief": "Marketer static batch, concept 6 of 8 (HUB_JUL_CLA_MARGIN), number-led told as lifestyle. Pillar: proof-trust, funnel: convert. Audience: scaling operator, 5-6 units, London (Claire). Spotlight: a premium London flat full bleed under the scrim (the unit that quietly pays), two-tone headline, CTA pill with the belo, price proof chip with dynamic pricing and reporting. Simple lifestyle direction per Andrej after two product-led takes. Paid-ad candidate.",
+  "template": "spotlight",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/photos/living-london.png",
+  "variant": "dark",
+  "copy": {
+    "headline": "Your best month yet,",
+    "headlineTail": "and you can't tell which flat did it.",
+    "subhead": "One dashboard shows revenue, occupancy and channel mix for every listing, so you know which one actually pays.",
+    "cta": "Connect your Airbnb",
+    "ctaIcon": "/asset/host/channels/airbnb-belo.svg",
+    "proof": "£35 a month per unit, dynamic pricing and reporting included."
+  },
+  "social": {
+    "primaryText": "At six flats, the money moves faster than you can track it. Which listing actually makes money?\n\nHububb's dynamic pricing adjusts your rates to demand every night and puts the numbers in one place, so the margin you can feel is finally on screen. You keep the control and the results.\n\nConnect a single listing first, run it beside how you host today, and move more over only when it is earning. £35 a month per unit, dynamic pricing and reporting included.",
+    "cta": "Connect your Airbnb",
+    "conceptCode": "HUB_JUL_CLA_MARGIN"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 4w/20c, subhead 18w/110c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-13T14:50:34.081Z"
+  }
+}

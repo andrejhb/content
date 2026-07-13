@@ -40,6 +40,10 @@ export const TEMPLATE_META: Record<TemplateKey, { label: string; blurb: string }
     label: "Spotlight",
     blurb: "Full-bleed image or video, two-tone headline, optional CTA.",
   },
+  compare: {
+    label: "Compare",
+    blurb: "Two-column checklist: the old way with crosses, Hububb with checks.",
+  },
   "launch-hello": {
     label: "Launch hello",
     blurb: "Dark editorial greeting for the brand account. Big light-weight type on near-black.",

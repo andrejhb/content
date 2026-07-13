@@ -1,5 +1,5 @@
 import type { Brief } from "@/lib/creatives";
-import { CreativeCanvas } from "./canvas";
+import { CreativeCanvas, BrandMark, ProofChip } from "./canvas";
 
 // Feature card: image-card's text treatment, but the image area is a neutral
 // SURFACE PANEL (soft mono gradient) with a phone mockup floating inside it.
@@ -32,8 +32,9 @@ export function FeatureCardTemplate({
   // meant a couple of pixels of extra height overflowed the panel's
   // overflow-hidden and clipped the device down to a sliver. Sizing by height
   // keeps the same generous, consistent fraction of the device visible
-  // regardless of the source image's exact resolution.
-  const clipHeight = "94%";
+  // regardless of the source image's exact resolution. Slightly over 100% so
+  // the device bleeds off the panel bottom like the website feature cards.
+  const clipHeight = "102%";
 
   const bg = dark ? "bg-mono-20 text-mono-1" : "bg-mono-1 text-mono-21";
   const eyeColor = dark ? "text-mono-5" : "text-mono-11";
@@ -53,20 +54,29 @@ export function FeatureCardTemplate({
     ? "0 1px 2px rgba(0,0,0,0.5), 0 24px 48px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.05)"
     : "0 1px 2px rgba(38,38,38,0.05), 0 22px 44px rgba(38,38,38,0.09), inset 0 1px 0 rgba(255,255,255,0.85)";
 
+  const mark = Math.round(w * 0.03);
+  const hasKicker = brief.brandMark || Boolean(c.eyebrow);
+
   const text = (
     <div className="flex flex-col">
-      {c.eyebrow ? (
-        <div className="flex items-center" style={{ gap: Math.round(eye * 0.6) }}>
-          <span
-            className={`${accentBg} rounded-full`}
-            style={{ width: Math.round(eye * 1.5), height: Math.max(2, Math.round(h * 0.0026)) }}
-          />
-          <span
-            className={`font-mono ${eyeColor}`}
-            style={{ fontSize: eye, letterSpacing: "0.01em" }}
-          >
-            {c.eyebrow}
-          </span>
+      {hasKicker ? (
+        <div className="flex items-center" style={{ gap: Math.round(mark * 0.5) }}>
+          {brief.brandMark ? (
+            <BrandMark height={mark} invert={dark} />
+          ) : (
+            <span
+              className={`${accentBg} rounded-full`}
+              style={{ width: Math.round(eye * 1.5), height: Math.max(2, Math.round(h * 0.0026)) }}
+            />
+          )}
+          {c.eyebrow ? (
+            <span
+              className={`font-mono ${eyeColor}`}
+              style={{ fontSize: eye, letterSpacing: "0.01em" }}
+            >
+              {c.eyebrow}
+            </span>
+          ) : null}
         </div>
       ) : null}
       <h1
@@ -74,7 +84,7 @@ export function FeatureCardTemplate({
         style={{
           fontSize: head,
           lineHeight: 1.05,
-          marginTop: c.eyebrow ? Math.round(head * 0.24) : 0,
+          marginTop: hasKicker ? Math.round(head * 0.24) : 0,
         }}
       >
         {c.headline}
@@ -92,20 +102,77 @@ export function FeatureCardTemplate({
           {c.subhead}
         </p>
       ) : null}
+      {c.cta || c.proof ? (
+        <div
+          className="flex flex-wrap items-center"
+          style={{ gap: Math.round(eye * 0.9), marginTop: Math.round(head * 0.42) }}
+        >
+          {c.cta ? (
+            <div
+              className={dark ? "bg-mono-1 text-mono-21" : "bg-mono-21 text-mono-1"}
+              style={{
+                display: "inline-flex",
+                width: "fit-content",
+                alignItems: "center",
+                gap: Math.round(Math.min(w, h) * 0.014),
+                height: Math.round(Math.min(w, h) * 0.068),
+                paddingLeft: Math.round(Math.min(w, h) * (c.ctaIcon ? 0.034 : 0.04)),
+                paddingRight: Math.round(Math.min(w, h) * 0.04),
+                borderRadius: 9999,
+                fontWeight: 600,
+                fontSize: Math.round(w * 0.022),
+              }}
+            >
+              {c.ctaIcon ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={c.ctaIcon}
+                  alt=""
+                  style={{
+                    height: Math.round(Math.min(w, h) * 0.068 * 0.42),
+                    width: "auto",
+                  }}
+                />
+              ) : null}
+              {c.cta}
+            </div>
+          ) : null}
+          {c.proof ? (
+            <ProofChip text={c.proof} fontSize={Math.round(eye * 0.92)} invert={dark} />
+          ) : null}
+        </div>
+      ) : null}
     </div>
   );
 
+  // Optional lifestyle backdrop inside the panel, dimmed so the floating
+  // device stays the focal point.
+  const panelOverlay = dark
+    ? "linear-gradient(180deg, rgba(8,8,8,0.42) 0%, rgba(8,8,8,0.62) 100%)"
+    : "linear-gradient(180deg, rgba(250,250,250,0.5) 0%, rgba(250,250,250,0.72) 100%)";
+
   const panel = (
     <div
-      className={`flex min-h-0 flex-1 justify-center overflow-hidden rounded-3xl border ${frame} ${clip ? "items-start" : "items-center"}`}
+      className={`relative flex min-h-0 flex-1 justify-center overflow-hidden rounded-3xl border ${frame} ${clip ? "items-start" : "items-center"}`}
       style={{ background: surface, padding: clip ? 0 : panelPad, boxShadow: panelShadow }}
     >
+      {brief.panelImage ? (
+        <>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={brief.panelImage}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0" style={{ background: panelOverlay }} />
+        </>
+      ) : null}
       {brief.image ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={brief.image}
           alt={c.headline ?? ""}
-          className={clip ? "" : "max-h-full max-w-full rounded-2xl object-contain"}
+          className={clip ? "relative" : "relative max-h-full max-w-full rounded-2xl object-contain"}
           style={
             clip
               ? { height: clipHeight, width: "auto", marginTop: clipTop, filter: deviceShadow }

@@ -87,5 +87,16 @@ Inherits the parent Hububb voice in full: plain, operational, restrained, specif
 - "processed millions in revenue" (when talking about dynamic pricing)
 - "running hundreds of cleans monthly" (when talking about cleaning)
 
+**Marketer-approved paid-ad claims (July 2026 static batch).** Approved for
+on-image proof chips in paid creatives, verbatim only, mirrored in
+qa.json allowedProofClaims:
+- "Handles 90%+ of the day-to-day."
+- "£35 a month per unit, everything included." (also the "per flat" variant)
+- "£35 a month per unit, dynamic pricing and reporting included."
+- "Set up in under fifteen minutes."
+- "A built-in network of vetted local cleaners."
+- "AI-drafted replies. You review and send."
+- "One plan, everything included."
+
 ## Goals
 *Lighter for now. Site CTAs point the way: "Connect your Airbnb," "Get started," "Book a call." Business goal, first milestone, and the primary conversion action are TBD and can be added later.*
