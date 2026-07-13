@@ -1,0 +1,88 @@
+{
+  "id": "2026-07-13-add-units-spotlight",
+  "createdAt": "2026-07-13T00:00:00.000Z",
+  "product": "host",
+  "persona": "scaling-operator",
+  "angle": "Six units and every booking, message and turnover still routes through you. Hububb runs the day-to-day across every unit so the portfolio scales past your head.",
+  "brief": "Marketer static batch, concept 5 of 8 (HUB_JUL_CLA_BOTTLENECK), POV that-is-me confession. Pillar: proof-trust third path, funnel: convert, angle: bottleneck. Audience: scaling operator, 5-6 units, London (Claire). Spotlight: real operator photo, home office, coffee and the portfolio numbers, calm not firefighting. Two-tone headline, white CTA pill, price proof chip as clean type per the marketer note (no fake earnings composites). Paid-ad candidate.",
+  "template": "spotlight",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/photos/microsoft-copilot-txzv4hqjrpe-unsplash.jpg",
+  "variant": "dark",
+  "copy": {
+    "headline": "Add units",
+    "headlineTail": "without adding admin.",
+    "subhead": "Bookings, guests, cleaning and pricing across every unit. A bigger portfolio never means a longer to-do list.",
+    "cta": "Automate hosting",
+    "proof": "£35 a month per unit, everything included."
+  },
+  "social": {
+    "primaryText": "Six units. Two cleaners. A handyman. And every booking, message and turnover still routes through you. That is the ceiling: the operation only scales as far as you can.\n\nHububb is the autonomous AI host that runs the day-to-day across every unit: bookings synced, guests answered automatically, cleaning booked the moment a guest checks out, nightly pricing tuned to demand. It handles 90%+ of the operation, so the work stops waiting on you being awake.\n\nThis is not handing the keys to a management company. You keep the ownership, the reviews, the Superhost status, and the control. Connect a single listing first, run it in parallel with how you work today, and move more over only when it is earning. £35 a month per unit, everything included.",
+    "cta": "Automate hosting",
+    "conceptCode": "HUB_JUL_CLA_BOTTLENECK"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 2w/9c, subhead 17w/109c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-13T14:32:39.247Z"
+  }
+}

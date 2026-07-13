@@ -1,5 +1,5 @@
 import type { Brief } from "@/lib/creatives";
-import { CreativeCanvas, BrandMark } from "./canvas";
+import { CreativeCanvas, BrandMark, ProofChip } from "./canvas";
 
 // Statement: one strong line, pure type on a light token background.
 export function StatementTemplate({
@@ -54,16 +54,19 @@ export function StatementTemplate({
         </h1>
 
         <div className="flex items-end justify-between gap-8">
-          {c.subhead ? (
-            <p
-              className="text-mono-11"
-              style={{ fontSize: sub, lineHeight: 1.32, maxWidth: w * 0.66 }}
-            >
-              {c.subhead}
-            </p>
-          ) : (
-            <span />
-          )}
+          <div className="flex flex-col" style={{ gap: Math.round(sub * 0.9) }}>
+            {c.subhead ? (
+              <p
+                className="text-mono-11"
+                style={{ fontSize: sub, lineHeight: 1.32, maxWidth: w * 0.66 }}
+              >
+                {c.subhead}
+              </p>
+            ) : null}
+            {c.proof ? (
+              <ProofChip text={c.proof} fontSize={Math.round(eye * 0.95)} />
+            ) : null}
+          </div>
           {brief.brandMark ? <BrandMark height={mark} /> : null}
         </div>
       </div>

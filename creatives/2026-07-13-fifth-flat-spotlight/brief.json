@@ -1,0 +1,87 @@
+{
+  "id": "2026-07-13-fifth-flat-spotlight",
+  "createdAt": "2026-07-13T00:00:00.000Z",
+  "product": "host",
+  "persona": "scaling-operator",
+  "angle": "The sixth unit is where the operation usually breaks. Hububb books the turnovers, answers the guests and syncs every calendar, so you can take on the next flat without taking on more admin.",
+  "brief": "Marketer static batch, concept 8 of 8 (HUB_JUL_CLA_SCALE), how it works told as a dare. Pillar: runs-itself, funnel: convert, angle: scale past your head. Audience: scaling operator, 5-6 units, London (Claire). Spotlight: the next flat itself full bleed under the scrim, bright open-plan city apartment, question headline in white, white CTA pill, 90% proof chip. Lifestyle direction locked across the batch. Paid-ad candidate.",
+  "template": "spotlight",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/photos/apartment-city.png",
+  "variant": "dark",
+  "copy": {
+    "headline": "Could you take on a fifth flat tomorrow?",
+    "subhead": "Cleaning booked at checkout, pricing tuned to demand, every guest answered, on every unit you add.",
+    "cta": "Automate hosting",
+    "proof": "Handles 90%+ of the day-to-day."
+  },
+  "social": {
+    "primaryText": "The sixth unit is where it breaks. The missed clean, the double booking, the guest nobody answered. All of it still routes through you.\n\nHububb books the turnovers, answers the guests, and syncs the calendar across every channel so bookings never collide as you add units. It handles 90%+ of the day-to-day, so you add units without adding admin.\n\nConnect a single listing first and move more over only when it's earning.",
+    "cta": "Automate hosting",
+    "conceptCode": "HUB_JUL_CLA_SCALE"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 8w/40c, subhead 16w/98c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-13T15:04:22.976Z"
+  }
+}

@@ -1,5 +1,5 @@
 import type { Brief } from "@/lib/creatives";
-import { CreativeCanvas, BrandMark } from "./canvas";
+import { CreativeCanvas, BrandMark, ProofChip } from "./canvas";
 
 // Image card: eyebrow + headline up top, a large rounded image below.
 // Light or dark. The image is supplied (a real photo or product screenshot).
@@ -73,6 +73,11 @@ export function ImageCardTemplate({
         >
           {c.subhead}
         </p>
+      ) : null}
+      {c.proof ? (
+        <div style={{ marginTop: Math.round(head * 0.42) }}>
+          <ProofChip text={c.proof} fontSize={Math.round(eye * 0.92)} invert={dark} />
+        </div>
       ) : null}
     </div>
   );

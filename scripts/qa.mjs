@@ -59,15 +59,23 @@ const escapeRe = (s) => s.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
 
 function collectCopy(brief) {
   const c = brief.copy ?? {};
-  // Order matters: fields[1] is treated as the headline by the sentence-case
-  // check, so keep eyebrow/headline/subhead first and append the rest.
   const fields = [
     c.eyebrow,
     c.headline,
     c.subhead,
     c.headlineTail,
     c.cta,
+    c.proof,
     ...(Array.isArray(c.rotating) ? c.rotating : []),
+    ...(c.compare
+      ? [
+          c.compare.leftTitle,
+          c.compare.rightTitle,
+          ...(Array.isArray(c.compare.left) ? c.compare.left : []),
+          ...(Array.isArray(c.compare.right) ? c.compare.right : []),
+          c.compare.footer,
+        ]
+      : []),
   ].filter((s) => typeof s === "string" && s.length);
   return fields;
 }
@@ -102,21 +110,28 @@ function check(fields, cfg, copy) {
   const allCaps = [...text.matchAll(/\b[A-Z]{4,}\b/g)].map((m) => m[0]).filter((w) => !cfg.acronyms.has(w));
   add("no-shouting", allCaps.length === 0, allCaps.join(", ") || undefined);
 
-  const headline = fields[1] ?? "";
+  const headline = typeof copy.headline === "string" ? copy.headline : "";
   const longWords = headline.split(/\s+/).filter((w) => w.replace(/[^A-Za-z]/g, "").length >= 4);
   const titleCased = longWords.length >= 3 && longWords.every((w) => /^[A-Z]/.test(w));
   add("sentence-case-headline", !titleCased, titleCased ? "headline looks Title Cased" : undefined);
 
-  // Truth: only "tested on hundreds of real London properties" is allowed.
-  // Flag numeric people-counts, count-of-people phrases, ratings, revenue, testimonials.
+  // Truth: numbers and figures are only allowed inside an allowlisted proof
+  // claim (products/<slug>/qa.json allowedProofClaims, verbatim). Strip those
+  // claims first, then flag numeric people-counts, count-of-people phrases,
+  // ratings, revenue and testimonials in whatever copy remains.
+  let truthText = text;
+  for (const claim of cfg.allowedProofClaims) {
+    if (typeof claim !== "string" || !claim.trim()) continue;
+    truthText = truthText.replace(new RegExp(escapeRe(claim), "gi"), " ");
+  }
   const truthFlags = [];
-  if (/\b\d[\d,]*\+?\s*(hosts|customers|users|guests|reviews|ratings?|stars?|properties|homes)\b/i.test(text))
+  if (/\b\d[\d,]*\+?\s*(hosts|customers|users|guests|reviews|ratings?|stars?|properties|homes)\b/i.test(truthText))
     truthFlags.push("numeric count claim");
-  if (/\b(hundreds|thousands|millions)\s+of\s+(hosts|customers|users|guests)\b/i.test(text))
+  if (/\b(hundreds|thousands|millions)\s+of\s+(hosts|customers|users|guests)\b/i.test(truthText))
     truthFlags.push("count-of-people claim");
-  if (/\btrusted by\b|\brated\b|\d(\.\d)?\s*(out of\s*5|stars?|★)/i.test(text))
+  if (/\btrusted by\b|\brated\b|\d(\.\d)?\s*(out of\s*5|stars?|★)/i.test(truthText))
     truthFlags.push("rating/endorsement claim");
-  if (/[£$€]\s?\d/.test(text)) truthFlags.push("revenue/figure claim");
+  if (/[£$€]\s?\d/.test(truthText)) truthFlags.push("revenue/figure claim");
   add("no-fabricated-traction", truthFlags.length === 0, truthFlags.join(", ") || undefined);
 
   // Coming soon: unbuilt products/features must be labelled.

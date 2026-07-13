@@ -1,0 +1,104 @@
+{
+  "id": "2026-07-13-runs-for-you-compare",
+  "createdAt": "2026-07-13T00:00:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "You did not start hosting to babysit another app. Hububb runs the property and you just check the reports.",
+  "brief": "Marketer static batch, concept 4 of 8 (HUB_JUL_MAR_NOTADASH), old way vs new way. Pillar: runs-itself, funnel: convert. Audience: side-hustle host, London. Compare template, dark and clean, no photo: glassy muted left column with red crosses, white right column with green checks (design-system accent tokens), white CTA pill and proof chip below. Copy uses the answered-automatically product truth. Paid-ad candidate.",
+  "template": "compare",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16"
+  ],
+  "brandMark": true,
+  "image": null,
+  "variant": "dark",
+  "copy": {
+    "headline": "It handles 90% of your hosting for you",
+    "subhead": "Cleaning booked, pricing adjusted, guests answered. You just check the reports.",
+    "proof": "Set up in under fifteen minutes.",
+    "cta": "Connect your Airbnb",
+    "ctaIcon": "/asset/host/channels/airbnb-belo.svg",
+    "compare": {
+      "leftTitle": "The old way",
+      "left": [
+        "Notifications piling up",
+        "Replies waiting on you",
+        "Cleans chased in a group chat",
+        "Pricing tweaked by hand"
+      ],
+      "rightTitle": "With Hububb",
+      "right": [
+        "Guests answered automatically",
+        "Cleaning booked at checkout",
+        "Pricing tuned to demand",
+        "Reports when you want them"
+      ]
+    }
+  },
+  "social": {
+    "primaryText": "You did not start hosting to babysit another app.\n\nHububb runs the property for you: bookings, guests, cleaning, pricing, all handled, with clear reports while you stay in control. It handles 90%+ of the day-to-day, so you check in when you want to, not because it needs you.\n\nConnect a single listing first and move more over only when it's earning.",
+    "cta": "Connect your Airbnb",
+    "conceptCode": "HUB_JUL_MAR_NOTADASH"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 8w/38c, subhead 11w/79c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-13T13:51:04.607Z"
+  }
+}

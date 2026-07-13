@@ -1,0 +1,105 @@
+{
+  "id": "2026-07-13-one-roof-compare",
+  "createdAt": "2026-07-13T00:00:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "Messages in one app, calendar in another, cleaners in a group chat, pricing in your head. Hububb puts inbox, calendar, pricing, cleaning and access under one roof and runs it.",
+  "brief": "Marketer static batch, concept 7 of 8 (HUB_JUL_MAR_ONEROOF), comparison checklist. Pillar: runs-itself, funnel: convert. Audience: side-hustle host, three flats plus a full-time job, London. Compare template, dark and clean like NOTADASH: five apps that don't talk with red crosses, Hububb one app with green checks, white CTA pill and the per-flat price chip. Type and marks only, monochrome plus accent tokens. Paid-ad candidate.",
+  "template": "compare",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16"
+  ],
+  "brandMark": true,
+  "image": null,
+  "variant": "dark",
+  "copy": {
+    "headline": "Three flats, a full-time job, five apps to juggle",
+    "subhead": "One app runs bookings, guests, cleaning, pricing and access, under one roof.",
+    "proof": "£35 a month per flat, everything included.",
+    "cta": "Automate hosting",
+    "compare": {
+      "leftTitle": "Five apps that don't talk",
+      "left": [
+        "Messages in one app",
+        "Calendar in another",
+        "Cleaners in a group chat",
+        "Pricing in your head",
+        "Keys under the mat"
+      ],
+      "rightTitle": "Hububb, one app",
+      "right": [
+        "One inbox, every channel",
+        "One calendar, synced",
+        "Pricing tuned nightly",
+        "Turnover cleans dispatched",
+        "Smart access, no key runs"
+      ]
+    }
+  },
+  "social": {
+    "primaryText": "Messages in one app. Calendar in another. Cleaners in a group chat. Pricing in your head. That's the stack that doesn't talk, and across three flats it all routes through you.\n\nHububb puts inbox, calendar, pricing, cleaning and access under one roof and runs it for you: one plan, everything included, and you stay in control.\n\nConnect a single listing first, and move more over only when it's earning.",
+    "cta": "Automate hosting",
+    "conceptCode": "HUB_JUL_MAR_ONEROOF"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 9w/49c, subhead 12w/76c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-13T14:53:19.186Z"
+  }
+}
