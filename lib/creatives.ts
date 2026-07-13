@@ -164,9 +164,6 @@ export async function listCreativesWithMeta(
       } catch {
         /* ignore */
       }
-      const media = await renderedMedia(b.id);
-      const fmt =
-        media.find((m) => m.format === "1x1")?.format ?? media[0]?.format ?? null;
       return {
         id: b.id,
         product: b.product,
@@ -174,7 +171,7 @@ export async function listCreativesWithMeta(
         createdAt: b.createdAt,
         updatedAtMs,
         headline: b.copy.headline ?? b.angle,
-        thumb: fmt ? `/creative-asset/${b.id}/${fmt}.png` : null,
+        thumb: await creativeThumb(b),
       };
     }),
   );
@@ -245,4 +242,24 @@ export async function renderedSlideMedia(
         .filter((k) => bySlide.get(slide)!.has(k))
         .map((k) => ({ format: k, ext: bySlide.get(slide)!.get(k)! })),
     }));
+}
+
+/**
+ * The served path of a creative's thumbnail poster, or null if not rendered.
+ * Single creatives use the top-level <fmt>.png; carousels render per slide and
+ * never a top-level poster, so they fall back to slide 1's poster (s1-<fmt>.png).
+ * The one place any surface (home Recent, hallway, persona list) should resolve
+ * a thumbnail, so carousels always show a poster instead of "not rendered".
+ */
+export async function creativeThumb(b: Brief): Promise<string | null> {
+  if (Array.isArray(b.slides) && b.slides.length > 0) {
+    const slideMedia = await renderedSlideMedia(b.id);
+    const s1 = slideMedia.find((s) => s.slide === 1) ?? slideMedia[0];
+    const fmt =
+      s1?.media.find((m) => m.format === "1x1")?.format ?? s1?.media[0]?.format ?? null;
+    return s1 && fmt ? `/creative-asset/${b.id}/s${s1.slide}-${fmt}.png` : null;
+  }
+  const media = await renderedMedia(b.id);
+  const fmt = media.find((m) => m.format === "1x1")?.format ?? media[0]?.format ?? null;
+  return fmt ? `/creative-asset/${b.id}/${fmt}.png` : null;
 }

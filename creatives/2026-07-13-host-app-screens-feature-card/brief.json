@@ -1,0 +1,134 @@
+{
+  "id": "2026-07-13-host-app-screens-feature-card",
+  "createdAt": "2026-07-13T10:00:00Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "Everything a host needs, all in one app: a single phone whose screen cross-dissolves through all nine Hububb host features, from the app-screens marketing page. Channels, messaging, cleaning, repairs, guest portal, performance, pricing, AI agents, and Hububb Stay demand, each with its own eyebrow and a short one-line headline.",
+  "brief": "A standalone host feature reel, styled like the @wearehububb ecosystem showcase slide but text-and-screens only, no logo. pillar: runs-itself, funnel: engage, the save-and-send-to-another-host feature tour. One iPhone holds still on a dark scene while its screen cross-dissolves through all nine features from the app-screens preview; each screen shows its eyebrow and a short single-row headline up top and advances a progress row at the bottom. Screens and text only, no wordmark. Real app screenshots, nothing invented.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "phone-showcase",
+    "durationSec": 15,
+    "fps": 30
+  },
+  "template": "feature-card",
+  "formats": [
+    "4x5",
+    "1x1",
+    "16x9",
+    "9x16"
+  ],
+  "brandMark": false,
+  "image": null,
+  "variant": "dark",
+  "copy": {
+    "headline": "Everything a host needs, all in one app"
+  },
+  "screens": [
+    {
+      "image": "/asset/host/app-screens/channels.png",
+      "eyebrow": "Channels",
+      "headline": "Get listed everywhere"
+    },
+    {
+      "image": "/asset/host/app-screens/messaging.png",
+      "eyebrow": "Messaging",
+      "headline": "One inbox for guests"
+    },
+    {
+      "image": "/asset/host/app-screens/cleaning.png",
+      "eyebrow": "Cleaning",
+      "headline": "Turnovers, handled"
+    },
+    {
+      "image": "/asset/host/app-screens/repair-services.png",
+      "eyebrow": "Repairs",
+      "headline": "Repairs in a tap"
+    },
+    {
+      "image": "/asset/host/app-screens/guest-portal.png",
+      "eyebrow": "Guest portal",
+      "headline": "Guest info, sent"
+    },
+    {
+      "image": "/asset/host/app-screens/performance-dashboard.png",
+      "eyebrow": "Performance",
+      "headline": "Portfolio at a glance"
+    },
+    {
+      "image": "/asset/host/app-screens/pricing.png",
+      "eyebrow": "Pricing",
+      "headline": "Rates on autopilot"
+    },
+    {
+      "image": "/asset/host/app-screens/ai-agents.png",
+      "eyebrow": "AI agents",
+      "headline": "A team of AI agents"
+    },
+    {
+      "image": "/asset/host/app-screens/hububb-stay.png",
+      "eyebrow": "Hububb Stay",
+      "headline": "Demand beyond OTAs"
+    }
+  ],
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 8w/39c, subhead 0w/0c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-13T05:29:35.342Z"
+  }
+}

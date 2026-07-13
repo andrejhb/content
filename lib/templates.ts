@@ -54,6 +54,7 @@ export const TEMPLATE_META: Record<TemplateKey, { label: string; blurb: string }
 // here from lib/creatives.ts, which now imports it back for templateLabel().
 export const COMPOSITION_LABELS: Record<string, string> = {
   "phone-mockup-ui": "Phone mockup UI",
+  "phone-showcase": "Phone showcase",
   "animated-feature-card": "Feature card",
   "animated-statement": "Statement",
   "animated-spotlight": "Spotlight",
@@ -110,6 +111,11 @@ const MOTION_SEED: (Pick<TemplateEntry, "id" | "blurb" | "reference"> & { parent
     id: "phone-mockup-ui",
     blurb: "A real iPhone playing your app UI, with a headline that crossfades into a CTA.",
     reference: ["remotion/compositions/phone-mockup-ui.tsx", "prompts/remotion-motion.md"],
+  },
+  {
+    id: "phone-showcase",
+    blurb: "One iPhone auto-cycling through real app screens, each with a feature label and progress row.",
+    reference: MOTION_REF("phone-showcase"),
   },
   { id: "animated-spotlight", blurb: "Full-bleed image or video with a two-tone headline, in motion.", reference: MOTION_REF("animated-spotlight") },
   { id: "hostie-ad", blurb: "The Hostie AI answering-guests story, told as a short ad.", reference: MOTION_REF("hostie-ad") },

@@ -1,0 +1,187 @@
+{
+  "id": "2026-07-13-host-app-screens-carousel-spotlight",
+  "createdAt": "2026-07-13T11:00:00Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "Everything a host needs, all in one app, as a swipeable carousel: one feature per slide, each a phone showing that app screen with its eyebrow and a short one-line headline. Channels, messaging, cleaning, repairs, guest portal, performance, pricing, AI agents, and Hububb Stay demand.",
+  "brief": "The swipe-carousel twin of the host feature reel, same source screens and text from the app-screens marketing page, one feature per slide so the reader swipes through the app. pillar: runs-itself, funnel: engage, the save-and-send-to-another-host feature tour. Each slide is a single iPhone on a dark scene showing one real app screen, its eyebrow and a short single-row headline above it, no wordmark, a gentle zoom for life. Screens and text only, real app screenshots, nothing invented.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "phone-showcase",
+    "durationSec": 4,
+    "fps": 30
+  },
+  "template": "spotlight",
+  "formats": [
+    "4x5",
+    "1x1"
+  ],
+  "brandMark": false,
+  "image": null,
+  "variant": "dark",
+  "copy": {
+    "eyebrow": "Channels",
+    "headline": "Get listed everywhere"
+  },
+  "slides": [
+    {
+      "label": "Channels",
+      "composition": "phone-showcase",
+      "durationSec": 4,
+      "variant": "dark",
+      "image": "/asset/host/app-screens/channels.png",
+      "copy": {
+        "eyebrow": "Channels",
+        "headline": "Get listed everywhere"
+      }
+    },
+    {
+      "label": "Messaging",
+      "composition": "phone-showcase",
+      "durationSec": 4,
+      "variant": "dark",
+      "image": "/asset/host/app-screens/messaging.png",
+      "copy": {
+        "eyebrow": "Messaging",
+        "headline": "One inbox for guests"
+      }
+    },
+    {
+      "label": "Cleaning",
+      "composition": "phone-showcase",
+      "durationSec": 4,
+      "variant": "dark",
+      "image": "/asset/host/app-screens/cleaning.png",
+      "copy": {
+        "eyebrow": "Cleaning",
+        "headline": "Turnovers, handled"
+      }
+    },
+    {
+      "label": "Repairs",
+      "composition": "phone-showcase",
+      "durationSec": 4,
+      "variant": "dark",
+      "image": "/asset/host/app-screens/repair-services.png",
+      "copy": {
+        "eyebrow": "Repairs",
+        "headline": "Repairs in a tap"
+      }
+    },
+    {
+      "label": "Guest portal",
+      "composition": "phone-showcase",
+      "durationSec": 4,
+      "variant": "dark",
+      "image": "/asset/host/app-screens/guest-portal.png",
+      "copy": {
+        "eyebrow": "Guest portal",
+        "headline": "Guest info, sent"
+      }
+    },
+    {
+      "label": "Performance",
+      "composition": "phone-showcase",
+      "durationSec": 4,
+      "variant": "dark",
+      "image": "/asset/host/app-screens/performance-dashboard.png",
+      "copy": {
+        "eyebrow": "Performance",
+        "headline": "Portfolio at a glance"
+      }
+    },
+    {
+      "label": "Pricing",
+      "composition": "phone-showcase",
+      "durationSec": 4,
+      "variant": "dark",
+      "image": "/asset/host/app-screens/pricing.png",
+      "copy": {
+        "eyebrow": "Pricing",
+        "headline": "Rates on autopilot"
+      }
+    },
+    {
+      "label": "AI agents",
+      "composition": "phone-showcase",
+      "durationSec": 4,
+      "variant": "dark",
+      "image": "/asset/host/app-screens/ai-agents.png",
+      "copy": {
+        "eyebrow": "AI agents",
+        "headline": "A team of AI agents"
+      }
+    },
+    {
+      "label": "Hububb Stay",
+      "composition": "phone-showcase",
+      "durationSec": 4,
+      "variant": "dark",
+      "image": "/asset/host/app-screens/hububb-stay.png",
+      "copy": {
+        "eyebrow": "Hububb Stay",
+        "headline": "Demand beyond OTAs"
+      }
+    }
+  ],
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 3w/21c, subhead 0w/0c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-13T05:29:35.344Z"
+  }
+}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { listCreatives, renderedMedia } from "@/lib/creatives";
+import { listCreatives, creativeThumb } from "@/lib/creatives";
 import { CreateButton } from "@/components/create/create-button";
 
 export const dynamic = "force-dynamic";
@@ -9,16 +9,11 @@ export const dynamic = "force-dynamic";
 export default async function Home() {
   const creatives = (await listCreatives()).slice(0, 8);
   const recent = await Promise.all(
-    creatives.map(async (b) => {
-      const media = await renderedMedia(b.id);
-      const fmt =
-        media.find((m) => m.format === "1x1")?.format ?? media[0]?.format ?? null;
-      return {
-        id: b.id,
-        headline: b.copy.headline ?? b.angle,
-        thumb: fmt ? `/creative-asset/${b.id}/${fmt}.png` : null,
-      };
-    }),
+    creatives.map(async (b) => ({
+      id: b.id,
+      headline: b.copy.headline ?? b.angle,
+      thumb: await creativeThumb(b),
+    })),
   );
 
   return (

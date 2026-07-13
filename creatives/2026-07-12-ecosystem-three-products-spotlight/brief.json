@@ -1,0 +1,174 @@
+{
+  "id": "2026-07-12-ecosystem-three-products-spotlight",
+  "createdAt": "2026-07-12T14:00:00Z",
+  "product": "general",
+  "persona": "general-audience",
+  "angle": "Hububb Main - Post 3: the Hububb ecosystem. Three products, Host, Stay, and Work, are one connected platform. Host automates hosting, Stay opens flexible longer stays, Work is the app for the people who keep it running. Together they are one moving system built around the stay.",
+  "brief": "Post 3 of the @wearehububb main series: the ecosystem explainer, as a swipeable motion carousel. pillar: thesis, the ecosystem for flexible stays, everything around the stay. funnel: reach, hook-first, works cold with no context assumed. angle: three-forms, the invisible layer resolves into three connected products. A monochrome cover title card, then one cinematic full-bleed slide per product, Host over the home, Stay over the arriving door, Work over the turned-over room, each product name landing then dimming as a one-line descriptor lights beneath it. A second light-washed beat for Host and for Stay carries one idea, not a feature list, per the company on-image restraint rule, so the seven Host capabilities live in the caption. The three pillars come together at the end as the payoff, Host, Stay, and Work shown as three cards on the brand field, carrying the closing line and the CTA. Light and dark alternate for rhythm, wordmark top-left throughout, slow zoom on every slide.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "launch-cover",
+    "durationSec": 4,
+    "fps": 30
+  },
+  "template": "spotlight",
+  "formats": [
+    "4x5",
+    "1x1"
+  ],
+  "brandMark": true,
+  "image": null,
+  "variant": "dark",
+  "copy": {
+    "headline": "The Hububb ecosystem",
+    "headlineTail": "everything around stays",
+    "handle": "@wearehububb"
+  },
+  "slides": [
+    {
+      "label": "The Hububb ecosystem",
+      "composition": "launch-cover",
+      "durationSec": 4,
+      "variant": "dark",
+      "copy": {
+        "headline": "The Hububb ecosystem",
+        "headlineTail": "everything around stays"
+      }
+    },
+    {
+      "label": "Hububb Host",
+      "composition": "launch-form",
+      "durationSec": 5,
+      "variant": "dark",
+      "image": "/asset/general/clips/drone.mp4",
+      "copy": {
+        "headline": "Hububb Host",
+        "headlineTail": "Automate your hosting"
+      }
+    },
+    {
+      "label": "Everything hosting needs",
+      "composition": "launch-form",
+      "durationSec": 5,
+      "variant": "light",
+      "image": "/asset/general/photos/living-london.png",
+      "copy": {
+        "headline": "Everything hosting needs",
+        "headlineTail": "answered, booked, and handled"
+      }
+    },
+    {
+      "label": "Hububb Stay",
+      "composition": "launch-form",
+      "durationSec": 5,
+      "variant": "dark",
+      "image": "/asset/general/clips/door.mp4",
+      "copy": {
+        "headline": "Hububb Stay",
+        "headlineTail": "Flexible longer stays"
+      }
+    },
+    {
+      "label": "Stay a month",
+      "composition": "launch-form",
+      "durationSec": 5,
+      "variant": "light",
+      "image": "/asset/general/photos/bedroom-valley.png",
+      "copy": {
+        "headline": "Stay a month",
+        "headlineTail": "not just a night"
+      }
+    },
+    {
+      "label": "Hububb Work",
+      "composition": "launch-form",
+      "durationSec": 5,
+      "variant": "dark",
+      "image": "/asset/general/clips/cleaner.mp4",
+      "copy": {
+        "headline": "Hububb Work",
+        "headlineTail": "The app for service providers"
+      }
+    },
+    {
+      "label": "One platform, built by Hububb",
+      "composition": "launch-products",
+      "durationSec": 6,
+      "variant": "dark",
+      "copy": {
+        "headline": "One platform",
+        "headlineTail": "built by Hububb"
+      }
+    }
+  ],
+  "social": {
+    "firstLine": "Three products, one ecosystem built around the stay.",
+    "caption": "Three products, one ecosystem built around the stay.\n\nHububb Host automates the whole of hosting. Guest messaging, cleaner booking, maintenance, pricing, reports, one inbox, one calendar, all handled while you stay in control.\n\nHububb Stay opens the door to managed, longer stays. Monthly homes for the people who need more room to move, where everything is taken care of and you just live.\n\nHububb Work is the app for the people who keep it running. The cleaners, the handymen, the trades, finding real, recurring work on real properties.\n\nHost, Stay, and Work are not three apps that happen to share a name. They are one moving system, built for the host, the guest, and the worker at once. We started in London, with real people on real properties, because the layer beneath the stay has to be built, not declared.\n\nHost. Stay. Work. Built by Hububb.",
+    "hashtags": [
+      "#proptech",
+      "#flexiblestays",
+      "#hospitalitytech",
+      "#hububb"
+    ]
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 3w/20c, subhead 0w/0c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-12T20:51:19.307Z"
+  }
+}
