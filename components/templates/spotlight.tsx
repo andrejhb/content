@@ -21,21 +21,34 @@ export function SpotlightTemplate({
   const min = Math.min(w, h);
   const pad = Math.round(min * 0.085);
   const eye = Math.round(w * 0.02);
+  // compactHead: shrink the headline and widen its measure so a long headline
+  // fits ~2 lines instead of sprawling.
+  const compact = brief.compactHead;
   const head = Math.round(
-    Math.min(w, h * 1.05) * (landscape ? 0.06 : tall ? 0.096 : 0.072),
+    Math.min(w, h * 1.05) *
+      (landscape ? (compact ? 0.05 : 0.06) : tall ? (compact ? 0.06 : 0.096) : compact ? 0.06 : 0.072),
   );
   const sub = Math.round(w * 0.027);
   const textMax = landscape
-    ? Math.round(w * 0.5)
+    ? Math.round(w * (compact ? 0.55 : 0.5))
     : tall
-      ? Math.round(w * 0.78)
-      : Math.round(w * 0.86);
+      ? Math.round(w * (compact ? 0.96 : 0.78))
+      : Math.round(w * (compact ? 0.94 : 0.86));
   const ctaH = Math.round(min * 0.075);
   const logoH = Math.round(min * 0.044);
 
+  // opt-in top-down darkening for the top edge / brand mark. "soft" is a subtle
+  // readability nudge; true is the fuller scrim.
+  const topScrim =
+    brief.topScrim === "soft"
+      ? "linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.12) 30%, rgba(0,0,0,0) 50%)"
+      : brief.topScrim
+        ? "linear-gradient(180deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.18) 34%, rgba(0,0,0,0) 55%)"
+        : null;
   const scrim = [
     "linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.7) 42%, rgba(0,0,0,0.36) 72%, rgba(0,0,0,0.1) 100%)",
     "linear-gradient(0deg, rgba(0,0,0,0.46) 0%, rgba(0,0,0,0) 48%)",
+    ...(topScrim ? [topScrim] : []),
   ].join(", ");
 
   return (
@@ -47,6 +60,10 @@ export function SpotlightTemplate({
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
+      ) : null}
+      {brief.dim ? (
+        // flat overlay to knock back a bright photo so white copy stays legible
+        <div className="absolute inset-0" style={{ background: `rgba(0,0,0,${brief.dim})` }} />
       ) : null}
       <div className="absolute inset-0" style={{ background: scrim }} />
 
@@ -73,7 +90,7 @@ export function SpotlightTemplate({
           ) : null}
           <h1
             className="font-semibold tracking-tight text-balance"
-            style={{ fontSize: head, lineHeight: 1.04 }}
+            style={{ fontSize: head, lineHeight: 1.2 }}
           >
             {c.rotating && c.rotating.length ? (
               // A still can't rotate — show the last message (matches the video poster).
@@ -82,7 +99,7 @@ export function SpotlightTemplate({
               <>
                 <span>{c.headline}</span>
                 {c.headlineTail ? (
-                  <span style={{ color: "rgba(255,255,255,0.62)" }}> {c.headlineTail}</span>
+                  <span style={{ color: c.solid ? "#ffffff" : "rgba(255,255,255,0.62)" }}> {c.headlineTail}</span>
                 ) : null}
               </>
             )}
@@ -92,7 +109,7 @@ export function SpotlightTemplate({
               style={{
                 fontSize: sub,
                 lineHeight: 1.4,
-                color: "rgba(255,255,255,0.82)",
+                color: c.solid ? "#ffffff" : "rgba(255,255,255,0.82)",
                 maxWidth: Math.round(textMax * 0.92),
               }}
             >

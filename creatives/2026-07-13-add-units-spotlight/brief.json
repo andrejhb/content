@@ -14,12 +14,13 @@
   "brandMark": true,
   "image": "/asset/host/photos/microsoft-copilot-txzv4hqjrpe-unsplash.jpg",
   "variant": "dark",
+  "topScrim": "soft",
   "copy": {
     "headline": "Add units",
     "headlineTail": "without adding admin.",
+    "solid": true,
     "subhead": "Bookings, guests, cleaning and pricing across every unit. A bigger portfolio never means a longer to-do list.",
-    "cta": "Automate hosting",
-    "proof": "£35 a month per unit, everything included."
+    "cta": "Automate hosting"
   },
   "social": {
     "primaryText": "Six units. Two cleaners. A handyman. And every booking, message and turnover still routes through you. That is the ceiling: the operation only scales as far as you can.\n\nHububb is the autonomous AI host that runs the day-to-day across every unit: bookings synced, guests answered automatically, cleaning booked the moment a guest checks out, nightly pricing tuned to demand. It handles 90%+ of the operation, so the work stops waiting on you being awake.\n\nThis is not handing the keys to a management company. You keep the ownership, the reviews, the Superhost status, and the control. Connect a single listing first, run it in parallel with how you work today, and move more over only when it is earning. £35 a month per unit, everything included.",

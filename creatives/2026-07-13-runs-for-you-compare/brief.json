@@ -11,9 +11,10 @@
     "4x5",
     "9x16"
   ],
-  "brandMark": true,
+  "brandMark": false,
   "image": null,
   "variant": "dark",
+  "compareLayout": "hero",
   "copy": {
     "headline": "It handles 90% of your hosting for you",
     "subhead": "Cleaning booked, pricing adjusted, guests answered. You just check the reports.",

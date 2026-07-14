@@ -14,13 +14,15 @@
   "brandMark": true,
   "image": "/asset/host/photos/living-london.png",
   "variant": "dark",
+  "dim": 0.32,
+  "compactHead": true,
   "copy": {
     "headline": "Your best month yet,",
     "headlineTail": "and you can't tell which flat did it.",
+    "solid": true,
     "subhead": "One dashboard shows revenue, occupancy and channel mix for every listing, so you know which one actually pays.",
     "cta": "Connect your Airbnb",
-    "ctaIcon": "/asset/host/channels/airbnb-belo.svg",
-    "proof": "£35 a month per unit, dynamic pricing and reporting included."
+    "ctaIcon": "/asset/host/channels/airbnb-belo.svg"
   },
   "social": {
     "primaryText": "At six flats, the money moves faster than you can track it. Which listing actually makes money?\n\nHububb's dynamic pricing adjusts your rates to demand every night and puts the numbers in one place, so the margin you can feel is finally on screen. You keep the control and the results.\n\nConnect a single listing first, run it beside how you host today, and move more over only when it is earning. £35 a month per unit, dynamic pricing and reporting included.",

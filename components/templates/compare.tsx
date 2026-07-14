@@ -26,6 +26,25 @@ function MarkIcon({ kind, size }: { kind: "check" | "cross"; size: number }) {
   );
 }
 
+function ClockIcon({ size }: { size: number }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.9}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ flexShrink: 0 }}
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7.2v5l3.2 1.9" />
+    </svg>
+  );
+}
+
 export function CompareTemplate({
   brief,
   w,
@@ -38,23 +57,31 @@ export function CompareTemplate({
   const c = brief.copy;
   const cmp = c.compare ?? { left: [], right: [] };
   const dark = brief.variant === "dark";
+  // "hero": headline-led layout — no brand mark, bigger headline + columns, and a
+  // compact centered CTA pinned to the bottom (justify-between spread).
+  const hero = brief.compareLayout === "hero";
   const landscape = w > h;
   const tall = w / h <= 0.6;
+  const square = w / h >= 0.95; // 1:1 is the tightest — scale hero type down a touch so it fits
   const min = Math.min(w, h);
-  const pad = Math.round(min * 0.07);
+  const pad = Math.round(min * (hero ? 0.056 : 0.07));
   const eye = Math.round(w * 0.022);
-  const head = Math.round(Math.min(w, h * 1.05) * (landscape ? 0.052 : tall ? 0.07 : 0.06));
+  const head = Math.round(
+    Math.min(w, h * 1.05) *
+      (landscape ? (hero ? 0.06 : 0.052) : tall ? (hero ? 0.084 : 0.07) : hero ? (square ? 0.064 : 0.068) : 0.06),
+  );
   const mark = Math.round(w * 0.037);
   // Accent marks from the design-system token scales (tokens.json). The app
   // layer only ships mono utilities, so the accent hexes are pinned here with
   // their token names.
   const crossColor = dark ? "#ff3333" : "#cc0000"; // color.red.9 / color.red.13
   const checkColor = dark ? "#00b280" : "#00cc93"; // color.support.green / color.green.13
-  const item = Math.round(w * (tall ? 0.026 : 0.0235));
+  const item = Math.round(w * (tall ? (hero ? 0.03 : 0.026) : hero ? (square ? 0.0245 : 0.026) : 0.0235));
   const icon = Math.round(item * 1.05);
-  const colPad = Math.round(w * 0.045);
-  const colGap = Math.round(w * 0.03);
-  const rowGap = Math.round(item * 1.05);
+  const colTitle = Math.round(eye * (hero ? (square ? 1.28 : 1.34) : 0.95));
+  const colPad = Math.round(w * (hero ? 0.038 : 0.045));
+  const colGap = Math.round(w * (hero ? 0.042 : 0.03));
+  const rowGap = Math.round(item * (hero ? 0.95 : 1.05));
 
   const column = (
     title: string | undefined,
@@ -100,11 +127,12 @@ export function CompareTemplate({
       >
         {title ? (
           <span
-            className={`font-mono ${titleClass}`}
+            className={`${hero ? "" : "font-mono"} ${titleClass}`}
             style={{
-              fontSize: Math.round(eye * 0.95),
-              letterSpacing: "0.01em",
-              marginBottom: Math.round(rowGap * 0.3),
+              fontSize: colTitle,
+              fontWeight: hero ? 600 : undefined,
+              letterSpacing: hero ? "-0.01em" : "0.01em",
+              marginBottom: Math.round(rowGap * (hero ? 0.5 : 0.3)),
               ...titleStyle,
             }}
           >
@@ -138,13 +166,13 @@ export function CompareTemplate({
       ) : null}
       <div
         className="absolute inset-0 flex flex-col justify-center"
-        style={{ padding: pad, gap: Math.round(head * 0.55) }}
+        style={{ padding: pad, gap: Math.round(head * (hero ? 0.54 : 0.55)) }}
       >
         <div className="flex flex-col items-start">
           {brief.brandMark ? <BrandMark height={mark} invert={dark} /> : null}
           <h1
             className="font-semibold tracking-tight text-balance"
-            style={{ fontSize: head, lineHeight: 1.05, marginTop: brief.brandMark ? Math.round(head * 0.3) : 0 }}
+            style={{ fontSize: head, lineHeight: 1.2, marginTop: brief.brandMark ? Math.round(head * 0.3) : 0 }}
           >
             {c.headline}
           </h1>
@@ -152,9 +180,9 @@ export function CompareTemplate({
             <p
               className={dark ? "text-mono-5" : "text-mono-11"}
               style={{
-                fontSize: Math.round(w * 0.026),
+                fontSize: Math.round(w * (hero && square ? 0.024 : 0.026)),
                 lineHeight: 1.35,
-                marginTop: Math.round(head * 0.3),
+                marginTop: Math.round(head * (hero ? 0.5 : 0.3)),
                 maxWidth: landscape ? "100%" : w * 0.82,
               }}
             >
@@ -178,36 +206,87 @@ export function CompareTemplate({
         ) : null}
 
         {c.cta || c.proof ? (
-          <div className="flex flex-wrap items-center" style={{ gap: Math.round(eye * 0.9) }}>
-            {c.cta ? (
-              <div
-                className={dark ? "bg-mono-1 text-mono-21" : "bg-mono-21 text-mono-1"}
-                style={{
-                  display: "inline-flex",
-                  width: "fit-content",
-                  alignItems: "center",
-                  gap: Math.round(min * 0.014),
-                  height: Math.round(min * 0.068),
-                  paddingLeft: Math.round(min * (c.ctaIcon ? 0.034 : 0.04)),
-                  paddingRight: Math.round(min * 0.04),
-                  borderRadius: 9999,
-                  fontWeight: 600,
-                  fontSize: Math.round(w * 0.022),
-                }}
-              >
-                {c.ctaIcon ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={c.ctaIcon}
-                    alt=""
-                    style={{ height: Math.round(min * 0.068 * 0.42), width: "auto" }}
-                  />
-                ) : null}
-                {c.cta}
-              </div>
-            ) : null}
-            {c.proof ? <ProofChip text={c.proof} fontSize={Math.round(eye * 0.92)} invert={dark} /> : null}
-          </div>
+          hero ? (
+            // Hero: a big centered CTA with a soft shadow, and the proof line
+            // demoted to a small borderless clock caption directly beneath it.
+            <div className="flex flex-col items-start" style={{ gap: Math.round(min * 0.032) }}>
+              {c.cta ? (
+                <div
+                  className={dark ? "bg-mono-1 text-mono-21" : "bg-mono-21 text-mono-1"}
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: Math.round(min * 0.02),
+                    height: Math.round(min * 0.086),
+                    paddingLeft: Math.round(min * (c.ctaIcon ? 0.06 : 0.074)),
+                    paddingRight: Math.round(min * 0.074),
+                    borderRadius: 9999,
+                    fontWeight: 600,
+                    fontSize: Math.round(w * 0.031),
+                    boxShadow: dark
+                      ? "0 24px 55px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06)"
+                      : "0 22px 48px rgba(38,38,38,0.28)",
+                  }}
+                >
+                  {c.ctaIcon ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={c.ctaIcon}
+                      alt=""
+                      style={{ height: Math.round(min * 0.086 * 0.42), width: "auto" }}
+                    />
+                  ) : null}
+                  {c.cta}
+                </div>
+              ) : null}
+              {c.proof ? (
+                <div
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: Math.round(min * 0.011),
+                    color: dark ? "rgba(255,255,255,0.62)" : "rgba(38,38,38,0.6)",
+                    fontSize: Math.round(w * 0.02),
+                  }}
+                >
+                  <ClockIcon size={Math.round(w * 0.024)} />
+                  <span>{c.proof}</span>
+                </div>
+              ) : null}
+            </div>
+          ) : (
+            <div className="flex flex-wrap items-center" style={{ gap: Math.round(eye * 0.9) }}>
+              {c.cta ? (
+                <div
+                  className={dark ? "bg-mono-1 text-mono-21" : "bg-mono-21 text-mono-1"}
+                  style={{
+                    display: "inline-flex",
+                    width: "fit-content",
+                    alignItems: "center",
+                    gap: Math.round(min * 0.014),
+                    height: Math.round(min * 0.068),
+                    paddingLeft: Math.round(min * (c.ctaIcon ? 0.034 : 0.04)),
+                    paddingRight: Math.round(min * 0.04),
+                    borderRadius: 9999,
+                    fontWeight: 600,
+                    fontSize: Math.round(w * 0.022),
+                  }}
+                >
+                  {c.ctaIcon ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={c.ctaIcon}
+                      alt=""
+                      style={{ height: Math.round(min * 0.068 * 0.42), width: "auto" }}
+                    />
+                  ) : null}
+                  {c.cta}
+                </div>
+              ) : null}
+              {c.proof ? <ProofChip text={c.proof} fontSize={Math.round(eye * 0.92)} invert={dark} /> : null}
+            </div>
+          )
         ) : null}
       </div>
     </CreativeCanvas>
