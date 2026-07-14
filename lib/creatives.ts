@@ -25,6 +25,9 @@ export type CreativeCopy = {
   badges?: string[];
   // spotlight: the muted second half of a two-tone headline, and an optional CTA pill label
   headlineTail?: string;
+  // spotlight: render the two-tone tail and the subhead at full white instead of
+  // muted, so the whole copy block reads as one solid weight (no opacity gap)
+  solid?: boolean;
   cta?: string;
   // spotlight: optional small icon inside the CTA pill (served path, e.g. the
   // Airbnb app icon for "Connect your Airbnb")
@@ -103,6 +106,17 @@ export type Brief = {
   // floating phone (dimmed under an overlay so the device stays the focal point)
   panelImage?: string | null;
   variant?: "light" | "dark";
+  // spotlight: add a top-down dark gradient over the photo, on top of the default
+  // left + bottom scrim (keeps the brand mark / top edge legible). "soft" is a
+  // subtle nudge; true is the fuller scrim.
+  topScrim?: boolean | "soft";
+  // spotlight: flat dark overlay over the photo (0-1) to lift copy legibility
+  dim?: number;
+  // spotlight: shrink the headline and widen its measure to fit ~2 lines
+  compactHead?: boolean;
+  // compare: "hero" re-lays the card as headline-led — no brand mark, a larger
+  // headline + bigger columns, and a compact centered CTA pinned to the bottom
+  compareLayout?: "hero";
   copy: CreativeCopy;
   slides?: Slide[]; // when present, this creative is a carousel
   // phone-mockup-ui template: which app UI plays on the screen ("chat" default),

@@ -29,6 +29,7 @@ export type BriefCopy = {
   proof?: string;
   badges?: string[];
   headlineTail?: string;
+  solid?: boolean;
   cta?: string;
   ctaIcon?: string;
   rotating?: string[];
@@ -79,6 +80,10 @@ export type CreativeBrief = {
   image?: string | null;
   panelImage?: string | null;
   variant?: "light" | "dark";
+  topScrim?: boolean | "soft";
+  dim?: number;
+  compactHead?: boolean;
+  compareLayout?: "hero";
   copy: BriefCopy;
   slides?: BriefSlide[];
   qa?: unknown;

@@ -11,13 +11,13 @@
     "4x5",
     "9x16"
   ],
-  "brandMark": true,
+  "brandMark": false,
   "image": null,
   "variant": "dark",
+  "compareLayout": "hero",
   "copy": {
     "headline": "Three flats, a full-time job, five apps to juggle",
     "subhead": "One app runs bookings, guests, cleaning, pricing and access, under one roof.",
-    "proof": "£35 a month per flat, everything included.",
     "cta": "Automate hosting",
     "compare": {
       "leftTitle": "Five apps that don't talk",

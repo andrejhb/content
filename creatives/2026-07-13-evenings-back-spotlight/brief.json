@@ -14,9 +14,11 @@
   "brandMark": true,
   "image": "/asset/host/photos/evening-host.jpg",
   "variant": "dark",
+  "topScrim": true,
   "copy": {
     "headline": "Get your evenings back",
     "headlineTail": "without losing a booking",
+    "solid": true,
     "subhead": "Messages answered, cleaning booked, pricing tuned while you are off the clock.",
     "cta": "Connect your Airbnb",
     "ctaIcon": "/asset/host/channels/airbnb-belo.svg",
