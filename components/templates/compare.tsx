@@ -96,7 +96,7 @@ export function CompareTemplate({
         : ""
       : winner
         ? "border-mono-21 bg-mono-21 text-mono-1"
-        : "border-mono-4 bg-mono-2 text-mono-12";
+        : "border-mono-4 bg-mono-2 text-mono-11";
     const panelStyle = dark
       ? winner
         ? { boxShadow: "0 26px 52px rgba(0,0,0,0.5)" }
@@ -112,11 +112,11 @@ export function CompareTemplate({
         };
     const titleClass = dark
       ? winner
-        ? "text-mono-10"
+        ? "text-mono-11"
         : ""
       : winner
-        ? "text-mono-6"
-        : "text-mono-10";
+        ? "text-mono-5"
+        : "text-mono-11";
     const titleStyle = dark && !winner ? { color: "rgba(255,255,255,0.55)" } : {};
     const iconStyle = { color: winner ? checkColor : crossColor };
 
@@ -198,7 +198,7 @@ export function CompareTemplate({
 
         {cmp.footer ? (
           <span
-            className={`font-mono ${dark ? "text-mono-6" : "text-mono-11"}`}
+            className={`font-mono ${dark ? "text-mono-5" : "text-mono-11"}`}
             style={{ fontSize: Math.round(eye * 0.95), letterSpacing: "0.01em" }}
           >
             {cmp.footer}

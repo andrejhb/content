@@ -7,6 +7,17 @@
 // never as a fill. Reads as coral on near-black.
 export const LAUNCH_ACCENT = "#ff7a59";
 
+// The app layer emits only part of the design system's neutral ramp as mono-*
+// utilities (steps 1-5, 11, 17-21). The launch templates lean on three greys
+// from the un-emitted middle of the ramp for their editorial hierarchy on
+// near-black, so those are pinned here by hex with their token names
+// (color.neutral.*) rather than as mono-* classes that resolve to nothing.
+export const LAUNCH_INK = {
+  soft: "#b3b3b3", // color.neutral.7: index numerals
+  muted: "#a6a6a6", // color.neutral.8: handle, eyebrow label
+  body: "#999999", // color.neutral.9: subheads, row copy, hairline
+};
+
 // Full-bleed dark backdrop. `glow` positions the radial highlight (0..1 of the
 // canvas) so each template can steer the light behind its focal point.
 export function LaunchBackdrop({
@@ -64,12 +75,15 @@ export function LaunchEyebrow({
   return (
     <div className="flex items-center" style={{ gap: Math.round(size * 0.7) }}>
       <span
-        className="bg-mono-9"
-        style={{ width: Math.round(size * 1.8), height: Math.max(1, Math.round(size * 0.07)) }}
+        style={{
+          width: Math.round(size * 1.8),
+          height: Math.max(1, Math.round(size * 0.07)),
+          backgroundColor: LAUNCH_INK.body,
+        }}
       />
       <span
-        className="font-mono text-mono-8"
-        style={{ fontSize: size, letterSpacing: "0.06em" }}
+        className="font-mono"
+        style={{ fontSize: size, letterSpacing: "0.06em", color: LAUNCH_INK.muted }}
       >
         {label}
       </span>

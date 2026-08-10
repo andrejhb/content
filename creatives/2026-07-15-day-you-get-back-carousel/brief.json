@@ -1,0 +1,172 @@
+{
+  "id": "2026-07-15-day-you-get-back-carousel",
+  "createdAt": "2026-07-15T09:00:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "The day you get back: the benefits of autonomous hosting told from the host's life side, no product UI, just what the hours look like when the operation runs itself.",
+  "brief": "Post 3 of the first three @hububbhost posts, the lifestyle counterweight to two product-led posts. A six-slide swipe carousel of editorial photographs (Higgsfield soul_2 stills, one cohesive 35mm warm-muted grade, generated 2026-07-15), each brought to life by the animated spotlight's slow Ken Burns drift, solid white lines under the locked scrim treatment. The arc: the turnover ready without you, guests answered in your voice over tea, the phone face down at dusk, rates adjusting while you walk the park, a glance at the phone over espresso, and the golden living room close where the headline gives way to Connect your Airbnb as plain text. No end periods on-image; bigger wordmark, stronger scrim, larger type at 120% line height. pillar: relief, funnel: reach, angle: day-reclaimed.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "animated-spotlight",
+    "durationSec": 5,
+    "fps": 30
+  },
+  "template": "spotlight",
+  "formats": [
+    "4x5",
+    "1x1"
+  ],
+  "brandMark": true,
+  "image": null,
+  "variant": "dark",
+  "copy": {
+    "headline": "The day you get back",
+    "subhead": "Messages, cleaning and pricing handled while you are off living it."
+  },
+  "slides": [
+    {
+      "label": "Turnovers",
+      "composition": "animated-spotlight",
+      "durationSec": 5,
+      "variant": "dark",
+      "dim": 0.24,
+      "image": "/asset/host/photos/day-back-bed.jpg",
+      "copy": {
+        "headline": "Turnovers book themselves",
+        "solid": true
+      }
+    },
+    {
+      "label": "Messages",
+      "composition": "animated-spotlight",
+      "durationSec": 5,
+      "variant": "dark",
+      "dim": 0.1,
+      "image": "/asset/host/photos/day-back-messages.jpg",
+      "copy": {
+        "headline": "Guests answered in your voice",
+        "solid": true
+      }
+    },
+    {
+      "label": "Pricing",
+      "composition": "animated-spotlight",
+      "durationSec": 5,
+      "variant": "dark",
+      "dim": 0.22,
+      "image": "/asset/host/photos/day-back-park.jpg",
+      "copy": {
+        "headline": "Rates adjust while you are away",
+        "solid": true
+      }
+    },
+    {
+      "label": "Evenings",
+      "composition": "animated-spotlight",
+      "durationSec": 5,
+      "variant": "dark",
+      "image": "/asset/host/photos/day-back-evening.jpg",
+      "copy": {
+        "headline": "The phone stays face down",
+        "solid": true
+      }
+    },
+    {
+      "label": "Watch it run",
+      "composition": "animated-spotlight",
+      "durationSec": 5,
+      "variant": "dark",
+      "dim": 0.15,
+      "image": "/asset/host/photos/day-back-kitchen.jpg",
+      "copy": {
+        "headline": "You watch it run",
+        "solid": true
+      }
+    },
+    {
+      "label": "Close",
+      "composition": "animated-spotlight",
+      "durationSec": 5,
+      "variant": "dark",
+      "dim": 0.12,
+      "image": "/asset/host/photos/day-back-livingroom.jpg",
+      "copy": {
+        "headline": "Hosting that runs itself",
+        "solid": true,
+        "cta": "Connect your Airbnb",
+        "ctaIcon": "/asset/host/channels/airbnb-belo.svg"
+      }
+    }
+  ],
+  "social": {
+    "firstLine": "The real feature list: evenings, weekends, sleep.",
+    "caption": "The real feature list: evenings, weekends, sleep.\n\nGuests answered in your voice while the phone stays face down. Turnovers booked before you think of them. Rates moving with demand while you are in the park.\n\nHububb Host runs the day-to-day. You keep the income, the control and your time.\n\nConnect your Airbnb and take the evening off.",
+    "hashtags": [
+      "#airbnbhost",
+      "#shorttermrental",
+      "#londonhosts",
+      "#airbnbautomation"
+    ]
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 5w/20c, subhead 11w/67c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-14T22:52:08.283Z"
+  },
+  "ctaPill": false
+}

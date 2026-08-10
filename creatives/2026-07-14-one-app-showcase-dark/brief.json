@@ -1,0 +1,124 @@
+{
+  "id": "2026-07-14-one-app-showcase-dark",
+  "createdAt": "2026-07-14T12:00:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "Name the enemy: hosting scattered across five apps, a WhatsApp thread and a spreadsheet. Resolve it in one artifact: the whole operation in one app.",
+  "brief": "Post 2 of the first three @hububbhost posts (Tension resolved). One iPhone holds still on a dark scene (light device glowing on dark) under the fixed headline while its screen cross-dissolves through six real app screens, inbox, channels, pricing, cleaning, guest portal, performance, each named by a short label pill. The headline stays constant so the one-app point lands while the product does the moving. Real screenshots, nothing invented; the caption carries the five-apps tension. pillar: relief, funnel: follow.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "phone-showcase",
+    "durationSec": 12,
+    "fps": 30
+  },
+  "template": "feature-card",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16",
+    "16x9"
+  ],
+  "brandMark": false,
+  "image": null,
+  "variant": "dark",
+  "copy": {
+    "headline": "Everything a host needs. All in one app.",
+    "subhead": "The tools that used to live in five apps, now in one."
+  },
+  "screens": [
+    {
+      "image": "/asset/host/app-screens/messaging.png",
+      "label": "Unified inbox"
+    },
+    {
+      "image": "/asset/host/app-screens/channels.png",
+      "label": "Listed everywhere"
+    },
+    {
+      "image": "/asset/host/app-screens/pricing.png",
+      "label": "Dynamic pricing"
+    },
+    {
+      "image": "/asset/host/app-screens/cleaning.png",
+      "label": "Cleaning booked"
+    },
+    {
+      "image": "/asset/host/app-screens/guest-portal.png",
+      "label": "Guest portal"
+    },
+    {
+      "image": "/asset/host/app-screens/performance-dashboard.png",
+      "label": "Performance"
+    }
+  ],
+  "social": {
+    "firstLine": "Hosting was never meant to take five apps.",
+    "caption": "Hosting was never meant to take five apps.\n\nOne for messages, one for the calendar, one for pricing, a WhatsApp thread for the cleaner, and a spreadsheet holding it all together.\n\nHububb Host brings the whole operation into one app: inbox, channels, pricing, cleaning, guest portal and reports, with Hostie running them for you.\n\nLess switching. Less chasing. Everything under one roof.",
+    "hashtags": [
+      "#airbnbhost",
+      "#shorttermrental",
+      "#propertymanagement",
+      "#londonhosts"
+    ]
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 8w/40c, subhead 12w/53c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-14T21:31:01.006Z"
+  }
+}

@@ -10,6 +10,7 @@ export type TemplateKey =
   | "feature-card"
   | "showcase"
   | "spotlight"
+  | "stack"
   | "compare"
   | "launch-hello"
   | "launch-index";
@@ -47,6 +48,14 @@ export type CreativeCopy = {
   };
   // launch-*: small handle/footer marker (e.g. "@wearehububb")
   handle?: string;
+  // feature-card + phone-mockup-ui: "Connected to" pill above the headline — a
+  // short label plus overlapping circular channel icons (served paths) and an
+  // optional trailing "+N" chip, like the website hero badge
+  channels?: { label?: string; icons: string[]; more?: string };
+  // stack: the receding pile of notification cards over the photo, front card
+  // first. Only the first 4 render. icon is a served path like copy.channels
+  // takes, not the bare filename MessageConversation.channel takes.
+  notifications?: { icon?: string; title: string; text?: string; meta?: string }[];
 };
 
 export type QaCheck = { rule: string; ok: boolean; detail?: string };
@@ -62,6 +71,10 @@ export type Slide = {
   image?: string | null;
   variant?: "light" | "dark";
   copy?: CreativeCopy;
+  // spotlight slides: per-slide legibility flags (fall back to the brief's)
+  dim?: number;
+  topScrim?: boolean | "soft";
+  compactHead?: boolean;
 };
 
 export type VideoSpec = {
@@ -117,15 +130,47 @@ export type Brief = {
   // compare: "hero" re-lays the card as headline-led — no brand mark, a larger
   // headline + bigger columns, and a compact centered CTA pinned to the bottom
   compareLayout?: "hero";
+  // animated-spotlight: render copy.cta as quiet white text instead of the pill
+  ctaPill?: boolean;
   copy: CreativeCopy;
   slides?: Slide[]; // when present, this creative is a carousel
-  // phone-mockup-ui template: which app UI plays on the screen ("chat" default),
-  // an end-card CTA, guest rotation, and the chat exchanges.
+  // phone-mockup-ui template: which app UI plays on the screen ("chat" default,
+  // or "agent" — the website hero's Hostie chat), an end-card CTA (icon "airbnb"
+  // renders the hero's solid pill button with the bélo), guest rotation, the chat
+  // exchanges, and for the agent screen its beats + property header (reproduced
+  // UI, not QA-gated copy; omit for the built-in website-hero defaults).
   screen?: string;
-  cta?: { line?: string; button?: string };
+  cta?: { line?: string; button?: string; icon?: string };
   rotate?: boolean;
   conversations?: MessageConversation[];
+  beats?: AgentBeat[];
+  property?: { title: string; thumb: string; rating?: number };
   qa?: QaResult;
+};
+
+// One beat of the phone-mockup-ui "agent" screen: an optional host question, the
+// Hostie answer, and the rich card that settles beneath it (mirrors the
+// hububb.com/hosts hero's data contract).
+export type AgentPerson = { name: string; photo: string };
+export type AgentBeat = {
+  host?: string;
+  hostie: string;
+  card:
+    | { kind: "checkin"; guest: AgentPerson; accessed: string[]; when: string }
+    | { kind: "task"; cleaner: AgentPerson; role: string; when: string; state: string }
+    | {
+        kind: "revenue";
+        totalValue: number;
+        range: string;
+        delta: string;
+        series: { label: string; value: number }[];
+        insight: string;
+      }
+    | {
+        kind: "reservation";
+        title: string;
+        reservations: { guest: AgentPerson; dates: string; nights: number; channel: string }[];
+      };
 };
 
 /**

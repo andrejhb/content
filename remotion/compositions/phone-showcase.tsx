@@ -83,13 +83,35 @@ export function PhoneShowcase({ brief, baseUrl }: VideoInputProps) {
   const eyebrowPx = Math.round(headPx * 0.4);
   const mark = Math.round(m * (square ? 0.056 : 0.06));
 
+  // Simple-mode headlines (and a single slide's rich headline) may run a full
+  // sentence: estimate the line count at ~0.52em average glyph width and let it
+  // wrap to two balanced lines, shrinking only if even two lines cannot hold it.
+  // The multi-screen rich reel keeps its short one-liners.
+  const availW = landscape ? Math.round(w * 0.46) : w - 2 * pad;
+  const fitHead = (text: string) => {
+    let px = headPx;
+    let lines = 1;
+    if (px * 0.52 * text.length > availW) {
+      lines = 2;
+      const half = (px * 0.52 * text.length) / 2;
+      if (half > availW) px = Math.max(24, Math.floor(px * (availW / half)));
+    }
+    return { px, lines };
+  };
+  const simpleHead = c.headline ?? "Everything a host needs, all in one app";
+  const { px: simpleHeadPx, lines: simpleLines } = richText ? { px: headPx, lines: 1 } : fitHead(simpleHead);
+  const { px: richHeadPx, lines: richLines } =
+    richText && single ? fitHead(screens[0].headline ?? "") : { px: headPx, lines: 1 };
+
   const sceneBg = dark
     ? "linear-gradient(157deg, #1c1c20 0%, #0b0b0d 100%)"
     : "linear-gradient(155deg, #ffffff 0%, #f1efec 100%)";
   const ink = dark ? "#f4f4f5" : "#141414";
   const subInk = dark ? "rgba(255,255,255,0.6)" : "rgba(0,0,0,0.5)";
   const eyebrowCol = dark ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.5)";
-  const pillBg = dark ? "rgba(255,255,255,0.09)" : "rgba(0,0,0,0.05)";
+  // Solid (not translucent) so the pill stays legible when it sits over the
+  // phone screen itself (the tall layout has no scrim behind it).
+  const pillBg = dark ? "#232327" : "#eceae7";
   const pillBorder = dark ? "rgba(255,255,255,0.16)" : "rgba(0,0,0,0.1)";
 
   const he = spring({ frame: frame - 6, fps, config: { damping: 200 } });
@@ -118,11 +140,11 @@ export function PhoneShowcase({ brief, baseUrl }: VideoInputProps) {
     dotsBox = { left: phoneLeft, width: phoneW, top: phoneTop + phoneH0 + Math.round(m * 0.03), justifyContent: "center" };
   } else {
     const headTop = brief.brandMark ? pad + mark + Math.round(m * 0.04) : pad + Math.round(m * 0.06);
-    // Headlines are shortened to fit one row, so the top zone reserves a single
-    // line (plus the eyebrow) rather than two.
+    // Rich-mode headlines are shortened to fit one row, so that zone reserves a
+    // single line (plus the eyebrow); the simple-mode zone tracks its line count.
     const topZoneH = richText
-      ? Math.round(eyebrowPx * 1.7 + headPx * 1.2)
-      : Math.round(headPx * 1.3);
+      ? Math.round(eyebrowPx * 1.7 + richHeadPx * 1.2 * richLines)
+      : Math.round(simpleHeadPx * 1.2 * simpleLines + headPx * 0.1);
     textAlign = "center";
     textBox = { left: pad, right: pad, top: headTop, height: topZoneH };
     if (tall) {
@@ -182,13 +204,31 @@ export function PhoneShowcase({ brief, baseUrl }: VideoInputProps) {
                     {s.eyebrow}
                   </span>
                 ) : null}
-                <span style={headlineStyle}>{s.headline}</span>
+                <span
+                  style={
+                    single
+                      ? { ...headlineStyle, fontSize: richHeadPx, lineHeight: 1.2, whiteSpace: richLines === 1 ? "nowrap" : "normal", textWrap: "balance" }
+                      : headlineStyle
+                  }
+                >
+                  {s.headline}
+                </span>
               </div>
             );
           })
         ) : (
           <div style={textColStyle}>
-            <span style={headlineStyle}>{c.headline ?? "Everything a host needs, all in one app"}</span>
+            <span
+              style={{
+                ...headlineStyle,
+                fontSize: simpleHeadPx,
+                lineHeight: 1.2,
+                whiteSpace: simpleLines === 1 ? "nowrap" : "normal",
+                textWrap: "balance",
+              }}
+            >
+              {simpleHead}
+            </span>
           </div>
         )}
       </div>
