@@ -24,7 +24,7 @@ export function AnimatedSpotlight({ brief, baseUrl }: VideoInputProps) {
   const pad = Math.round(min * 0.085);
   const eye = Math.round(w * 0.02);
   const head = Math.round(
-    Math.min(w, h * 1.05) * (landscape ? 0.06 : tall ? 0.096 : 0.072),
+    Math.min(w, h * 1.05) * (landscape ? 0.066 : tall ? 0.1 : 0.08),
   );
   const sub = Math.round(w * 0.024);
   const textMax = landscape
@@ -53,7 +53,7 @@ export function AnimatedSpotlight({ brief, baseUrl }: VideoInputProps) {
 
   const rotating = c.rotating ?? [];
   const hasRotating = rotating.length > 0;
-  const logoH = Math.round(min * 0.044);
+  const logoH = Math.round(min * 0.056);
   const logoIn = interpolate(frame, [0, Math.round(fps * 0.5)], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
@@ -66,6 +66,25 @@ export function AnimatedSpotlight({ brief, baseUrl }: VideoInputProps) {
       transform: `translateY(${interpolate(s, [0, 1], [Math.round(h * 0.02), 0])}px)`,
     };
   };
+
+  // brief.ctaPill: false turns the CTA into a second beat: the headline holds,
+  // then crossfades into the CTA line rendered at headline weight (the
+  // phone-mockup-ui ending, brought to the spotlight).
+  const ctaText = (brief as { ctaPill?: boolean }).ctaPill === false && Boolean(c.cta);
+  const ctaSwap = ctaText
+    ? Math.max(
+        0,
+        Math.min(
+          1,
+          spring({
+            frame: frame - Math.round(durationInFrames * 0.58),
+            fps,
+            config: { damping: 20, stiffness: 170, mass: 0.6 },
+          }),
+        ),
+      )
+    : 0;
+  const headSpring = spring({ frame: frame - 8, fps, config: { damping: 200 } });
   const outro = interpolate(
     frame,
     [durationInFrames - Math.round(fps * 0.5), durationInFrames - 1],
@@ -74,8 +93,8 @@ export function AnimatedSpotlight({ brief, baseUrl }: VideoInputProps) {
   );
 
   const scrim = [
-    "linear-gradient(90deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.52) 42%, rgba(0,0,0,0.2) 72%, rgba(0,0,0,0) 100%)",
-    "linear-gradient(0deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0) 42%)",
+    "linear-gradient(90deg, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.7) 42%, rgba(0,0,0,0.38) 72%, rgba(0,0,0,0.12) 100%)",
+    "linear-gradient(0deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0) 50%)",
   ].join(", ");
 
   return (
@@ -177,7 +196,7 @@ export function AnimatedSpotlight({ brief, baseUrl }: VideoInputProps) {
                       left: 0,
                       margin: 0,
                       fontSize: head,
-                      lineHeight: 1.04,
+                      lineHeight: 1.2,
                       letterSpacing: "-0.02em",
                       fontWeight: 600,
                       color: "#ffffff",
@@ -193,23 +212,45 @@ export function AnimatedSpotlight({ brief, baseUrl }: VideoInputProps) {
               })}
             </div>
           ) : (
-            <h1
-              style={{
-                margin: 0,
-                fontSize: head,
-                lineHeight: 1.04,
-                letterSpacing: "-0.02em",
-                fontWeight: 600,
-                color: "#ffffff",
-                textWrap: "balance",
-                ...enter(8),
-              }}
-            >
-              <span>{c.headline}</span>
-              {c.headlineTail ? (
-                <span style={{ color: "rgba(255,255,255,0.5)" }}> {c.headlineTail}</span>
+            <div style={{ position: "relative" }}>
+              <h1
+                style={{
+                  margin: 0,
+                  fontSize: head,
+                  lineHeight: 1.2,
+                  letterSpacing: "-0.02em",
+                  fontWeight: 600,
+                  color: "#ffffff",
+                  textWrap: "balance",
+                  opacity: headSpring * (1 - ctaSwap),
+                  transform: `translateY(${interpolate(headSpring, [0, 1], [Math.round(h * 0.02), 0]) - Math.round(head * 0.12) * ctaSwap}px)`,
+                }}
+              >
+                <span>{c.headline}</span>
+                {c.headlineTail ? (
+                  <span style={{ color: "rgba(255,255,255,0.5)" }}> {c.headlineTail}</span>
+                ) : null}
+              </h1>
+              {ctaText ? (
+                <span
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    fontSize: head,
+                    lineHeight: 1.2,
+                    letterSpacing: "-0.02em",
+                    fontWeight: 600,
+                    color: "#ffffff",
+                    textWrap: "balance",
+                    opacity: ctaSwap,
+                    transform: `translateY(${Math.round(head * 0.14) * (1 - ctaSwap)}px)`,
+                  }}
+                >
+                  {c.cta}
+                </span>
               ) : null}
-            </h1>
+            </div>
           )}
           {c.subhead ? (
             <p
@@ -227,7 +268,7 @@ export function AnimatedSpotlight({ brief, baseUrl }: VideoInputProps) {
           ) : null}
         </div>
 
-        {c.cta ? (
+        {c.cta && !ctaText ? (
           <div
             style={{
               display: "inline-flex",

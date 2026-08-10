@@ -1,0 +1,165 @@
+{
+  "id": "2026-07-14-automated-workflows-carousel",
+  "createdAt": "2026-07-14T14:00:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "Proof: the four core hosting workflows, messages, cleaning, pricing and channels, actually running automated inside one app.",
+  "brief": "Post 2 alternate for @hububbhost (product-led sibling of the one-app showcase reel; the lifestyle carousel took the Post 3 slot). A six-slide swipe carousel, each slide a phone-showcase single: a cover naming the four workflows over the Hostie agents screen, one slide per workflow showing its real app screen with a plain statement of what runs itself, and a close on the performance screen carrying the allowed 90%+ proof line as its eyebrow. Light throughout, no wordmark, gentle zoom per slide. Real screenshots, nothing invented. pillar: proof-trust, funnel: engage, the send-this-to-another-host test.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "phone-showcase",
+    "durationSec": 4,
+    "fps": 30
+  },
+  "template": "feature-card",
+  "formats": [
+    "4x5",
+    "1x1"
+  ],
+  "brandMark": false,
+  "image": null,
+  "variant": "light",
+  "copy": {
+    "headline": "Messages. Cleaning. Pricing. Channels.",
+    "subhead": "The core hosting workflows, automated from one place.",
+    "proof": "Handles 90%+ of the day-to-day."
+  },
+  "slides": [
+    {
+      "label": "Cover",
+      "composition": "phone-showcase",
+      "durationSec": 4,
+      "variant": "light",
+      "image": "/asset/host/app-screens/ai-agents.png",
+      "copy": {
+        "eyebrow": "Automated from one place",
+        "headline": "Messages. Cleaning. Pricing. Channels."
+      }
+    },
+    {
+      "label": "Messaging",
+      "composition": "phone-showcase",
+      "durationSec": 4,
+      "variant": "light",
+      "image": "/asset/host/app-screens/messaging.png",
+      "copy": {
+        "eyebrow": "AI guest messaging",
+        "headline": "Guest questions answered automatically, in your voice."
+      }
+    },
+    {
+      "label": "Cleaning",
+      "composition": "phone-showcase",
+      "durationSec": 4,
+      "variant": "light",
+      "image": "/asset/host/app-screens/cleaning.png",
+      "copy": {
+        "eyebrow": "Cleaning",
+        "headline": "Turnovers booked the moment a guest checks out."
+      }
+    },
+    {
+      "label": "Pricing",
+      "composition": "phone-showcase",
+      "durationSec": 4,
+      "variant": "light",
+      "image": "/asset/host/app-screens/pricing.png",
+      "copy": {
+        "eyebrow": "Dynamic pricing",
+        "headline": "Rates that adjust themselves."
+      }
+    },
+    {
+      "label": "Channels",
+      "composition": "phone-showcase",
+      "durationSec": 4,
+      "variant": "light",
+      "image": "/asset/host/app-screens/channels.png",
+      "copy": {
+        "eyebrow": "Channels",
+        "headline": "Airbnb, Booking.com and Vrbo, synced in one place."
+      }
+    },
+    {
+      "label": "Close",
+      "composition": "phone-showcase",
+      "durationSec": 4,
+      "variant": "light",
+      "image": "/asset/host/app-screens/performance-dashboard.png",
+      "copy": {
+        "eyebrow": "Handles 90%+ of the day-to-day",
+        "headline": "One connected system for modern hosting."
+      }
+    }
+  ],
+  "social": {
+    "firstLine": "This is what hosting looks like when the day-to-day runs itself.",
+    "caption": "This is what hosting looks like when the day-to-day runs itself.\n\nSwipe: guest questions answered automatically in your voice, turnovers booked the moment a guest checks out, rates that adjust themselves, and every channel synced in one place.\n\nHububb Host handles 90%+ of the day-to-day. You keep the control and the results.\n\nSend this to a host who is still doing all four by hand.",
+    "hashtags": [
+      "#airbnbhost",
+      "#shorttermrental",
+      "#hostautomation",
+      "#londonhosts"
+    ]
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 4w/38c, subhead 8w/53c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-14T21:41:43.179Z"
+  }
+}

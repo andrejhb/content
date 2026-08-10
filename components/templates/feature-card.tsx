@@ -56,6 +56,11 @@ export function FeatureCardTemplate({
 
   const mark = Math.round(w * 0.03);
   const hasKicker = brief.brandMark || Boolean(c.eyebrow);
+  const hasChannels = Boolean(c.channels?.icons?.length);
+  // "Connected to" pill: overlapping circular channel icons ringed in the pill's
+  // own background so the stack reads as one badge on light and dark alike.
+  const chIcon = Math.round(Math.min(w, h) * 0.036);
+  const pillBg = dark ? "var(--color-mono-19)" : "var(--color-mono-3)";
 
   const text = (
     <div className="flex flex-col">
@@ -79,12 +84,52 @@ export function FeatureCardTemplate({
           ) : null}
         </div>
       ) : null}
+      {hasChannels ? (
+        <div
+          className="flex w-fit items-center rounded-full"
+          style={{
+            background: pillBg,
+            gap: Math.round(chIcon * 0.45),
+            paddingLeft: Math.round(chIcon * 0.55),
+            paddingRight: Math.round(chIcon * 0.3),
+            paddingTop: Math.round(chIcon * 0.24),
+            paddingBottom: Math.round(chIcon * 0.24),
+            marginTop: hasKicker ? Math.round(head * 0.3) : 0,
+          }}
+        >
+          {c.channels?.label ? (
+            <span
+              className={dark ? "text-mono-5" : "text-mono-11"}
+              style={{ fontSize: eye, fontWeight: 500 }}
+            >
+              {c.channels.label}
+            </span>
+          ) : null}
+          <div className="flex items-center">
+            {c.channels?.icons.map((src, i) => (
+              <span
+                key={src}
+                className="flex items-center justify-center overflow-hidden rounded-full bg-mono-1"
+                style={{
+                  width: chIcon,
+                  height: chIcon,
+                  marginLeft: i ? Math.round(chIcon * -0.26) : 0,
+                  boxShadow: `0 0 0 ${Math.max(2, Math.round(chIcon * 0.09))}px ${pillBg}`,
+                }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={src} alt="" className="h-full w-full object-cover" />
+              </span>
+            ))}
+          </div>
+        </div>
+      ) : null}
       <h1
         className="font-semibold tracking-tight text-balance"
         style={{
           fontSize: head,
           lineHeight: 1.05,
-          marginTop: hasKicker ? Math.round(head * 0.24) : 0,
+          marginTop: hasKicker || hasChannels ? Math.round(head * 0.24) : 0,
         }}
       >
         {c.headline}

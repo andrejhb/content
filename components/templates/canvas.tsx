@@ -43,7 +43,7 @@ export function ProofChip({
   return (
     <span
       className={`inline-flex w-fit items-center rounded-full border font-mono ${
-        invert ? "border-mono-16 text-mono-5" : "border-mono-5 text-mono-11"
+        invert ? "border-mono-17 text-mono-5" : "border-mono-5 text-mono-11"
       }`}
       style={{
         fontSize,

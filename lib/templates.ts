@@ -12,7 +12,7 @@
 import type { ContentType } from "@/lib/create";
 import type { TemplateKey } from "@/lib/creatives";
 
-// The 8 static image templates: display name + one-line blurb. Moved here from
+// The static image templates: display name + one-line blurb. Moved here from
 // components/templates/registry.tsx, which now imports these back and keeps only
 // the React Component wiring.
 export const TEMPLATE_META: Record<TemplateKey, { label: string; blurb: string }> = {
@@ -40,6 +40,10 @@ export const TEMPLATE_META: Record<TemplateKey, { label: string; blurb: string }
     label: "Spotlight",
     blurb: "Full-bleed image or video, two-tone headline, optional CTA.",
   },
+  stack: {
+    label: "Stack",
+    blurb: "Notification cards receding over a full-bleed photo, centred headline and CTA.",
+  },
   compare: {
     label: "Compare",
     blurb: "Two-column checklist: the old way with crosses, Hububb with checks.",
@@ -62,6 +66,7 @@ export const COMPOSITION_LABELS: Record<string, string> = {
   "animated-feature-card": "Feature card",
   "animated-statement": "Statement",
   "animated-spotlight": "Spotlight",
+  "animated-stack": "Stack",
   "hostie-ad": "Hostie ad",
   "logo-sting": "Logo sting",
   "launch-hello": "Launch hello",
@@ -122,6 +127,7 @@ const MOTION_SEED: (Pick<TemplateEntry, "id" | "blurb" | "reference"> & { parent
     reference: MOTION_REF("phone-showcase"),
   },
   { id: "animated-spotlight", blurb: "Full-bleed image or video with a two-tone headline, in motion.", reference: MOTION_REF("animated-spotlight") },
+  { id: "animated-stack", blurb: "Notification cards fanning open over a full-bleed photo, headline and CTA staggering up.", reference: MOTION_REF("animated-stack") },
   { id: "hostie-ad", blurb: "The Hostie AI answering-guests story, told as a short ad.", reference: MOTION_REF("hostie-ad") },
   { id: "logo-sting", blurb: "A short brand sting on the Hububb logo.", reference: MOTION_REF("logo-sting") },
   { id: "launch-hello", blurb: "Dark editorial greeting for the brand account, animated.", reference: MOTION_REF("launch-hello"), parentOnly: true },

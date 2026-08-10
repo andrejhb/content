@@ -86,6 +86,9 @@ async function renderVideoCreative({ id, serveUrl, base, defaults }) {
         image: s.image ?? brief.image ?? null,
         variant: s.variant ?? brief.variant,
         brandMark: s.brandMark ?? brief.brandMark,
+        dim: s.dim ?? brief.dim,
+        topScrim: s.topScrim ?? brief.topScrim,
+        compactHead: s.compactHead ?? brief.compactHead,
       };
       console.log(`  slide ${i + 1}: ${s.label}`);
       await renderOne({ composition: s.composition, briefProps, prefix: `s${i + 1}-`, durationSec: s.durationSec });

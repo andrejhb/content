@@ -9,6 +9,7 @@ import { HostieAd } from "./compositions/hostie-ad";
 import { PhoneMockupUi } from "./compositions/phone-mockup-ui";
 import { PhoneShowcase } from "./compositions/phone-showcase";
 import { AnimatedSpotlight } from "./compositions/animated-spotlight";
+import { AnimatedStack } from "./compositions/animated-stack";
 import { LaunchHelloMotion } from "./compositions/launch-hello";
 import { LaunchStatement } from "./compositions/launch-statement";
 import { LaunchSpotlight } from "./compositions/launch-spotlight";
@@ -130,6 +131,16 @@ export function RemotionRoot() {
       <Composition
         id="animated-spotlight"
         component={AnimatedSpotlight}
+        durationInFrames={7 * FPS}
+        fps={FPS}
+        width={1080}
+        height={1080}
+        defaultProps={{ ...defaultProps, durationSec: 7 }}
+        calculateMetadata={metadata}
+      />
+      <Composition
+        id="animated-stack"
+        component={AnimatedStack}
         durationInFrames={7 * FPS}
         fps={FPS}
         width={1080}

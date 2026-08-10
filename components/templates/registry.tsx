@@ -6,6 +6,7 @@ import { ImageCardTemplate } from "./image-card";
 import { FeatureCardTemplate } from "./feature-card";
 import { ShowcaseTemplate } from "./showcase";
 import { SpotlightTemplate } from "./spotlight";
+import { StackTemplate } from "./stack";
 import { CompareTemplate } from "./compare";
 import { LaunchHelloTemplate } from "./launch-hello";
 import { LaunchIndexTemplate } from "./launch-index";
@@ -26,6 +27,7 @@ const COMPONENTS: Record<TemplateKey, TemplateComponent> = {
   "feature-card": FeatureCardTemplate,
   showcase: ShowcaseTemplate,
   spotlight: SpotlightTemplate,
+  stack: StackTemplate,
   compare: CompareTemplate,
   "launch-hello": LaunchHelloTemplate,
   "launch-index": LaunchIndexTemplate,

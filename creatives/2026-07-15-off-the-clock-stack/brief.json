@@ -1,0 +1,117 @@
+{
+  "id": "2026-07-15-off-the-clock-stack",
+  "createdAt": "2026-07-15T14:00:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "The host is reading a book with her phone face down, and the property keeps running anyway. The notification pile is the proof: a guest answered at 2am, a cleaner dispatched at 9, a rate tuned in the afternoon, another guest answered at dinner.",
+  "brief": "Paid-ad candidate on the new stack template, built as the Hububb answer to a TravelNest ad Andrej shared (host asleep on a cloud, booking notifications receding, yellow tail headline). We keep the device and drop the rest: real photography instead of a surreal AI scene, the whole operation instead of bookings only, monochrome instead of yellow. day-back-evening.jpg full bleed under the stack's top-down and bottom-up scrims, four notification cards receding above centred solid-white copy, white CTA pill with the belo, wordmark under it. The cards span one day so the pile reads as it ran while you lived. Mint is the only colour and it appears once per card as the done tick. No proof chip. pillar: relief, funnel: convert, angle: day-reclaimed.",
+  "template": "stack",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/photos/day-back-evening.jpg",
+  "variant": "dark",
+  "topScrim": true,
+  "dim": 0.18,
+  "copy": {
+    "headline": "You are off the clock.",
+    "headlineTail": "Hububb is not.",
+    "solid": true,
+    "subhead": "Guest messages answered, cleaners dispatched, rates tuned. All of it without you.",
+    "cta": "Connect your Airbnb",
+    "ctaIcon": "/asset/host/channels/airbnb-belo.svg",
+    "notifications": [
+      {
+        "icon": "/asset/host/channels/airbnb.png",
+        "title": "Message answered",
+        "text": "Can we check in early?",
+        "meta": "2:14am"
+      },
+      {
+        "icon": "/asset/host/brand/host-icon.png",
+        "title": "Cleaner dispatched",
+        "text": "Turnover booked for 11am",
+        "meta": "9:06am"
+      },
+      {
+        "icon": "/asset/host/channels/booking.png",
+        "title": "Rate tuned to demand",
+        "text": "Friday priced up for the weekend",
+        "meta": "3:40pm"
+      },
+      {
+        "icon": "/asset/host/channels/whatsapp.png",
+        "title": "Message answered",
+        "text": "Where do we drop the bags?",
+        "meta": "6:22pm"
+      }
+    ]
+  },
+  "social": {
+    "primaryText": "The phone is face down on the table. It has been for two hours.\n\nMeanwhile a guest asked about an early check-in at 2am and got an answer in your voice. The cleaner was dispatched the moment the last guest left. Friday's rate moved with demand. None of it needed you.\n\nHububb is the autonomous AI host that runs your property end to end, while you keep the control, the reviews and your Superhost status. Connect your Airbnb and run one listing in parallel first.",
+    "cta": "Connect your Airbnb",
+    "conceptCode": "HUB_JUL_MAR_OFFCLOCK"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 5w/22c, subhead 12w/81c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-07-15T15:10:11.882Z"
+  }
+}

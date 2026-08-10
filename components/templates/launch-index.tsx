@@ -1,6 +1,6 @@
 import type { Brief } from "@/lib/creatives";
 import { CreativeCanvas, BrandMark } from "./canvas";
-import { LaunchBackdrop, LaunchEyebrow } from "./launch-shared";
+import { LaunchBackdrop, LaunchEyebrow, LAUNCH_INK } from "./launch-shared";
 
 // launch-index: the "what is Hububb" explainer. A flag headline, a one-line
 // thesis, then a three-row index (Host / Stay / Work) separated by hairlines.
@@ -49,8 +49,13 @@ export function LaunchIndexTemplate({
           </h1>
           {c.subhead ? (
             <p
-              className="text-mono-9 font-normal"
-              style={{ fontSize: sub, lineHeight: 1.4, maxWidth: landscape ? w * 0.66 : w * 0.9 }}
+              className="font-normal"
+              style={{
+                fontSize: sub,
+                lineHeight: 1.4,
+                maxWidth: landscape ? w * 0.66 : w * 0.9,
+                color: LAUNCH_INK.body,
+              }}
             >
               {c.subhead}
             </p>
@@ -69,8 +74,8 @@ export function LaunchIndexTemplate({
               }}
             >
               <span
-                className="font-mono text-mono-7"
-                style={{ fontSize: num, width: Math.round(num * 3), flexShrink: 0 }}
+                className="font-mono"
+                style={{ fontSize: num, width: Math.round(num * 3), flexShrink: 0, color: LAUNCH_INK.soft }}
               >
                 {String(i + 1).padStart(2, "0")}
               </span>
@@ -81,8 +86,8 @@ export function LaunchIndexTemplate({
                 {it.label}
               </span>
               <span
-                className="text-mono-9 font-normal"
-                style={{ fontSize: rowText, lineHeight: 1.3 }}
+                className="font-normal"
+                style={{ fontSize: rowText, lineHeight: 1.3, color: LAUNCH_INK.body }}
               >
                 {it.text}
               </span>
@@ -94,8 +99,8 @@ export function LaunchIndexTemplate({
           {brief.brandMark ? <BrandMark height={mark} invert /> : <span />}
           {c.handle ? (
             <span
-              className="font-mono text-mono-8"
-              style={{ fontSize: eye, letterSpacing: "0.04em" }}
+              className="font-mono"
+              style={{ fontSize: eye, letterSpacing: "0.04em", color: LAUNCH_INK.muted }}
             >
               {c.handle}
             </span>

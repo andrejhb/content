@@ -16,6 +16,7 @@ export type CreativeTemplate =
   | "feature-card"
   | "showcase"
   | "spotlight"
+  | "stack"
   | "compare"
   | "launch-hello"
   | "launch-index";
@@ -42,6 +43,8 @@ export type BriefCopy = {
     right: string[];
     footer?: string;
   };
+  channels?: { label?: string; icons: string[]; more?: string };
+  notifications?: { icon?: string; title: string; text?: string; meta?: string }[];
 };
 
 export type BriefVideo = {
@@ -62,6 +65,9 @@ export type BriefSlide = {
   image?: string | null;
   variant?: "light" | "dark";
   copy?: BriefCopy;
+  dim?: number;
+  topScrim?: boolean | "soft";
+  compactHead?: boolean;
 };
 
 // Mirrors Brief in lib/creatives.ts.
@@ -84,6 +90,7 @@ export type CreativeBrief = {
   dim?: number;
   compactHead?: boolean;
   compareLayout?: "hero";
+  ctaPill?: boolean;
   copy: BriefCopy;
   slides?: BriefSlide[];
   qa?: unknown;
@@ -98,6 +105,7 @@ const TEMPLATES: readonly CreativeTemplate[] = [
   "feature-card",
   "showcase",
   "spotlight",
+  "stack",
   "compare",
   "launch-hello",
   "launch-index",

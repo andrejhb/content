@@ -1,6 +1,6 @@
 import type { Brief } from "@/lib/creatives";
 import { CreativeCanvas, BrandMark } from "./canvas";
-import { LaunchBackdrop, LaunchEyebrow } from "./launch-shared";
+import { LaunchBackdrop, LaunchEyebrow, LAUNCH_INK } from "./launch-shared";
 
 // launch-hello: the @wearehububb greeting. A big, light-weight sentence-case
 // line on a near-black canvas with soft depth. Editorial negative space (Casa),
@@ -49,11 +49,12 @@ export function LaunchHelloTemplate({
           </h1>
           {c.subhead ? (
             <p
-              className="text-mono-9 font-normal"
+              className="font-normal"
               style={{
                 fontSize: sub,
                 lineHeight: 1.4,
                 maxWidth: landscape ? w * 0.6 : w * 0.82,
+                color: LAUNCH_INK.body,
               }}
             >
               {c.subhead}
@@ -65,8 +66,8 @@ export function LaunchHelloTemplate({
           {brief.brandMark ? <BrandMark height={mark} invert /> : <span />}
           {c.handle ? (
             <span
-              className="font-mono text-mono-8"
-              style={{ fontSize: eye, letterSpacing: "0.04em" }}
+              className="font-mono"
+              style={{ fontSize: eye, letterSpacing: "0.04em", color: LAUNCH_INK.muted }}
             >
               {c.handle}
             </span>

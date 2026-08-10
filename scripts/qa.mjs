@@ -76,6 +76,12 @@ function collectCopy(brief) {
           c.compare.footer,
         ]
       : []),
+    // stack notification cards. Unlike phone-mockup-ui's chat, which is
+    // reproduced app UI and deliberately ungated, these are ad copy on the
+    // creative, so they get the same voice and truth checks as the headline.
+    ...(Array.isArray(c.notifications)
+      ? c.notifications.flatMap((n) => (n ? [n.title, n.text, n.meta] : []))
+      : []),
   ].filter((s) => typeof s === "string" && s.length);
   return fields;
 }
@@ -110,9 +116,17 @@ function check(fields, cfg, copy) {
   const allCaps = [...text.matchAll(/\b[A-Z]{4,}\b/g)].map((m) => m[0]).filter((w) => !cfg.acronyms.has(w));
   add("no-shouting", allCaps.length === 0, allCaps.join(", ") || undefined);
 
+  // A capital opening a sentence is sentence case, not Title Case, so words that
+  // follow a sentence-ending mark (or open the headline) don't count as evidence.
+  // "Messages. Cleaning. Pricing. Channels." passes; "Automate Your Hosting" fails.
   const headline = typeof copy.headline === "string" ? copy.headline : "";
-  const longWords = headline.split(/\s+/).filter((w) => w.replace(/[^A-Za-z]/g, "").length >= 4);
-  const titleCased = longWords.length >= 3 && longWords.every((w) => /^[A-Z]/.test(w));
+  const midLong = [];
+  let sentenceStart = true;
+  for (const w of headline.split(/\s+/)) {
+    if (!sentenceStart && w.replace(/[^A-Za-z]/g, "").length >= 4) midLong.push(w);
+    sentenceStart = /[.!?]$/.test(w);
+  }
+  const titleCased = midLong.length >= 2 && midLong.every((w) => /^[A-Z]/.test(w));
   add("sentence-case-headline", !titleCased, titleCased ? "headline looks Title Cased" : undefined);
 
   // Truth: numbers and figures are only allowed inside an allowlisted proof
