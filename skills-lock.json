@@ -13,11 +13,101 @@
       "skillPath": "skills/copywriting/SKILL.md",
       "computedHash": "d3191c3ad90610e0cacecf638d927418852264fabbd6e81c045094dad7d96f11"
     },
+    "cut-the-curve": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/cut-the-curve/SKILL.md",
+      "computedHash": "0dc00f155130d001cfe6f9bfcc2da2452ad92c13275564178595ec7948414154"
+    },
+    "general-video": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/general-video/SKILL.md",
+      "computedHash": "22c01c61e8b1f02e6d73ec8ea111dccc37b4d403816c49905c8842a7f5f615b0"
+    },
+    "hyperframes": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/hyperframes/SKILL.md",
+      "computedHash": "c11e0378381be325a4471f63b9fbd7ee903dd16ffbafba0451ce5221ac490a36"
+    },
+    "hyperframes-animation": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/hyperframes-animation/SKILL.md",
+      "computedHash": "dcb152706e225699c3a954e434c094fa8ae23a9061d62d49b0798b20a60b297e"
+    },
+    "hyperframes-cli": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/hyperframes-cli/SKILL.md",
+      "computedHash": "333d3f1a814e5160b3673f860998788ed232186cb8dd76c6fd491d961d8b79fc"
+    },
+    "hyperframes-core": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/hyperframes-core/SKILL.md",
+      "computedHash": "9ec9fb9d13920d0cf588a8b368f5bb52d57aabf99d9606bf63fa874d7bbf74b8"
+    },
+    "hyperframes-creative": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/hyperframes-creative/SKILL.md",
+      "computedHash": "6da4fd1f681605c15aaab34829261fe10d7f3c81ac79bc0ef3b40ed9cd23ef4c"
+    },
+    "hyperframes-keyframes": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/hyperframes-keyframes/SKILL.md",
+      "computedHash": "ca3056e210808e6382f96384dcfd83fac5f8b369635ab4ae06dae2dda5e2047f"
+    },
+    "hyperframes-registry": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/hyperframes-registry/SKILL.md",
+      "computedHash": "b0cb8f843e5b0302cebd68ea13e9e79bbd8f044e8af7b2a858aa956ce8c36f4d"
+    },
+    "media-use": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/media-use/SKILL.md",
+      "computedHash": "6db9fd6e46127ca866a8b78a09a963e489e810b663fad2c3ec5b4786fd6c944f"
+    },
+    "motion-doctrine": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/motion-doctrine/SKILL.md",
+      "computedHash": "771cfa568b9acafd4b8d733e7733f4849f2544e88c4d469799ef67fc09603025"
+    },
+    "motion-graphics": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/motion-graphics/SKILL.md",
+      "computedHash": "6d40085caecb496e5c2c3fd57a188ec1fb0bda7988aaf8d0cd699bc80d2bf01c"
+    },
+    "product-launch-video": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/product-launch-video/SKILL.md",
+      "computedHash": "e25d6fd6b7993e4fbf67a1fe60fb80b47f839cdc1290fd1426691a98e9ac5c50"
+    },
     "product-marketing": {
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",
       "skillPath": "skills/product-marketing/SKILL.md",
       "computedHash": "2fe9e9093e385345d17e0e77d032d68015417c37ceffeb5fb34fc761c46c94a0"
+    },
+    "remocn": {
+      "source": "Remocn/remocn",
+      "sourceType": "github",
+      "skillPath": "skills/remocn/SKILL.md",
+      "computedHash": "8366e50178d9f2169a9f89b3c07a56968a7abc5f3b12d8a3673542097ffc63bd"
+    },
+    "seam-craft": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/seam-craft/SKILL.md",
+      "computedHash": "7469e9113cec2fbf345c22a23145a686797bcdd3fd7ba267910c8bb66d60a96a"
     },
     "social": {
       "source": "coreyhaines31/marketingskills",

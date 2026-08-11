@@ -10,6 +10,7 @@
 // they erase at build and never pull the server modules into the client bundle.
 
 import type { ContentType } from "@/lib/create";
+import type { RemotionCompositionId } from "@/lib/creative-schema";
 import type { TemplateKey } from "@/lib/creatives";
 
 // The static image templates: display name + one-line blurb. Moved here from
@@ -60,7 +61,9 @@ export const TEMPLATE_META: Record<TemplateKey, { label: string; blurb: string }
 
 // Friendly names for the Remotion compositions (the motion "templates"). Moved
 // here from lib/creatives.ts, which now imports it back for templateLabel().
-export const COMPOSITION_LABELS: Record<string, string> = {
+// Typed over the canonical id list so a newly registered composition without a
+// label is a compile error.
+export const COMPOSITION_LABELS: Record<RemotionCompositionId, string> = {
   "phone-mockup-ui": "Phone mockup UI",
   "phone-showcase": "Phone showcase",
   "animated-feature-card": "Feature card",
@@ -75,7 +78,14 @@ export const COMPOSITION_LABELS: Record<string, string> = {
   "launch-products": "Launch products",
   "launch-form": "Launch form",
   "launch-cover": "Launch cover",
+  "motion-film": "Motion film",
+  "remocn-demo": "Remocn demo",
 };
+
+/** Label lookup tolerant of arbitrary strings (briefs are untyped JSON). */
+export function compositionLabel(id: string): string {
+  return (COMPOSITION_LABELS as Record<string, string>)[id] ?? id;
+}
 
 export type TemplateEntry = {
   // TemplateKey for static, Remotion composition id for motion. Only unique
@@ -129,6 +139,11 @@ const MOTION_SEED: (Pick<TemplateEntry, "id" | "blurb" | "reference"> & { parent
   { id: "animated-spotlight", blurb: "Full-bleed image or video with a two-tone headline, in motion.", reference: MOTION_REF("animated-spotlight") },
   { id: "animated-stack", blurb: "Notification cards fanning open over a full-bleed photo, headline and CTA staggering up.", reference: MOTION_REF("animated-stack") },
   { id: "hostie-ad", blurb: "The Hostie AI answering-guests story, told as a short ad.", reference: MOTION_REF("hostie-ad") },
+  {
+    id: "motion-film",
+    blurb: "A beat-driven film: statement, chat, stat, strike, notify, media and roster beats cut together from brief data.",
+    reference: ["remotion/compositions/motion-film.tsx", "prompts/remotion-motion.md"],
+  },
   { id: "logo-sting", blurb: "A short brand sting on the Hububb logo.", reference: MOTION_REF("logo-sting") },
   { id: "launch-hello", blurb: "Dark editorial greeting for the brand account, animated.", reference: MOTION_REF("launch-hello"), parentOnly: true },
   { id: "launch-statement", blurb: "Dark brand statement in animated big type.", reference: MOTION_REF("launch-statement"), parentOnly: true },
@@ -140,7 +155,7 @@ const MOTION_SEED: (Pick<TemplateEntry, "id" | "blurb" | "reference"> & { parent
 
 const MOTION: TemplateEntry[] = MOTION_SEED.map((m) => ({
   ...m,
-  name: COMPOSITION_LABELS[m.id] ?? m.id,
+  name: compositionLabel(m.id),
   kind: "video",
   track: "remotion",
   contentTypes: ["reel", "video"],

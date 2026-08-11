@@ -1,7 +1,7 @@
 import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import type { FormatKey } from "@/lib/formats";
-import { COMPOSITION_LABELS } from "@/lib/templates";
+import { compositionLabel } from "@/lib/templates";
 
 export type TemplateKey =
   | "statement"
@@ -78,7 +78,7 @@ export type Slide = {
 };
 
 export type VideoSpec = {
-  track: "remotion" | "higgsfield";
+  track: "remotion" | "higgsfield" | "hyperframes";
   composition?: string; // remotion composition id
   durationSec?: number;
   fps?: number;
@@ -86,7 +86,50 @@ export type VideoSpec = {
   prompt?: string; // higgsfield generation prompt
   audio?: boolean;
   sourceCreativeId?: string; // still creative this motion piece derives from
+  // hyperframes: the tracked composition source dir inside the creative folder
+  // (its CLI renders <format>.mp4 into the folder like any other track)
+  sourceDir?: string;
 };
+
+// motion-film: a beat-driven film assembled from a closed shot vocabulary.
+// Each beat is one idea on screen for 1.5-4s (chat up to 8s, notify up to 6s),
+// cut hard by default; the film must close on a wordmark beat. Kept in step
+// with lib/creative-schema.ts, which validates all of this at QA time.
+export type FilmShot =
+  | "statement" // one line of type, remocn entrance
+  | "chat" // a guest question types out, the answer lands (full-frame, QA-gated)
+  | "stat" // a number rolls to its value with a label
+  | "strike" // the problem line struck through, the solution replaces it
+  | "notify" // 2-4 mono notification cards pile in, then clear with ticks
+  | "media" // full-bleed photo or clip, Ken Burns + scrim, optional caption
+  | "roster" // 2-4 label+text rows staggering in (the product index)
+  | "wordmark"; // the Hububb wordmark close, optional line and CTA
+
+export type FilmTransition = "cut" | "fade" | "push" | "blur";
+
+export type FilmBeat = {
+  shot: FilmShot;
+  durationSec: number;
+  transition?: FilmTransition; // transition OUT of this beat; default "cut"
+  line?: string; // statement/media/wordmark primary line
+  tail?: string; // muted second line
+  chat?: {
+    question: string;
+    answer: string;
+    name?: string;
+    time?: string;
+    avatar?: string; // served path
+    tag?: string; // e.g. "Answered by Hostie AI"
+  };
+  stat?: { value: number; prefix?: string; suffix?: string; label: string };
+  strike?: { from: string; to: string };
+  notifications?: { title: string; meta?: string }[];
+  media?: string; // served path
+  items?: { label: string; text: string }[];
+  cta?: string; // wordmark only
+};
+
+export type Film = { beats: FilmBeat[] };
 
 // A single guest exchange for the phone-mockup-ui template's chat screen
 // (reproduced UI, not QA-gated copy). Omit brief.conversations to fall back to
@@ -145,6 +188,8 @@ export type Brief = {
   conversations?: MessageConversation[];
   beats?: AgentBeat[];
   property?: { title: string; thumb: string; rating?: number };
+  // motion-film: the beat list (video.composition === "motion-film")
+  film?: Film;
   qa?: QaResult;
 };
 
@@ -180,7 +225,10 @@ export type AgentBeat = {
  */
 export function templateLabel(brief: Brief, staticLabel?: string): string {
   if (brief.kind === "video" && brief.video?.composition) {
-    return COMPOSITION_LABELS[brief.video.composition] ?? brief.video.composition;
+    return compositionLabel(brief.video.composition);
+  }
+  if (brief.kind === "video" && brief.video?.track === "hyperframes") {
+    return "HyperFrames film";
   }
   return staticLabel ?? brief.template;
 }

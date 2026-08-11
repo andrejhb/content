@@ -111,9 +111,17 @@ async function main() {
   const server = await ensureServer(process.env.RENDER_BASE_URL);
 
   console.log("• bundling remotion project…");
+  // Same override as remotion.config.ts: tailwind plus the "@" alias that
+  // vendored remocn components rely on ("@/components/remocn/…", "@/lib/utils").
   const serveUrl = await bundle({
     entryPoint: path.join(process.cwd(), "remotion", "index.ts"),
-    webpackOverride: enableTailwind,
+    webpackOverride: (config) => {
+      const c = enableTailwind(config);
+      return {
+        ...c,
+        resolve: { ...c.resolve, alias: { ...(c.resolve?.alias ?? {}), "@": process.cwd() } },
+      };
+    },
   });
 
   let ok = true;
