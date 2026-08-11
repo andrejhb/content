@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Vendored and reference code, not ours to lint:
+    ".agents/**",
+    ".claude/worktrees/**",
+    "docs/motion/reference/**",
   ]),
 ]);
 

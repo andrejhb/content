@@ -57,9 +57,9 @@ async function qaConfig(product) {
 
 const escapeRe = (s) => s.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
 
-function collectCopy(brief) {
-  const c = brief.copy ?? {};
-  const fields = [
+function copyFields(c) {
+  if (!c) return [];
+  return [
     c.eyebrow,
     c.headline,
     c.subhead,
@@ -82,6 +82,45 @@ function collectCopy(brief) {
     ...(Array.isArray(c.notifications)
       ? c.notifications.flatMap((n) => (n ? [n.title, n.text, n.meta] : []))
       : []),
+  ];
+}
+
+// motion-film beat copy. The chat exchange included: unlike phone-mockup-ui,
+// where the chat is a phone-screen prop, a film's exchange is full frame and
+// IS the ad.
+function filmFields(film) {
+  if (!film || !Array.isArray(film.beats)) return [];
+  return film.beats.flatMap((b) =>
+    b
+      ? [
+          b.line,
+          b.tail,
+          b.cta,
+          b.chat?.question,
+          b.chat?.answer,
+          b.chat?.tag,
+          b.stat?.label,
+          b.stat?.prefix,
+          b.stat?.suffix,
+          b.strike?.from,
+          b.strike?.to,
+          ...(Array.isArray(b.notifications)
+            ? b.notifications.flatMap((n) => (n ? [n.title, n.meta] : []))
+            : []),
+          ...(Array.isArray(b.items)
+            ? b.items.flatMap((it) => (it ? [it.label, it.text] : []))
+            : []),
+        ]
+      : [],
+  );
+}
+
+function collectCopy(brief) {
+  const fields = [
+    ...copyFields(brief.copy),
+    // carousel slides carry their own copy per slide
+    ...(Array.isArray(brief.slides) ? brief.slides.flatMap((s) => copyFields(s?.copy)) : []),
+    ...filmFields(brief.film),
   ].filter((s) => typeof s === "string" && s.length);
   return fields;
 }

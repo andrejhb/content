@@ -51,9 +51,25 @@ next-env.d.ts
 /creatives/**/*.webp
 /creatives/**/*.gif
 /creatives/*/*.zip
+# A HyperFrames film's project dir is the recipe (composition HTML, storyboard,
+# brief, fonts), so it is re-included from the media ignores above. Derived and
+# heavy content inside it stays ignored: renders land next to brief.json,
+# snapshots and packet caches are regenerable, and the staged media copies are
+# re-copied from products/<slug>/assets/ (BRIEF.md lists the sources).
+!/creatives/**/hyperframes/**
+/creatives/**/hyperframes/renders/
+/creatives/**/hyperframes/snapshots/
+/creatives/**/hyperframes/node_modules/
+/creatives/**/hyperframes/.hyperframes/
+/creatives/**/hyperframes/capture/assets/
+/creatives/**/hyperframes/assets/*.mp4
 #
 # DISABLED (reinstatable): the old workboard rule promoted approved creatives
 # into creatives-live/. Uncomment to turn creatives/ fully into a git-ignored
 # WIP board instead:
 # /creatives/*
 # !/creatives/.gitkeep
+
+# HyperFrames demo reference: the composition is tracked, its staged clips are
+# not (they are copies of products/general/assets/clips/ - see the demo README).
+/docs/motion/demos/**/assets/*.mp4

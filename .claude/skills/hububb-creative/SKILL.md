@@ -31,7 +31,7 @@ The brand voice is plain, operational, restrained (Linear/Stripe/Vercel register
 Apply the **ad-creative** skill to sharpen the angle and the **copywriting** skill to write copy, both in the Hububb voice. Keep it tight: sentence case, no exclamation marks, no em-dashes, no banned words, no "all-in-one". Only the proof claims listed in the product's `qa.json` (`allowedProofClaims`) may be used — no other counts, ratings, revenue, or testimonials. Live features are present tense; anything in `unbuiltFeatures` is "coming soon". No competitor names.
 
 ### 3. Choose templates + formats
-Six templates exist. Pick every one that genuinely fits the angle (or those the user asked for):
+Ten static templates exist (`lib/templates.ts` `TEMPLATE_META` is the live list; `stack`, `compare`, and the parent-brand-only `launch-hello` / `launch-index` join the six below). Pick every one that genuinely fits the angle (or those the user asked for):
 
 Type-only (no image):
 - **statement** — one strong line, pure type on a light background. Slots: `eyebrow`, `headline`, `subhead`.
@@ -84,21 +84,34 @@ Tell the user what you made and link each creative's detail page: `http://localh
 When the user does ask for video:
 
 1. **Ask which track** (unless they named one):
-   - **Remotion** — programmatic motion graphics from the app's own brand system. Best for animated type, feature showcases, brand stings.
+   - **Remotion** — programmatic motion graphics from the app's own brand system. Best for animated type, feature showcases, brand stings, and beat-driven films (`motion-film`).
+   - **HyperFrames** — cinematic HTML + GSAP films via the vendored HyperFrames skills (`.agents/skills/`), rendered locally by its CLI. Best for photography-led films with rich transitions (see `prompts/hyperframes-motion.md`).
    - **Higgsfield** — generative AI video via the Higgsfield MCP. Best for cinematic/lifestyle motion no template can produce.
 
 2. **Remotion track**: write the brief as usual plus
    `"kind": "video"` and `"video": { "track": "remotion", "composition": "<id>", "durationSec": …, "fps": 30 }`.
-   Compositions live in `remotion/compositions/` (currently `animated-statement`, `animated-feature-card`, `logo-sting` — check `remotion/root.tsx` for the live list). QA the copy (`node scripts/qa.mjs <id>`), then `node scripts/render-video.mjs <id>` → `creatives/<id>/<format>.mp4` + a poster PNG per format. Defaults (fps, duration) come from `config/video.json` → `remotion`.
+   The live composition list is `REMOTION_COMPOSITION_IDS` in `lib/creative-schema.ts` (registered by `remotion/root.tsx`; QA fails a brief naming anything else). QA the copy (`node scripts/qa.mjs <id>`), then `node scripts/render-video.mjs <id>` → `creatives/<id>/<format>.mp4` + a poster PNG per format. Defaults (fps, duration) come from `config/video.json` → `remotion`. (The dev server runs on port 3005: `RENDER_BASE_URL=http://localhost:3005`.)
 
-3. **Higgsfield track — ask BEFORE generating.** Confirm with the user, in one round of questions:
+   **motion-film** is the beat-driven form: `brief.film.beats[]` from a closed shot set (`statement`, `chat`, `stat`, `strike`, `notify`, `media`, `roster`, `wordmark`) with transitions `cut | fade | push | blur`. Full contract and a worked example in `prompts/remotion-motion.md`. Its shot components live under `remotion/motion/` (shared tokens, helpers, and Hububb-themed wrappers over the vendored remocn components in `components/remocn/`; install more with `npx shadcn@latest add @remocn/<name>`, pin any `@remotion/*` deps to the repo's Remotion version).
+
+3. **HyperFrames track**: brief carries `"video": { "track": "hyperframes", "durationSec": …, "sourceDir": "hyperframes" }`; the film project lives tracked at `creatives/<id>/hyperframes/` and renders per format into the creative folder via `npx hyperframes render`. Follow `prompts/hyperframes-motion.md`; load the `motion-doctrine` skill before composing and route through the `hyperframes` gateway skill.
+
+   **Motion doctrine (applies to every track).** Distilled in `remotion/motion/craft.ts` and `docs/motion/reference/motion-promo/`:
+   - Write the timed beat sheet first and SHOW IT to the user in your reply before building.
+   - One idea per beat, 1.5-4s per beat, five or fewer words on screen.
+   - Cut hard by default; a transition must earn its place. Snaps take 2-3 frames.
+   - Never a long move on an accelerate-only curve (reads as dropped frames).
+   - Verify with stills at beat midpoints before declaring a render done.
+   - Treat refinement notes as single-knob edits: "beat two is too fast" stretches only that beat.
+
+4. **Higgsfield track — ask BEFORE generating.** Confirm with the user, in one round of questions:
    - **Audio?** (some models generate native sound/SFX — include it or render silent)
    - **Aspect(s)** (9:16, 1x1, 16:9 — don't assume all)
    - **Duration** and any **reference still** (an existing creative's PNG can seed image-to-video)
    - Model: use `config/video.json` → `higgsfield.defaultModel` unless the user explicitly asks for top tier (`topTierModel`). **Never silently pick the cheapest model.** If the config still says CONFIRM-LIVE, first list the live model catalog via the Higgsfield MCP and write real model ids into the config.
    Then generate via the Higgsfield MCP tools, download the result to `creatives/<id>/<format>.mp4`, and record `"video": { "track": "higgsfield", "model": "<model actually used>", "prompt": "<generation prompt>", "audio": <bool> }` in the brief. QA still gates any copy that appears on screen.
 
-4. Video creatives appear in the app like any other: detail page plays the mp4s, the zip bundles them, the hallway shows a poster thumb with a video badge.
+5. Video creatives appear in the app like any other: detail page plays the mp4s, the zip bundles them, the hallway shows a poster thumb with a video badge.
 
 ## Guardrails (hard)
 - Voice: sentence case, no `!`, no em/en dashes, no banned words, no "all-in-one".
