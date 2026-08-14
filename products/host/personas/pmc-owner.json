@@ -1,0 +1,106 @@
+{
+  "version": 2,
+  "id": "pmc-owner",
+  "product": "host",
+  "updatedAt": "2026-08-15T00:00:00.000Z",
+  "profile": {
+    "name": "James Whitaker",
+    "headline": "The Pro PMC owner · a management company, not his own flats",
+    "location": "Clapham, London",
+    "bio": "James is 51. He runs a short-let management company in South London. The units belong to other owners. He has two people on payroll: an ops coordinator who chases cleans and access, and someone on guest comms. They all use his Host login. There are no roles. Owner reports go out as a spreadsheet he builds on Sunday. He is not looking for another host app. He needs to operate the business: staff who can do their job on the units they are assigned, owners who can see what they should see, and a view of the company that is not one shared password.",
+    "avatar": "/asset/host/personas/marcus.png",
+    "cover": null,
+    "archetype": "pmc-owner",
+    "facts": [
+      {
+        "label": "Age",
+        "value": "51"
+      },
+      {
+        "label": "Location",
+        "value": "Clapham, London"
+      },
+      {
+        "label": "Occupation",
+        "value": "Founder, short-let management company"
+      },
+      {
+        "label": "Portfolio",
+        "value": "Units for other owners, South London"
+      },
+      {
+        "label": "Team",
+        "value": "2 employees, shared Host login today"
+      },
+      {
+        "label": "Wants",
+        "value": "The business to run, not one password"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "jtbd",
+      "title": "Jobs to be done",
+      "kind": "list",
+      "content": [
+        "Give the ops lead their own login, on the units they are assigned, without handing over the whole company.",
+        "Let guest comms work the inbox without seeing owner money or every property.",
+        "Show each owner what happened on their units, without James building the pack by hand.",
+        "See the business: occupancy, work, and issues across the portfolio, not flat by flat in his head.",
+        "Stop sharing one Host password so a leaver does not take the operation with them."
+      ]
+    },
+    {
+      "key": "pains",
+      "title": "Pains",
+      "kind": "list",
+      "content": [
+        "Host is a workaround. Shared credentials. No roles. The company is bigger than the product it sits on.",
+        "Staff cannot be trusted with the only login, so James stays the bottleneck for anything sensitive.",
+        "Owners ask for a simple picture. He rebuilds it every week from three tools.",
+        "A leaver, a mistake, or a late night in the shared account is a company risk, not a listing risk."
+      ]
+    },
+    {
+      "key": "lifestyle",
+      "title": "Lifestyle",
+      "kind": "text",
+      "content": "James is the principal. He still walks units when quality slips, but he is supposed to run a firm, not sit in every thread. He hired people so he would not be the operating system. Until they have their own place in the product, he still is."
+    },
+    {
+      "key": "positioning",
+      "title": "Value we promise",
+      "kind": "text",
+      "content": "Hububb Pro is for operating a property-management business: teams, roles, owners, and a company view. It is not Host plus a price. It is in design, not live. Do not sell it as shipping. The job is the organisational one Host cannot do."
+    },
+    {
+      "key": "tools-they-use",
+      "title": "Tools they use",
+      "kind": "list",
+      "content": [
+        "One shared Host login",
+        "WhatsApp with staff and cleaners",
+        "Google Sheets for owner packs",
+        "A second channel stitched on the side"
+      ]
+    },
+    {
+      "key": "status",
+      "title": "Product status",
+      "kind": "text",
+      "content": "Hububb Pro is in design or development. Not live. Not Host plus permissions. Not a public claim. This persona is a sample for product and comms work, not a live offer."
+    }
+  ],
+  "prompts": [
+    {
+      "title": "Not one password",
+      "body": "Run hububb-creative for host.\n\nAngle: A management company on one shared Host login. The ops lead should have their own seat on the units they run. The owner of the firm should not be the password.\nDescription: Organisational, adult. Pro is in design. Do not present it as live.\n\nSpeak to: James Whitaker, PMC owner in Clapham, two employees, shared credentials today.\nTemplates: statement, problem-to-calm\nFormats: all four\nImagery: none\n\nDo not say Pro is live. Do not invent pricing, seat counts, or a permissions UI. Do not call Hububb a PMS. Do not name Pads Living. Do not claim Hububb is the legal property manager.\n\nRender when QA passes and give me the review links."
+    },
+    {
+      "title": "The owner pack",
+      "body": "Run hububb-creative for host.\n\nAngle: Owners want to see their units. James rebuilds the pack every Sunday. The employee runs the week. The owner of the firm should not be the reporting department.\nDescription: Owner reporting as a business job. Pro is in design. Do not present it as live.\n\nSpeak to: James Whitaker, sending a spreadsheet to owners on Sunday night.\nTemplates: statement, proof-card\nFormats: all four\nImagery: none\n\nDo not invent a live owner portal. Do not publish fees. London only.\n\nRender when QA passes and give me the review links."
+    }
+  ],
+  "promptsUpdatedAt": "2026-08-15T00:00:00.000Z"
+}
