@@ -1,5 +1,473 @@
 [
   {
+    "id": "2026-08-17-hub-aug-brief02-proofcard-var01",
+    "product": "host",
+    "persona": "evenings-host",
+    "template": "proof-card",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "9x16"
+    ],
+    "headline": "90%+ of operations, handled",
+    "angle": "WhatsApp and three spreadsheets. Hububb made it stop.",
+    "qaPassed": true,
+    "createdAt": "2026-08-17T08:40:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-08-17-hub-aug-brief02-proofcard-var02",
+    "product": "host",
+    "persona": "evenings-host",
+    "template": "proof-card",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "9x16"
+    ],
+    "headline": "Hosting on Airbnb?",
+    "angle": "WhatsApp and three spreadsheets. Hububb made it stop.",
+    "qaPassed": true,
+    "createdAt": "2026-08-17T08:40:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-08-17-hub-aug-brief02-proofcard-var03",
+    "product": "host",
+    "persona": "evenings-host",
+    "template": "proof-card",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "9x16"
+    ],
+    "headline": "One app for every booking channel",
+    "angle": "WhatsApp and three spreadsheets. Hububb made it stop.",
+    "qaPassed": true,
+    "createdAt": "2026-08-17T08:40:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-08-17-hub-aug-brief02-joblist-var01",
+    "product": "host",
+    "persona": "evenings-host",
+    "template": "statement",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "9x16"
+    ],
+    "headline": "You’re the receptionist.",
+    "angle": "The host is doing five jobs they were sold as one.",
+    "qaPassed": null,
+    "createdAt": "2026-08-17T08:11:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-08-17-hub-aug-brief02-joblist-var02",
+    "product": "host",
+    "persona": "evenings-host",
+    "template": "statement",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "9x16"
+    ],
+    "headline": "Still your own receptionist?",
+    "angle": "The host is doing five jobs they were sold as one.",
+    "qaPassed": null,
+    "createdAt": "2026-08-17T08:11:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-08-17-hub-aug-brief02-joblist-var03",
+    "product": "host",
+    "persona": "evenings-host",
+    "template": "statement",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "9x16"
+    ],
+    "headline": "You’re doing five jobs. You were sold one.",
+    "angle": "The host is doing five jobs they were sold as one.",
+    "qaPassed": null,
+    "createdAt": "2026-08-17T08:11:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-15-off-the-clock-stack-video",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "stack",
+    "kind": "video",
+    "formats": [
+      "9x16",
+      "1x1",
+      "4x5"
+    ],
+    "headline": "You are off the clock.",
+    "angle": "The host is reading a book with her phone face down, and the property keeps running anyway. The notification pile fans open one card at a time as the proof: a guest answered at 2am, a cleaner dispatched at 9, a rate tuned in the afternoon, another guest answered at dinner.",
+    "qaPassed": true,
+    "createdAt": "2026-07-15T14:30:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-15-off-the-clock-stack",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "stack",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16"
+    ],
+    "headline": "You are off the clock.",
+    "angle": "The host is reading a book with her phone face down, and the property keeps running anyway. The notification pile is the proof: a guest answered at 2am, a cleaner dispatched at 9, a rate tuned in the afternoon, another guest answered at dinner.",
+    "qaPassed": true,
+    "createdAt": "2026-07-15T14:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-15-day-you-get-back-carousel",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "spotlight",
+    "kind": "video",
+    "formats": [
+      "4x5",
+      "1x1"
+    ],
+    "headline": "The day you get back",
+    "angle": "The day you get back: the benefits of autonomous hosting told from the host's life side, no product UI, just what the hours look like when the operation runs itself.",
+    "qaPassed": true,
+    "createdAt": "2026-07-15T09:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-14-automated-workflows-carousel",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "feature-card",
+    "kind": "video",
+    "formats": [
+      "4x5",
+      "1x1"
+    ],
+    "headline": "Messages. Cleaning. Pricing. Channels.",
+    "angle": "Proof: the four core hosting workflows, messages, cleaning, pricing and channels, actually running automated inside one app.",
+    "qaPassed": true,
+    "createdAt": "2026-07-14T14:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-14-one-app-showcase-dark",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "feature-card",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Everything a host needs. All in one app.",
+    "angle": "Name the enemy: hosting scattered across five apps, a WhatsApp thread and a spreadsheet. Resolve it in one artifact: the whole operation in one app.",
+    "qaPassed": true,
+    "createdAt": "2026-07-14T12:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-14-one-app-showcase-video",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "feature-card",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Everything a host needs. All in one app.",
+    "angle": "Name the enemy: hosting scattered across five apps, a WhatsApp thread and a spreadsheet. Resolve it in one artifact: the whole operation in one app.",
+    "qaPassed": true,
+    "createdAt": "2026-07-14T12:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-14-autonomous-ai-host-video",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "feature-card",
+    "kind": "video",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16",
+      "16x9"
+    ],
+    "headline": "Your autonomous AI host",
+    "angle": "Introduce the category: Hububb Host gives every host an autonomous AI host. Hostie runs the property while you watch.",
+    "qaPassed": true,
+    "createdAt": "2026-07-14T09:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-13-host-app-screens-carousel-spotlight",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "spotlight",
+    "kind": "video",
+    "formats": [
+      "4x5",
+      "1x1"
+    ],
+    "headline": "Get listed everywhere",
+    "angle": "Everything a host needs, all in one app, as a swipeable carousel: one feature per slide, each a phone showing that app screen with its eyebrow and a short one-line headline. Channels, messaging, cleaning, repairs, guest portal, performance, pricing, AI agents, and Hububb Stay demand.",
+    "qaPassed": true,
+    "createdAt": "2026-07-13T11:00:00Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-13-host-app-screens-feature-card",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "feature-card",
+    "kind": "video",
+    "formats": [
+      "4x5",
+      "1x1",
+      "16x9",
+      "9x16"
+    ],
+    "headline": "Everything a host needs, all in one app",
+    "angle": "Everything a host needs, all in one app: a single phone whose screen cross-dissolves through all nine Hububb host features, from the app-screens marketing page. Channels, messaging, cleaning, repairs, guest portal, performance, pricing, AI agents, and Hububb Stay demand, each with its own eyebrow and a short one-line headline.",
+    "qaPassed": true,
+    "createdAt": "2026-07-13T10:00:00Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-13-add-units-spotlight",
+    "product": "host",
+    "persona": "scaling-operator",
+    "template": "spotlight",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16"
+    ],
+    "headline": "Add units",
+    "angle": "Six units and every booking, message and turnover still routes through you. Hububb runs the day-to-day across every unit so the portfolio scales past your head.",
+    "qaPassed": true,
+    "createdAt": "2026-07-13T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-13-cleaner-cancel-spotlight",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "spotlight",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16"
+    ],
+    "headline": "Your cleaner bailed at 9.",
+    "angle": "A cleaner cancels mid-workday and the next guest checks in at three. Hububb dispatches the next vetted local cleaner and runs the whole turnover.",
+    "qaPassed": true,
+    "createdAt": "2026-07-13T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-13-evenings-back-spotlight",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "spotlight",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16"
+    ],
+    "headline": "Get your evenings back",
+    "angle": "Passive income quietly turned into a second shift. Hububb gives the side-hustle host their evenings back without losing a booking.",
+    "qaPassed": true,
+    "createdAt": "2026-07-13T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-13-fifth-flat-spotlight",
+    "product": "host",
+    "persona": "scaling-operator",
+    "template": "spotlight",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16"
+    ],
+    "headline": "Could you take on a fifth flat tomorrow?",
+    "angle": "The sixth unit is where the operation usually breaks. Hububb books the turnovers, answers the guests and syncs every calendar, so you can take on the next flat without taking on more admin.",
+    "qaPassed": true,
+    "createdAt": "2026-07-13T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-13-one-roof-compare",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "compare",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16"
+    ],
+    "headline": "Three flats, a full-time job, five apps to juggle",
+    "angle": "Messages in one app, calendar in another, cleaners in a group chat, pricing in your head. Hububb puts inbox, calendar, pricing, cleaning and access under one roof and runs it.",
+    "qaPassed": true,
+    "createdAt": "2026-07-13T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-13-runs-for-you-compare",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "compare",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16"
+    ],
+    "headline": "It handles 90% of your hosting for you",
+    "angle": "You did not start hosting to babysit another app. Hububb runs the property and you just check the reports.",
+    "qaPassed": true,
+    "createdAt": "2026-07-13T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-13-see-the-margin-spotlight",
+    "product": "host",
+    "persona": "scaling-operator",
+    "template": "spotlight",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16"
+    ],
+    "headline": "Your best month yet,",
+    "angle": "At six flats the money moves faster than you can track it. One dashboard shows revenue, occupancy and channel mix per listing, so the margin you can feel is finally on screen.",
+    "qaPassed": true,
+    "createdAt": "2026-07-13T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-13-wake-up-replies-spotlight",
+    "product": "host",
+    "persona": "side-hustler",
+    "template": "spotlight",
+    "kind": "image",
+    "formats": [
+      "1x1",
+      "4x5",
+      "9x16"
+    ],
+    "headline": "Wake up to replies already answered",
+    "angle": "You have typed the wifi code and the lockbox reply a hundred times. Hububb answers every overnight guest message automatically, in your voice, while you sleep.",
+    "qaPassed": true,
+    "createdAt": "2026-07-13T00:00:00.000Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-12-ecosystem-phones-spotlight",
+    "product": "general",
+    "persona": "general-audience",
+    "template": "spotlight",
+    "kind": "video",
+    "formats": [
+      "4x5",
+      "1x1"
+    ],
+    "headline": "The Hububb ecosystem",
+    "angle": "Hububb Main - Post 3, phone variant: the Hububb ecosystem. Three products, Host, Stay, and Work, are one connected platform. A cinematic cover, one slide per product, a real phone showing Host answering a guest, and a moving montage of real places to close.",
+    "qaPassed": true,
+    "createdAt": "2026-07-12T15:30:00Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
+    "id": "2026-07-12-ecosystem-three-products-spotlight",
+    "product": "general",
+    "persona": "general-audience",
+    "template": "spotlight",
+    "kind": "video",
+    "formats": [
+      "4x5",
+      "1x1"
+    ],
+    "headline": "The Hububb ecosystem",
+    "angle": "Hububb Main - Post 3: the Hububb ecosystem. Three products, Host, Stay, and Work, are one connected platform. Host automates hosting, Stay opens flexible longer stays, Work is the app for the people who keep it running. Together they are one moving system built around the stay.",
+    "qaPassed": true,
+    "createdAt": "2026-07-12T14:00:00Z",
+    "published": false,
+    "performance": null,
+    "learning": ""
+  },
+  {
     "id": "2026-07-10-connected-fragmented-spotlight",
     "product": "general",
     "persona": "general-audience",

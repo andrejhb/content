@@ -6,7 +6,10 @@
   "angle": "WhatsApp and three spreadsheets. Hububb made it stop.",
   "brief": "AGE-1 PROOFCARD. Produce-and-review, not a locked public claim. Brandon owns later claims review. Warm off-white card, near-black type, Hububb accent on the quote chip, highlight, and button. Not yellow. Logo top right. Quote chip is an opening quotation glyph in a filled accent square. Quote verbatim from the August brief. Attribution Verified Hububb Host. Button Connect your Airbnb. Headline is One app for every booking channel. No Hostfully photos. No occupancy number. No Hostie-autonomy line. Stay is not in this frame. Visual card, not black type. Pillar: proof-trust. Funnel: convert. Persona: Priya evenings-host.",
   "template": "proof-card",
-  "formats": ["1x1", "9x16"],
+  "formats": [
+    "1x1",
+    "9x16"
+  ],
   "brandMark": true,
   "image": null,
   "variant": "light",
@@ -18,6 +21,68 @@
     "cta": "Connect your Airbnb →"
   },
   "social": {
-    "conceptCode": "HUB_AUG_BRIEF02_PROOFCARD_VAR03"
+    "conceptCode": "HUB_AUG_BRIEF02_PROOFCARD_VAR03",
+    "firstLine": "Bookings in three places. Cleaners in another.",
+    "caption": "Airbnb, a sheet, a thread. The work is the stitching.\n\nOne app for the channels you already use. Connect the Airbnb you already have.\n\nConnect your Airbnb.",
+    "hashtags": ["#AirbnbHost", "#LondonHosts", "#shorttermrental", "#HububbHost"]
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 6w/33c, subhead 15w/101c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-08-17T08:38:02.784Z"
   }
 }
