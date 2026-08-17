@@ -1,0 +1,29 @@
+{
+  "id": "2026-08-17-hub-aug-brief02-joblist-var02",
+  "createdAt": "2026-08-17T08:11:00.000Z",
+  "product": "host",
+  "persona": "evenings-host",
+  "angle": "The host is doing five jobs they were sold as one.",
+  "brief": "AGE-1 JOBLIST. Signal-style solid black. Headline white, body light grey, Hububb logo. No CTA. No 90%. Brandon claim-safe copy. Do not use All Hububb does is take those jobs off you. Pillar: relief. Funnel: reach. Persona: Priya evenings-host.",
+  "template": "statement",
+  "formats": ["1x1", "9x16"],
+  "brandMark": true,
+  "image": null,
+  "variant": "dark",
+  "copy": {
+    "headline": "Still your own receptionist?",
+    "jobs": [
+      "You\u2019re also the cleaner coordinator.",
+      "You\u2019re also the maintenance manager.",
+      "You\u2019re also the one who sets the price.",
+      "2am wifi question? Also you."
+    ],
+    "close": [
+      "The flat, the guests and the reviews stay yours.",
+      "You really, really don\u2019t have to be all five."
+    ]
+  },
+  "social": {
+    "conceptCode": "HUB_AUG_BRIEF02_JOBLIST_VAR02"
+  }
+}
