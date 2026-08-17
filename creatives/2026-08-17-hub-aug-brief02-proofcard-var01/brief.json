@@ -1,0 +1,23 @@
+{
+  "id": "2026-08-17-hub-aug-brief02-proofcard-var01",
+  "createdAt": "2026-08-17T08:40:00.000Z",
+  "product": "host",
+  "persona": "evenings-host",
+  "angle": "WhatsApp and three spreadsheets. Hububb made it stop.",
+  "brief": "AGE-1 PROOFCARD. Produce-and-review, not a locked public claim. Brandon owns later claims review. Warm off-white card, near-black type, Hububb accent on the quote chip, highlight, and button. Not yellow. Logo top right. Quote chip is an opening quotation glyph in a filled accent square. Quote verbatim from the August brief. Attribution Verified Hububb Host. Button Connect your Airbnb. Headline is 90%+ of operations, handled, as the brief is written. No Hostfully photos. No occupancy number. No Hostie-autonomy line. Stay is not in this frame. Visual card, not black type. Pillar: proof-trust. Funnel: convert. Persona: Priya evenings-host.",
+  "template": "proof-card",
+  "formats": ["1x1", "9x16"],
+  "brandMark": true,
+  "image": null,
+  "variant": "light",
+  "copy": {
+    "headline": "90%+ of operations, handled",
+    "subhead": "I was running cleaners through WhatsApp and bookings through three spreadsheets. Hububb made it stop.",
+    "headlineTail": "Hububb made it stop.",
+    "proof": "Verified Hububb Host",
+    "cta": "Connect your Airbnb →"
+  },
+  "social": {
+    "conceptCode": "HUB_AUG_BRIEF02_PROOFCARD_VAR01"
+  }
+}
