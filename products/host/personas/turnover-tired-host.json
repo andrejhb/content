@@ -1,0 +1,99 @@
+{
+  "version": 2,
+  "id": "turnover-tired-host",
+  "product": "host",
+  "updatedAt": "2026-08-15T00:00:00.000Z",
+  "profile": {
+    "name": "Hannah Reid",
+    "headline": "The turnover-tired host · three flats, too many changeovers",
+    "location": "Kentish Town, London",
+    "bio": "Hannah is 43 and lets three furnished flats in Kentish Town and Tufnell Park. She started on short nights because that was the demand she knew. She is good at it and she is tired of it. Two turnovers a week, linen, the same wifi speech, a guest who stays three nights and treats the place like a hotel. She wants months in the diary. Same flats, fewer keys, people who actually live there for a stretch. She will keep Airbnb. She does not want to buy another stack of software to list for longer stays.",
+    "avatar": "/asset/host/personas/claire.png",
+    "cover": null,
+    "archetype": "turnover-tired-host",
+    "facts": [
+      {
+        "label": "Age",
+        "value": "43"
+      },
+      {
+        "label": "Location",
+        "value": "Kentish Town, London"
+      },
+      {
+        "label": "Occupation",
+        "value": "Lets three flats, part operations, part other work"
+      },
+      {
+        "label": "Portfolio",
+        "value": "3 furnished flats, Zone 2"
+      },
+      {
+        "label": "Hosting since",
+        "value": "2019"
+      },
+      {
+        "label": "Wants",
+        "value": "Months in the diary, not another weekend clean"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "jtbd",
+      "title": "Jobs to be done",
+      "kind": "list",
+      "content": [
+        "Put longer stays on the same three flats without standing up a second system.",
+        "Keep short Airbnb nights when they fit, and block the calendar so the two do not collide.",
+        "Cut turnovers without emptying the diary.",
+        "Operate those longer bookings with the same inbox, access and clean she already runs."
+      ]
+    },
+    {
+      "key": "pains",
+      "title": "Pains",
+      "kind": "list",
+      "content": [
+        "Turnover load: linen and cleans that eat the week even when the nights pay.",
+        "Guest fit: three-night stays that wear the flat harder than a month.",
+        "Channel fear: she assumes longer-stay demand means another paid tool. It does not.",
+        "Calendar risk: a short booking landing on top of a month she wanted to hold."
+      ]
+    },
+    {
+      "key": "lifestyle",
+      "title": "Lifestyle",
+      "kind": "text",
+      "content": "Hannah likes hosting when the person is actually living there. She has had enough of hotel energy in a home she furnished. She is practical, not ideological about 28 days. She will take a good month over a busy week. She will not pay twice to operate the same three flats."
+    },
+    {
+      "key": "positioning",
+      "title": "Value we promise",
+      "kind": "text",
+      "content": "List on Stay for free. Keep Airbnb on the same free account. One calendar for short nights and longer stays. The Host foundation is enough to run those bookings. Premium Host is not the price of entry."
+    },
+    {
+      "key": "tools-they-use",
+      "title": "Tools they use",
+      "kind": "list",
+      "content": [
+        "Airbnb",
+        "iCal she does not fully trust",
+        "WhatsApp",
+        "A cleaner on a weekly rhythm"
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "title": "Fewer keys",
+      "body": "Run hububb-creative for host.\n\nAngle: Three flats. Too many changeovers. Longer stays on the same calendar, listed free on Stay, Airbnb still connected.\nDescription: Relief from turnover, not a new PMS. Do not describe Stay as fully managed.\n\nSpeak to: Hannah Reid, the turnover-tired host in Kentish Town.\nTemplates: statement, problem-to-calm\nFormats: all four\nImagery: none\n\nDo not say paid Host is required to list on Stay. Do not present Dubai or Bali. London only.\n\nRender when QA passes and give me the review links."
+    },
+    {
+      "title": "One calendar",
+      "body": "Run hububb-creative for host.\n\nAngle: Short nights and a month can share three flats if they share one calendar. Stay is a channel on the Host foundation, not a second job.\nDescription: Complementary demand. Specific. No feature dump.\n\nSpeak to: Hannah Reid, who will keep Airbnb and wants months in the diary.\nTemplates: feature-card, statement\nFormats: all four\nImagery: none\n\nDo not assume Stay-only has blocking against every external OTA. Do not invent payout mechanics.\n\nRender when QA passes and give me the review links."
+    }
+  ],
+  "promptsUpdatedAt": "2026-08-15T00:00:00.000Z"
+}

@@ -1,0 +1,98 @@
+{
+  "version": 2,
+  "id": "evenings-host",
+  "product": "host",
+  "updatedAt": "2026-08-15T00:00:00.000Z",
+  "profile": {
+    "name": "Priya Shah",
+    "headline": "The evenings host · one flat, one real job",
+    "location": "Camberwell, London",
+    "bio": "Priya is 36 and works full-time at a publishing house in town. The one-bed in Camberwell is the flat she used to live in. She moved in with her partner last year and listed it on Airbnb so the mortgage did not sit empty. It was meant to be quiet extra income. It is now the thing she checks between meetings and the reason Sunday nights disappear. A guest message at 10pm, a cleaner who might not confirm, keys she is not sure she left. She wants the listing to keep earning without becoming the second job she never applied for.",
+    "avatar": "/asset/host/people/sofia.png",
+    "cover": null,
+    "archetype": "evenings-host",
+    "facts": [
+      {
+        "label": "Age",
+        "value": "36"
+      },
+      {
+        "label": "Location",
+        "value": "Camberwell, London"
+      },
+      {
+        "label": "Occupation",
+        "value": "Publishing, full-time"
+      },
+      {
+        "label": "Portfolio",
+        "value": "1 one-bed, listed on Airbnb"
+      },
+      {
+        "label": "Hosting since",
+        "value": "2025"
+      },
+      {
+        "label": "Wants",
+        "value": "The income without the Sunday nights"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "jtbd",
+      "title": "Jobs to be done",
+      "kind": "list",
+      "content": [
+        "Keep the Camberwell flat booked and reviewed well without it eating the evenings after work.",
+        "Cover a missed clean or a late guest message without leaving the office or lying awake.",
+        "Know the next turnover is handled from the booking, not from a thread she has to chase.",
+        "Stay the owner. See what happened. Not sit in every message."
+      ]
+    },
+    {
+      "key": "pains",
+      "title": "Pains",
+      "kind": "list",
+      "content": [
+        "Time: Sunday turnovers and the 10pm guest ping. The job already took the weekday.",
+        "Mental load: the flat lives in her head in meetings. Did the cleaner confirm. Are the keys there.",
+        "Risk: one bad review on a single listing is the whole business.",
+        "Money: she cannot tell what the flat actually nets after cleans, gaps, and the odd refund."
+      ]
+    },
+    {
+      "key": "lifestyle",
+      "title": "Lifestyle",
+      "kind": "text",
+      "content": "Priya has a real week. The flat is supposed to sit beside it, not on top of it. She is competent and slightly ashamed that one listing can still rattle her. She does not want a command centre. She wants the evening back and a clean record of what ran without her."
+    },
+    {
+      "key": "positioning",
+      "title": "Value we promise",
+      "kind": "text",
+      "content": "Connect the Airbnb she already has. Guest messages, the next clean, and the calendar sit in one place so the flat can keep earning while she is at work. She stays in control. She is not on call."
+    },
+    {
+      "key": "tools-they-use",
+      "title": "Tools they use",
+      "kind": "list",
+      "content": [
+        "Airbnb app",
+        "WhatsApp with one cleaner",
+        "Notes on her phone"
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "title": "Sunday nights",
+      "body": "Run hububb-creative for host.\n\nAngle: One flat was meant to be quiet extra income. It took Sunday night. Hububb puts the next turnover on the booking so she is not chasing a cleaner after work.\nDescription: Relief, not autonomy theatre. She keeps the listing. She gets the evening.\n\nSpeak to: Priya Shah, the evenings host with one Camberwell flat and a full-time job.\nTemplates: statement, problem-to-calm\nFormats: all four\nImagery: none\n\nDo not claim Hostie already runs the property. Do not use 90 percent. Do not say Hububb is a PMS. Airbnb connect is free. Cleaning is a job from a Hububb booking, not an open marketplace.\n\nRender when QA passes and give me the review links."
+    },
+    {
+      "title": "Between meetings",
+      "body": "Run hububb-creative for host.\n\nAngle: A guest message at 10pm should not own the rest of the night. Supported replies can be drafted from the house rules. She reviews. She is not the night desk.\nDescription: Mental load lifts. She stays the owner of the voice.\n\nSpeak to: Priya Shah, checking Airbnb between meetings.\nTemplates: statement, image-card\nFormats: all four\nImagery: none\n\nDo not claim every message is already answered autonomously. AI guest messaging is a premium workflow. Do not sell it as part of free Airbnb connect.\n\nRender when QA passes and give me the review links."
+    }
+  ],
+  "promptsUpdatedAt": "2026-08-15T00:00:00.000Z"
+}
