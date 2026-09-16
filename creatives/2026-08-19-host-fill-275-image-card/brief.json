@@ -1,0 +1,84 @@
+{
+  "id": "2026-08-19-host-fill-275-image-card",
+  "createdAt": "2026-08-19T10:05:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "We fill the other 275. Longer stays. You keep the listing.",
+  "brief": "pillar: proof-trust, funnel: follow. Revised @hububbhost 2 what this is. Image-card so the photo leads, not a second spotlight. Unused bedroom still. You keep the listing. We fill the nights London will not let you short-let. No CTA on image. Caption: list on Stay.",
+  "template": "image-card",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/photos/bedroom.jpg",
+  "variant": "light",
+  "copy": {
+    "headline": "We fill the other 275.",
+    "subhead": "Longer stays. You keep the listing."
+  },
+  "social": {
+    "primaryText": "London caps short lets at 90 nights. We fill the other 275 with longer stays. You keep the listing.\n\nStart with one listing. List on Stay.",
+    "cta": "List on Stay"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 5w/22c, subhead 6w/35c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-08-19T09:25:49.605Z"
+  }
+}

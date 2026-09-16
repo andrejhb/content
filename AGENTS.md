@@ -32,6 +32,22 @@ Served asset paths: `/asset/<slug>/<group>/<file>` and `/asset/shared/…`.
 Briefs are flat under `creatives/` with a required `product` field — do not
 nest creatives by product.
 
+**Flask is the default for generated video.** Every video this agent produces
+(Remotion `scripts/render-video.mjs`, HyperFrames, ffmpeg, a screen recording)
+goes to Flask (flask.do) for review. Do not hand the user a local path, a bare
+`.mp4`, or “describe what to change.” Upload, share the flask.do link immediately,
+then request and read the feedback there (timestamped comments + recording
+transcripts). Revisions are new versions of the same Flask asset (`version_of`),
+not a new upload.
+
+Loop: `flask-review` skill + Flask MCP (`https://api.flask.do/api/mcp/mcp`,
+Cursor server `flask` / `user-flask`). `upload_file_start` → give the link →
+curl bytes → `upload_file_complete` → `wait_for_feedback` → read
+`feedback_list` / transcripts / `get_annotated_frames`. If Flask MCP is
+Unauthorized or “failed during live tool discovery”, stop retrying auth in-session
+and ask the user to **restart Cursor**, then `/mcp` → Flask → complete browser
+sign-in.
+
 **Data access seam:** all app filesystem access goes through
 `lib/{products,brand,creatives,assets,personas}.ts`. Keep it that way — these
 modules are the swap point if flat files ever move to SQLite. The only app

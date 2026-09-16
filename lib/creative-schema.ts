@@ -18,6 +18,7 @@ export type CreativeTemplate =
   | "spotlight"
   | "stack"
   | "compare"
+  | "chat-thread"
   | "launch-hello"
   | "launch-index";
 
@@ -33,6 +34,8 @@ export type BriefCopy = {
   solid?: boolean;
   cta?: string;
   ctaIcon?: string;
+  /** Supporting line under the CTA on the end card. */
+  ctaSub?: string;
   rotating?: string[];
   items?: { label: string; text: string }[];
   handle?: string;
@@ -45,6 +48,17 @@ export type BriefCopy = {
   };
   channels?: { label?: string; icons: string[]; more?: string };
   notifications?: { icon?: string; title: string; text?: string; meta?: string }[];
+  contact?: string;
+  avatar?: string;
+  thread?: BriefChatBubble[];
+};
+
+// chat-thread rows. Mirrors ChatBubble in lib/chat-styles.ts.
+export type BriefChatBubble = {
+  from: "in" | "out" | "day";
+  text?: string;
+  time?: string;
+  typing?: boolean;
 };
 
 export type BriefVideo = {
@@ -73,6 +87,7 @@ export const REMOTION_COMPOSITION_IDS = [
   "phone-showcase",
   "animated-spotlight",
   "animated-stack",
+  "animated-chat-thread",
   "launch-hello",
   "launch-statement",
   "launch-spotlight",
@@ -81,6 +96,7 @@ export const REMOTION_COMPOSITION_IDS = [
   "launch-cover",
   "motion-film",
   "remocn-demo",
+  "paper-layers",
 ] as const;
 export type RemotionCompositionId = (typeof REMOTION_COMPOSITION_IDS)[number];
 
@@ -148,16 +164,31 @@ export type CreativeBrief = {
   formats: CreativeFormat[];
   brandMark: boolean;
   image?: string | null;
+  images?: string[];
   panelImage?: string | null;
   variant?: "light" | "dark";
   topScrim?: boolean | "soft";
   dim?: number;
   compactHead?: boolean;
+  spotAlign?: "center" | "end";
   compareLayout?: "hero";
+  chatStyle?: "whatsapp" | "imessage" | "black";
   ctaPill?: boolean;
+  /** Horizontal alignment of the copy block. Defaults to "start". */
+  textAlign?: "start" | "center";
+  /** Vertical placement of the copy block. Defaults to spotAlign's behaviour. */
+  vAlign?: "center" | "end";
+  /** "link" drops the pill and renders the CTA as plain text with an arrow. */
+  ctaStyle?: "pill" | "link";
+  /** The CTA waits for the copy to clear, then lands as its own end card. */
+  ctaBeat?: boolean;
+  /** Headline then subhead as separate beats, one on screen at a time. */
+  sequential?: boolean;
   copy: BriefCopy;
   slides?: BriefSlide[];
   film?: Film;
+  // paper-layers: exported still layers placed in 1080-square design px
+  layers?: unknown[];
   qa?: unknown;
 };
 
@@ -172,9 +203,13 @@ const TEMPLATES: readonly CreativeTemplate[] = [
   "spotlight",
   "stack",
   "compare",
+  "chat-thread",
   "launch-hello",
   "launch-index",
 ];
+
+const CHAT_STYLES: readonly string[] = ["whatsapp", "imessage", "black"];
+const CHAT_FROM: readonly string[] = ["in", "out", "day"];
 
 const FORMATS: readonly CreativeFormat[] = ["1x1", "4x5", "9x16", "16x9"];
 
@@ -238,6 +273,10 @@ export function validateBrief(input: unknown): ValidationResult {
     errors.push('variant must be "light" or "dark" when present');
   if ("image" in b && b.image !== null && typeof b.image !== "string")
     errors.push("image must be a string or null when present");
+  if ("images" in b && b.images !== undefined) {
+    if (!Array.isArray(b.images) || b.images.some((p) => typeof p !== "string" || p.length === 0))
+      errors.push("images must be an array of non-empty strings when present");
+  }
   if ("panelImage" in b && b.panelImage !== null && typeof b.panelImage !== "string")
     errors.push("panelImage must be a string or null when present");
 
@@ -286,6 +325,39 @@ export function validateBrief(input: unknown): ValidationResult {
             `slides[${i}].composition "${s.composition}" is not a registered composition`,
           );
         }
+      });
+    }
+  }
+
+  // chat-thread: the look flag and the thread rows. A row is a chip, or a
+  // bubble that carries text or a typing indicator; one with neither renders
+  // as an empty bubble, which is never intentional.
+  if ("chatStyle" in b && b.chatStyle !== undefined && !CHAT_STYLES.includes(b.chatStyle as string))
+    errors.push(`chatStyle "${String(b.chatStyle)}" is not one of ${CHAT_STYLES.join(", ")}`);
+
+  const thread = isObject(b.copy) ? (b.copy as Record<string, unknown>).thread : undefined;
+  if (thread !== undefined) {
+    if (!Array.isArray(thread)) {
+      errors.push("copy.thread must be an array when present");
+    } else {
+      thread.forEach((raw, i) => {
+        if (!isObject(raw)) {
+          errors.push(`copy.thread[${i}] must be an object`);
+          return;
+        }
+        if (!CHAT_FROM.includes(raw.from as string))
+          errors.push(`copy.thread[${i}].from "${String(raw.from)}" is not one of ${CHAT_FROM.join(", ")}`);
+        if ("text" in raw && typeof raw.text !== "string")
+          errors.push(`copy.thread[${i}].text must be a string when present`);
+        if ("time" in raw && typeof raw.time !== "string")
+          errors.push(`copy.thread[${i}].time must be a string when present`);
+        if ("typing" in raw && typeof raw.typing !== "boolean")
+          errors.push(`copy.thread[${i}].typing must be a boolean when present`);
+        const empty = typeof raw.text !== "string" || raw.text.length === 0;
+        if (raw.from === "day" && empty)
+          errors.push(`copy.thread[${i}] is a day chip and needs text`);
+        if (raw.from !== "day" && empty && raw.typing !== true)
+          errors.push(`copy.thread[${i}] has no text — set typing: true for a deliberate empty bubble`);
       });
     }
   }

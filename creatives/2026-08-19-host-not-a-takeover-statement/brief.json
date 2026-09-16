@@ -1,0 +1,84 @@
+{
+  "id": "2026-08-19-host-not-a-takeover-statement",
+  "createdAt": "2026-08-19T08:10:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "Not a takeover. Not a PMS. One listing is enough.",
+  "brief": "pillar: proof-trust, funnel: convert. Third of three @hububbhost stills: what it is not. Light statement, not text-on-black. No CTA pill. One listing is enough. Caption: start with one listing / list on Stay.",
+  "template": "statement",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16"
+  ],
+  "brandMark": true,
+  "image": null,
+  "variant": "light",
+  "copy": {
+    "headline": "Not a takeover. Not a PMS.",
+    "subhead": "One listing is enough."
+  },
+  "social": {
+    "primaryText": "Not a takeover. Not a PMS. Your Airbnb stays yours.\n\nStart with one listing. Move more over only when it is earning. List on Stay when you want longer stays.",
+    "cta": "Start with one listing"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 6w/26c, subhead 4w/22c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-08-19T08:33:17.428Z"
+  }
+}

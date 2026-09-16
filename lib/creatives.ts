@@ -1,5 +1,6 @@
 import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
+import type { ChatBubble, ChatStyleKey } from "@/lib/chat-styles";
 import type { FormatKey } from "@/lib/formats";
 import { compositionLabel } from "@/lib/templates";
 
@@ -12,6 +13,7 @@ export type TemplateKey =
   | "spotlight"
   | "stack"
   | "compare"
+  | "chat-thread"
   | "launch-hello"
   | "launch-index";
 
@@ -33,6 +35,8 @@ export type CreativeCopy = {
   // spotlight: optional small icon inside the CTA pill (served path, e.g. the
   // Airbnb app icon for "Connect your Airbnb")
   ctaIcon?: string;
+  /** Supporting line under the CTA on the end card. */
+  ctaSub?: string;
   // spotlight (animated): rotate through these messages one at a time instead of a static headline
   rotating?: string[];
   // launch-index: the three-part index rows (e.g. Host / Stay / Work with a one-line each)
@@ -56,6 +60,14 @@ export type CreativeCopy = {
   // first. Only the first 4 render. icon is a served path like copy.channels
   // takes, not the bare filename MessageConversation.channel takes.
   notifications?: { icon?: string; title: string; text?: string; meta?: string }[];
+  // chat-thread: the name in the thread header, its avatar photo (a served
+  // path; omit for the brief's empty grey circle), and the thread itself. A row is
+  // "in" (the contact), "out" (the host) or "day" (a centred date chip). A row
+  // with `typing` renders the three-dot indicator instead of text, which is how
+  // a variant puts a host on screen with nothing to say.
+  contact?: string;
+  avatar?: string;
+  thread?: ChatBubble[];
 };
 
 export type QaCheck = { rule: string; ok: boolean; detail?: string };
@@ -145,6 +157,25 @@ export type MessageConversation = {
   answer: string;
 };
 
+// One exported layer of a Paper still for the paper-layers composition. x/y/w/h
+// are 1080-square design pixels; `enter` is the entrance (opacity + travel only),
+// `at` its start in seconds. `clip` rounds and masks the box so `scroll` can
+// drift the image inside it (a device screen that reads as live UI).
+export type PaperLayer = {
+  src: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  enter?: "fade" | "up" | "left" | "right";
+  at?: number;
+  shadow?: string;
+  clip?: number;
+  scroll?: number;
+  /** Top band (design px) that stays put while the rest scrolls: status bar, island. */
+  scrollFrom?: number;
+};
+
 export type Brief = {
   id: string;
   createdAt: string;
@@ -158,6 +189,9 @@ export type Brief = {
   formats: FormatKey[];
   brandMark: boolean;
   image?: string | null; // a served path, e.g. /asset/host/screens/messaging.png
+  // animated-spotlight: extra stills that crossfade behind the copy (carousel
+  // inside one reel). `image` is slide 1 / the poster fallback.
+  images?: string[];
   // feature-card: optional lifestyle photo filling the surface panel behind the
   // floating phone (dimmed under an overlay so the device stays the focal point)
   panelImage?: string | null;
@@ -170,11 +204,26 @@ export type Brief = {
   dim?: number;
   // spotlight: shrink the headline and widen its measure to fit ~2 lines
   compactHead?: boolean;
+  // spotlight: "end" sits the copy on a bottom scrim so the photo stays open above
+  spotAlign?: "center" | "end";
+  // chat-thread: which messenger the thread is dressed as. The brief calls for
+  // WhatsApp; imessage and black are the alternates on the Paper board.
+  chatStyle?: ChatStyleKey;
   // compare: "hero" re-lays the card as headline-led — no brand mark, a larger
   // headline + bigger columns, and a compact centered CTA pinned to the bottom
   compareLayout?: "hero";
   // animated-spotlight: render copy.cta as quiet white text instead of the pill
   ctaPill?: boolean;
+  // animated-spotlight: copy block alignment. textAlign centres it horizontally,
+  // vAlign "center" lifts it off the floor to the middle of the frame.
+  textAlign?: "start" | "center";
+  vAlign?: "center" | "end";
+  // animated-spotlight: "link" drops the CTA pill for plain type with an arrow;
+  // ctaBeat holds the CTA back until the copy has cleared, as its own end card.
+  ctaStyle?: "pill" | "link";
+  ctaBeat?: boolean;
+  // animated-spotlight: run headline and subhead as separate beats, one at a time
+  sequential?: boolean;
   copy: CreativeCopy;
   slides?: Slide[]; // when present, this creative is a carousel
   // phone-mockup-ui template: which app UI plays on the screen ("chat" default,
@@ -190,6 +239,8 @@ export type Brief = {
   property?: { title: string; thumb: string; rating?: number };
   // motion-film: the beat list (video.composition === "motion-film")
   film?: Film;
+  // paper-layers: the exported still's layers, placed in 1080-square design px
+  layers?: PaperLayer[];
   qa?: QaResult;
 };
 

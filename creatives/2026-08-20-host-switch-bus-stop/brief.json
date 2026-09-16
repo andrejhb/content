@@ -1,0 +1,21 @@
+{
+  "id": "2026-08-20-host-switch-bus-stop",
+  "createdAt": "2026-08-20T07:10:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "Is hosting taking too much of your time and attention. Right now you are giving some of it to a poster.",
+  "brief": "pillar: relief, funnel: reach. HUB_AUG_BRIEF02_SWITCH VAR01. Photographed London bus-stop 6-sheet, shot slightly off-square, pavement and traffic visible. Hand-drawn marker caps, black on white. Hububb app icon (silver isometric H on a dark rounded square) sits top right in the copy, like a product pack shot — not a phone. Caps stay because they are this template's identity. Generated as a real street photograph, not a flat mockup.",
+  "template": "spotlight",
+  "formats": ["9x16", "1x1"],
+  "brandMark": false,
+  "image": "/asset/host/photos/hub-aug-brief02-switch-var01-street.png",
+  "variant": "dark",
+  "copy": {
+    "headline": "Is hosting taking too much of your time and attention?",
+    "subhead": "Right now you are giving some of it to a poster. Which is fine. It is quieter than the 9am group chat about who has the keys."
+  },
+  "social": {
+    "primaryText": "Is hosting taking too much of your time and attention? Right now you are giving some of it to a poster.\n\nStart with one listing.",
+    "cta": "Start with one listing"
+  }
+}

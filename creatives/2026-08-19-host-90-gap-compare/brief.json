@@ -1,0 +1,98 @@
+{
+  "id": "2026-08-19-host-90-gap-compare",
+  "createdAt": "2026-08-19T10:20:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "90 nights is the cap. We fill the other 275. You keep the listing.",
+  "brief": "pillar: proof-trust, funnel: engage. Compare variant of the 90/275 line. Dark compare over an unused living-room still so it is not type-only. No CTA pill. Not a reprint of One Roof. Caption: start with one listing / list on Stay.",
+  "template": "compare",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/photos/living-room.jpg",
+  "variant": "dark",
+  "copy": {
+    "headline": "90 nights is the cap.",
+    "subhead": "We fill the other 275.",
+    "compare": {
+      "leftTitle": "Short let year",
+      "left": [
+        "90 nights then empty",
+        "You still do the admin",
+        "The listing goes quiet"
+      ],
+      "rightTitle": "With Hububb",
+      "right": [
+        "Longer stays fill the rest",
+        "You keep the listing",
+        "We take the admin"
+      ]
+    }
+  },
+  "social": {
+    "primaryText": "London caps short lets at 90 nights. We fill the other 275. You keep the listing.\n\nStart with one listing. List on Stay.",
+    "cta": "Start with one listing"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 5w/21c, subhead 5w/22c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-08-19T09:25:49.611Z"
+  }
+}

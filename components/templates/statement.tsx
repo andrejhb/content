@@ -15,8 +15,8 @@ export function StatementTemplate({
   const pad = Math.round(Math.min(w, h) * 0.09);
   const head = Math.round(Math.min(w, h * 1.1) * 0.108);
   const eye = Math.round(w * 0.0225);
-  const sub = Math.round(w * 0.028);
-  const mark = Math.round(w * 0.034);
+  const sub = Math.round(w * 0.036);
+  const mark = Math.round(w * 0.052);
 
   return (
     <CreativeCanvas w={w} h={h} className="bg-mono-1 text-mono-21">
@@ -57,8 +57,7 @@ export function StatementTemplate({
           <div className="flex flex-col" style={{ gap: Math.round(sub * 0.9) }}>
             {c.subhead ? (
               <p
-                className="text-mono-11"
-                style={{ fontSize: sub, lineHeight: 1.32, maxWidth: w * 0.66 }}
+                style={{ fontSize: sub, lineHeight: 1.32, fontWeight: 500, maxWidth: w * 0.66 }}
               >
                 {c.subhead}
               </p>

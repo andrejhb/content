@@ -12,6 +12,7 @@ import { PhoneMockupUi } from "./compositions/phone-mockup-ui";
 import { PhoneShowcase } from "./compositions/phone-showcase";
 import { AnimatedSpotlight } from "./compositions/animated-spotlight";
 import { AnimatedStack } from "./compositions/animated-stack";
+import { AnimatedChatThread } from "./compositions/animated-chat-thread";
 import { LaunchHelloMotion } from "./compositions/launch-hello";
 import { LaunchStatement } from "./compositions/launch-statement";
 import { LaunchSpotlight } from "./compositions/launch-spotlight";
@@ -20,6 +21,7 @@ import { LaunchForm } from "./compositions/launch-form";
 import { LaunchCover } from "./compositions/launch-cover";
 import { MotionFilm } from "./compositions/motion-film";
 import { RemocnDemo } from "./compositions/remocn-demo";
+import { PaperLayers } from "./compositions/paper-layers";
 
 // Compositions are registered once; width/height/duration resolve per render
 // from inputProps (format key + durationSec) via calculateMetadata.
@@ -60,6 +62,23 @@ const SAMPLE_FILM_BRIEF: Brief = {
       { shot: "statement", durationSec: 2.5, line: "2:14 am", tail: "A guest has a question" },
       { shot: "stat", durationSec: 3, stat: { value: 90, suffix: "%", label: "of the day-to-day, handled" } },
       { shot: "wordmark", durationSec: 2.5, line: "Hosting that runs itself" },
+    ],
+  },
+};
+
+// Studio-only sample thread so the chat composition previews without a brief.
+const SAMPLE_CHAT_BRIEF: Brief = {
+  ...SAMPLE_BRIEF,
+  template: "chat-thread",
+  chatStyle: "whatsapp",
+  copy: {
+    contact: "Sam",
+    headline: "One platform to manage messaging, cleaners, pricing and repairs.",
+    cta: "List your unit",
+    thread: [
+      { from: "day", text: "TODAY" },
+      { from: "in", text: "how are you running three flats now" },
+      { from: "out", text: "i stopped doing the admin", time: "21:34" },
     ],
   },
 };
@@ -106,8 +125,9 @@ const REGISTRY: Record<
   "hostie-ad": { component: HostieAd, seconds: 10, propSeconds: 10 },
   "phone-mockup-ui": { component: PhoneMockupUi, seconds: 8 },
   "phone-showcase": { component: PhoneShowcase, seconds: 8 },
-  "animated-spotlight": { component: AnimatedSpotlight, seconds: 7, propSeconds: 7 },
+  "animated-spotlight": { component: AnimatedSpotlight, seconds: 8, propSeconds: 8 },
   "animated-stack": { component: AnimatedStack, seconds: 7, propSeconds: 7 },
+  "animated-chat-thread": { component: AnimatedChatThread, seconds: 11, propSeconds: 11, brief: SAMPLE_CHAT_BRIEF },
   "launch-hello": { component: LaunchHelloMotion, seconds: 8 },
   "launch-statement": { component: LaunchStatement, seconds: 6 },
   "launch-spotlight": { component: LaunchSpotlight, seconds: 6 },
@@ -116,6 +136,7 @@ const REGISTRY: Record<
   "launch-cover": { component: LaunchCover, seconds: 4, propSeconds: 4 },
   "motion-film": { component: MotionFilm, seconds: 8, brief: SAMPLE_FILM_BRIEF },
   "remocn-demo": { component: RemocnDemo, seconds: 9, propSeconds: 9 },
+  "paper-layers": { component: PaperLayers, seconds: 10, propSeconds: 10 },
 };
 
 export function RemotionRoot() {

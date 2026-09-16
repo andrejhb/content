@@ -1,0 +1,86 @@
+{
+  "id": "2026-08-19-host-90-nights-spotlight",
+  "createdAt": "2026-08-19T10:00:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "London caps short lets at 90 nights. We fill the other 275.",
+  "brief": "pillar: relief, funnel: reach. v3 cook. Both lines on one still, type on a bottom scrim, full-opacity white, no dim. Unused London interior. No CTA pill.",
+  "template": "spotlight",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/photos/living-london.png",
+  "variant": "dark",
+  "topScrim": "soft",
+  "spotAlign": "end",
+  "copy": {
+    "headline": "London caps short lets at 90 nights.",
+    "subhead": "We fill the other 275."
+  },
+  "social": {
+    "primaryText": "London caps short lets at 90 nights. The other 275 sit empty.\n\nStart with one listing. List on Stay when you want those nights filled.",
+    "cta": "Start with one listing"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 7w/36c, subhead 5w/22c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-08-19T09:25:49.589Z"
+  }
+}

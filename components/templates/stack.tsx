@@ -53,9 +53,9 @@ export function StackTemplate({
     Math.min(w, h * 1.05) *
       (landscape ? 0.05 : tall ? (compact ? 0.058 : 0.082) : compact ? 0.052 : 0.062),
   );
-  const sub = Math.round(w * 0.027);
+  const sub = Math.round(w * 0.038);
   const ctaH = Math.round(min * 0.075);
-  const logoH = Math.round(min * 0.044);
+  const logoH = Math.round(min * 0.068);
 
   // A squarer canvas has less room above the copy, so it carries a shallower pile.
   const maxDepth = h / w >= 1.15 ? 4 : 3;

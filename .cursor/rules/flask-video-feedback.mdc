@@ -1,0 +1,15 @@
+---
+description: Flask is the default for uploading generated videos and reading review feedback
+alwaysApply: true
+---
+
+# Flask is the default video feedback tool
+
+Every video this agent generates (Remotion, HyperFrames, ffmpeg, screen recording) is reviewed in Flask (flask.do). Do not send a local file path or a bare `.mp4`.
+
+1. Load the `flask-review` skill.
+2. Upload via Flask MCP (`https://api.flask.do/api/mcp/mcp`): `upload_file_start` → share the flask.do link immediately → curl the bytes → `upload_file_complete`.
+3. Request feedback with `wait_for_feedback`. Read comments and recording transcripts; use `get_annotated_frames` for “this/here/that.”
+4. Ship changes as a new version of the same asset (`version_of`), then share `version_stack_url`.
+
+If Flask MCP returns Unauthorized or fails live discovery, ask the user to restart Cursor and sign in via `/mcp` → Flask. Do not keep calling `mcp_auth` in the same session.

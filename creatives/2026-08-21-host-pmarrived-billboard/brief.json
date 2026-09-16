@@ -1,0 +1,24 @@
+{
+  "id": "2026-08-21-host-pmarrived-billboard",
+  "createdAt": "2026-08-21T07:50:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "Your AI property manager has arrived. It doesn't want your flat, just the admin.",
+  "brief": "pillar: relief, funnel: reach. HUB_AUG_BRIEF02_PMARRIVED VAR02. Real 48-sheet billboard in a brick railway underpass, spotlight above, flooded edge to edge in the Hububb mint accent (not the reference yellow). Black condensed caps ranged left over three lines, footnote beneath, white shelf along the bottom with the phone standing on it the way the cereal box sits in the SURREAL reference. Caps are this template's identity. Generated as a real street photograph, not a flat mockup.",
+  "template": "spotlight",
+  "formats": ["9x16", "1x1"],
+  "brandMark": false,
+  "image": "/asset/host/photos/hub-aug-brief02-pmarrived-var02-billboard.png",
+  "variant": "dark",
+  "copy": {
+    "headline": "YOUR AI PROPERTY MANAGER HAS ARRIVED*",
+    "subhead": "*It doesn't want your flat. Just the admin."
+  },
+  "generation": {
+    "provider": "higgsfield",
+    "model": "nano_banana_pro",
+    "resolution": "2k",
+    "aspectRatio": "9:16",
+    "creditsPerImage": 2
+  }
+}

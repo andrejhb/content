@@ -1,0 +1,87 @@
+{
+  "id": "2026-08-19-host-job-and-flat-spotlight",
+  "createdAt": "2026-08-19T08:00:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "You have a job. You also have a flat. Hosting was never meant to become the second shift.",
+  "brief": "pillar: relief, funnel: reach. First of three @hububbhost stills: the feeling. Spotlight over an unused London interior (De Beauvoir listing), two-tone sentence-case headline, no CTA pill, no Airbnb belo. Caption carries start with one listing. Not a reprint of Second Job.",
+  "template": "spotlight",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/photos/listing-de-beauvoir.jpg",
+  "variant": "dark",
+  "topScrim": true,
+  "dim": 0.22,
+  "copy": {
+    "headline": "You have a job.",
+    "headlineTail": "You also have a flat.",
+    "subhead": "Hosting was never meant to become the other one."
+  },
+  "social": {
+    "primaryText": "You have a job. You also have a flat. The listing was meant to help, not to sit in the evening with you.\n\nStart with one listing. List on Stay when you want longer stays.",
+    "cta": "Start with one listing"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 4w/15c, subhead 9w/48c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-08-19T08:33:17.422Z"
+  }
+}

@@ -18,10 +18,9 @@ export function ImageCardTemplate({
   const pad = Math.round(Math.min(w, h) * 0.07);
   const eye = Math.round(w * 0.022);
   const head = Math.round(Math.min(w, h * 1.05) * (landscape ? 0.058 : 0.066));
-  const mark = Math.round(w * 0.03);
+  const mark = Math.round(w * 0.048);
 
   const bg = dark ? "bg-mono-20 text-mono-1" : "bg-mono-1 text-mono-21";
-  const eyeColor = dark ? "text-mono-5" : "text-mono-11";
   const accentBg = dark ? "bg-mono-5" : "bg-mono-11";
   const frame = dark ? "border-mono-18" : "border-mono-4";
   // Lift the image off the page, matching the feature-card panel's depth.
@@ -47,7 +46,7 @@ export function ImageCardTemplate({
           )}
           {c.eyebrow ? (
             <span
-              className={`font-mono ${eyeColor}`}
+              className="font-mono"
               style={{ fontSize: eye, letterSpacing: "0.01em" }}
             >
               {c.eyebrow}
@@ -63,10 +62,10 @@ export function ImageCardTemplate({
       </h1>
       {c.subhead ? (
         <p
-          className={dark ? "text-mono-4" : "text-mono-11"}
           style={{
-            fontSize: Math.round(w * 0.026),
+            fontSize: Math.round(w * 0.034),
             lineHeight: 1.35,
+            fontWeight: 500,
             marginTop: Math.round(head * 0.3),
             maxWidth: landscape ? "100%" : w * 0.8,
           }}
