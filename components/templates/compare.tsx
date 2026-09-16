@@ -70,7 +70,7 @@ export function CompareTemplate({
     Math.min(w, h * 1.05) *
       (landscape ? (hero ? 0.06 : 0.052) : tall ? (hero ? 0.084 : 0.07) : hero ? (square ? 0.064 : 0.068) : 0.06),
   );
-  const mark = Math.round(w * 0.037);
+  const mark = Math.round(w * 0.052);
   // Accent marks from the design-system token scales (tokens.json). The app
   // layer only ships mono utilities, so the accent hexes are pinned here with
   // their token names.
@@ -103,21 +103,15 @@ export function CompareTemplate({
         : {
             background: "rgba(255,255,255,0.055)",
             border: "1px solid rgba(255,255,255,0.13)",
-            color: "rgba(255,255,255,0.78)",
+            color: "#ffffff",
           }
       : {
           boxShadow: winner
             ? "0 22px 44px rgba(38,38,38,0.18)"
             : "0 1px 2px rgba(38,38,38,0.04), 0 16px 32px rgba(38,38,38,0.06)",
         };
-    const titleClass = dark
-      ? winner
-        ? "text-mono-11"
-        : ""
-      : winner
-        ? "text-mono-5"
-        : "text-mono-11";
-    const titleStyle = dark && !winner ? { color: "rgba(255,255,255,0.55)" } : {};
+    const titleClass = "";
+    const titleStyle = dark && !winner ? { color: "#ffffff" } : {};
     const iconStyle = { color: winner ? checkColor : crossColor };
 
     return (
@@ -161,7 +155,7 @@ export function CompareTemplate({
             alt=""
             className="absolute inset-0 h-full w-full object-cover"
           />
-          <div className="absolute inset-0" style={{ background: "rgba(10,10,10,0.86)" }} />
+          <div className="absolute inset-0" style={{ background: "rgba(10,10,10,0.72)" }} />
         </>
       ) : null}
       <div
@@ -178,10 +172,10 @@ export function CompareTemplate({
           </h1>
           {c.subhead ? (
             <p
-              className={dark ? "text-mono-5" : "text-mono-11"}
               style={{
-                fontSize: Math.round(w * (hero && square ? 0.024 : 0.026)),
+                fontSize: Math.round(w * (hero && square ? 0.032 : 0.034)),
                 lineHeight: 1.35,
+                fontWeight: 500,
                 marginTop: Math.round(head * (hero ? 0.5 : 0.3)),
                 maxWidth: landscape ? "100%" : w * 0.82,
               }}

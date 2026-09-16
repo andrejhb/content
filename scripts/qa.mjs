@@ -82,6 +82,13 @@ function copyFields(c) {
     ...(Array.isArray(c.notifications)
       ? c.notifications.flatMap((n) => (n ? [n.title, n.text, n.meta] : []))
       : []),
+    // chat-thread bubbles. The conversation IS the ad, so it is gated like the
+    // headline. Day chips and timestamps are thread chrome rather than copy
+    // anyone wrote, and "TODAY" would trip no-shouting, so they stay out.
+    ...(Array.isArray(c.thread)
+      ? c.thread.filter((m) => m && m.from !== "day").map((m) => m.text)
+      : []),
+    c.contact,
   ];
 }
 

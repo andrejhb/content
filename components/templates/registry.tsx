@@ -8,6 +8,7 @@ import { ShowcaseTemplate } from "./showcase";
 import { SpotlightTemplate } from "./spotlight";
 import { StackTemplate } from "./stack";
 import { CompareTemplate } from "./compare";
+import { ChatThreadTemplate } from "./chat-thread";
 import { LaunchHelloTemplate } from "./launch-hello";
 import { LaunchIndexTemplate } from "./launch-index";
 
@@ -29,6 +30,7 @@ const COMPONENTS: Record<TemplateKey, TemplateComponent> = {
   spotlight: SpotlightTemplate,
   stack: StackTemplate,
   compare: CompareTemplate,
+  "chat-thread": ChatThreadTemplate,
   "launch-hello": LaunchHelloTemplate,
   "launch-index": LaunchIndexTemplate,
 };

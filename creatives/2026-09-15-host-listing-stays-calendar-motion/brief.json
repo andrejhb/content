@@ -1,0 +1,148 @@
+{
+  "id": "2026-09-15-host-listing-stays-calendar-motion",
+  "createdAt": "2026-09-15T17:50:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "Your listing stays on Airbnb, the work moves to Hububb: the multi-calendar keeps filling with stays from every channel while the host is out.",
+  "brief": "Light motion pass over the Paper still 'Host calendar 1x1 / 03 dusk / text C' (Hostfully calendar-ad answer). Layers exported from Paper at 2x into products/host/assets/paper. Wordmark fades on, the iPhone rises with the live calendar, the headline lands in two beats, the two done cards slide in, the calendar drifts up during the hold, then the headline clears for the CTA in two beats. Type moves on opacity and travel only, Inter 400/600. Ten seconds, 1x1. Requested in Paper comment c-vqykx8. v2 (Flask feedback on WGbbw): wordmark 20% bigger, scroll eased across the whole film, text beats faster, no full stop on the CTA.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "paper-layers",
+    "durationSec": 10,
+    "fps": 30
+  },
+  "template": "spotlight",
+  "formats": [
+    "1x1"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/paper/calendar-bg-textc.png",
+  "variant": "dark",
+  "copy": {
+    "headline": "Listing stays on Airbnb.",
+    "headlineTail": "Work moves to Hububb.",
+    "cta": "List on Hububb, get longer stays"
+  },
+  "layers": [
+    {
+      "src": "/asset/host/paper/calendar-wordmark-white.png",
+      "x": 81,
+      "y": 81,
+      "w": 222,
+      "h": 74,
+      "enter": "fade",
+      "at": 0
+    },
+    {
+      "src": "/asset/host/paper/calendar-plate.png",
+      "x": 231,
+      "y": 380,
+      "w": 618,
+      "h": 1285,
+      "enter": "up",
+      "at": 0.15,
+      "shadow": "drop-shadow(0 34px 60px rgba(0,0,0,0.55))"
+    },
+    {
+      "src": "/asset/host/paper/calendar-screen.png",
+      "x": 251,
+      "y": 400,
+      "w": 576,
+      "h": 1244,
+      "enter": "up",
+      "at": 0.15,
+      "clip": 100,
+      "scroll": 110,
+      "scrollFrom": 180
+    },
+    {
+      "src": "/asset/host/paper/calendar-frame.png",
+      "x": 227,
+      "y": 380,
+      "w": 626,
+      "h": 1285,
+      "enter": "up",
+      "at": 0.15
+    },
+    {
+      "src": "/asset/host/paper/calendar-card-checkin.png",
+      "x": 495,
+      "y": 573,
+      "w": 540,
+      "h": 124,
+      "enter": "right",
+      "at": 2,
+      "shadow": "drop-shadow(0 2px 6px rgba(0,0,0,0.18)) drop-shadow(0 22px 48px rgba(0,0,0,0.42))"
+    },
+    {
+      "src": "/asset/host/paper/calendar-card-rate.png",
+      "x": 45,
+      "y": 905,
+      "w": 540,
+      "h": 124,
+      "enter": "left",
+      "at": 2.5,
+      "shadow": "drop-shadow(0 2px 6px rgba(0,0,0,0.18)) drop-shadow(0 22px 48px rgba(0,0,0,0.42))"
+    }
+  ],
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 4w/24c, subhead 0w/0c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-09-15T15:49:53.468Z"
+  }
+}

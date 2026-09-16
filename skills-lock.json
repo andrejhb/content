@@ -19,6 +19,12 @@
       "skillPath": ".agents/skills/cut-the-curve/SKILL.md",
       "computedHash": "0dc00f155130d001cfe6f9bfcc2da2452ad92c13275564178595ec7948414154"
     },
+    "flask-review": {
+      "source": "tryflask/skills",
+      "sourceType": "github",
+      "skillPath": "skills/flask-review/SKILL.md",
+      "computedHash": "3d1ce007160261942d0e23262e6fe83874be86d0c3bd5c78c6c2ca7a216cbe55"
+    },
     "general-video": {
       "source": "heygen-com/hyperframes",
       "sourceType": "github",

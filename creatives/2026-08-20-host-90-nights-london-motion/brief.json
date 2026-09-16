@@ -1,0 +1,99 @@
+{
+  "id": "2026-08-20-host-90-nights-london-motion",
+  "createdAt": "2026-08-20T12:00:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "London caps short-term lets at 90 nights. Hububb fills the other 275.",
+  "brief": "pillar: relief, funnel: reach. Motion take of the signed 90/275 feeling still: wordmark top-left, copy left-aligned in the middle of the frame over a Higgsfield day-to-night timelapse of Big Ben. Setup lands and clears, then the payoff lands and clears, then List your unit as its own end card. One generated clip from a real London photograph, no still carousel.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "animated-spotlight",
+    "durationSec": 12,
+    "fps": 30,
+    "model": "kling3_0",
+    "prompt": "Rapid timelapse behind the Big Ben clock tower, from london-tower-bridge.jpg (centre-cropped 9:16). Golden sunset darkens fast through orange and blue to a fully black night sky by the midpoint and stays dark; clock face and city lights burn against it. Locked static camera, photorealistic, no text."
+  },
+  "template": "spotlight",
+  "formats": [
+    "9x16",
+    "4x5"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/photos/london-tower-bridge.jpg",
+  "images": [
+    "/asset/host/clips/london-day-to-night.mp4"
+  ],
+  "variant": "dark",
+  "topScrim": "soft",
+  "spotAlign": "end",
+  "copy": {
+    "headline": "London caps short-term lets at 90 nights",
+    "subhead": "Hububb fills the other 275",
+    "cta": "List your unit",
+    "ctaSub": "Get longer stays"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 7w/40c, subhead 5w/26c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-08-20T19:36:23.889Z"
+  },
+  "ctaStyle": "link",
+  "vAlign": "center",
+  "ctaBeat": true,
+  "sequential": true
+}

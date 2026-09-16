@@ -49,6 +49,10 @@ export const TEMPLATE_META: Record<TemplateKey, { label: string; blurb: string }
     label: "Compare",
     blurb: "Two-column checklist: the old way with crosses, Hububb with checks.",
   },
+  "chat-thread": {
+    label: "Chat thread",
+    blurb: "A full-bleed phone message thread, closing on a solid Hububb card.",
+  },
   "launch-hello": {
     label: "Launch hello",
     blurb: "Dark editorial greeting for the brand account. Big light-weight type on near-black.",
@@ -70,6 +74,7 @@ export const COMPOSITION_LABELS: Record<RemotionCompositionId, string> = {
   "animated-statement": "Statement",
   "animated-spotlight": "Spotlight",
   "animated-stack": "Stack",
+  "animated-chat-thread": "Chat thread",
   "hostie-ad": "Hostie ad",
   "logo-sting": "Logo sting",
   "launch-hello": "Launch hello",
@@ -80,6 +85,7 @@ export const COMPOSITION_LABELS: Record<RemotionCompositionId, string> = {
   "launch-cover": "Launch cover",
   "motion-film": "Motion film",
   "remocn-demo": "Remocn demo",
+  "paper-layers": "Paper layers",
 };
 
 /** Label lookup tolerant of arbitrary strings (briefs are untyped JSON). */
@@ -138,6 +144,11 @@ const MOTION_SEED: (Pick<TemplateEntry, "id" | "blurb" | "reference"> & { parent
   },
   { id: "animated-spotlight", blurb: "Full-bleed image or video with a two-tone headline, in motion.", reference: MOTION_REF("animated-spotlight") },
   { id: "animated-stack", blurb: "Notification cards fanning open over a full-bleed photo, headline and CTA staggering up.", reference: MOTION_REF("animated-stack") },
+  {
+    id: "animated-chat-thread",
+    blurb: "A message thread playing out live: typing indicators, bubbles landing, the thread pushing up, then the closing card.",
+    reference: ["remotion/compositions/animated-chat-thread.tsx", "components/templates/chat-thread.tsx"],
+  },
   { id: "hostie-ad", blurb: "The Hostie AI answering-guests story, told as a short ad.", reference: MOTION_REF("hostie-ad") },
   {
     id: "motion-film",
@@ -145,6 +156,11 @@ const MOTION_SEED: (Pick<TemplateEntry, "id" | "blurb" | "reference"> & { parent
     reference: ["remotion/compositions/motion-film.tsx", "prompts/remotion-motion.md"],
   },
   { id: "logo-sting", blurb: "A short brand sting on the Hububb logo.", reference: MOTION_REF("logo-sting") },
+  {
+    id: "paper-layers",
+    blurb: "A still designed in Paper, exported as layers and animated lightly: two-beat headline, device rising, cards landing, a two-beat CTA close.",
+    reference: MOTION_REF("paper-layers"),
+  },
   { id: "launch-hello", blurb: "Dark editorial greeting for the brand account, animated.", reference: MOTION_REF("launch-hello"), parentOnly: true },
   { id: "launch-statement", blurb: "Dark brand statement in animated big type.", reference: MOTION_REF("launch-statement"), parentOnly: true },
   { id: "launch-spotlight", blurb: "Dark brand spotlight over full-bleed media.", reference: MOTION_REF("launch-spotlight"), parentOnly: true },

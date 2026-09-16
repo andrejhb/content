@@ -1,0 +1,84 @@
+{
+  "id": "2026-08-19-host-not-takeover-image-card",
+  "createdAt": "2026-08-19T10:10:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "Not a takeover. Your listing stays yours. One is enough.",
+  "brief": "pillar: proof-trust, funnel: convert. Revised @hububbhost 3 what it is not. Image-card with a real unused interior. Kills the type-only statement. Not a takeover. One listing is enough. No CTA on image. Caption: start with one listing.",
+  "template": "image-card",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/photos/studio.jpg",
+  "variant": "light",
+  "copy": {
+    "headline": "Not a takeover.",
+    "subhead": "Your listing stays yours. One is enough."
+  },
+  "social": {
+    "primaryText": "Not a takeover. Your listing stays yours. One listing is enough.\n\nStart with one listing. List on Stay when you want longer stays.",
+    "cta": "Start with one listing"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 3w/15c, subhead 7w/40c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-08-19T09:25:49.607Z"
+  }
+}

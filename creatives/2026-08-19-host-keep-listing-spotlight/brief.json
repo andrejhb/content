@@ -1,0 +1,87 @@
+{
+  "id": "2026-08-19-host-keep-listing-spotlight",
+  "createdAt": "2026-08-19T08:05:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "You keep the listing. We take the admin. We also get you longer stays.",
+  "brief": "pillar: proof-trust, funnel: follow. Second of three @hububbhost stills: what this is. Spotlight over an unused London park still, two-tone headline, no CTA pill. Admin is messages, cleans, pricing. Not Hostie already runs the property. Not a takeover. Caption: start with one listing / list on Stay.",
+  "template": "spotlight",
+  "formats": [
+    "1x1",
+    "4x5",
+    "9x16"
+  ],
+  "brandMark": true,
+  "image": "/asset/host/photos/day-back-park.jpg",
+  "variant": "dark",
+  "topScrim": "soft",
+  "dim": 0.18,
+  "copy": {
+    "headline": "You keep the listing.",
+    "headlineTail": "We take the admin.",
+    "subhead": "Messages, cleans, pricing. We also get you longer stays."
+  },
+  "social": {
+    "primaryText": "You keep the listing. We take the admin: guest messages, turnover cleans, pricing. We also get you longer stays.\n\nNot a takeover. Start with one listing. List on Stay when you want the mid-term demand.",
+    "cta": "List on Stay"
+  },
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 4w/21c, subhead 9w/56c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-08-19T08:33:17.428Z"
+  }
+}

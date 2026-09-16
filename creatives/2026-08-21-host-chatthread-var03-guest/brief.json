@@ -1,0 +1,110 @@
+{
+  "id": "2026-08-21-host-chatthread-var03-guest",
+  "createdAt": "2026-08-21T09:00:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "A guest is locked out at eleven at night, sends three messages into silence, and hears back the next morning.",
+  "template": "chat-thread",
+  "chatStyle": "whatsapp",
+  "brandMark": true,
+  "copy": {
+    "contact": "Marco Airbnb Guest",
+    "avatar": "/asset/shared/avatars/avatar-10.png",
+    "thread": [
+      {
+        "from": "day",
+        "text": "YESTERDAY"
+      },
+      {
+        "from": "in",
+        "text": "hi, the door code isn’t working",
+        "time": "22:41"
+      },
+      {
+        "from": "in",
+        "text": "we’ve been out here twenty minutes and it’s pouring",
+        "time": "22:47"
+      },
+      {
+        "from": "in",
+        "text": "hello? is anyone there",
+        "time": "23:06"
+      },
+      {
+        "from": "day",
+        "text": "TODAY"
+      },
+      {
+        "from": "out",
+        "text": "Sorry, I’m just seeing this now",
+        "time": "07:12"
+      }
+    ],
+    "headline": "One platform to manage messaging, cleaners, maintenance, channels, pricing, reviews and repairs.",
+    "cta": "List your unit"
+  },
+  "brief": "pillar: relief, funnel: consideration. VAR03. Host and guest: the guest is locked out and sends three unanswered messages, and the host finally replies the next morning. The day chip between the third and fourth bubble is the whole point. HUB_AUG_BRIEF02_CHATTHREAD. Full-bleed phone message thread, no browser or device frame. WhatsApp styling: incoming bubbles white on a pale ground, outgoing in WhatsApp green with ticks. Header is a back chevron, an empty grey avatar circle, the contact name and a video icon. The closing card replaces the board's image placeholder at the foot of the thread: solid Hububb ground, full thread width, headline reversed out, wordmark and CTA under it. The closing card is the same on all three versions, only the thread changes. brief.chatStyle flips the whole thread to imessage or black without touching the copy.",
+  "kind": "image",
+  "formats": [
+    "9x16"
+  ],
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 12w/96c, subhead 0w/0c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-08-21T14:47:06.990Z"
+  }
+}

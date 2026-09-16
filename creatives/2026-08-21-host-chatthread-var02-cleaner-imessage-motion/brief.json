@@ -1,0 +1,118 @@
+{
+  "id": "2026-08-21-host-chatthread-var02-cleaner-imessage-motion",
+  "createdAt": "2026-08-21T10:00:00.000Z",
+  "product": "host",
+  "persona": "side-hustler",
+  "angle": "The cleaner cancels the same-day turnover two hours before check-in, and the host has nothing to say.",
+  "template": "chat-thread",
+  "chatStyle": "imessage",
+  "brandMark": true,
+  "copy": {
+    "contact": "Ellie Cleaner",
+    "avatar": "/asset/shared/avatars/avatar-13.png",
+    "thread": [
+      {
+        "from": "day",
+        "text": "TODAY"
+      },
+      {
+        "from": "in",
+        "text": "hi, i can’t make the flat today, i’m really sorry",
+        "time": "14:01"
+      },
+      {
+        "from": "out",
+        "text": "today? the guests are in at four",
+        "time": "14:02"
+      },
+      {
+        "from": "in",
+        "text": "i know. i’ve asked everyone, no one can cover",
+        "time": "14:04"
+      },
+      {
+        "from": "out",
+        "typing": true
+      },
+      {
+        "from": "in",
+        "text": "let me know what you want to do",
+        "time": "14:11"
+      }
+    ],
+    "headline": "One platform to manage messaging, cleaners, maintenance, channels, pricing, reviews and repairs.",
+    "cta": "List your unit"
+  },
+  "brief": "pillar: relief, funnel: consideration. Motion take of 2026-08-21-host-chatthread-var02-cleaner: the same thread, played instead of posted, dressed as iMessage (chatStyle imessage) as a numbered variant beside the WhatsApp cut. The contact types, each bubble lands and pushes the older ones up and off under the header, the host's ticks turn read, then the closing card rises last. VAR02. Host and cleaner: the cleaner cancels the same-day turnover, guests arrive in two hours, the host has nothing to say. The fourth bubble is outgoing and empty except for a typing indicator.",
+  "kind": "video",
+  "video": {
+    "track": "remotion",
+    "composition": "animated-chat-thread",
+    "durationSec": 16,
+    "fps": 30,
+    "sourceCreativeId": "2026-08-21-host-chatthread-var02-cleaner"
+  },
+  "formats": [
+    "9x16",
+    "4x5"
+  ],
+  "qa": {
+    "passed": true,
+    "checks": [
+      {
+        "rule": "no-exclamation",
+        "ok": true
+      },
+      {
+        "rule": "no-em-or-en-dash",
+        "ok": true
+      },
+      {
+        "rule": "no-banned-words",
+        "ok": true
+      },
+      {
+        "rule": "no-cliches",
+        "ok": true
+      },
+      {
+        "rule": "no-throat-clearing",
+        "ok": true
+      },
+      {
+        "rule": "no-competitor-names",
+        "ok": true
+      },
+      {
+        "rule": "no-shouting",
+        "ok": true
+      },
+      {
+        "rule": "sentence-case-headline",
+        "ok": true
+      },
+      {
+        "rule": "no-fabricated-traction",
+        "ok": true
+      },
+      {
+        "rule": "coming-soon-labelled",
+        "ok": true
+      },
+      {
+        "rule": "no-sibling-leakage",
+        "ok": true
+      },
+      {
+        "rule": "headline-length",
+        "ok": true,
+        "detail": "headline 12w/96c, subhead 0w/0c"
+      },
+      {
+        "rule": "proof-on-allowlist",
+        "ok": true
+      }
+    ],
+    "checkedAt": "2026-08-21T15:11:00.407Z"
+  }
+}

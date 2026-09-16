@@ -28,14 +28,17 @@ export function SpotlightTemplate({
     Math.min(w, h * 1.05) *
       (landscape ? (compact ? 0.05 : 0.06) : tall ? (compact ? 0.06 : 0.096) : compact ? 0.06 : 0.072),
   );
-  const sub = Math.round(w * 0.027);
+  const bottom = brief.spotAlign === "end";
+  // Bottom-aligned pair: setup + payoff share headline size (Paper 90/275 still).
+  const pair = bottom && !c.headlineTail;
+  const sub = pair ? head : Math.round(w * 0.038);
   const textMax = landscape
     ? Math.round(w * (compact ? 0.55 : 0.5))
     : tall
       ? Math.round(w * (compact ? 0.96 : 0.78))
       : Math.round(w * (compact ? 0.94 : 0.86));
   const ctaH = Math.round(min * 0.075);
-  const logoH = Math.round(min * 0.044);
+  const logoH = Math.round(min * 0.068);
 
   // opt-in top-down darkening for the top edge / brand mark. "soft" is a subtle
   // readability nudge; true is the fuller scrim.
@@ -45,11 +48,17 @@ export function SpotlightTemplate({
       : brief.topScrim
         ? "linear-gradient(180deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.18) 34%, rgba(0,0,0,0) 55%)"
         : null;
-  const scrim = [
-    "linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.7) 42%, rgba(0,0,0,0.36) 72%, rgba(0,0,0,0.1) 100%)",
-    "linear-gradient(0deg, rgba(0,0,0,0.46) 0%, rgba(0,0,0,0) 48%)",
-    ...(topScrim ? [topScrim] : []),
-  ].join(", ");
+  // Bottom-aligned copy uses a floor scrim so the photo stays open above.
+  const scrim = bottom
+    ? [
+        "linear-gradient(0deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.38) 36%, rgba(0,0,0,0) 62%)",
+        ...(topScrim ? [topScrim] : []),
+      ].join(", ")
+    : [
+        "linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.32) 40%, rgba(0,0,0,0.1) 70%, rgba(0,0,0,0) 100%)",
+        "linear-gradient(0deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0) 44%)",
+        ...(topScrim ? [topScrim] : []),
+      ].join(", ");
 
   return (
     <CreativeCanvas w={w} h={h} className="bg-mono-21 text-mono-1">
@@ -72,7 +81,7 @@ export function SpotlightTemplate({
       </div>
 
       <div
-        className="absolute inset-0 flex flex-col justify-center"
+        className={`absolute inset-0 flex flex-col ${bottom ? "justify-end" : "justify-center"}`}
         style={{ padding: pad, gap: Math.round(head * 0.5) }}
       >
         <div className="flex flex-col" style={{ maxWidth: textMax, gap: Math.round(head * 0.28) }}>
@@ -82,7 +91,7 @@ export function SpotlightTemplate({
                 fontSize: eye,
                 fontWeight: 500,
                 letterSpacing: "0.01em",
-                color: "rgba(255,255,255,0.66)",
+                color: "#ffffff",
               }}
             >
               {c.eyebrow}
@@ -90,7 +99,12 @@ export function SpotlightTemplate({
           ) : null}
           <h1
             className="font-semibold tracking-tight text-balance"
-            style={{ fontSize: head, lineHeight: 1.2 }}
+            style={{
+              fontSize: head,
+              lineHeight: pair ? 1.19 : 1.2,
+              letterSpacing: pair ? "-0.03em" : undefined,
+              color: pair && !c.solid ? "rgba(255,255,255,0.5)" : "#ffffff",
+            }}
           >
             {c.rotating && c.rotating.length ? (
               // A still can't rotate — show the last message (matches the video poster).
@@ -98,9 +112,7 @@ export function SpotlightTemplate({
             ) : (
               <>
                 <span>{c.headline}</span>
-                {c.headlineTail ? (
-                  <span style={{ color: c.solid ? "#ffffff" : "rgba(255,255,255,0.62)" }}> {c.headlineTail}</span>
-                ) : null}
+                {c.headlineTail ? <span> {c.headlineTail}</span> : null}
               </>
             )}
           </h1>
@@ -108,8 +120,10 @@ export function SpotlightTemplate({
             <p
               style={{
                 fontSize: sub,
-                lineHeight: 1.4,
-                color: c.solid ? "#ffffff" : "rgba(255,255,255,0.82)",
+                lineHeight: pair ? 1.19 : 1.4,
+                letterSpacing: pair ? "-0.03em" : undefined,
+                color: "#ffffff",
+                fontWeight: pair ? 600 : 500,
                 maxWidth: Math.round(textMax * 0.92),
               }}
             >
