@@ -21,7 +21,7 @@
 - **Hububb Stay** opens the door to fully managed, mid-term stays in tech-enabled homes, where everything is taken care of. You book once and then you let go.
 - **Hububb Work** turns scattered gigs into real, reliable work for the people who keep it all running, with far more to come.
 
-**Vision tease policy:** Tease the future lightly, as "creative, innovative solutions" and "disrupting the industry." Do not name unshipped sub-products or future offerings (held back for now). Speak to what is real: the ecosystem, the three products, London-first, and the physical network of real people.
+**Vision tease policy:** Tease the future lightly, as "creative, innovative solutions" and "disrupting the industry." (Paraphrase only: QA bans "innovative" and "solution", so neither word can appear in copy.) Do not name unshipped sub-products or future offerings (held back for now). Speak to what is real: the ecosystem, the three products, London-first, and the physical network of real people.
 
 ## Target Audience
 This is a company page, not a product page. It frames what Hububb is as a proptech startup and speaks to the people who back, cover, join, and build alongside the company, not to the host, guest, or worker (each of whom has their own product account).
