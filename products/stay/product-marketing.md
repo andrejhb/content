@@ -10,6 +10,8 @@
 
 **Value proposition:** Mid-term stays at tech-enabled, managed properties, without having to care about anything. Cleaners, butlers, everything taken care of. You book and live in the stay; the property runs itself around you.
 
+**Not live yet (14 Oct 2026):** butler or concierge service is marked coming soon on hububb.com; do not present it as live. Also unconfirmed, so not for copy until approved: no deposit, 24/7 human support, keyless entry. Live and usable: booking by the month at furnished, managed homes, cleaning and upkeep taken care of, and adding another month in one tap (HomeHold).
+
 **Audience:** Guests and travellers with unique needs, booking flexible and mid-term stays. Not the host, not the service provider, the person staying.
 
 ## Target Audience

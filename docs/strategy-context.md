@@ -25,8 +25,9 @@ Accounts map to the engine's existing product slugs: host, general (company), wo
 
 Use the engine's existing per-product personas. Strategy mapping:
 
-- host / side-hustler type (1-5 units): hosting became a second job, answers guests at midnight, juggles cleaners on WhatsApp. Wants time back without giving a management company a big share. Trusts other hosts, not vendors. Trigger: relief. PRIMARY.
-- host / scaling-operator (5-20 units): runs it as a business. Consistency, reliable labour, margin. Responds to the third path framing (neither burnout nor giving up margin). Slightly more informational.
+- host / side-hustler type (1-5 units), persona id `evenings-host`: hosting became a second job, answers guests at midnight, juggles cleaners on WhatsApp. Wants time back without giving a management company a big share. Trusts other hosts, not vendors. Trigger: relief, and a calendar that earns past 90 nights. PRIMARY.
+- host / scaling-operator (3-20 units), persona id `turnover-tired-host`: runs it as a business. Consistency, reliable labour, margin, fewer changeovers. Responds to longer stays (one check-in a month instead of weekly turnovers) and the third path framing (neither burnout nor giving up margin). Slightly more informational.
+- host / management company, persona id `pmc-owner`: runs other owners' units with a small team. Responds to occupancy for owners and less ops payroll pressure.
 - work / service provider: cleaner or handyman, wants steady recurring work from verified hosts. Uber driver app mental model. Trigger: predictable income, respect.
 - general / investor-press: wants the category thesis, the moat, momentum, taste. Responds to story and category-of-one confidence.
 
@@ -35,11 +36,14 @@ Use the engine's existing per-product personas. Strategy mapping:
 Each creative serves exactly one pillar. Name it in the brief prose.
 
 ### host
-1. relief: give your life back. Never think about the midnight message again. Emotional, transformational. Lead pillar, ~40% of host output.
-2. runs-itself: Hostie answers in your voice, calendar and pricing handled, cleaners and handymen booked in-app. Benefit-led, never a feature list. ~25%.
-3. proof-trust: tested on real London properties. The third path: keep control, keep your margin. ~15%.
-4. category: autonomous hospitality. AI without hands is a dashboard that talks, we built the hands. ~10%.
-5. community: host voices, conversation starters, later UGC. ~10%.
+Positioning from 14 Oct 2026: lead with longer stays, Hostie is how it runs (see products/host/product-marketing.md).
+
+1. longer-stays: longer stays anchor the year, short stays fill the gaps. Corporate and relocation guests book a month or more, the calendar fills in blocks, the listing stays where it is. Owner framing: what the place earns and what it asks of you. Lead pillar, ~35% of host output.
+2. relief: give your life back. Never think about the midnight message again. Emotional, transformational. ~25%.
+3. runs-itself: Hostie answers in your voice, calendar and pricing handled, cleaners and handymen booked in-app. Benefit-led, never a feature list. ~20%.
+4. proof-trust: tested on real London properties. The third path: keep control, keep your margin. Not a takeover. ~10%.
+5. category: autonomous hospitality. AI without hands is a dashboard that talks, we built the hands. ~5%.
+6. community: host voices, conversation starters, later UGC. ~5%.
 
 ### company (general)
 1. thesis: the ecosystem for flexible stays, everything around the stay. ~40%.
@@ -61,6 +65,10 @@ Each creative serves exactly one pillar. Name it in the brief prose.
 
 Seed angles mapped to pillars. Use the existing brief angle field. Extend as performance data comes in.
 
+- the-other-275 (host / longer-stays): London caps short lets at 90 nights, longer stays fill the rest of the year. LEGAL HOLD from 14 Oct 2026: a stay by the same guest under 90 consecutive nights may still count toward the cap; do not use until legal confirms (see products/host/product-marketing.md, Objections)
+- fills-in-blocks (host / longer-stays): a month-long booking where four weekends used to be, short stays in the gaps
+- one-check-in (host / longer-stays): one check-in, one clean, a month of quiet, instead of weekly changeovers
+- keep-the-listing (host / proof-trust): your Airbnb stays yours, reviews and Superhost too, longer stays come on top
 - midnight-message (host / relief): the 11.47pm guest question, Hostie answers while you sleep
 - second-job (host / proof-trust): passive income became a second job, the third path
 - meet-hostie (host / runs-itself): Hostie first person, restrained, no mascot energy
